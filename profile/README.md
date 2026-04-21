@@ -2,7 +2,21 @@
 
 国产算力友好的 vLLM fork 组织，围绕推理运行时、Ascend 使能、开发工作区、Benchmark、Website 与 AI 应用集成构建完整工程链路。
 
-## 我们在做什么
+An upstream-compatible vLLM fork organization focused on domestic-hardware enablement, Ascend support, AGI4S serving, benchmark-driven validation, and a practical multi-repository developer experience.
+
+## Quick Links
+
+- Core runtime: [vllm-hust](https://github.com/vLLM-HUST/vllm-hust)
+- Ascend plugin: [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)
+- Runtime manager: [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
+- Dev workspace: [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
+- Benchmark wrapper: [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)
+- Website: [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)
+- Workstation: [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation)
+- Docs: [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
+- Research app: [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)
+
+## What We Build
 
 `vLLM-HUST` 以上游 `vLLM` 生态为基础，重点面向下面几类工作：
 
@@ -10,6 +24,13 @@
 - 支持 Ascend 等国产硬件上的推理与部署
 - 强化 AGI4S 场景，包括长上下文、工具调用、结构化输出与服务稳定性
 - 提供从开发工作区到 Website、Benchmark、Workstation 的完整配套仓库
+
+In practice, the organization concentrates on four goals:
+
+- keep `vllm-hust` mergeable with upstream `vllm` whenever possible
+- isolate hardware-specific logic in plugins, managers, and deployment tooling
+- validate runtime behavior with real benchmarks, smoke tests, and website-facing artifacts
+- connect low-level serving infrastructure to end-user and research-facing products
 
 ## 组织仓库关系
 
@@ -39,6 +60,20 @@ flowchart TD
 ```
 
 ## 仓库地图
+
+### Repository Map At A Glance
+
+| Repository | Primary role | Depends on / connects to |
+| --- | --- | --- |
+| `vllm-hust` | core inference runtime and serving fork | upstream `vllm`, benchmark, workstation, plugin |
+| `vllm-ascend-hust` | Ascend hardware plugin | `vllm-hust`, upstream `vllm-ascend` |
+| `ascend-runtime-manager` | runtime repair and deployment tooling | `vllm-hust`, `vllm-ascend-hust` |
+| `vllm-hust-dev-hub` | multi-repo workspace and bootstrap | all local sibling repos |
+| `vllm-hust-benchmark` | benchmark orchestration and export | `vllm-hust`, `vllm-hust-website` |
+| `vllm-hust-website` | landing page and leaderboard snapshots | benchmark exports, workstation embeds |
+| `vllm-hust-workstation` | user-facing web console | `vllm-hust`, EvoScientist |
+| `vllm-hust-docs` | operations, sync notes, internal docs | runtime and plugin repos |
+| `EvoScientist` | higher-level research agent product | `vllm-hust` APIs and tools |
 
 ### 核心运行时
 
@@ -83,6 +118,14 @@ flowchart TD
 4. 如果你要做结果展示或性能验证，再看 [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark) 与 [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)。
 5. 如果你关注最终用户体验或上层应用，再看 [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) 与 [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)。
 
+For English-speaking contributors, the same reading order applies:
+
+1. Start with `vllm-hust` for the runtime and serving surface.
+2. Move to `vllm-ascend-hust` and `ascend-runtime-manager` for Ascend-specific support.
+3. Use `vllm-hust-dev-hub` for the intended multi-repo development workflow.
+4. Read `vllm-hust-benchmark` and `vllm-hust-website` for validation and result publication.
+5. Finish with `vllm-hust-workstation` and `EvoScientist` for user-facing and research-facing applications.
+
 ## 与上游的关系
 
 `vLLM-HUST` 不是从零开始的新推理栈，而是围绕上游项目进行工程化增强：
@@ -101,3 +144,14 @@ flowchart TD
 - 想要补文档、操作流程、同步记录：前往 [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
 
 欢迎通过 issue、pull request 和 benchmark / deployment 反馈一起完善这个组织。
+
+## Community Defaults
+
+This organization also uses this repository for shared community health files:
+
+- default issue templates
+- default pull request template
+- shared security policy
+- shared code of conduct
+
+If a specific repository does not override those files, GitHub will fall back to the defaults provided here.

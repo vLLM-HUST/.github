@@ -1,0 +1,31 @@
+name: Feature request
+description: Propose a new capability or extension for a vLLM-HUST repository.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Target repository
+      placeholder: vllm-hust / vllm-ascend-hust / vllm-hust-workstation / ...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What user problem or engineering gap does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the narrowest design that would solve it.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Expected impact and tradeoffs
+      description: Note compatibility, maintenance cost, hardware scope, or benchmark impact.

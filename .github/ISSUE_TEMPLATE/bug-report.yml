@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a reproducible bug affecting a vLLM-HUST repository.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing, search existing issues in the affected repository and remove all secrets from logs, configs, and screenshots.
+  - type: input
+    id: repo
+    attributes:
+      label: Affected repository
+      placeholder: vllm-hust / vllm-ascend-hust / vllm-hust-dev-hub / ...
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the failure and the observed behavior.
+      placeholder: Concise bug summary, stack trace, or API failure details.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest reproducible command, config, or request sequence.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: Include hardware, OS, Python, torch, torch-npu, model, and relevant flags.
+      placeholder: Paste sanitized environment details here.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues first.
+          required: true
+        - label: I removed or redacted tokens, private endpoints, and sensitive data.
+          required: true
