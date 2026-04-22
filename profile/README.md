@@ -11,7 +11,7 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 - Runtime manager: [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
 - Dev workspace: [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
 - Benchmark wrapper: [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)
-- Website: [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)
+- Website: [vllm-hust.sage.org.ai](https://vllm-hust.sage.org.ai)
 - Workstation: [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation)
 - Docs: [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
 - Research app: [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)
