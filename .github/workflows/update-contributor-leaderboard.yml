@@ -1,0 +1,34 @@
+name: Update Contributor Leaderboard
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 1'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout org profile repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Update leaderboard
+        run: python scripts/update_contributor_leaderboard.py
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/update-contributor-leaderboard
+          commit-message: 'docs: refresh contributor leaderboard'
+          title: 'docs: refresh contributor leaderboard'
+          body: |
+            Automated update of the organization contributor leaderboard.
+          delete-branch: true
