@@ -40,18 +40,21 @@ In practice, the organization concentrates on four goals:
 说明：
 
 - 统计范围：`vllm-hust`、`vllm-ascend-hust`、`vllm-hust-benchmark`、`vllm-hust-dev-hub`、`vllm-hust-docs`、`vllm-hust-website`、`vllm-hust-workstation`
-- fork 去上游：`vllm-hust` 与 `vllm-ascend-hust` 只统计相对上游新增的组织侧提交；已同步的上游 commit 与 patch 等价的 sync / cherry-pick 不计入榜单
-- 统计方式：按 `git log --numstat` 聚合后的代码变更行数排序，指标为 `added + deleted`；同一贡献者的多个 author identity 会按本仓库 `.mailmap` 合并
-- 展示规则：排除 bot 账号，只展示在至少 2 个主要仓库里有提交的贡献者
+- fork 去上游：`vllm-hust` 与 `vllm-ascend-hust` 仍以官方上游为参照，但统计时优先按主线首父链上的 PR merge 净 diff 归因给 PR 作者；纯同步上游的 merge 与 main2main / upgrade / sync 型提交不计入榜单
+- 统计方式：fork 仓库按 PR merge 的净变更量统计，其他仓库按 `git log --numstat` 聚合；统一指标为 `added + deleted`；直接提交到主线的 author identity 仍按本仓库 `.mailmap` 合并
+- 展示规则：排除 bot 账号，列出在至少 1 个主要仓库里有提交的全部贡献者
 - 快照时间：`2026-04-29`
 
 | Rank | Contributor | Changed lines | Added / Deleted | Active repos |
 | --- | --- | ---: | ---: | ---: |
-| 1 | Shuhao Zhang | 443,731 | 305,348 / 138,383 | 7 |
-| 2 | MingqiWang-coder | 10,234 | 2,906 / 7,328 | 2 |
-| 3 | KimmoZAG | 6,244 | 4,759 / 1,485 | 2 |
-| 4 | iliujunn | 2,006 | 1,102 / 904 | 2 |
-| 5 | moonandlife | 32 | 17 / 15 | 2 |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 450,367 | 312,721 / 137,646 | 7 |
+| 2 | [MingqiWang-coder](https://github.com/MingqiWang-coder) | 21,098 | 7,282 / 13,816 | 2 |
+| 3 | [Xiling Gao](https://github.com/XilingGao) | 12,538 | 12,305 / 233 | 1 |
+| 4 | [KimmoZAG](https://github.com/KimmoZAG) | 6,244 | 4,759 / 1,485 | 2 |
+| 5 | [iliujunn](https://github.com/iliujunn) | 2,095 | 1,186 / 909 | 2 |
+| 6 | [CubeLander](https://github.com/CubeLander) | 802 | 48 / 754 | 1 |
+| 7 | [pygone](https://github.com/Pygone) | 187 | 164 / 23 | 1 |
+| 8 | [moonandlife](https://github.com/moonandlife) | 32 | 17 / 15 | 2 |
 
 这份榜单更适合表达 `vLLM-HUST` 组织自有工程链路中的持续活跃度，不等价于代码质量、技术难度、设计贡献或社区影响力的完整排序。后续如果需要，也可以继续补充运行时、Ascend、Benchmark / Website 等分榜。
 <!-- contributor-leaderboard:end -->
