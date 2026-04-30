@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 import shutil
@@ -513,6 +514,42 @@ def format_contributor_name(contributor: ContributorStats) -> str:
     return f"[{contributor.name}](https://github.com/{login})"
 
 
+def build_contributor_payload(contributors: list[ContributorStats]) -> dict[str, object]:
+    snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    payload_items: list[dict[str, object]] = []
+    for rank, contributor in enumerate(contributors, start=1):
+        login = GITHUB_LOGIN_BY_EMAIL.get(contributor.email)
+        payload_items.append(
+            {
+                "rank": rank,
+                "name": contributor.name,
+                "github_login": login,
+                "github_url": f"https://github.com/{login}" if login else None,
+                "changed_lines": contributor.changed_lines,
+                "added": contributor.added,
+                "deleted": contributor.deleted,
+                "active_repos": len(contributor.repos),
+                "repos": sorted(contributor.repos),
+            }
+        )
+    return {
+        "updated_at": snapshot_date,
+        "scope_repos": [repo_spec["name"] for repo_spec in REPO_SPECS],
+        "contributors": payload_items,
+    }
+
+
+def sync_website_contributor_data(workspace_root: Path | None, contributors: list[ContributorStats]) -> None:
+    if workspace_root is None:
+        return
+    website_root = workspace_root / "vllm-hust-website"
+    if not (website_root / ".git").exists():
+        return
+    data_path = website_root / "data" / "core_contributors.json"
+    payload = build_contributor_payload(contributors)
+    data_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def build_section(contributors: list[ContributorStats]) -> str:
     snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     lines = [
@@ -540,7 +577,6 @@ def build_section(contributors: list[ContributorStats]) -> str:
     lines.extend(
         [
             "",
-            "这份榜单更适合表达 `vLLM-HUST` 组织自有工程链路中的持续活跃度，不等价于代码质量、技术难度、设计贡献或社区影响力的完整排序。后续如果需要，也可以继续补充运行时、Ascend、Benchmark / Website 等分榜。",
             END_MARKER,
         ]
     )
@@ -584,6 +620,7 @@ def main() -> None:
 
     contributors = collect_stats(repo_root, workspace_root)
     replace_section(repo_root / "profile" / "README.md", build_section(contributors))
+    sync_website_contributor_data(workspace_root, contributors)
 
 
 if __name__ == "__main__":

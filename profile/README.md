@@ -43,7 +43,7 @@ In practice, the organization concentrates on four goals:
 - fork 去上游：`vllm-hust` 与 `vllm-ascend-hust` 仍以官方上游为参照，但统计时优先按主线首父链上的 PR merge 净 diff 归因给 PR 作者；纯同步上游的 merge 与 main2main / upgrade / sync 型提交不计入榜单
 - 统计方式：fork 仓库按 PR merge 的净变更量统计，其他仓库按 `git log --numstat` 聚合；统一指标为 `added + deleted`；直接提交到主线的 author identity 仍按本仓库 `.mailmap` 合并
 - 展示规则：排除 bot 账号，列出在至少 1 个主要仓库里有提交的全部贡献者
-- 快照时间：`2026-04-29`
+- 快照时间：`2026-04-30`
 
 | Rank | Contributor | Changed lines | Added / Deleted | Active repos |
 | --- | --- | ---: | ---: | ---: |
@@ -56,7 +56,6 @@ In practice, the organization concentrates on four goals:
 | 7 | [pygone](https://github.com/Pygone) | 187 | 164 / 23 | 1 |
 | 8 | [moonandlife](https://github.com/moonandlife) | 32 | 17 / 15 | 2 |
 
-这份榜单更适合表达 `vLLM-HUST` 组织自有工程链路中的持续活跃度，不等价于代码质量、技术难度、设计贡献或社区影响力的完整排序。后续如果需要，也可以继续补充运行时、Ascend、Benchmark / Website 等分榜。
 <!-- contributor-leaderboard:end -->
 
 ## 组织仓库关系
