@@ -64,6 +64,7 @@ EXCLUDED_AUTHOR_PATTERNS = (
     "dependabot",
     "copilot",
     "vllm-hust bot",
+    "benchmark bot",
     "bot@vllm-hust.org",
 )
 
@@ -539,6 +540,17 @@ def build_contributor_payload(contributors: list[ContributorStats]) -> dict[str,
     }
 
 
+def sync_org_profile_contributor_data(
+    repo_root: Path, contributors: list[ContributorStats]
+) -> None:
+    payload = build_contributor_payload(contributors)
+    data_path = repo_root / "profile" / "core_contributors.json"
+    data_path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def sync_website_contributor_data(workspace_root: Path | None, contributors: list[ContributorStats]) -> None:
     if workspace_root is None:
         return
@@ -619,6 +631,7 @@ def main() -> None:
         workspace_root = candidate if (candidate / "vllm-hust").exists() else None
 
     contributors = collect_stats(repo_root, workspace_root)
+    sync_org_profile_contributor_data(repo_root, contributors)
     replace_section(repo_root / "profile" / "README.md", build_section(contributors))
     sync_website_contributor_data(workspace_root, contributors)
 
