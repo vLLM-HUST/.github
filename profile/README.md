@@ -8,6 +8,7 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 
 - Core runtime: [vllm-hust](https://github.com/vLLM-HUST/vllm-hust)
 - Ascend plugin: [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)
+- Ascend quantization: [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust)
 - Runtime manager: [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
 - Dev workspace: [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
 - Benchmark wrapper: [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)
@@ -15,6 +16,8 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 - Workstation: [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation)
 - Docs: [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
 - Research app: [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)
+- Community defaults: [.github](https://github.com/vLLM-HUST/.github)
+- Pages entry: [vllm-hust.github.io](https://github.com/vLLM-HUST/vllm-hust.github.io)
 
 ## What We Build
 
@@ -64,25 +67,34 @@ In practice, the organization concentrates on four goals:
 flowchart TD
     A[vllm-hust\n核心运行时与 OpenAI 兼容服务]
     B[vllm-ascend-hust\nAscend 硬件插件]
-    C[ascend-runtime-manager\nAscend 运行时诊断与修复]
-    D[vllm-hust-dev-hub\n多仓开发工作区与 quickstart]
-    E[vllm-hust-benchmark\nBenchmark 编排与结果导出]
-    F[vllm-hust-website\n官网与 Leaderboard 展示]
-    G[vllm-hust-workstation\n本地/私有化 Web 工作台]
-    H[vllm-hust-docs\n操作手册与同步记录]
-    I[EvoScientist\n面向科研智能体的上层应用]
+  C[vllm-ascend-quant-hust\nAscend 量化与压缩]
+  D[ascend-runtime-manager\nAscend 运行时诊断与修复]
+  E[vllm-hust-dev-hub\n多仓开发工作区与 quickstart]
+  F[vllm-hust-benchmark\nBenchmark 编排与结果导出]
+  G[vllm-hust-website\n官网与 Leaderboard 展示]
+  H[vllm-hust-workstation\n本地/私有化 Web 工作台]
+  I[vllm-hust-docs\n操作手册与同步记录]
+  J[EvoScientist\n面向科研智能体的上层应用]
+  K[.github\n组织级社区默认配置]
+  L[vllm-hust.github.io\nPages 入口与站点承接]
 
     B --> A
-    C --> A
-    D --> A
-    D --> B
-    D --> C
-    E --> A
-    E --> F
-    G --> A
-    H --> A
-    H --> B
-    I --> A
+  C --> B
+  D --> A
+  E --> A
+  E --> B
+  E --> D
+  F --> A
+  F --> G
+  H --> A
+  I --> A
+  I --> B
+  J --> A
+  K --> A
+  K --> B
+  K --> F
+  K --> H
+  L --> G
 ```
 
 ## 仓库地图
@@ -93,6 +105,7 @@ flowchart TD
 | --- | --- | --- |
 | `vllm-hust` | core inference runtime and serving fork | upstream `vllm`, benchmark, workstation, plugin |
 | `vllm-ascend-hust` | Ascend hardware plugin | `vllm-hust`, upstream `vllm-ascend` |
+| `vllm-ascend-quant-hust` | Ascend quantization toolkit | `vllm-ascend-hust`, quantized deployment flows |
 | `ascend-runtime-manager` | runtime repair and deployment tooling | `vllm-hust`, `vllm-ascend-hust` |
 | `vllm-hust-dev-hub` | multi-repo workspace and bootstrap | all local sibling repos |
 | `vllm-hust-benchmark` | benchmark orchestration and export | `vllm-hust`, `vllm-hust-website` |
@@ -100,6 +113,8 @@ flowchart TD
 | `vllm-hust-workstation` | user-facing web console | `vllm-hust`, EvoScientist |
 | `vllm-hust-docs` | operations, sync notes, internal docs | runtime and plugin repos |
 | `EvoScientist` | higher-level research agent product | `vllm-hust` APIs and tools |
+| `.github` | org-level community health defaults | shared issue templates, PR template, security policy |
+| `vllm-hust.github.io` | Pages entry and site handoff repo | website publishing and org-facing landing path |
 
 ### 核心运行时
 
@@ -108,6 +123,9 @@ flowchart TD
 
 - [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)
   `vllm-hust` 的 Ascend 插件与本地化发行仓库，遵循上游硬件插件模式，尽量把硬件相关逻辑隔离在插件层。
+
+- [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust)
+  面向 Ascend NPU 的后训练量化仓库，补齐 8-bit、4-bit 与混合精度量化相关能力，服务于模型压缩和部署落地。
 
 - [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
   独立的 Ascend 运行时修复与诊断工具，负责环境探测、容器化部署、依赖修复与 Python 栈对齐。
@@ -133,6 +151,14 @@ flowchart TD
 
 - [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)
   面向科研工作流的智能体应用，可把 `vllm-hust` 作为底层推理与工具调用后端。
+
+### 组织与发布支撑
+
+- [.github](https://github.com/vLLM-HUST/.github)
+  组织级 profile 与 community health 仓库，承载公共 issue 模板、PR 模板、安全策略和首页说明文案。
+
+- [vllm-hust.github.io](https://github.com/vLLM-HUST/vllm-hust.github.io)
+  GitHub Pages 入口仓库，用于承接组织级页面发布路径和静态站点入口配置。
 
 ## 推荐理解顺序
 
