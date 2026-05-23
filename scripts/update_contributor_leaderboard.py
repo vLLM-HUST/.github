@@ -125,6 +125,27 @@ def run_git(args: list[str], cwd: Path) -> str:
     return result.stdout
 
 
+def maybe_use_https_git_url(url: str) -> str:
+    transport = os.getenv("VLLM_HUST_GIT_TRANSPORT", "auto").strip().lower()
+    if transport not in {"auto", "ssh", "https"}:
+        raise RuntimeError(
+            "VLLM_HUST_GIT_TRANSPORT must be one of: auto, ssh, https"
+        )
+    if transport == "ssh":
+        return url
+
+    should_use_https = transport == "https" or bool(
+        os.getenv("GITHUB_ACTIONS") or os.getenv("CI")
+    )
+    if not should_use_https:
+        return url
+
+    match = re.fullmatch(r"git@github\.com:(?P<repo>.+?)(?:\.git)?", url)
+    if match is None:
+        return url
+    return f"https://github.com/{match.group('repo')}.git"
+
+
 def parse_identity(identity: str) -> tuple[str, str]:
     match = re.match(r"\s*(.*?)\s*<(.*?)>\s*$", identity)
     if match:
@@ -187,7 +208,7 @@ def ensure_repo_checkout(base_dir: Path, repo_spec: dict[str, str], workspace_ro
             "--branch",
             repo_spec["branch"],
             "--single-branch",
-            repo_spec["url"],
+            maybe_use_https_git_url(repo_spec["url"]),
             str(checkout_dir),
         ],
         text=True,
@@ -276,7 +297,7 @@ def get_upstream_subjects(repo_dir: Path, repo_spec: dict[str, str]) -> set[str]
         if fetch_target not in remotes:
             fetch_target = None
     if fetch_target is None:
-        fetch_target = repo_spec["upstream"]
+        fetch_target = maybe_use_https_git_url(repo_spec["upstream"])
 
     run_git(["fetch", fetch_target, repo_spec.get("upstream_branch", "main")], repo_dir)
     upstream_log = run_git(["log", "--format=%s", "--no-merges", "FETCH_HEAD"], repo_dir)
@@ -298,7 +319,7 @@ def get_log_output(repo_dir: Path, repo_spec: dict[str, str]) -> str:
             if fetch_target not in remotes:
                 fetch_target = None
         if fetch_target is None:
-            fetch_target = repo_spec["upstream"]
+            fetch_target = maybe_use_https_git_url(repo_spec["upstream"])
         run_git(["fetch", fetch_target, repo_spec.get("upstream_branch", "main")], repo_dir)
         revspec = "FETCH_HEAD...HEAD"
         return run_git(common_args + ["--right-only", "--cherry-pick", revspec], repo_dir)
