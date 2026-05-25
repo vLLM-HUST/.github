@@ -57,6 +57,11 @@ REPO_SPECS = [
         "url": "git@github.com:vLLM-HUST/vllm-hust-workstation.git",
         "branch": "main",
     },
+    {
+        "name": "vllm-ascend-quant-hust",
+        "url": "git@github.com:vLLM-HUST/vllm-ascend-quant-hust.git",
+        "branch": "main",
+    },
 ]
 
 EXCLUDED_AUTHOR_PATTERNS = (
@@ -167,6 +172,11 @@ def canonicalize_identity(
     if email in alias_email_map:
         return alias_email_map[email]
     return name, email
+
+
+def is_excluded_author_identity(name: str, email: str) -> bool:
+    lowered = f"{name} <{email}>".lower()
+    return any(pattern in lowered for pattern in EXCLUDED_AUTHOR_PATTERNS)
 
 
 def ensure_repo_checkout(base_dir: Path, repo_spec: dict[str, str], workspace_root: Path | None) -> Path:
@@ -342,8 +352,7 @@ def collect_standard_repo_stats(
             header = line[3:].strip()
             identity_text, _, subject = header.partition("\t")
             name, email = parse_identity(identity_text)
-            lowered = f"{name} <{email}>".lower()
-            if any(pattern in lowered for pattern in EXCLUDED_AUTHOR_PATTERNS):
+            if is_excluded_author_identity(name, email):
                 current_email = None
                 continue
             canonical_name, canonical_email = canonicalize_identity(
@@ -424,6 +433,8 @@ def collect_fork_repo_stats(
                 pr_author = fetch_pull_request_author_login(repo_spec["name"], pr_number) or pr_owner
                 pr_author_cache[pr_number] = pr_author
             synthetic_email = f"{pr_author.lower()}@users.noreply.github.com"
+            if is_excluded_author_identity(pr_author, synthetic_email):
+                continue
             canonical_name, canonical_email = canonicalize_identity(
                 pr_author,
                 synthetic_email,
@@ -442,8 +453,7 @@ def collect_fork_repo_stats(
             continue
 
         name, email = parse_identity(identity_text)
-        lowered = f"{name} <{email}>".lower()
-        if any(pattern in lowered for pattern in EXCLUDED_AUTHOR_PATTERNS):
+        if is_excluded_author_identity(name, email):
             continue
         if should_exclude_subject(subject, upstream_subjects):
             continue
