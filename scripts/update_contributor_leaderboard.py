@@ -81,6 +81,7 @@ GITHUB_LOGIN_BY_EMAIL = {
     "iliujun@msn.com": "iliujunn",
     "cubelander@users.noreply.github.com": "CubeLander",
     "moonandlife@qq.com": "moonandlife",
+    "1427850140k@gmail.com": "aly16-k",
     "pygonebe@outlook.com": "Pygone",
 }
 

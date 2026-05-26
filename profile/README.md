@@ -46,23 +46,22 @@ In practice, the organization concentrates on four goals:
 - fork 去上游：`vllm-hust` 与 `vllm-ascend-hust` 仍以官方上游为参照，但统计时优先按主线首父链上的 PR merge 净 diff 归因给 PR 作者；纯同步上游的 merge 与 main2main / upgrade / sync 型提交不计入榜单
 - 统计方式：fork 仓库按 PR merge 的净变更量统计，其他仓库按 `git log --numstat` 聚合；统一指标为 `added + deleted`；直接提交到主线的 author identity 仍按本仓库 `.mailmap` 合并
 - 展示规则：排除 bot 账号，列出在至少 1 个主要仓库里有提交的全部贡献者
-- 快照时间：`2026-05-25`
+- 快照时间：`2026-05-26`
 
 | Rank | Contributor | Changed lines | Added / Deleted | Active repos |
 | --- | --- | ---: | ---: | ---: |
-| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 1,243,808 | 1,101,246 / 142,562 | 7 |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 1,244,004 | 1,101,322 / 142,682 | 7 |
 | 2 | [MingqiWang-coder](https://github.com/MingqiWang-coder) | 21,098 | 7,282 / 13,816 | 2 |
-| 3 | [Xiling Gao](https://github.com/XilingGao) | 12,538 | 12,305 / 233 | 1 |
-| 4 | [moonandlife](https://github.com/moonandlife) | 12,130 | 10,124 / 2,006 | 4 |
+| 3 | [moonandlife](https://github.com/moonandlife) | 15,721 | 13,352 / 2,369 | 5 |
+| 4 | [Xiling Gao](https://github.com/XilingGao) | 12,538 | 12,305 / 233 | 1 |
 | 5 | [KimmoZAG](https://github.com/KimmoZAG) | 6,244 | 4,759 / 1,485 | 2 |
 | 6 | machuanhu | 4,774 | 4,773 / 1 | 1 |
-| 7 | [iliujunn](https://github.com/iliujunn) | 2,006 | 1,102 / 904 | 2 |
-| 8 | vllm-hust-quantization | 848 | 848 / 0 | 1 |
+| 7 | [iliujunn](https://github.com/iliujunn) | 2,505 | 1,569 / 936 | 3 |
+| 8 | [aly16-k](https://github.com/aly16-k) | 881 | 879 / 2 | 2 |
 | 9 | [CubeLander](https://github.com/CubeLander) | 802 | 48 / 754 | 1 |
-| 10 | sad-and-bad1231 | 491 | 448 / 43 | 2 |
+| 10 | sad-and-bad1231 | 618 | 575 / 43 | 2 |
 | 11 | [pygone](https://github.com/Pygone) | 187 | 164 / 23 | 1 |
 | 12 | cybber695 | 103 | 98 / 5 | 1 |
-| 13 | aly16-k | 33 | 31 / 2 | 1 |
 
 <!-- contributor-leaderboard:end -->
 
