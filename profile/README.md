@@ -1,8 +1,8 @@
 # vLLM-HUST
 
-国产算力友好的 vLLM fork 组织，围绕推理运行时、Ascend 使能、开发工作区、Benchmark、Website 与 AI 应用集成构建完整工程链路。
+国产算力友好的 vLLM fork 组织，围绕推理运行时、Ascend 使能、量化工具、性能分析、开发工作区、Benchmark、Website 与 AI 应用集成构建完整工程链路。
 
-An upstream-compatible vLLM fork organization focused on domestic-hardware enablement, Ascend support, AGI4S serving, benchmark-driven validation, and a practical multi-repository developer experience.
+An upstream-compatible vLLM fork organization focused on domestic-hardware enablement, Ascend support, AGI4S serving, quantization tooling, performance analysis, benchmark-driven validation, and a practical multi-repository developer experience.
 
 ## Quick Links
 
@@ -12,6 +12,7 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 - Runtime manager: [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
 - Dev workspace: [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
 - Benchmark wrapper: [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)
+- Performance analyzer: [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer)
 - Website: [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)
 - Workstation: [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation)
 - Docs: [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
@@ -25,6 +26,7 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 
 - 保持与上游 `vLLM` / `vLLM Ascend` 的兼容与可持续同步
 - 支持 Ascend 等国产硬件上的推理与部署
+- 支持 Ascend NPU 上的后训练量化与 profiler timeline 离线分析
 - 强化 AGI4S 场景，包括长上下文、工具调用、结构化输出与服务稳定性
 - 提供从开发工作区到 Website、Benchmark、Workstation 的完整配套仓库
 
@@ -32,7 +34,7 @@ In practice, the organization concentrates on four goals:
 
 - keep `vllm-hust` mergeable with upstream `vllm` whenever possible
 - isolate hardware-specific logic in plugins, managers, and deployment tooling
-- validate runtime behavior with real benchmarks, smoke tests, and website-facing artifacts
+- validate runtime behavior with real benchmarks, profile analysis, smoke tests, and website-facing artifacts
 - connect low-level serving infrastructure to end-user and research-facing products
 
 <!-- contributor-leaderboard:start -->
@@ -42,24 +44,24 @@ In practice, the organization concentrates on four goals:
 
 说明：
 
-- 统计范围：`vllm-hust`、`vllm-ascend-hust`、`vllm-hust-benchmark`、`vllm-hust-dev-hub`、`vllm-hust-docs`、`vllm-hust-website`、`vllm-hust-workstation`
+- 统计范围：`vllm-hust`、`vllm-ascend-hust`、`vllm-hust-benchmark`、`vllm-ascend-quant-hust`、`vllm-hust-dev-hub`、`vllm-hust-docs`、`vllm-hust-website`、`vllm-hust-workstation`、`vllm-hust-perf-analyzer`
 - fork 去上游：`vllm-hust` 与 `vllm-ascend-hust` 仍以官方上游为参照，但统计时优先按主线首父链上的 PR merge 净 diff 归因给 PR 作者；纯同步上游的 merge 与 main2main / upgrade / sync 型提交不计入榜单
 - 统计方式：fork 仓库按 PR merge 的净变更量统计，其他仓库按 `git log --numstat` 聚合；统一指标为 `added + deleted`；直接提交到主线的 author identity 仍按本仓库 `.mailmap` 合并
 - 展示规则：排除 bot 账号，列出在至少 1 个主要仓库里有提交的全部贡献者
-- 快照时间：`2026-05-26`
+- 快照时间：`2026-05-28`
 
 | Rank | Contributor | Changed lines | Added / Deleted | Active repos |
 | --- | --- | ---: | ---: | ---: |
-| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 1,244,004 | 1,101,322 / 142,682 | 7 |
-| 2 | [MingqiWang-coder](https://github.com/MingqiWang-coder) | 21,098 | 7,282 / 13,816 | 2 |
-| 3 | [moonandlife](https://github.com/moonandlife) | 15,721 | 13,352 / 2,369 | 5 |
-| 4 | [Xiling Gao](https://github.com/XilingGao) | 12,538 | 12,305 / 233 | 1 |
-| 5 | [KimmoZAG](https://github.com/KimmoZAG) | 6,244 | 4,759 / 1,485 | 2 |
-| 6 | machuanhu | 4,774 | 4,773 / 1 | 1 |
-| 7 | [iliujunn](https://github.com/iliujunn) | 2,505 | 1,569 / 936 | 3 |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 1,243,764 | 1,101,204 / 142,560 | 7 |
+| 2 | [MingqiWang-coder](https://github.com/MingqiWang-coder) | 21,449 | 7,608 / 13,841 | 2 |
+| 3 | [Xiling Gao](https://github.com/XilingGao) | 12,538 | 12,305 / 233 | 1 |
+| 4 | [moonandlife](https://github.com/moonandlife) | 9,360 | 7,642 / 1,718 | 4 |
+| 5 | Jingyuan Tian | 9,208 | 9,208 / 0 | 1 |
+| 6 | [KimmoZAG](https://github.com/KimmoZAG) | 6,244 | 4,759 / 1,485 | 2 |
+| 7 | [iliujunn](https://github.com/iliujunn) | 2,006 | 1,102 / 904 | 2 |
 | 8 | [aly16-k](https://github.com/aly16-k) | 881 | 879 / 2 | 2 |
 | 9 | [CubeLander](https://github.com/CubeLander) | 802 | 48 / 754 | 1 |
-| 10 | sad-and-bad1231 | 618 | 575 / 43 | 2 |
+| 10 | sad-and-bad1231 | 225 | 202 / 23 | 2 |
 | 11 | [pygone](https://github.com/Pygone) | 187 | 164 / 23 | 1 |
 | 12 | cybber695 | 103 | 98 / 5 | 1 |
 
@@ -71,34 +73,39 @@ In practice, the organization concentrates on four goals:
 flowchart TD
     A[vllm-hust\n核心运行时与 OpenAI 兼容服务]
     B[vllm-ascend-hust\nAscend 硬件插件]
-  C[vllm-ascend-quant-hust\nAscend 量化与压缩]
-  D[ascend-runtime-manager\nAscend 运行时诊断与修复]
-  E[vllm-hust-dev-hub\n多仓开发工作区与 quickstart]
-  F[vllm-hust-benchmark\nBenchmark 编排与结果导出]
-  G[vllm-hust-website\n官网与 Leaderboard 展示]
-  H[vllm-hust-workstation\n本地/私有化 Web 工作台]
-  I[vllm-hust-docs\n操作手册与同步记录]
-  J[EvoScientist\n面向科研智能体的上层应用]
-  K[.github\n组织级社区默认配置]
-  L[vllm-hust.github.io\nPages 入口与站点承接]
+    C[vllm-ascend-quant-hust\nAscend 量化与压缩]
+    D[ascend-runtime-manager\nAscend 运行时诊断与修复]
+    E[vllm-hust-dev-hub\n多仓开发工作区与 quickstart]
+    F[vllm-hust-benchmark\nBenchmark 编排与结果导出]
+    G[vllm-hust-website\n官网与 Leaderboard 展示]
+    H[vllm-hust-workstation\n本地/私有化 Web 工作台]
+    I[vllm-hust-docs\n操作手册与同步记录]
+    J[EvoScientist\n面向科研智能体的上层应用]
+    K[.github\n组织级社区默认配置]
+    L[vllm-hust.github.io\nPages 入口与站点承接]
+    M[vllm-hust-perf-analyzer\nTraceLoom profiler timeline 分析]
 
     B --> A
-  C --> B
-  D --> A
-  E --> A
-  E --> B
-  E --> D
-  F --> A
-  F --> G
-  H --> A
-  I --> A
-  I --> B
-  J --> A
-  K --> A
-  K --> B
-  K --> F
-  K --> H
-  L --> G
+    C --> B
+    D --> A
+    E --> A
+    E --> B
+    E --> C
+    E --> D
+    E --> M
+    F --> A
+    F --> G
+    H --> A
+    I --> A
+    I --> B
+    J --> A
+    K --> A
+    K --> B
+    K --> F
+    K --> H
+    L --> G
+    M --> A
+    M --> B
 ```
 
 ## 仓库地图
@@ -109,10 +116,11 @@ flowchart TD
 | --- | --- | --- |
 | `vllm-hust` | core inference runtime and serving fork | upstream `vllm`, benchmark, workstation, plugin |
 | `vllm-ascend-hust` | Ascend hardware plugin | `vllm-hust`, upstream `vllm-ascend` |
-| `vllm-ascend-quant-hust` | Ascend quantization toolkit | `vllm-ascend-hust`, quantized deployment flows |
+| `vllm-ascend-quant-hust` | post-training quantization tooling for Ascend NPUs | `vllm-ascend-hust`, Ascend/CANN quantization stack |
 | `ascend-runtime-manager` | runtime repair and deployment tooling | `vllm-hust`, `vllm-ascend-hust` |
 | `vllm-hust-dev-hub` | multi-repo workspace and bootstrap | all local sibling repos |
 | `vllm-hust-benchmark` | benchmark orchestration and export | `vllm-hust`, `vllm-hust-website` |
+| `vllm-hust-perf-analyzer` | TraceLoom offline profiler timeline analysis | `vllm-hust`, `vllm-ascend-hust`, profiler outputs |
 | `vllm-hust-website` | landing page and leaderboard snapshots | benchmark exports, workstation embeds |
 | `vllm-hust-workstation` | user-facing web console | `vllm-hust`, EvoScientist |
 | `vllm-hust-docs` | operations, sync notes, internal docs | runtime and plugin repos |
@@ -129,7 +137,7 @@ flowchart TD
   `vllm-hust` 的 Ascend 插件与本地化发行仓库，遵循上游硬件插件模式，尽量把硬件相关逻辑隔离在插件层。
 
 - [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust)
-  面向 Ascend NPU 的后训练量化仓库，补齐 8-bit、4-bit 与混合精度量化相关能力，服务于模型压缩和部署落地。
+  面向 Ascend NPU 的后训练量化工具仓库，覆盖 8-bit、4-bit 与混合精度量化路径，服务于本地化模型压缩与部署验证。
 
 - [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
   独立的 Ascend 运行时修复与诊断工具，负责环境探测、容器化部署、依赖修复与 Python 栈对齐。
@@ -146,6 +154,9 @@ flowchart TD
 
 - [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)
   `vllm-hust` benchmark 的稳定包装层，负责场景编排、结果导出和与 Website 的对接。
+
+- [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer)
+  TraceLoom 离线性能分析工具，消费 CUDA/Nsight 或 Ascend/CANN profiler timeline，恢复语义循环、通信结构与成本摘要。
 
 - [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)
   官网、Leaderboard 与演示入口，展示组织介绍、版本信息和 Benchmark 结果快照。
@@ -169,17 +180,17 @@ flowchart TD
 如果你第一次进入 `vLLM-HUST` 组织，推荐按这个顺序理解：
 
 1. 从 [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) 开始，理解核心运行时与服务接口。
-2. 如果你关注 Ascend 或国产硬件，再看 [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) 与 [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)。
+2. 如果你关注 Ascend 或国产硬件，再看 [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)、[ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) 与 [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust)。
 3. 如果你要搭本地开发环境，直接使用 [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)。
-4. 如果你要做结果展示或性能验证，再看 [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark) 与 [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)。
+4. 如果你要做结果展示、性能验证或 profiler 分析，再看 [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)、[vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) 与 [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)。
 5. 如果你关注最终用户体验或上层应用，再看 [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) 与 [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)。
 
 For English-speaking contributors, the same reading order applies:
 
 1. Start with `vllm-hust` for the runtime and serving surface.
-2. Move to `vllm-ascend-hust` and `ascend-runtime-manager` for Ascend-specific support.
+2. Move to `vllm-ascend-hust`, `ascend-runtime-manager`, and `vllm-ascend-quant-hust` for Ascend-specific support.
 3. Use `vllm-hust-dev-hub` for the intended multi-repo development workflow.
-4. Read `vllm-hust-benchmark` and `vllm-hust-website` for validation and result publication.
+4. Read `vllm-hust-benchmark`, `vllm-hust-perf-analyzer`, and `vllm-hust-website` for validation, profiler analysis, and result publication.
 5. Finish with `vllm-hust-workstation` and `EvoScientist` for user-facing and research-facing applications.
 
 ## 与上游的关系
@@ -196,6 +207,7 @@ For English-speaking contributors, the same reading order applies:
 
 - 想要改运行时或服务链路：从 [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) 开始
 - 想要改 Ascend 支持：从 [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) 和 [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) 开始
+- 想要改量化或 profiler 分析：从 [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust) 和 [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) 开始
 - 想要快速拉起完整开发环境：使用 [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
 - 想要补文档、操作流程、同步记录：前往 [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
 

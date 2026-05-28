@@ -38,6 +38,11 @@ REPO_SPECS = [
         "branch": "main",
     },
     {
+        "name": "vllm-ascend-quant-hust",
+        "url": "git@github.com:vLLM-HUST/vllm-ascend-quant-hust.git",
+        "branch": "main",
+    },
+    {
         "name": "vllm-hust-dev-hub",
         "url": "git@github.com:vLLM-HUST/vllm-hust-dev-hub.git",
         "branch": "main",
@@ -58,8 +63,8 @@ REPO_SPECS = [
         "branch": "main",
     },
     {
-        "name": "vllm-ascend-quant-hust",
-        "url": "git@github.com:vLLM-HUST/vllm-ascend-quant-hust.git",
+        "name": "vllm-hust-perf-analyzer",
+        "url": "git@github.com:vLLM-HUST/vllm-hust-perf-analyzer.git",
         "branch": "main",
     },
 ]
@@ -325,6 +330,11 @@ def should_exclude_subject(subject: str, upstream_subjects: set[str]) -> bool:
     return any(pattern.search(normalized) for pattern in SYNC_SUBJECT_PATTERNS)
 
 
+def should_exclude_identity(name: str, email: str = "") -> bool:
+    lowered = f"{name} <{email}>".lower()
+    return any(pattern in lowered for pattern in EXCLUDED_AUTHOR_PATTERNS)
+
+
 def sum_numstat_output(numstat_output: str) -> tuple[int, int]:
     added = 0
     deleted = 0
@@ -433,6 +443,8 @@ def collect_fork_repo_stats(
             if pr_author is None:
                 pr_author = fetch_pull_request_author_login(repo_spec["name"], pr_number) or pr_owner
                 pr_author_cache[pr_number] = pr_author
+            if should_exclude_identity(pr_author):
+                continue
             synthetic_email = f"{pr_author.lower()}@users.noreply.github.com"
             if is_excluded_author_identity(pr_author, synthetic_email):
                 continue
@@ -583,7 +595,7 @@ def build_section(contributors: list[ContributorStats]) -> str:
         "",
         "说明：",
         "",
-        "- 统计范围：`vllm-hust`、`vllm-ascend-hust`、`vllm-hust-benchmark`、`vllm-hust-dev-hub`、`vllm-hust-docs`、`vllm-hust-website`、`vllm-hust-workstation`",
+        "- 统计范围：`vllm-hust`、`vllm-ascend-hust`、`vllm-hust-benchmark`、`vllm-ascend-quant-hust`、`vllm-hust-dev-hub`、`vllm-hust-docs`、`vllm-hust-website`、`vllm-hust-workstation`、`vllm-hust-perf-analyzer`",
         "- fork 去上游：`vllm-hust` 与 `vllm-ascend-hust` 仍以官方上游为参照，但统计时优先按主线首父链上的 PR merge 净 diff 归因给 PR 作者；纯同步上游的 merge 与 main2main / upgrade / sync 型提交不计入榜单",
         "- 统计方式：fork 仓库按 PR merge 的净变更量统计，其他仓库按 `git log --numstat` 聚合；统一指标为 `added + deleted`；直接提交到主线的 author identity 仍按本仓库 `.mailmap` 合并",
         "- 展示规则：排除 bot 账号，列出在至少 1 个主要仓库里有提交的全部贡献者",

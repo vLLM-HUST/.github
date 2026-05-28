@@ -7,7 +7,7 @@ The content shown on the organization homepage lives in [profile/README.md](prof
 ## Purpose
 
 - present a clear overview of the repository landscape under `vLLM-HUST`
-- explain how the runtime, plugin, tooling, benchmark, website, and docs repos fit together
+- explain how the runtime, plugin, quantization, performance analyzer, tooling, benchmark, website, and docs repos fit together
 - provide one stable landing page for contributors and users entering the workspace
 
 ## Notes
