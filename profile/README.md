@@ -61,7 +61,7 @@ In practice, the organization concentrates on four goals:
 | 7 | [iliujunn](https://github.com/iliujunn) | 2,006 | 1,102 / 904 | 2 |
 | 8 | [aly16-k](https://github.com/aly16-k) | 881 | 879 / 2 | 2 |
 | 9 | [CubeLander](https://github.com/CubeLander) | 802 | 48 / 754 | 1 |
-| 10 | sad-and-bad1231 | 225 | 202 / 23 | 2 |
+| 10 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | 225 | 202 / 23 | 2 |
 | 11 | [pygone](https://github.com/Pygone) | 187 | 164 / 23 | 1 |
 | 12 | cybber695 | 103 | 98 / 5 | 1 |
 
