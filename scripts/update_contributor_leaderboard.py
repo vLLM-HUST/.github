@@ -122,6 +122,7 @@ class ContributorStats:
     # Per-repo breakdown for core-repo filtering
     per_repo_added: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     per_repo_deleted: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_repo_commits: dict[str, int] = field(default_factory=lambda: defaultdict(int))
 
     @property
     def changed_lines(self) -> int:
@@ -138,6 +139,9 @@ class ContributorStats:
 
     def core_deleted(self) -> int:
         return sum(self.per_repo_deleted.get(r, 0) for r in CORE_REPOS)
+
+    def core_commits(self) -> int:
+        return sum(self.per_repo_commits.get(r, 0) for r in CORE_REPOS)
 
     def core_repos(self) -> set[str]:
         return self.repos & CORE_REPOS
@@ -246,13 +250,11 @@ def update_contributor_stats(
     repo_name: str,
     added: int,
     deleted: int,
-    commits: int = 1,
 ) -> None:
     contributor = stats[contributor_key]
     contributor.name = display_name
     contributor.email = display_email
     contributor.repos.add(repo_name)
-    contributor.commits += commits
     contributor.added += added
     contributor.deleted += deleted
     contributor.per_repo_added[repo_name] += added
@@ -442,12 +444,13 @@ def collect_standard_repo_stats(
                 name, email, alias_identity_map, alias_email_map
             )
             current_identity = (canonical_name, canonical_email)
-            # Increment commit count
+            # Increment commit count (single source of truth for commit counting)
             contributor = stats[canonical_email]
             contributor.name = canonical_name
             contributor.email = canonical_email
             contributor.repos.add(repo_spec["name"])
             contributor.commits += 1
+            contributor.per_repo_commits[repo_spec["name"]] += 1
             continue
 
         if current_identity is None or not line.strip():
@@ -518,8 +521,8 @@ def format_contributor_name(contributor: ContributorStats) -> str:
 def build_table(contributors: list[ContributorStats], *, core_only: bool = False) -> str:
     """Build a markdown table for the given contributor list."""
     lines = [
-        "| Rank | Contributor | Changed lines | Added / Deleted | Active repos |",
-        "| --- | --- | ---: | ---: | ---: |",
+        "| Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos |",
+        "| --- | --- | ---: | ---: | ---: | ---: |",
     ]
     for rank, contributor in enumerate(contributors, start=1):
         if core_only:
@@ -527,13 +530,16 @@ def build_table(contributors: list[ContributorStats], *, core_only: bool = False
             added = contributor.core_added()
             deleted = contributor.core_deleted()
             repos_count = len(contributor.core_repos())
+            commits = contributor.core_commits()
         else:
             changed = contributor.changed_lines
             added = contributor.added
             deleted = contributor.deleted
             repos_count = len(contributor.repos)
+            commits = contributor.commits
         lines.append(
             f"| {rank} | {format_contributor_name(contributor)} | "
+            f"{format_number(commits)} | "
             f"{format_number(changed)} | "
             f"+{format_number(added)} / -{format_number(deleted)} | {repos_count} |"
         )
@@ -603,6 +609,7 @@ def build_contributor_payload(
                 "name": c.name,
                 "github_login": login,
                 "github_url": f"https://github.com/{login}" if login else None,
+                "commits": c.core_commits() if core_only else c.commits,
                 "changed_lines": changed,
                 "added": added,
                 "deleted": deleted,
