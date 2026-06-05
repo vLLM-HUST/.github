@@ -87,20 +87,21 @@ In practice, the organization concentrates on four goals:
 
 ### 组织全仓库
 
-统计组织下 9 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-06-05`。
+统计组织下 10 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-06-05`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 466 | 194,227 | +131,415 / -62,812 | 7 |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 474 | 199,609 | +134,437 / -65,172 | 8 |
 | 2 | [MingqiWang-coder](https://github.com/MingqiWang-coder) | 38 | 21,449 | +7,608 / -13,841 | 2 |
 | 3 | [Jingyuan Tian](https://github.com/CubeLander) | 5 | 12,740 | +12,495 / -245 | 1 |
 | 4 | [Xiling Gao](https://github.com/XilingGao) | 5 | 12,538 | +12,305 / -233 | 1 |
-| 5 | [moonandlife](https://github.com/moonandlife) | 37 | 8,285 | +6,780 / -1,505 | 4 |
+| 5 | [Sheng Wang](https://github.com/moonandlife) | 37 | 8,285 | +6,780 / -1,505 | 4 |
 | 6 | [KimmoZAG](https://github.com/KimmoZAG) | 6 | 6,244 | +4,759 / -1,485 | 2 |
 | 7 | [iliujunn](https://github.com/iliujunn) | 5 | 1,538 | +655 / -883 | 1 |
 | 8 | [Remygred](https://github.com/Remygred) | 1 | 276 | +230 / -46 | 1 |
 | 9 | [aly16-k](https://github.com/aly16-k) | 2 | 225 | +225 / -0 | 1 |
 | 10 | [pygone](https://github.com/Pygone) | 1 | 187 | +164 / -23 | 1 |
+| 11 | MingXuan Kuang | 1 | 4 | +2 / -2 | 1 |
 
 ---
 
@@ -113,7 +114,7 @@ In practice, the organization concentrates on four goals:
 | 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 73 | 10,681 | +8,814 / -1,867 | 2 |
 | 2 | [Remygred](https://github.com/Remygred) | 1 | 276 | +230 / -46 | 1 |
 | 3 | [aly16-k](https://github.com/aly16-k) | 2 | 225 | +225 / -0 | 1 |
-| 4 | [moonandlife](https://github.com/moonandlife) | 2 | 4 | +2 / -2 | 1 |
+| 4 | [Sheng Wang](https://github.com/moonandlife) | 2 | 4 | +2 / -2 | 1 |
 
 <!-- contributor-leaderboard:end -->
 

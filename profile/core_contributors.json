@@ -10,7 +10,8 @@
       "vllm-hust-docs",
       "vllm-hust-website",
       "vllm-hust-workstation",
-      "vllm-hust-perf-analyzer"
+      "vllm-hust-perf-analyzer",
+      ".github"
     ],
     "contributors": [
       {
@@ -18,12 +19,13 @@
         "name": "Shuhao Zhang",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 466,
-        "changed_lines": 194227,
-        "added": 131415,
-        "deleted": 62812,
-        "active_repos": 7,
+        "commits": 474,
+        "changed_lines": 199609,
+        "added": 134437,
+        "deleted": 65172,
+        "active_repos": 8,
         "repos": [
+          ".github",
           "vllm-ascend-hust",
           "vllm-hust",
           "vllm-hust-benchmark",
@@ -78,7 +80,7 @@
       },
       {
         "rank": 5,
-        "name": "moonandlife",
+        "name": "Sheng Wang",
         "github_login": "moonandlife",
         "github_url": "https://github.com/moonandlife",
         "commits": 37,
@@ -163,6 +165,20 @@
         "repos": [
           "vllm-hust-website"
         ]
+      },
+      {
+        "rank": 11,
+        "name": "MingXuan Kuang",
+        "github_login": null,
+        "github_url": null,
+        "commits": 1,
+        "changed_lines": 4,
+        "added": 2,
+        "deleted": 2,
+        "active_repos": 1,
+        "repos": [
+          ".github"
+        ]
       }
     ]
   },
@@ -218,7 +234,7 @@
       },
       {
         "rank": 4,
-        "name": "moonandlife",
+        "name": "Sheng Wang",
         "github_login": "moonandlife",
         "github_url": "https://github.com/moonandlife",
         "commits": 2,

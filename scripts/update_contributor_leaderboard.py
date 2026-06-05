@@ -67,6 +67,11 @@ REPO_SPECS = [
         "url": "git@github.com:vLLM-HUST/vllm-hust-perf-analyzer.git",
         "branch": "main",
     },
+    {
+        "name": ".github",
+        "url": "git@github.com:vLLM-HUST/.github.git",
+        "branch": "main",
+    },
 ]
 
 CORE_REPOS = {"vllm-hust", "vllm-ascend-hust", "vllm-ascend-quant-hust"}
