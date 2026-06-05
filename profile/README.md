@@ -20,6 +20,49 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 - Community defaults: [.github](https://github.com/vLLM-HUST/.github)
 - Pages entry: [vllm-hust.github.io](https://github.com/vLLM-HUST/vllm-hust.github.io)
 
+## Fork Status
+
+组织两个核心 fork 仓库持续吸收上游 commit 并叠加自研改动，版本号由「对齐的上游版本 + fork 额外提交数」自动生成。
+
+> Snapshot: `2026-06-05`
+
+| Repository | Upstream aligned to | Fork-only commits | Net insertions | Key areas |
+| --- | --- | ---: | ---: | --- |
+| `vllm-hust` | **v0.20.1rc0** (vllm) | 288 | +16,241 | unified comm, perf patches, Ascend CI, structured output, attention |
+| `vllm-ascend-hust` | **v0.19.1rc1** (vllm-ascend) | 210 | +17,399 | EPLB scheduling, model_runner perf, kv-transfer, aclgraph, CI/benchmark |
+
+### vllm-hust 改动分类
+
+| Category | Commits | Highlights |
+| --- | ---: | --- |
+| Performance | 10 | kv-cache fit skip, logprobs materialization, pooling tolist, async sampling, v1 hot paths |
+| Features | 6 | unified_comm abstraction + GroupCoordinator integration, attention CPU mirrors, kv scale batch, structured output cache metrics |
+| Engine fixes | 39 | whisper staged token, encoder-decoder beam reuse, structured output compilation, attention split |
+| CI / DevOps | 74 | Ascend benchmark infra, pre-commit hardening, versioning metadata |
+| Tests | 3 | worker, attention, structured output coverage |
+| Docs & chore | 24 | contributing guide, release policy, dep alignment |
+
+### vllm-ascend-hust 改动分类
+
+| Category | Commits | Highlights |
+| --- | ---: | --- |
+| Performance | 4 | EPLB control-plane overhead, DP metadata sync buffer reuse, oproj all_to_all recv reuse, kv-transfer debug guard |
+| Features | 4 | unified preempt victim selector (BidKV utility), aclgraph operator optimization, same-spec benchmark, local Ascend helpers |
+| Engine fixes | 34 | speculative decoding fallback, slot mapping, runtime visibility, sampling op guard |
+| CI / DevOps | 102 | benchmark root helper, sudo entrypoint, leaderboard snapshot, PR smart test |
+| Tests | 2 | EPLB policy, attention |
+| Docs & chore | 17 | speculative decoding limitations, changelog, versioning policy |
+
+### 版本号格式
+
+```
+{upstream_version}.post1.dev{fork_commits}+g{short_sha}
+```
+
+例如 `vllm-hust` 当前版本为 `0.20.1.post1.dev288+g2206f1f7b`，表示：对齐上游 `v0.20.1rc0`，在此之上有 288 个 fork 独有提交。
+
+---
+
 ## What We Build
 
 `vLLM-HUST` 以上游 `vLLM` 生态为基础，重点面向下面几类工作：
@@ -38,32 +81,40 @@ In practice, the organization concentrates on four goals:
 - connect low-level serving infrastructure to end-user and research-facing products
 
 <!-- contributor-leaderboard:start -->
-## 核心贡献者排行榜
+## 贡献者排行榜
 
-下面的榜单展示 `vLLM-HUST` 主要仓库里持续推动组织工程演进的核心贡献者，方便新成员快速了解当前的主要维护力量分布。
+> 身份合并规则与统计方法详见 [CONTRIBUTORS.md](../CONTRIBUTORS.md)
 
-说明：
+### 组织全仓库
 
-- 统计范围：`vllm-hust`、`vllm-ascend-hust`、`vllm-hust-benchmark`、`vllm-ascend-quant-hust`、`vllm-hust-dev-hub`、`vllm-hust-docs`、`vllm-hust-website`、`vllm-hust-workstation`、`vllm-hust-perf-analyzer`
-- fork 去上游：`vllm-hust` 与 `vllm-ascend-hust` 仍以官方上游为参照，但统计时优先按主线首父链上的 PR merge 净 diff 归因给 PR 作者；纯同步上游的 merge 与 main2main / upgrade / sync 型提交不计入榜单
-- 统计方式：fork 仓库按 PR merge 的净变更量统计，其他仓库按 `git log --numstat` 聚合；统一指标为 `added + deleted`；直接提交到主线的 author identity 仍按本仓库 `.mailmap` 合并
-- 展示规则：排除 bot 账号，列出在至少 1 个主要仓库里有提交的全部贡献者
-- 快照时间：`2026-05-28`
+统计组织下 9 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-06-05`。
 
 | Rank | Contributor | Changed lines | Added / Deleted | Active repos |
 | --- | --- | ---: | ---: | ---: |
-| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 1,243,764 | 1,101,204 / 142,560 | 7 |
-| 2 | [MingqiWang-coder](https://github.com/MingqiWang-coder) | 21,449 | 7,608 / 13,841 | 2 |
-| 3 | [Xiling Gao](https://github.com/XilingGao) | 12,538 | 12,305 / 233 | 1 |
-| 4 | [moonandlife](https://github.com/moonandlife) | 9,360 | 7,642 / 1,718 | 4 |
-| 5 | Jingyuan Tian | 9,208 | 9,208 / 0 | 1 |
-| 6 | [KimmoZAG](https://github.com/KimmoZAG) | 6,244 | 4,759 / 1,485 | 2 |
-| 7 | [iliujunn](https://github.com/iliujunn) | 2,006 | 1,102 / 904 | 2 |
-| 8 | [aly16-k](https://github.com/aly16-k) | 881 | 879 / 2 | 2 |
-| 9 | [CubeLander](https://github.com/CubeLander) | 802 | 48 / 754 | 1 |
-| 10 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | 225 | 202 / 23 | 2 |
-| 11 | [pygone](https://github.com/Pygone) | 187 | 164 / 23 | 1 |
-| 12 | cybber695 | 103 | 98 / 5 | 1 |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 193,718 | +131,103 / -62,615 | 7 |
+| 2 | [MingqiWang-coder](https://github.com/MingqiWang-coder) | 21,449 | +7,608 / -13,841 | 2 |
+| 3 | [Jingyuan Tian](https://github.com/CubeLander) | 12,740 | +12,495 / -245 | 1 |
+| 4 | [Xiling Gao](https://github.com/XilingGao) | 12,538 | +12,305 / -233 | 1 |
+| 5 | [moonandlife](https://github.com/moonandlife) | 8,281 | +6,778 / -1,503 | 3 |
+| 6 | [KimmoZAG](https://github.com/KimmoZAG) | 6,244 | +4,759 / -1,485 | 2 |
+| 7 | [iliujunn](https://github.com/iliujunn) | 1,538 | +655 / -883 | 1 |
+| 8 | [Remygred](https://github.com/Remygred) | 276 | +230 / -46 | 1 |
+| 9 | [aly16-k](https://github.com/aly16-k) | 225 | +225 / -0 | 1 |
+| 10 | [pygone](https://github.com/Pygone) | 187 | +164 / -23 | 1 |
+| 11 | Jeffrey | 4 | +2 / -2 | 1 |
+
+---
+
+### 核心性能仓库
+
+仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-06-05`。
+
+| Rank | Contributor | Changed lines | Added / Deleted | Active repos |
+| --- | --- | ---: | ---: | ---: |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 10,681 | +8,814 / -1,867 | 2 |
+| 2 | [Remygred](https://github.com/Remygred) | 276 | +230 / -46 | 1 |
+| 3 | [aly16-k](https://github.com/aly16-k) | 225 | +225 / -0 | 1 |
+| 4 | Jeffrey | 4 | +2 / -2 | 1 |
 
 <!-- contributor-leaderboard:end -->
 
@@ -99,6 +150,7 @@ flowchart TD
     I --> A
     I --> B
     J --> A
+    J --> F
     K --> A
     K --> B
     K --> F
@@ -119,12 +171,12 @@ flowchart TD
 | `vllm-ascend-quant-hust` | post-training quantization tooling for Ascend NPUs | `vllm-ascend-hust`, Ascend/CANN quantization stack |
 | `ascend-runtime-manager` | runtime repair and deployment tooling | `vllm-hust`, `vllm-ascend-hust` |
 | `vllm-hust-dev-hub` | multi-repo workspace and bootstrap | all local sibling repos |
-| `vllm-hust-benchmark` | benchmark orchestration and export | `vllm-hust`, `vllm-hust-website` |
+| `vllm-hust-benchmark` | benchmark orchestration and export | `vllm-hust`, `vllm-hust-website`, `EvoScientist` workload traces |
 | `vllm-hust-perf-analyzer` | TraceLoom offline profiler timeline analysis | `vllm-hust`, `vllm-ascend-hust`, profiler outputs |
 | `vllm-hust-website` | landing page and leaderboard snapshots | benchmark exports, workstation embeds |
 | `vllm-hust-workstation` | user-facing web console | `vllm-hust`, EvoScientist |
 | `vllm-hust-docs` | operations, sync notes, internal docs | runtime and plugin repos |
-| `EvoScientist` | higher-level research agent product | `vllm-hust` APIs and tools |
+| `EvoScientist` | higher-level research agent product | `vllm-hust` APIs and tools, trace → benchmark |
 | `.github` | org-level community health defaults | shared issue templates, PR template, security policy |
 | `vllm-hust.github.io` | Pages entry and site handoff repo | website publishing and org-facing landing path |
 
@@ -153,7 +205,7 @@ flowchart TD
 ### 验证、展示与应用层
 
 - [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)
-  `vllm-hust` benchmark 的稳定包装层，负责场景编排、结果导出和与 Website 的对接。
+  `vllm-hust` benchmark 的稳定包装层，负责场景编排、结果导出和与 Website 的对接。已集成 EvoScientist 智能体轨迹作为 `agent-research-online` workload（32 轮多阶段研究交互）。
 
 - [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer)
   TraceLoom 离线性能分析工具，消费 CUDA/Nsight 或 Ascend/CANN profiler timeline，恢复语义循环、通信结构与成本摘要。
@@ -165,7 +217,7 @@ flowchart TD
   面向终端用户的 Web 工作站，提供统一推理入口、可视化控制台与 EvoScientist 嵌入能力。
 
 - [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)
-  面向科研工作流的智能体应用，可把 `vllm-hust` 作为底层推理与工具调用后端。
+  面向科研工作流的智能体应用，可把 `vllm-hust` 作为底层推理与工具调用后端，其多智能体轨迹已回流为 `vllm-hust-benchmark` 的 agent workload 场景。
 
 ### 组织与发布支撑
 
