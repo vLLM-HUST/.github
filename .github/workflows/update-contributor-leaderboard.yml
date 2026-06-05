@@ -2,6 +2,11 @@ name: Update Contributor Leaderboard
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.mailmap'
+      - 'scripts/update_contributor_leaderboard.py'
   schedule:
     - cron: '0 2 * * 1'
 
