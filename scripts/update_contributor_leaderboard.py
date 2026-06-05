@@ -128,6 +128,8 @@ class ContributorStats:
     per_repo_added: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     per_repo_deleted: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     per_repo_commits: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    # Commit subjects for contribution summarization: list of (repo_name, subject)
+    commit_subjects: list[tuple[str, str]] = field(default_factory=list)
 
     @property
     def changed_lines(self) -> int:
@@ -456,6 +458,7 @@ def collect_standard_repo_stats(
             contributor.repos.add(repo_spec["name"])
             contributor.commits += 1
             contributor.per_repo_commits[repo_spec["name"]] += 1
+            contributor.commit_subjects.append((repo_spec["name"], subject))
             continue
 
         if current_identity is None or not line.strip():
@@ -523,11 +526,83 @@ def format_contributor_name(contributor: ContributorStats) -> str:
     return f"[{contributor.name}](https://github.com/{login})"
 
 
+def summarize_contributions(
+    contributor: ContributorStats, *, core_only: bool = False
+) -> str:
+    """Generate a concise key-contributions summary from commit subjects.
+
+    Extracts scope/area tags from conventional commit messages and groups into
+    high-level contribution themes.  Returns a short comma-separated string.
+    """
+    import re as _re
+
+    subjects = contributor.commit_subjects
+    if core_only:
+        subjects = [(r, s) for r, s in subjects if r in CORE_REPOS]
+    if not subjects:
+        return ""
+
+    # Extract areas from conventional commit scopes and keywords
+    area_counts: dict[str, int] = defaultdict(int)
+    for _repo, subj in subjects:
+        # Try conventional commit: type(scope): ...
+        m = _re.match(r"(\w+)(?:\(([^)]+)\))?[!:]\s*(.*)", subj)
+        if m:
+            ctype, scope, desc = m.group(1).lower(), (m.group(2) or "").lower(), m.group(3).lower()
+        else:
+            ctype, scope, desc = "", "", subj.lower()
+
+        # Map to high-level areas
+        if any(k in desc or k in scope for k in ("ci", "cicd", "workflow", "pre-commit", "hook")):
+            area_counts["CI/CD"] += 1
+        elif any(k in desc or k in scope for k in ("leaderboard", "contributor", "ranking")):
+            area_counts["leaderboard"] += 1
+        elif any(k in desc or k in scope for k in ("benchmark", "perf", "latency", "throughput")):
+            area_counts["benchmark"] += 1
+        elif any(k in desc or k in scope for k in ("website", "site", "overview", "landing")):
+            area_counts["website"] += 1
+        elif any(k in desc or k in scope for k in ("doc", "readme", "guide", "contributing")):
+            area_counts["docs"] += 1
+        elif any(k in desc or k in scope for k in ("quant", "quantiz")):
+            area_counts["quantization"] += 1
+        elif any(k in desc or k in scope for k in ("attention", "kernel", "cuda", "triton")):
+            area_counts["kernel"] += 1
+        elif any(k in desc or k in scope for k in ("ascend", "npu", "cann", "aclgraph")):
+            area_counts["Ascend"] += 1
+        elif any(k in desc or k in scope for k in ("model", "runner", "engine", "worker", "scheduler")):
+            area_counts["engine"] += 1
+        elif any(k in desc or k in scope for k in ("comm", "distributed", "tp", "ep", "all_reduce")):
+            area_counts["distributed"] += 1
+        elif any(k in desc or k in scope for k in ("serving", "api", "openai", "endpoint")):
+            area_counts["serving"] += 1
+        elif any(k in desc or k in scope for k in ("workstation", "console", "deploy")):
+            area_counts["workstation"] += 1
+        elif any(k in desc or k in scope for k in ("test", "fixture", "assert")):
+            area_counts["testing"] += 1
+        elif any(k in desc or k in scope for k in ("dev", "tool", "script", "makefile")):
+            area_counts["tooling"] += 1
+        elif ctype == "feat":
+            area_counts["features"] += 1
+        elif ctype == "fix":
+            area_counts["bugfix"] += 1
+        elif ctype in ("chore", "style", "refactor"):
+            area_counts["maintenance"] += 1
+        else:
+            area_counts["misc"] += 1
+
+    # Return top areas sorted by frequency, max 4
+    sorted_areas = sorted(area_counts.items(), key=lambda x: (-x[1], x[0]))
+    # Filter out 'misc' if there are better labels
+    if len(sorted_areas) > 1:
+        sorted_areas = [(a, c) for a, c in sorted_areas if a != "misc"] or sorted_areas
+    return ", ".join(area for area, _ in sorted_areas[:4])
+
+
 def build_table(contributors: list[ContributorStats], *, core_only: bool = False) -> str:
     """Build a markdown table for the given contributor list."""
     lines = [
-        "| Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos |",
-        "| --- | --- | ---: | ---: | ---: | ---: |",
+        "| Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |",
+        "| --- | --- | ---: | ---: | ---: | ---: | --- |",
     ]
     for rank, contributor in enumerate(contributors, start=1):
         if core_only:
@@ -542,11 +617,13 @@ def build_table(contributors: list[ContributorStats], *, core_only: bool = False
             deleted = contributor.deleted
             repos_count = len(contributor.repos)
             commits = contributor.commits
+        summary = summarize_contributions(contributor, core_only=core_only)
         lines.append(
             f"| {rank} | {format_contributor_name(contributor)} | "
             f"{format_number(commits)} | "
             f"{format_number(changed)} | "
-            f"+{format_number(added)} / -{format_number(deleted)} | {repos_count} |"
+            f"+{format_number(added)} / -{format_number(deleted)} | {repos_count} | "
+            f"{summary} |"
         )
     return "\n".join(lines)
 
@@ -620,6 +697,7 @@ def build_contributor_payload(
                 "deleted": deleted,
                 "active_repos": len(repos),
                 "repos": repos,
+                "key_contributions": summarize_contributions(c, core_only=core_only),
             })
         return items
 
