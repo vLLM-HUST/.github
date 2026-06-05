@@ -1,0 +1,119 @@
+# Contributor Identity & Methodology
+
+本文档记录 vLLM-HUST 组织贡献者排行榜的统计方法、身份合并规则和 GitHub 映射表。
+
+## 身份合并规则 (`.mailmap`)
+
+组织使用 `.mailmap` 文件规范化 Git author 身份。以下为当前合并规则：
+
+### Shuhao Zhang
+
+| Git Author | Email | 来源 |
+| --- | --- | --- |
+| Shuhao Zhang | shuhao_zhang@hust.edu.cn | 主身份 |
+| Shuhao / shuhao | shuhao@example.com | 本地开发 |
+| shuhao zhang | shuhao_zhang@hust.edu.cn | 大小写变体 |
+| Shuhao Zhang (Tony) | shuhao_zhang@hust.edu.cn | 全称变体 |
+| IntelliStream | team@intellistream.org | 组织 bot |
+| ShuhaoZhangTony | noreply | GitHub Web 编辑 |
+| Sage | sage@hust.edu.cn | 短名 |
+| chooper26 | tony_zhang@live.com.sg | 旧用户名 |
+| my | my@example.com | 临时本地配置 |
+
+### moonandlife (Jeffrey Wang)
+
+| Git Author | Email | 来源 |
+| --- | --- | --- |
+| moonandlife | moonandlife@qq.com | 主身份 |
+| Jeffrey Wang | moonandlife@qq.com | 实名别名（同邮箱） |
+
+### MingqiWang-coder
+
+| Git Author | Email | 来源 |
+| --- | --- | --- |
+| MingqiWang-coder | mingqiwang@hust.edu.cn | 主身份 |
+| MingqiWang-coder | 15751853706@163.com | 备用邮箱 |
+
+### iliujunn
+
+| Git Author | Email | 来源 |
+| --- | --- | --- |
+| iliujunn | iliujun@msn.com | 主身份 |
+| liu | 99582471+irving11-bkn@users.noreply.github.com | GitHub noreply |
+
+### Remygred
+
+| Git Author | Email | 来源 |
+| --- | --- | --- |
+| Remygred | 153624059+Remygred@users.noreply.github.com | 主身份 |
+| Remygred | 2779387088@qq.com | 备用邮箱 |
+
+### aly16-k / vllm-hust-quantization
+
+| Git Author | Email | 来源 |
+| --- | --- | --- |
+| aly16-k | 1427850140k@gmail.com | 主身份 |
+| vllm-hust-quantization | 1427850140k@gmail.com | 量化仓库提交（同邮箱） |
+
+## 已确认独立身份
+
+以下用户名虽有一定关联性但经邮箱和提交记录确认为**不同人**：
+
+| 用户名 | Email(s) | 说明 |
+| --- | --- | --- |
+| luoxiaohei | luoxiaohei@ppio.com, luoxiaohei@gitlab.paigod.work | 与 moonandlife 使用不同邮箱，独立贡献者 |
+| Jeffrey (Huawei) | jeffrey.wangsheng@huawei.com | 华为员工，非 Jeffrey Wang (moonandlife) |
+| Jeffrey Li | jeffrey-dot-li@users.noreply.github.com | 另一位 Jeffrey，非 moonandlife |
+
+## GitHub 账号映射
+
+通过 noreply 邮箱或公开信息确认的 GitHub 登录名：
+
+| Canonical Name | GitHub Login | 确认方式 |
+| --- | --- | --- |
+| Shuhao Zhang | [ShuhaoZhangTony](https://github.com/ShuhaoZhangTony) | mailmap + noreply |
+| moonandlife | [moonandlife](https://github.com/moonandlife) | noreply |
+| MingqiWang-coder | [MingqiWang-coder](https://github.com/MingqiWang-coder) | noreply |
+| Xiling Gao | [XilingGao](https://github.com/XilingGao) | email |
+| KimmoZAG | [KimmoZAG](https://github.com/KimmoZAG) | noreply |
+| iliujunn | [iliujunn](https://github.com/iliujunn) | noreply |
+| Jingyuan Tian | [CubeLander](https://github.com/CubeLander) | noreply |
+| pygone | [Pygone](https://github.com/Pygone) | noreply |
+| aly16-k | [aly16-k](https://github.com/aly16-k) | noreply |
+| Remygred | [Remygred](https://github.com/Remygred) | noreply |
+| sad-and-bad1231 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | noreply |
+| Raing5Days | [Raing5Days](https://github.com/Raing5Days) | noreply |
+| cybber695 | [cybber695](https://github.com/cybber695) | noreply |
+| bnellnm | [bnellnm](https://github.com/bnellnm) | noreply |
+
+## 统计方法
+
+### 数据来源
+
+排行榜由 `scripts/update_contributor_leaderboard.py` 自动生成，也可手动运行：
+
+```bash
+python scripts/update_contributor_leaderboard.py --workspace-root /path/to/workspace
+```
+
+### Fork 仓库 (`vllm-hust`, `vllm-ascend-hust`)
+
+- 使用 `git log --first-parent --cherry-pick --right-only FETCH_HEAD...HEAD` 隔离 fork-only 变更
+- PR merge commit 的净 diff (`diff-tree`) 归因给 PR 作者（通过 GitHub API 查询）
+- 纯上游同步提交（subject 匹配 `sync upstream` / `main2main` / `upgrade vllm` 等模式）排除
+- 非 PR 的直接提交仅计入组织成员
+
+### 非 Fork 仓库（benchmark、dev-hub、website 等）
+
+- 使用 `git log --numstat --no-merges --no-renames` 全量统计
+- 异常大体积初始导入通过 `.mailmap` + commit 排除
+
+### 排除规则
+
+- Bot 账号：dependabot[bot], github-actions[bot], copilot-swe-agent[bot] 等
+- 身份规范化：统一通过 `.mailmap` 处理
+- 指标：`added + deleted` 为排序依据
+
+## 更新方式
+
+运行脚本后，profile/README.md 中 `<!-- contributor-leaderboard:start -->` 和 `<!-- contributor-leaderboard:end -->` 之间的内容会被自动替换。同时更新 `profile/core_contributors.json` 和 website 数据。

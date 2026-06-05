@@ -6,11 +6,10 @@ import argparse
 import json
 import os
 import re
-import shutil
 import subprocess
 import tempfile
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -41,6 +40,7 @@ REPO_SPECS = [
         "name": "vllm-ascend-quant-hust",
         "url": "git@github.com:vLLM-HUST/vllm-ascend-quant-hust.git",
         "branch": "main",
+        "exclude_commits": ["9d1e318"],
     },
     {
         "name": "vllm-hust-dev-hub",
@@ -69,10 +69,14 @@ REPO_SPECS = [
     },
 ]
 
+CORE_REPOS = {"vllm-hust", "vllm-ascend-hust", "vllm-ascend-quant-hust"}
+
+MAX_COMMIT_LINES = 50_000
+
 EXCLUDED_AUTHOR_PATTERNS = (
     "github-actions[bot]",
     "dependabot",
-    "copilot",
+    "copilot-swe-agent",
     "vllm-hust bot",
     "benchmark bot",
     "bot@vllm-hust.org",
@@ -85,22 +89,22 @@ GITHUB_LOGIN_BY_EMAIL = {
     "995496585@qq.com": "KimmoZAG",
     "iliujun@msn.com": "iliujunn",
     "cubelander@users.noreply.github.com": "CubeLander",
+    "49518565+cubelander@users.noreply.github.com": "CubeLander",
+    "jingyuantian@hust.edu.cn": "CubeLander",
     "moonandlife@qq.com": "moonandlife",
     "1427850140k@gmail.com": "aly16-k",
     "pygonebe@outlook.com": "Pygone",
+    "luoxiaohei@ppio.com": "luoxiaohei",
+    "153624059+remygred@users.noreply.github.com": "Remygred",
+    "2779387088@qq.com": "Remygred",
 }
 
-PR_MERGE_PATTERN = re.compile(r"^Merge pull request #(\d+) from (?P<owner>[^/]+)/")
-
-SYNC_SUBJECT_PATTERNS = (
-    re.compile(r"main\s*2\s*main", re.IGNORECASE),
-    re.compile(r"sync upstream", re.IGNORECASE),
-    re.compile(r"merge:\s*sync upstream", re.IGNORECASE),
-    re.compile(r"\bupgrade\s+vllm\b", re.IGNORECASE),
-    re.compile(r"\bupgrade\s+vllm\s+commit\b", re.IGNORECASE),
-    re.compile(r"\bupgrade\s+vllm\s+main\b", re.IGNORECASE),
-    re.compile(r"\bupgrade\s+to\s+vllm\b", re.IGNORECASE),
-)
+# Display-name overrides: git author name -> canonical display name
+# Used AFTER mailmap canonicalization to fix remaining display anomalies.
+NAME_MAP: dict[str, str] = {
+    "GitHub Copilot": "Shuhao Zhang",
+    "Remby Lis": "Remygred",
+}
 
 START_MARKER = "<!-- contributor-leaderboard:start -->"
 END_MARKER = "<!-- contributor-leaderboard:end -->"
@@ -114,15 +118,29 @@ class ContributorStats:
     added: int = 0
     deleted: int = 0
     commits: int = 0
-    repos: set[str] | None = None
-
-    def __post_init__(self) -> None:
-        if self.repos is None:
-            self.repos = set()
+    repos: set[str] = field(default_factory=set)
+    # Per-repo breakdown for core-repo filtering
+    per_repo_added: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_repo_deleted: dict[str, int] = field(default_factory=lambda: defaultdict(int))
 
     @property
     def changed_lines(self) -> int:
         return self.added + self.deleted
+
+    def core_changed_lines(self) -> int:
+        total = 0
+        for repo in CORE_REPOS:
+            total += self.per_repo_added.get(repo, 0) + self.per_repo_deleted.get(repo, 0)
+        return total
+
+    def core_added(self) -> int:
+        return sum(self.per_repo_added.get(r, 0) for r in CORE_REPOS)
+
+    def core_deleted(self) -> int:
+        return sum(self.per_repo_deleted.get(r, 0) for r in CORE_REPOS)
+
+    def core_repos(self) -> set[str]:
+        return self.repos & CORE_REPOS
 
 
 def run_git(args: list[str], cwd: Path) -> str:
@@ -134,27 +152,6 @@ def run_git(args: list[str], cwd: Path) -> str:
         check=True,
     )
     return result.stdout
-
-
-def maybe_use_https_git_url(url: str) -> str:
-    transport = os.getenv("VLLM_HUST_GIT_TRANSPORT", "auto").strip().lower()
-    if transport not in {"auto", "ssh", "https"}:
-        raise RuntimeError(
-            "VLLM_HUST_GIT_TRANSPORT must be one of: auto, ssh, https"
-        )
-    if transport == "ssh":
-        return url
-
-    should_use_https = transport == "https" or bool(
-        os.getenv("GITHUB_ACTIONS") or os.getenv("CI")
-    )
-    if not should_use_https:
-        return url
-
-    match = re.fullmatch(r"git@github\.com:(?P<repo>.+?)(?:\.git)?", url)
-    if match is None:
-        return url
-    return f"https://github.com/{match.group('repo')}.git"
 
 
 def parse_identity(identity: str) -> tuple[str, str]:
@@ -195,10 +192,16 @@ def canonicalize_identity(
 ) -> tuple[str, str]:
     identity_key = f"{name} <{email}>".lower()
     if identity_key in alias_identity_map:
-        return alias_identity_map[identity_key]
+        canon_name, canon_email = alias_identity_map[identity_key]
+        canon_name = NAME_MAP.get(canon_name, canon_name)
+        return canon_name, canon_email
     if email in alias_email_map:
-        return alias_email_map[email]
-    return name, email
+        canon_name, canon_email = alias_email_map[email]
+        canon_name = NAME_MAP.get(canon_name, canon_name)
+        return canon_name, canon_email
+    # Apply NAME_MAP even without mailmap match
+    resolved_name = NAME_MAP.get(name, name)
+    return resolved_name, email
 
 
 def is_excluded_author_identity(name: str, email: str) -> bool:
@@ -206,7 +209,7 @@ def is_excluded_author_identity(name: str, email: str) -> bool:
     return any(pattern in lowered for pattern in EXCLUDED_AUTHOR_PATTERNS)
 
 
-def ensure_repo_checkout(base_dir: Path, repo_spec: dict[str, str], workspace_root: Path | None) -> Path:
+def ensure_repo_checkout(base_dir: Path, repo_spec: dict, workspace_root: Path | None) -> Path:
     repo_name = repo_spec["name"]
     if workspace_root is not None:
         candidate = workspace_root / repo_name
@@ -224,7 +227,7 @@ def ensure_repo_checkout(base_dir: Path, repo_spec: dict[str, str], workspace_ro
             "--branch",
             repo_spec["branch"],
             "--single-branch",
-            maybe_use_https_git_url(repo_spec["url"]),
+            repo_spec["url"],
             str(checkout_dir),
         ],
         text=True,
@@ -232,55 +235,6 @@ def ensure_repo_checkout(base_dir: Path, repo_spec: dict[str, str], workspace_ro
     )
     return checkout_dir
 
-
-def fetch_org_member_logins() -> set[str]:
-    gh_binary = shutil.which("gh")
-    if gh_binary is None:
-        raise RuntimeError("gh CLI is required to resolve vLLM-HUST org members")
-    output = subprocess.run(
-        [gh_binary, "api", f"orgs/{ORG_NAME}/members", "--paginate", "--jq", ".[].login"],
-        text=True,
-        capture_output=True,
-        check=True,
-    ).stdout
-    member_logins = {line.strip() for line in output.splitlines() if line.strip()}
-    if not member_logins:
-        raise RuntimeError(f"Failed to resolve {ORG_NAME} org members")
-    return member_logins
-
-
-def fetch_pull_request_author_login(repo_name: str, pr_number: str) -> str | None:
-    gh_binary = shutil.which("gh")
-    if gh_binary is None:
-        return None
-    try:
-        output = subprocess.run(
-            [gh_binary, "api", f"repos/{ORG_NAME}/{repo_name}/pulls/{pr_number}", "--jq", ".user.login"],
-            text=True,
-            capture_output=True,
-            check=True,
-        ).stdout.strip()
-    except subprocess.CalledProcessError:
-        return None
-    return output or None
-
-
-def is_org_member_identity(name: str, email: str, member_logins: set[str]) -> bool:
-    lowered_logins = {login.lower() for login in member_logins}
-    normalized_logins = {re.sub(r"[^a-z0-9]", "", login.lower()) for login in member_logins}
-    candidate_tokens = {
-        name.lower(),
-        email.split("@", 1)[0].lower(),
-        re.sub(r"[^a-z0-9]", "", name.lower()),
-        re.sub(r"[^a-z0-9]", "", email.split("@", 1)[0].lower()),
-    }
-    candidate_tokens.discard("")
-    if any(token in lowered_logins for token in candidate_tokens):
-        return True
-    for token in candidate_tokens:
-        if any(token and (token in login or login in token) for login in normalized_logins):
-            return True
-    return False
 
 
 def update_contributor_stats(
@@ -301,248 +255,250 @@ def update_contributor_stats(
     contributor.commits += commits
     contributor.added += added
     contributor.deleted += deleted
+    contributor.per_repo_added[repo_name] += added
+    contributor.per_repo_deleted[repo_name] += deleted
 
 
-def get_upstream_subjects(repo_dir: Path, repo_spec: dict[str, str]) -> set[str]:
-    if "upstream" not in repo_spec:
-        return set()
 
+def _resolve_upstream_ref(repo_dir: Path, repo_spec: dict) -> str:
+    """Ensure upstream remote exists, fetch it, and return the ref name (e.g. 'upstream/main')."""
+    upstream_branch = repo_spec.get("upstream_branch", "main")
     fetch_target = repo_spec.get("upstream_remote")
     if fetch_target is not None:
         remotes = set(run_git(["remote"], repo_dir).split())
         if fetch_target not in remotes:
             fetch_target = None
     if fetch_target is None:
-        fetch_target = maybe_use_https_git_url(repo_spec["upstream"])
+        remotes = set(run_git(["remote"], repo_dir).split())
+        remote_name = "_upstream_src"
+        if remote_name not in remotes:
+            run_git(["remote", "add", remote_name, repo_spec["upstream"]], repo_dir)
+        fetch_target = remote_name
+    run_git(["fetch", fetch_target, upstream_branch], repo_dir)
+    return f"{fetch_target}/{upstream_branch}"
 
-    run_git(["fetch", fetch_target, repo_spec.get("upstream_branch", "main")], repo_dir)
-    upstream_log = run_git(["log", "--format=%s", "--no-merges", "FETCH_HEAD"], repo_dir)
-    return {line.strip() for line in upstream_log.splitlines() if line.strip()}
+
+def _compute_upstream_patch_ids(repo_dir: Path, upstream_ref: str) -> set[str]:
+    """Compute patch-IDs for all non-merge upstream commits using a git pipeline."""
+    proc_log = subprocess.Popen(
+        ["git", "log", "-p", "--no-merges", upstream_ref],
+        cwd=repo_dir,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+    )
+    proc_pid = subprocess.Popen(
+        ["git", "patch-id", "--stable"],
+        cwd=repo_dir,
+        stdin=proc_log.stdout,
+        stdout=subprocess.PIPE,
+        text=True,
+    )
+    proc_log.stdout.close()
+    output, _ = proc_pid.communicate()
+    return {line.split()[0] for line in output.strip().splitlines() if line.strip()}
 
 
-def get_log_output(repo_dir: Path, repo_spec: dict[str, str]) -> str:
+def _get_fork_unique_hashes(repo_dir: Path, upstream_ref: str) -> set[str]:
+    """Return commit hashes unique to the fork (not cherry-picked from upstream).
+
+    Uses patch-ID comparison: computes patch-IDs for fork first-parent commits
+    and upstream commits, then returns only those fork commits whose patch-ID
+    does NOT appear in the upstream set.
+    """
+    merge_base = run_git(["merge-base", upstream_ref, "HEAD"], repo_dir).strip()
+    upstream_pids = _compute_upstream_patch_ids(repo_dir, upstream_ref)
+
+    # Compute patch-ids for fork first-parent non-merge commits
+    proc_log = subprocess.Popen(
+        ["git", "log", "-p", "--first-parent", "--no-merges", f"{merge_base}..HEAD"],
+        cwd=repo_dir,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+    )
+    proc_pid = subprocess.Popen(
+        ["git", "patch-id", "--stable"],
+        cwd=repo_dir,
+        stdin=proc_log.stdout,
+        stdout=subprocess.PIPE,
+        text=True,
+    )
+    proc_log.stdout.close()
+    output, _ = proc_pid.communicate()
+
+    unique_hashes = set()
+    for line in output.strip().splitlines():
+        if not line.strip():
+            continue
+        parts = line.split()
+        patch_id, commit_hash = parts[0], parts[1]
+        if patch_id not in upstream_pids:
+            unique_hashes.add(commit_hash)
+    return unique_hashes
+
+
+def get_log_output(repo_dir: Path, repo_spec: dict) -> tuple[str, set[str] | None]:
+    """Get git log output for a repo.
+
+    Returns (log_output, allowed_hashes).
+    - For fork repos: allowed_hashes is the set of unique fork commit hashes;
+      the caller should skip commits not in this set.
+    - For non-fork repos: allowed_hashes is None (all commits are valid).
+    """
     common_args = [
         "log",
-        "--format=@@@%aN <%aE>%x09%s",
+        "--format=@@@%H%x09%aN <%aE>%x09%s",
         "--numstat",
         "--no-renames",
         "--no-merges",
     ]
     if "upstream" in repo_spec:
-        fetch_target = repo_spec.get("upstream_remote")
-        if fetch_target is not None:
-            remotes = set(run_git(["remote"], repo_dir).split())
-            if fetch_target not in remotes:
-                fetch_target = None
-        if fetch_target is None:
-            fetch_target = maybe_use_https_git_url(repo_spec["upstream"])
-        run_git(["fetch", fetch_target, repo_spec.get("upstream_branch", "main")], repo_dir)
-        revspec = "FETCH_HEAD...HEAD"
-        return run_git(common_args + ["--right-only", "--cherry-pick", revspec], repo_dir)
-    return run_git(common_args, repo_dir)
+        upstream_ref = _resolve_upstream_ref(repo_dir, repo_spec)
+        merge_base = run_git(["merge-base", upstream_ref, "HEAD"], repo_dir).strip()
+        unique_hashes = _get_fork_unique_hashes(repo_dir, upstream_ref)
+        # Get log for ALL first-parent non-merge commits from merge-base;
+        # the caller will filter using unique_hashes.
+        log_output = run_git(
+            common_args + ["--first-parent", f"{merge_base}..HEAD"],
+            repo_dir,
+        )
+        return log_output, unique_hashes
+    return run_git(common_args, repo_dir), None
 
-
-def should_exclude_subject(subject: str, upstream_subjects: set[str]) -> bool:
-    normalized = subject.strip()
-    if not normalized:
-        return False
-    if normalized in upstream_subjects:
-        return True
-    return any(pattern.search(normalized) for pattern in SYNC_SUBJECT_PATTERNS)
-
-
-def should_exclude_identity(name: str, email: str = "") -> bool:
-    lowered = f"{name} <{email}>".lower()
-    return any(pattern in lowered for pattern in EXCLUDED_AUTHOR_PATTERNS)
-
-
-def sum_numstat_output(numstat_output: str) -> tuple[int, int]:
-    added = 0
-    deleted = 0
-    for line in numstat_output.splitlines():
-        if not line.strip():
-            continue
-        parts = line.split("\t")
-        if len(parts) < 3 or parts[0] == "-" or parts[1] == "-":
-            continue
-        added += int(parts[0])
-        deleted += int(parts[1])
-    return added, deleted
 
 
 def collect_standard_repo_stats(
     repo_dir: Path,
-    repo_spec: dict[str, str],
+    repo_spec: dict,
     alias_identity_map: dict[str, tuple[str, str]],
     alias_email_map: dict[str, tuple[str, str]],
     stats: dict[str, ContributorStats],
 ) -> None:
-    log_output = get_log_output(repo_dir, repo_spec)
-    current_email: str | None = None
-    for line in log_output.splitlines():
-        if line.startswith("@@@"):
-            header = line[3:].strip()
-            identity_text, _, subject = header.partition("\t")
-            name, email = parse_identity(identity_text)
-            if is_excluded_author_identity(name, email):
-                current_email = None
-                continue
-            canonical_name, canonical_email = canonicalize_identity(
-                name,
-                email,
-                alias_identity_map,
-                alias_email_map,
-            )
-            current_email = canonical_email
-            contributor = stats[current_email]
-            contributor.name = canonical_name
-            contributor.email = canonical_email
-            contributor.repos.add(repo_spec["name"])
-            contributor.commits += 1
-            continue
+    exclude_prefixes = repo_spec.get("exclude_commits", [])
+    log_output, allowed_hashes = get_log_output(repo_dir, repo_spec)
 
-        if current_email is None or not line.strip():
-            continue
+    # Parse commits with per-commit size tracking
+    current_identity: tuple[str, str] | None = None
+    current_hash: str | None = None
+    commit_added = 0
+    commit_deleted = 0
 
-        parts = line.split("\t")
-        if len(parts) < 3 or parts[0] == "-" or parts[1] == "-":
-            continue
-        contributor = stats[current_email]
-        contributor.added += int(parts[0])
-        contributor.deleted += int(parts[1])
-
-
-def collect_fork_repo_stats(
-    repo_dir: Path,
-    repo_spec: dict[str, str],
-    alias_identity_map: dict[str, tuple[str, str]],
-    alias_email_map: dict[str, tuple[str, str]],
-    member_logins: set[str],
-    stats: dict[str, ContributorStats],
-) -> None:
-    upstream_subjects = get_upstream_subjects(repo_dir, repo_spec)
-    pr_author_cache: dict[str, str] = {}
-    field_sep = "\x1f"
-    record_sep = "\x1e"
-    branch = repo_spec.get("branch", "main")
-    history = run_git(
-        [
-            "log",
-            "--first-parent",
-            "--reverse",
-            f"--format=%H{field_sep}%P{field_sep}%aN <%aE>{field_sep}%s{field_sep}%b{record_sep}",
-            branch,
-        ],
-        repo_dir,
-    )
-
-    for raw_record in history.split(record_sep):
-        record = raw_record.strip()
-        if not record:
-            continue
-        record_parts = record.split(field_sep, 4)
-        if len(record_parts) < 5:
-            record_parts.extend([""] * (5 - len(record_parts)))
-        commit_hash, parents_text, identity_text, subject, body = record_parts
-        parent_hashes = parents_text.split()
-
-        if len(parent_hashes) > 1:
-            match = PR_MERGE_PATTERN.match(subject.strip())
-            if match is None:
-                continue
-            pr_number = match.group(1)
-            pr_owner = match.group("owner")
-            pr_title = next((line.strip() for line in body.splitlines() if line.strip()), subject)
-            if should_exclude_subject(pr_title, upstream_subjects):
-                continue
-            added, deleted = sum_numstat_output(
-                run_git(["diff-tree", "--numstat", "--no-renames", f"{commit_hash}^1", commit_hash], repo_dir)
-            )
-            if added == 0 and deleted == 0:
-                continue
-            pr_author = pr_author_cache.get(pr_number)
-            if pr_author is None:
-                pr_author = fetch_pull_request_author_login(repo_spec["name"], pr_number) or pr_owner
-                pr_author_cache[pr_number] = pr_author
-            if should_exclude_identity(pr_author):
-                continue
-            synthetic_email = f"{pr_author.lower()}@users.noreply.github.com"
-            if is_excluded_author_identity(pr_author, synthetic_email):
-                continue
-            canonical_name, canonical_email = canonicalize_identity(
-                pr_author,
-                synthetic_email,
-                alias_identity_map,
-                alias_email_map,
-            )
-            update_contributor_stats(
-                stats,
-                contributor_key=canonical_email,
-                display_name=canonical_name,
-                display_email=canonical_email,
-                repo_name=repo_spec["name"],
-                added=added,
-                deleted=deleted,
-            )
-            continue
-
-        name, email = parse_identity(identity_text)
-        if is_excluded_author_identity(name, email):
-            continue
-        if should_exclude_subject(subject, upstream_subjects):
-            continue
-        canonical_name, canonical_email = canonicalize_identity(
-            name,
-            email,
-            alias_identity_map,
-            alias_email_map,
-        )
-        if not is_org_member_identity(canonical_name, canonical_email, member_logins):
-            continue
-        added, deleted = sum_numstat_output(
-            run_git(["show", "--format=", "--numstat", "--no-renames", commit_hash], repo_dir)
-        )
+    def flush_commit() -> None:
+        nonlocal commit_added, commit_deleted
+        if current_identity is None:
+            commit_added = 0
+            commit_deleted = 0
+            return
+        total = commit_added + commit_deleted
+        if total > MAX_COMMIT_LINES:
+            commit_added = 0
+            commit_deleted = 0
+            return
+        if total == 0:
+            return
+        canonical_name, canonical_email = current_identity
         update_contributor_stats(
             stats,
             contributor_key=canonical_email,
             display_name=canonical_name,
             display_email=canonical_email,
             repo_name=repo_spec["name"],
-            added=added,
-            deleted=deleted,
+            added=commit_added,
+            deleted=commit_deleted,
         )
+        commit_added = 0
+        commit_deleted = 0
+
+    for line in log_output.splitlines():
+        if line.startswith("@@@"):
+            # Flush previous commit
+            flush_commit()
+
+            header = line[3:].strip()
+            parts = header.split("\t", 2)
+            if len(parts) < 3:
+                current_identity = None
+                current_hash = None
+                continue
+
+            commit_hash, identity_text, subject = parts
+            current_hash = commit_hash
+
+            # For fork repos, skip commits not in the unique set
+            if allowed_hashes is not None and commit_hash not in allowed_hashes:
+                current_identity = None
+                continue
+
+            # Check excluded commits
+            if any(commit_hash.startswith(prefix) for prefix in exclude_prefixes):
+                current_identity = None
+                continue
+
+            name, email = parse_identity(identity_text)
+            if is_excluded_author_identity(name, email):
+                current_identity = None
+                continue
+
+            canonical_name, canonical_email = canonicalize_identity(
+                name, email, alias_identity_map, alias_email_map
+            )
+            current_identity = (canonical_name, canonical_email)
+            # Increment commit count
+            contributor = stats[canonical_email]
+            contributor.name = canonical_name
+            contributor.email = canonical_email
+            contributor.repos.add(repo_spec["name"])
+            contributor.commits += 1
+            continue
+
+        if current_identity is None or not line.strip():
+            continue
+
+        parts = line.split("\t")
+        if len(parts) < 3 or parts[0] == "-" or parts[1] == "-":
+            continue
+        commit_added += int(parts[0])
+        commit_deleted += int(parts[1])
+
+    # Flush last commit
+    flush_commit()
 
 
-def collect_stats(repo_root: Path, workspace_root: Path | None) -> list[ContributorStats]:
+
+def collect_stats(repo_root: Path, workspace_root: Path | None) -> dict[str, ContributorStats]:
+    """Collect contributor stats across all repos. Returns the unified stats dict."""
     alias_identity_map, alias_email_map = read_mailmap(repo_root / ".mailmap")
-    member_logins = fetch_org_member_logins()
     stats: dict[str, ContributorStats] = defaultdict(lambda: ContributorStats(name="", email=""))
 
     with tempfile.TemporaryDirectory(prefix="vllm-hust-profile-") as temp_dir:
         temp_root = Path(temp_dir)
         for repo_spec in REPO_SPECS:
             repo_dir = ensure_repo_checkout(temp_root, repo_spec, workspace_root)
-            if "upstream" in repo_spec:
-                collect_fork_repo_stats(
-                    repo_dir,
-                    repo_spec,
-                    alias_identity_map,
-                    alias_email_map,
-                    member_logins,
-                    stats,
-                )
-            else:
-                collect_standard_repo_stats(
-                    repo_dir,
-                    repo_spec,
-                    alias_identity_map,
-                    alias_email_map,
-                    stats,
-                )
+            collect_standard_repo_stats(
+                repo_dir,
+                repo_spec,
+                alias_identity_map,
+                alias_email_map,
+                stats,
+            )
 
-    filtered = [item for item in stats.values() if len(item.repos) >= 1]
+    return stats
+
+
+def build_all_contributors_list(stats: dict[str, ContributorStats]) -> list[ContributorStats]:
+    """All repos, sorted by changed_lines descending."""
+    filtered = [item for item in stats.values() if item.changed_lines > 0]
     filtered.sort(
         key=lambda item: (item.changed_lines, item.added, item.commits, item.name.lower()),
+        reverse=True,
+    )
+    return filtered
+
+
+def build_core_contributors_list(stats: dict[str, ContributorStats]) -> list[ContributorStats]:
+    """Core repos only, sorted by core_changed_lines descending."""
+    filtered = [item for item in stats.values() if item.core_changed_lines() > 0]
+    filtered.sort(
+        key=lambda item: (item.core_changed_lines(), item.core_added(), item.commits, item.name.lower()),
         reverse=True,
     )
     return filtered
@@ -559,35 +515,121 @@ def format_contributor_name(contributor: ContributorStats) -> str:
     return f"[{contributor.name}](https://github.com/{login})"
 
 
-def build_contributor_payload(contributors: list[ContributorStats]) -> dict[str, object]:
-    snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    payload_items: list[dict[str, object]] = []
+def build_table(contributors: list[ContributorStats], *, core_only: bool = False) -> str:
+    """Build a markdown table for the given contributor list."""
+    lines = [
+        "| Rank | Contributor | Changed lines | Added / Deleted | Active repos |",
+        "| --- | --- | ---: | ---: | ---: |",
+    ]
     for rank, contributor in enumerate(contributors, start=1):
-        login = GITHUB_LOGIN_BY_EMAIL.get(contributor.email)
-        payload_items.append(
-            {
+        if core_only:
+            changed = contributor.core_changed_lines()
+            added = contributor.core_added()
+            deleted = contributor.core_deleted()
+            repos_count = len(contributor.core_repos())
+        else:
+            changed = contributor.changed_lines
+            added = contributor.added
+            deleted = contributor.deleted
+            repos_count = len(contributor.repos)
+        lines.append(
+            f"| {rank} | {format_contributor_name(contributor)} | "
+            f"{format_number(changed)} | "
+            f"+{format_number(added)} / -{format_number(deleted)} | {repos_count} |"
+        )
+    return "\n".join(lines)
+
+
+def build_section(
+    all_contributors: list[ContributorStats],
+    core_contributors: list[ContributorStats],
+) -> str:
+    snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    all_repo_names = ", ".join(f"`{spec['name']}`" for spec in REPO_SPECS)
+    core_repo_names = ", ".join(f"`{r}`" for r in sorted(CORE_REPOS))
+
+    lines = [
+        START_MARKER,
+        "## 贡献者排行榜",
+        "",
+        "> 身份合并规则与统计方法详见 [CONTRIBUTORS.md](../CONTRIBUTORS.md)",
+        "",
+        "### 组织全仓库",
+        "",
+        f"统计组织下 {len(REPO_SPECS)} 个仓库的 fork-only 贡献"
+        "（fork 仓库去除上游 commit，其他仓库全量计入，"
+        f"单次 commit >{MAX_COMMIT_LINES // 1000}k 行视为批量导入排除），"
+        f"快照 `{snapshot_date}`。",
+        "",
+        build_table(all_contributors, core_only=False),
+        "",
+        "---",
+        "",
+        "### 核心性能仓库",
+        "",
+        f"仅统计直接影响推理性能的 {len(CORE_REPOS)} 个核心仓库"
+        f"（{core_repo_names}），"
+        f"排除所有上游/初始代码，快照 `{snapshot_date}`。",
+        "",
+        build_table(core_contributors, core_only=True),
+        "",
+        END_MARKER,
+    ]
+    return "\n".join(lines)
+
+
+def build_contributor_payload(
+    all_contributors: list[ContributorStats],
+    core_contributors: list[ContributorStats],
+) -> dict:
+    snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    def _items(contributors: list[ContributorStats], core_only: bool) -> list[dict]:
+        items = []
+        for rank, c in enumerate(contributors, start=1):
+            login = GITHUB_LOGIN_BY_EMAIL.get(c.email)
+            if core_only:
+                changed = c.core_changed_lines()
+                added = c.core_added()
+                deleted = c.core_deleted()
+                repos = sorted(c.core_repos())
+            else:
+                changed = c.changed_lines
+                added = c.added
+                deleted = c.deleted
+                repos = sorted(c.repos)
+            items.append({
                 "rank": rank,
-                "name": contributor.name,
+                "name": c.name,
                 "github_login": login,
                 "github_url": f"https://github.com/{login}" if login else None,
-                "changed_lines": contributor.changed_lines,
-                "added": contributor.added,
-                "deleted": contributor.deleted,
-                "active_repos": len(contributor.repos),
-                "repos": sorted(contributor.repos),
-            }
-        )
+                "changed_lines": changed,
+                "added": added,
+                "deleted": deleted,
+                "active_repos": len(repos),
+                "repos": repos,
+            })
+        return items
+
     return {
         "updated_at": snapshot_date,
-        "scope_repos": [repo_spec["name"] for repo_spec in REPO_SPECS],
-        "contributors": payload_items,
+        "all_repos": {
+            "scope_repos": [spec["name"] for spec in REPO_SPECS],
+            "contributors": _items(all_contributors, core_only=False),
+        },
+        "core_repos": {
+            "scope_repos": sorted(CORE_REPOS),
+            "contributors": _items(core_contributors, core_only=True),
+        },
     }
 
 
 def sync_org_profile_contributor_data(
-    repo_root: Path, contributors: list[ContributorStats]
+    repo_root: Path,
+    all_contributors: list[ContributorStats],
+    core_contributors: list[ContributorStats],
 ) -> None:
-    payload = build_contributor_payload(contributors)
+    payload = build_contributor_payload(all_contributors, core_contributors)
     data_path = repo_root / "profile" / "core_contributors.json"
     data_path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
@@ -595,48 +637,19 @@ def sync_org_profile_contributor_data(
     )
 
 
-def sync_website_contributor_data(workspace_root: Path | None, contributors: list[ContributorStats]) -> None:
+def sync_website_contributor_data(
+    workspace_root: Path | None,
+    all_contributors: list[ContributorStats],
+    core_contributors: list[ContributorStats],
+) -> None:
     if workspace_root is None:
         return
     website_root = workspace_root / "vllm-hust-website"
     if not (website_root / ".git").exists():
         return
     data_path = website_root / "data" / "core_contributors.json"
-    payload = build_contributor_payload(contributors)
+    payload = build_contributor_payload(all_contributors, core_contributors)
     data_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
-
-def build_section(contributors: list[ContributorStats]) -> str:
-    snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    lines = [
-        START_MARKER,
-        "## 核心贡献者排行榜",
-        "",
-        "下面的榜单展示 `vLLM-HUST` 主要仓库里持续推动组织工程演进的核心贡献者，方便新成员快速了解当前的主要维护力量分布。",
-        "",
-        "说明：",
-        "",
-        "- 统计范围：`vllm-hust`、`vllm-ascend-hust`、`vllm-hust-benchmark`、`vllm-ascend-quant-hust`、`vllm-hust-dev-hub`、`vllm-hust-docs`、`vllm-hust-website`、`vllm-hust-workstation`、`vllm-hust-perf-analyzer`",
-        "- fork 去上游：`vllm-hust` 与 `vllm-ascend-hust` 仍以官方上游为参照，但统计时优先按主线首父链上的 PR merge 净 diff 归因给 PR 作者；纯同步上游的 merge 与 main2main / upgrade / sync 型提交不计入榜单",
-        "- 统计方式：fork 仓库按 PR merge 的净变更量统计，其他仓库按 `git log --numstat` 聚合；统一指标为 `added + deleted`；直接提交到主线的 author identity 仍按本仓库 `.mailmap` 合并",
-        "- 展示规则：排除 bot 账号，列出在至少 1 个主要仓库里有提交的全部贡献者",
-        f"- 快照时间：`{snapshot_date}`",
-        "",
-        "| Rank | Contributor | Changed lines | Added / Deleted | Active repos |",
-        "| --- | --- | ---: | ---: | ---: |",
-    ]
-    for rank, contributor in enumerate(contributors, start=1):
-        lines.append(
-            f"| {rank} | {format_contributor_name(contributor)} | {format_number(contributor.changed_lines)} | "
-            f"{format_number(contributor.added)} / {format_number(contributor.deleted)} | {len(contributor.repos)} |"
-        )
-    lines.extend(
-        [
-            "",
-            END_MARKER,
-        ]
-    )
-    return "\n".join(lines)
 
 
 def replace_section(readme_path: Path, new_section: str) -> None:
@@ -648,10 +661,11 @@ def replace_section(readme_path: Path, new_section: str) -> None:
     if pattern.search(content):
         updated = pattern.sub(new_section, content)
     else:
-        heading_pattern = re.compile(r"^## 核心贡献者排行榜\n.*?(?=^## )", flags=re.DOTALL | re.MULTILINE)
-        if not heading_pattern.search(content):
+        heading_pattern = re.compile(r"^## 贡献者排行榜\n.*?(?=^## )", flags=re.DOTALL | re.MULTILINE)
+        if heading_pattern.search(content):
+            updated = heading_pattern.sub(new_section + "\n\n", content)
+        else:
             raise RuntimeError("Could not find contributor leaderboard section to replace")
-        updated = heading_pattern.sub(new_section + "\n\n", content)
     readme_path.write_text(updated, encoding="utf-8")
 
 
@@ -663,21 +677,52 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional local workspace root containing sibling repository checkouts",
     )
+    parser.add_argument(
+        "--ci",
+        action="store_true",
+        default=False,
+        help="CI mode: convert SSH git URLs to HTTPS for token-based auth",
+    )
     return parser.parse_args()
+
+
+def convert_urls_to_https() -> None:
+    """Convert all SSH URLs in REPO_SPECS to HTTPS for CI environments."""
+    for spec in REPO_SPECS:
+        url = spec["url"]
+        if url.startswith("git@github.com:"):
+            spec["url"] = url.replace("git@github.com:", "https://github.com/")
+        if "upstream" in spec:
+            upstream_url = spec["upstream"]
+            if upstream_url.startswith("git@github.com:"):
+                spec["upstream"] = upstream_url.replace("git@github.com:", "https://github.com/")
 
 
 def main() -> None:
     args = parse_args()
+
+    if args.ci:
+        convert_urls_to_https()
+
     repo_root = Path(__file__).resolve().parents[1]
     workspace_root = args.workspace_root
     if workspace_root is None:
         candidate = repo_root.parent
         workspace_root = candidate if (candidate / "vllm-hust").exists() else None
 
-    contributors = collect_stats(repo_root, workspace_root)
-    sync_org_profile_contributor_data(repo_root, contributors)
-    replace_section(repo_root / "profile" / "README.md", build_section(contributors))
-    sync_website_contributor_data(workspace_root, contributors)
+    stats = collect_stats(repo_root, workspace_root)
+    all_contributors = build_all_contributors_list(stats)
+    core_contributors = build_core_contributors_list(stats)
+
+    sync_org_profile_contributor_data(repo_root, all_contributors, core_contributors)
+    replace_section(
+        repo_root / "profile" / "README.md",
+        build_section(all_contributors, core_contributors),
+    )
+    sync_website_contributor_data(workspace_root, all_contributors, core_contributors)
+
+    print(f"Updated leaderboard: {len(all_contributors)} contributors (all), "
+          f"{len(core_contributors)} contributors (core)")
 
 
 if __name__ == "__main__":

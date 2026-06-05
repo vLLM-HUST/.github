@@ -20,10 +20,17 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Configure git for token auth
+        run: |
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
       - name: Update leaderboard
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/update_contributor_leaderboard.py
+        run: python scripts/update_contributor_leaderboard.py --ci
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
@@ -32,5 +39,9 @@ jobs:
           commit-message: 'docs: refresh contributor leaderboard'
           title: 'docs: refresh contributor leaderboard'
           body: |
-            Automated update of the organization contributor leaderboard.
+            Automated weekly update of the organization contributor leaderboard.
+
+            Changes:
+            - Refreshed all-repos and core-repos leaderboard tables
+            - Updated `profile/core_contributors.json` data export
           delete-branch: true
