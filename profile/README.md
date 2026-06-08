@@ -19,6 +19,8 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 - Research app: [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)
 - Community defaults: [.github](https://github.com/vLLM-HUST/.github)
 - Pages entry: [vllm-hust.github.io](https://github.com/vLLM-HUST/vllm-hust.github.io)
+- Paper (CCCF): [cccf-domestic-inference-engine-survey](https://github.com/vLLM-HUST/cccf-domestic-inference-engine-survey)
+- Paper (FCS): [fcs-domestic-chip-llm-recsys](https://github.com/vLLM-HUST/fcs-domestic-chip-llm-recsys)
 
 ## Fork Status
 
@@ -179,6 +181,8 @@ flowchart TD
 | `EvoScientist` | higher-level research agent product | `vllm-hust` APIs and tools, trace → benchmark |
 | `.github` | org-level community health defaults | shared issue templates, PR template, security policy |
 | `vllm-hust.github.io` | Pages entry and site handoff repo | website publishing and org-facing landing path |
+| `cccf-domestic-inference-engine-survey` | CCCF survey paper on domestic inference engines | org research output, LaTeX writing |
+| `fcs-domestic-chip-llm-recsys` | FCS paper on LLM-RecSys on domestic chips | org research output, LaTeX writing |
 
 ### 核心运行时
 
@@ -226,6 +230,25 @@ flowchart TD
 
 - [vllm-hust.github.io](https://github.com/vLLM-HUST/vllm-hust.github.io)
   GitHub Pages 入口仓库，用于承接组织级页面发布路径和静态站点入口配置。
+
+### 研究与论文
+
+- [cccf-domestic-inference-engine-survey](https://github.com/vLLM-HUST/cccf-domestic-inference-engine-survey)
+  CCCF 通讯专刊文章《国产算力推理引擎综述》，基于 ctexart 的中文 LaTeX 稿件。
+
+- [fcs-domestic-chip-llm-recsys](https://github.com/vLLM-HUST/fcs-domestic-chip-llm-recsys)
+  FCS 期刊论文 *LLM-Powered Recommendation Systems on Domestic AI Chips*，研究国产芯片上大模型推荐系统的系统协同设计。
+
+## 相关论文 / Publications
+
+本组织围绕国产算力大模型推理的系统研究产出，相关论文仓库统一托管在组织下：
+
+| Paper | Venue | Repository | Status |
+| --- | --- | --- | --- |
+| 国产算力推理引擎综述 | CCCF 通讯专刊 | [cccf-domestic-inference-engine-survey](https://github.com/vLLM-HUST/cccf-domestic-inference-engine-survey) | Writing |
+| LLM-Powered Recommendation Systems on Domestic AI Chips | Frontiers of Computer Science (FCS) | [fcs-domestic-chip-llm-recsys](https://github.com/vLLM-HUST/fcs-domestic-chip-llm-recsys) | Planning |
+
+---
 
 ## 推荐理解顺序
 
