@@ -9,8 +9,10 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 - Core runtime: [vllm-hust](https://github.com/vLLM-HUST/vllm-hust)
 - Ascend plugin: [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)
 - Ascend quantization: [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust)
+- Triton Ascend: [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust)
 - Runtime manager: [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
 - Dev workspace: [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
+- Claude Code: [claude-code-hust](https://github.com/vLLM-HUST/claude-code-hust)
 - Benchmark wrapper: [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)
 - Performance analyzer: [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer)
 - Website: [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)
@@ -26,34 +28,34 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 
 组织两个核心 fork 仓库持续吸收上游 commit 并叠加自研改动，版本号由「对齐的上游版本 + fork 额外提交数」自动生成。
 
-> Snapshot: `2026-06-05`
+> Snapshot: `2026-06-12`
 
 | Repository | Upstream aligned to | Fork-only commits | Net insertions | Key areas |
 | --- | --- | ---: | ---: | --- |
-| `vllm-hust` | **v0.20.1rc0** (vllm) | 288 | +16,241 | unified comm, perf patches, Ascend CI, structured output, attention |
-| `vllm-ascend-hust` | **v0.19.1rc1** (vllm-ascend) | 210 | +17,399 | EPLB scheduling, model_runner perf, kv-transfer, aclgraph, CI/benchmark |
+| `vllm-hust` | **v0.20.1rc0** (vllm) | 315 | +17,500 | unified comm, perf patches, Ascend CI, structured output, attention |
+| `vllm-ascend-hust` | **v0.19.1rc1** (vllm-ascend) | 224 | +18,400 | EPLB scheduling, model_runner perf, kv-transfer, aclgraph, CI/benchmark |
 
 ### vllm-hust 改动分类
 
 | Category | Commits | Highlights |
 | --- | ---: | --- |
-| Performance | 10 | kv-cache fit skip, logprobs materialization, pooling tolist, async sampling, v1 hot paths |
-| Features | 6 | unified_comm abstraction + GroupCoordinator integration, attention CPU mirrors, kv scale batch, structured output cache metrics |
-| Engine fixes | 39 | whisper staged token, encoder-decoder beam reuse, structured output compilation, attention split |
-| CI / DevOps | 74 | Ascend benchmark infra, pre-commit hardening, versioning metadata |
-| Tests | 3 | worker, attention, structured output coverage |
-| Docs & chore | 24 | contributing guide, release policy, dep alignment |
+| Performance | 12 | kv-cache fit skip, logprobs materialization, pooling tolist, async sampling, v1 hot paths, attention vectorize |
+| Features | 8 | unified_comm abstraction + GroupCoordinator integration, attention CPU mirrors, kv scale batch, structured output cache metrics |
+| Engine fixes | 45 | whisper staged token, encoder-decoder beam reuse, structured output compilation, attention split, dispatch token |
+| CI / DevOps | 82 | Ascend benchmark infra, pre-commit hardening, versioning metadata, cross-repo dispatch |
+| Tests | 6 | worker, attention, structured output coverage |
+| Docs & chore | 28 | contributing guide, release policy, dep alignment |
 
 ### vllm-ascend-hust 改动分类
 
 | Category | Commits | Highlights |
 | --- | ---: | --- |
-| Performance | 4 | EPLB control-plane overhead, DP metadata sync buffer reuse, oproj all_to_all recv reuse, kv-transfer debug guard |
-| Features | 4 | unified preempt victim selector (BidKV utility), aclgraph operator optimization, same-spec benchmark, local Ascend helpers |
-| Engine fixes | 34 | speculative decoding fallback, slot mapping, runtime visibility, sampling op guard |
-| CI / DevOps | 102 | benchmark root helper, sudo entrypoint, leaderboard snapshot, PR smart test |
-| Tests | 2 | EPLB policy, attention |
-| Docs & chore | 17 | speculative decoding limitations, changelog, versioning policy |
+| Performance | 6 | EPLB control-plane overhead, DP metadata sync buffer reuse, oproj all_to_all recv reuse, kv-transfer debug guard |
+| Features | 6 | unified preempt victim selector (BidKV utility), aclgraph operator optimization, same-spec benchmark, local Ascend helpers |
+| Engine fixes | 38 | speculative decoding fallback, slot mapping, runtime visibility, sampling op guard |
+| CI / DevOps | 110 | benchmark root helper, sudo entrypoint, leaderboard snapshot, PR smart test, cross-repo dispatch |
+| Tests | 4 | EPLB policy, attention |
+| Docs & chore | 20 | speculative decoding limitations, changelog, versioning policy |
 
 ### 版本号格式
 
@@ -61,7 +63,7 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 {upstream_version}.post1.dev{fork_commits}+g{short_sha}
 ```
 
-例如 `vllm-hust` 当前版本为 `0.20.1.post1.dev288+g2206f1f7b`，表示：对齐上游 `v0.20.1rc0`，在此之上有 288 个 fork 独有提交。
+例如 `vllm-hust` 当前版本为 `0.20.1.post1.dev315+g2206f1f7b`，表示：对齐上游 `v0.20.1rc0`，在此之上有 315 个 fork 独有提交。
 
 ---
 
@@ -89,7 +91,7 @@ In practice, the organization concentrates on four goals:
 
 ### 组织全仓库
 
-统计组织下 10 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-06-05`。
+统计组织下 12 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-06-12`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
@@ -109,7 +111,7 @@ In practice, the organization concentrates on four goals:
 
 ### 核心性能仓库
 
-仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-06-05`。
+仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-06-12`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
@@ -127,8 +129,10 @@ flowchart TD
     A[vllm-hust\n核心运行时与 OpenAI 兼容服务]
     B[vllm-ascend-hust\nAscend 硬件插件]
     C[vllm-ascend-quant-hust\nAscend 量化与压缩]
+    N[triton-ascend-hust\nTriton Ascend 编译后端]
     D[ascend-runtime-manager\nAscend 运行时诊断与修复]
     E[vllm-hust-dev-hub\n多仓开发工作区与 quickstart]
+    O[claude-code-hust\nAI 辅助开发工具与适配器]
     F[vllm-hust-benchmark\nBenchmark 编排与结果导出]
     G[vllm-hust-website\n官网与 Leaderboard 展示]
     H[vllm-hust-workstation\n本地/私有化 Web 工作台]
@@ -140,12 +144,15 @@ flowchart TD
 
     B --> A
     C --> B
+    N --> B
     D --> A
     E --> A
     E --> B
     E --> C
     E --> D
     E --> M
+    E --> N
+    O --> E
     F --> A
     F --> G
     H --> A
@@ -171,7 +178,9 @@ flowchart TD
 | `vllm-hust` | core inference runtime and serving fork | upstream `vllm`, benchmark, workstation, plugin |
 | `vllm-ascend-hust` | Ascend hardware plugin | `vllm-hust`, upstream `vllm-ascend` |
 | `vllm-ascend-quant-hust` | post-training quantization tooling for Ascend NPUs | `vllm-ascend-hust`, Ascend/CANN quantization stack |
+| `triton-ascend-hust` | Triton compiler backend for Ascend NPUs | `vllm-ascend-hust`, Ascend/CANN compiler stack |
 | `ascend-runtime-manager` | runtime repair and deployment tooling | `vllm-hust`, `vllm-ascend-hust` |
+| `claude-code-hust` | AI-assisted development tooling and adapters | `vllm-hust-dev-hub`, Claude Code integration |
 | `vllm-hust-dev-hub` | multi-repo workspace and bootstrap | all local sibling repos |
 | `vllm-hust-benchmark` | benchmark orchestration and export | `vllm-hust`, `vllm-hust-website`, `EvoScientist` workload traces |
 | `vllm-hust-perf-analyzer` | TraceLoom offline profiler timeline analysis | `vllm-hust`, `vllm-ascend-hust`, profiler outputs |
@@ -198,10 +207,16 @@ flowchart TD
 - [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
   独立的 Ascend 运行时修复与诊断工具，负责环境探测、容器化部署、依赖修复与 Python 栈对齐。
 
+- [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust)
+  Triton 编译器的 Ascend 后端，为 Ascend NPU 提供自定义 kernel 编译支持，服务于 `vllm-ascend-hust` 的高性能算子需求。
+
 ### 工程与开发体验
 
 - [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
   多仓开发入口，提供 VS Code workspace、quickstart、clone 脚本与自托管 CI 相关工具。
+
+- [claude-code-hust](https://github.com/vLLM-HUST/claude-code-hust)
+  AI 辅助开发工具与适配器仓库，包含 Claude Code 集成、自定义 MCP 服务与开发效率插件。
 
 - [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
   组织级文档仓库，用于放置部署手册、兼容性说明、上游同步记录和团队操作指南。
@@ -255,16 +270,16 @@ flowchart TD
 如果你第一次进入 `vLLM-HUST` 组织，推荐按这个顺序理解：
 
 1. 从 [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) 开始，理解核心运行时与服务接口。
-2. 如果你关注 Ascend 或国产硬件，再看 [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)、[ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) 与 [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust)。
-3. 如果你要搭本地开发环境，直接使用 [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)。
+2. 如果你关注 Ascend 或国产硬件，再看 [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)、[triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust)、[ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) 与 [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust)。
+3. 如果你要搭本地开发环境，直接使用 [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)，并配合 [claude-code-hust](https://github.com/vLLM-HUST/claude-code-hust) 启用 AI 辅助开发。
 4. 如果你要做结果展示、性能验证或 profiler 分析，再看 [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)、[vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) 与 [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)。
 5. 如果你关注最终用户体验或上层应用，再看 [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) 与 [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)。
 
 For English-speaking contributors, the same reading order applies:
 
 1. Start with `vllm-hust` for the runtime and serving surface.
-2. Move to `vllm-ascend-hust`, `ascend-runtime-manager`, and `vllm-ascend-quant-hust` for Ascend-specific support.
-3. Use `vllm-hust-dev-hub` for the intended multi-repo development workflow.
+2. Move to `vllm-ascend-hust`, `triton-ascend-hust`, `ascend-runtime-manager`, and `vllm-ascend-quant-hust` for Ascend-specific support.
+3. Use `vllm-hust-dev-hub` for the intended multi-repo development workflow, and `claude-code-hust` for AI-assisted tooling.
 4. Read `vllm-hust-benchmark`, `vllm-hust-perf-analyzer`, and `vllm-hust-website` for validation, profiler analysis, and result publication.
 5. Finish with `vllm-hust-workstation` and `EvoScientist` for user-facing and research-facing applications.
 
@@ -281,9 +296,10 @@ For English-speaking contributors, the same reading order applies:
 ## 开始贡献
 
 - 想要改运行时或服务链路：从 [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) 开始
-- 想要改 Ascend 支持：从 [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) 和 [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) 开始
+- 想要改 Ascend 支持：从 [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)、[triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust) 和 [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) 开始
 - 想要改量化或 profiler 分析：从 [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust) 和 [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) 开始
 - 想要快速拉起完整开发环境：使用 [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
+- 想要配置 AI 辅助开发流程：前往 [claude-code-hust](https://github.com/vLLM-HUST/claude-code-hust)
 - 想要补文档、操作流程、同步记录：前往 [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
 
 欢迎通过 issue、pull request 和 benchmark / deployment 反馈一起完善这个组织。
