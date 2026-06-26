@@ -1,0 +1,1078 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-06-26",
+  "people": {
+    "aly16-k": {
+      "display_name": "aly16-k",
+      "english_name": "",
+      "github_login": "aly16-k",
+      "github_url": "https://github.com/aly16-k",
+      "emails": [
+        "1427850140k@gmail.com",
+        "aly16-k@users.noreply.github.com"
+      ],
+      "git_names": [
+        "aly16-k",
+        "vllm-hust-quantization"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members",
+        "core_contributors",
+        "mailmap",
+        "leaderboard_script"
+      ],
+      "notes": "No confirmed real-name display yet; existing leaderboard uses GitHub login."
+    },
+    "Amber1qq": {
+      "display_name": "Amber1qq",
+      "english_name": "",
+      "github_login": "Amber1qq",
+      "github_url": "https://github.com/Amber1qq",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "AproAkk": {
+      "display_name": "AproAkk",
+      "english_name": "",
+      "github_login": "AproAkk",
+      "github_url": "https://github.com/AproAkk",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Chainyinghao": {
+      "display_name": "chain",
+      "english_name": "",
+      "github_login": "Chainyinghao",
+      "github_url": "https://github.com/Chainyinghao",
+      "emails": [],
+      "git_names": [
+        "chain"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "chooper26": {
+      "display_name": "chooper26",
+      "english_name": "",
+      "github_login": "chooper26",
+      "github_url": "https://github.com/chooper26",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "CubeLander": {
+      "display_name": "Jingyuan Tian",
+      "english_name": "Jingyuan Tian",
+      "github_login": "CubeLander",
+      "github_url": "https://github.com/CubeLander",
+      "emails": [
+        "cubelander@users.noreply.github.com",
+        "49518565+cubelander@users.noreply.github.com",
+        "jingyuantian@hust.edu.cn"
+      ],
+      "git_names": [
+        "Jingyuan Tian",
+        "CubeLander"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "existing_leaderboard",
+      "sources": [
+        "github_org_members",
+        "github_profile",
+        "core_contributors",
+        "mailmap",
+        "leaderboard_script"
+      ],
+      "notes": "Existing org profile leaderboard already displays this name."
+    },
+    "cybber695": {
+      "display_name": "Yanbo Chen",
+      "english_name": "Yanbo Chen",
+      "github_login": "cybber695",
+      "github_url": "https://github.com/cybber695",
+      "emails": [],
+      "git_names": [
+        "Yanbo Chen"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Fuze1111": {
+      "display_name": "FUZE",
+      "english_name": "",
+      "github_login": "Fuze1111",
+      "github_url": "https://github.com/Fuze1111",
+      "emails": [],
+      "git_names": [
+        "FUZE"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "GuMorming": {
+      "display_name": "GuMorming",
+      "english_name": "",
+      "github_login": "GuMorming",
+      "github_url": "https://github.com/GuMorming",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "healer-positive": {
+      "display_name": "He Wei",
+      "english_name": "He Wei",
+      "github_login": "healer-positive",
+      "github_url": "https://github.com/healer-positive",
+      "emails": [],
+      "git_names": [
+        "He Wei"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "hmhmhmhhh": {
+      "display_name": "hmhmhmhhh",
+      "english_name": "",
+      "github_login": "hmhmhmhhh",
+      "github_url": "https://github.com/hmhmhmhhh",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "hustcui": {
+      "display_name": "hustcui",
+      "english_name": "",
+      "github_login": "hustcui",
+      "github_url": "https://github.com/hustcui",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "husterL9": {
+      "display_name": "soldier",
+      "english_name": "",
+      "github_login": "husterL9",
+      "github_url": "https://github.com/husterL9",
+      "emails": [],
+      "git_names": [
+        "soldier"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "iliujunn": {
+      "display_name": "Lou Jun",
+      "english_name": "Lou Jun",
+      "github_login": "iliujunn",
+      "github_url": "https://github.com/iliujunn",
+      "emails": [
+        "iliujun@msn.com",
+        "iliujunn@users.noreply.github.com",
+        "99582471+irving11-bkn@users.noreply.github.com"
+      ],
+      "git_names": [
+        "Lou Jun",
+        "iliujunn",
+        "liu"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile",
+        "core_contributors",
+        "mailmap",
+        "leaderboard_script"
+      ],
+      "notes": "GitHub profile name differs from existing leaderboard login display; review before public replacement."
+    },
+    "ilnnfover": {
+      "display_name": "ilnnfover",
+      "english_name": "",
+      "github_login": "ilnnfover",
+      "github_url": "https://github.com/ilnnfover",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Jiawan23": {
+      "display_name": "Jiawan Zhang",
+      "english_name": "Jiawan Zhang",
+      "github_login": "Jiawan23",
+      "github_url": "https://github.com/Jiawan23",
+      "emails": [],
+      "git_names": [
+        "Jiawan Zhang"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "JieYang2001": {
+      "display_name": "Jie Yang",
+      "english_name": "Jie Yang",
+      "github_login": "JieYang2001",
+      "github_url": "https://github.com/JieYang2001",
+      "emails": [],
+      "git_names": [
+        "Jie Yang"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "junhuizhang-boop": {
+      "display_name": "junhuizhang-boop",
+      "english_name": "",
+      "github_login": "junhuizhang-boop",
+      "github_url": "https://github.com/junhuizhang-boop",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "jxd1111": {
+      "display_name": "jxd1111",
+      "english_name": "",
+      "github_login": "jxd1111",
+      "github_url": "https://github.com/jxd1111",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Kakoyi945": {
+      "display_name": "Kakoyi945",
+      "english_name": "",
+      "github_login": "Kakoyi945",
+      "github_url": "https://github.com/Kakoyi945",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "KimmoZAG": {
+      "display_name": "KimmoZAG",
+      "english_name": "",
+      "github_login": "KimmoZAG",
+      "github_url": "https://github.com/KimmoZAG",
+      "emails": [
+        "995496585@qq.com"
+      ],
+      "git_names": [
+        "KimmoZAG"
+      ],
+      "aliases": [],
+      "member_of_org": false,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "core_contributors",
+        "leaderboard_script"
+      ],
+      "notes": "Existing leaderboard uses GitHub login; not present in current org members page."
+    },
+    "kms12425": {
+      "display_name": "kms12425",
+      "english_name": "",
+      "github_login": "kms12425",
+      "github_url": "https://github.com/kms12425",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "kotoriqaq0": {
+      "display_name": "kotoriqaq",
+      "english_name": "",
+      "github_login": "kotoriqaq0",
+      "github_url": "https://github.com/kotoriqaq0",
+      "emails": [],
+      "git_names": [
+        "kotoriqaq"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Li-changwu": {
+      "display_name": "Changwu Li",
+      "english_name": "Changwu Li",
+      "github_login": "Li-changwu",
+      "github_url": "https://github.com/Li-changwu",
+      "emails": [],
+      "git_names": [
+        "Changwu Li"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "llxler": {
+      "display_name": "Lxler",
+      "english_name": "",
+      "github_login": "llxler",
+      "github_url": "https://github.com/llxler",
+      "emails": [],
+      "git_names": [
+        "Lxler"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "luoxiaohei": {
+      "display_name": "luoxiaohei",
+      "english_name": "",
+      "github_login": "luoxiaohei",
+      "github_url": "https://github.com/luoxiaohei",
+      "emails": [
+        "luoxiaohei@ppio.com"
+      ],
+      "git_names": [
+        "luoxiaohei"
+      ],
+      "aliases": [],
+      "member_of_org": false,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "leaderboard_script"
+      ],
+      "notes": "Present in historical email-to-login mapping; not present in current org members page."
+    },
+    "machuanhu": {
+      "display_name": "machuanhu",
+      "english_name": "",
+      "github_login": "machuanhu",
+      "github_url": "https://github.com/machuanhu",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "mhyzb117": {
+      "display_name": "mhyzb117",
+      "english_name": "",
+      "github_login": "mhyzb117",
+      "github_url": "https://github.com/mhyzb117",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "MingqiWang-coder": {
+      "display_name": "MingqiWang-coder",
+      "english_name": "",
+      "github_login": "MingqiWang-coder",
+      "github_url": "https://github.com/MingqiWang-coder",
+      "emails": [
+        "mingqiwang@hust.edu.cn",
+        "15751853706@163.com",
+        "mingqiwang-coder@users.noreply.github.com"
+      ],
+      "git_names": [
+        "MingqiWang-coder"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members",
+        "core_contributors",
+        "mailmap",
+        "leaderboard_script"
+      ],
+      "notes": "No confirmed real-name display yet; existing leaderboard uses GitHub login."
+    },
+    "Miracle0x0": {
+      "display_name": "Junyi Zhang",
+      "english_name": "Junyi Zhang",
+      "github_login": "Miracle0x0",
+      "github_url": "https://github.com/Miracle0x0",
+      "emails": [],
+      "git_names": [
+        "Junyi Zhang"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "moonandlife": {
+      "display_name": "Sheng Wang",
+      "english_name": "Sheng Wang",
+      "github_login": "moonandlife",
+      "github_url": "https://github.com/moonandlife",
+      "emails": [
+        "moonandlife@qq.com",
+        "moonandlife@users.noreply.github.com",
+        "jeffrey.wangsheng@huawei.com"
+      ],
+      "git_names": [
+        "Jeffrey Wang",
+        "moonandlife",
+        "Sheng Wang",
+        "Jeffrey"
+      ],
+      "aliases": [
+        "Jeffrey Wang"
+      ],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "existing_leaderboard",
+      "sources": [
+        "github_org_members",
+        "github_profile",
+        "core_contributors",
+        "mailmap",
+        "leaderboard_script"
+      ],
+      "notes": "Existing org profile leaderboard already displays Sheng Wang; GitHub profile currently shows Jeffrey Wang."
+    },
+    "peter17-17": {
+      "display_name": "peter17-17",
+      "english_name": "",
+      "github_login": "peter17-17",
+      "github_url": "https://github.com/peter17-17",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Pulved": {
+      "display_name": "Pulved",
+      "english_name": "",
+      "github_login": "Pulved",
+      "github_url": "https://github.com/Pulved",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Pygone": {
+      "display_name": "Xincai Zhu",
+      "english_name": "Xincai Zhu",
+      "github_login": "Pygone",
+      "github_url": "https://github.com/Pygone",
+      "emails": [
+        "pygonebe@outlook.com"
+      ],
+      "git_names": [
+        "Xincai Zhu",
+        "Pygone",
+        "pygone"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile",
+        "core_contributors",
+        "leaderboard_script"
+      ],
+      "notes": "GitHub profile name is available, but existing leaderboard uses pygone; review before public replacement."
+    },
+    "qingfengyuhuoda": {
+      "display_name": "qingfengyuhuoda",
+      "english_name": "",
+      "github_login": "qingfengyuhuoda",
+      "github_url": "https://github.com/qingfengyuhuoda",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "QixinZhang26": {
+      "display_name": "张启昕",
+      "english_name": "",
+      "github_login": "QixinZhang26",
+      "github_url": "https://github.com/QixinZhang26",
+      "emails": [],
+      "git_names": [
+        "张启昕"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "qixinzhang2601": {
+      "display_name": "qixinzhang2601",
+      "english_name": "",
+      "github_login": "qixinzhang2601",
+      "github_url": "https://github.com/qixinzhang2601",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Raing5Days": {
+      "display_name": "Raing5Days",
+      "english_name": "",
+      "github_login": "Raing5Days",
+      "github_url": "https://github.com/Raing5Days",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Remygred": {
+      "display_name": "Remygred",
+      "english_name": "",
+      "github_login": "Remygred",
+      "github_url": "https://github.com/Remygred",
+      "emails": [
+        "153624059+remygred@users.noreply.github.com",
+        "2779387088@qq.com"
+      ],
+      "git_names": [
+        "Remygred",
+        "Remby Lis"
+      ],
+      "aliases": [],
+      "member_of_org": false,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "core_contributors",
+        "mailmap",
+        "leaderboard_script"
+      ],
+      "notes": "Existing leaderboard uses GitHub login; not present in current org members page."
+    },
+    "Renty-0": {
+      "display_name": "Renty-0",
+      "english_name": "",
+      "github_login": "Renty-0",
+      "github_url": "https://github.com/Renty-0",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "rkluohust": {
+      "display_name": "rkluo",
+      "english_name": "",
+      "github_login": "rkluohust",
+      "github_url": "https://github.com/rkluohust",
+      "emails": [],
+      "git_names": [
+        "rkluo"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "sad-and-bad1231": {
+      "display_name": "MingXuan Kuang",
+      "english_name": "MingXuan Kuang",
+      "github_login": "sad-and-bad1231",
+      "github_url": "https://github.com/sad-and-bad1231",
+      "emails": [
+        "1648910756@qq.com"
+      ],
+      "git_names": [
+        "MingXuan Kuang"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile",
+        "mailmap",
+        "core_contributors"
+      ],
+      "notes": "GitHub profile name matches an unlinked core_contributors entry; confirm identity before using as canonical mapping."
+    },
+    "Seas0": {
+      "display_name": "Seas0",
+      "english_name": "",
+      "github_login": "Seas0",
+      "github_url": "https://github.com/Seas0",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "ShuhaoZhangTony": {
+      "display_name": "Shuhao Zhang",
+      "english_name": "Shuhao Zhang",
+      "github_login": "ShuhaoZhangTony",
+      "github_url": "https://github.com/ShuhaoZhangTony",
+      "emails": [
+        "shuhao_zhang@hust.edu.cn",
+        "shuhao@example.com",
+        "shuhao@vllm-hust.org",
+        "shuhaozhangtony@users.noreply.github.com",
+        "sage@hust.edu.cn",
+        "tony_zhang@live.com.sg",
+        "my@example.com",
+        "team@intellistream.org"
+      ],
+      "git_names": [
+        "Shuhao Zhang (Tony)",
+        "Shuhao",
+        "shuhao",
+        "shuhao zhang",
+        "Shuhao Zhang",
+        "ShuhaoZhangTony",
+        "Sage",
+        "chooper26",
+        "my",
+        "IntelliStream",
+        "GitHub Copilot"
+      ],
+      "aliases": [
+        "chooper26"
+      ],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "existing_leaderboard",
+      "sources": [
+        "github_org_members",
+        "github_profile",
+        "core_contributors",
+        "mailmap",
+        "leaderboard_script"
+      ],
+      "notes": "Existing org profile leaderboard already displays this name. Alias chooper26 comes from .mailmap and should be reviewed before account-level merging."
+    },
+    "Summerflower5": {
+      "display_name": "Summerflower5",
+      "english_name": "",
+      "github_login": "Summerflower5",
+      "github_url": "https://github.com/Summerflower5",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Tkhkrnx": {
+      "display_name": "Pharos Peng",
+      "english_name": "Pharos Peng",
+      "github_login": "Tkhkrnx",
+      "github_url": "https://github.com/Tkhkrnx",
+      "emails": [],
+      "git_names": [
+        "Pharos Peng"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "vincentl3836": {
+      "display_name": "Vincent Chiu",
+      "english_name": "Vincent Chiu",
+      "github_login": "vincentl3836",
+      "github_url": "https://github.com/vincentl3836",
+      "emails": [],
+      "git_names": [
+        "Vincent Chiu"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "vllm-hust-ci-bot": {
+      "display_name": "vllm-hust-ci-bot",
+      "english_name": "",
+      "github_login": "vllm-hust-ci-bot",
+      "github_url": "https://github.com/vllm-hust-ci-bot",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "WMASTER123": {
+      "display_name": "MASTER",
+      "english_name": "",
+      "github_login": "WMASTER123",
+      "github_url": "https://github.com/WMASTER123",
+      "emails": [],
+      "git_names": [
+        "MASTER"
+      ],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_org_members",
+        "github_profile"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "XilingGao": {
+      "display_name": "Xiling Gao",
+      "english_name": "Xiling Gao",
+      "github_login": "XilingGao",
+      "github_url": "https://github.com/XilingGao",
+      "emails": [
+        "gxl20040702@gmail.com"
+      ],
+      "git_names": [
+        "Xiling Gao",
+        "XilingGao"
+      ],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "existing_leaderboard",
+      "sources": [
+        "core_contributors",
+        "leaderboard_script"
+      ],
+      "notes": "Existing org profile leaderboard already displays this name; not present in current org members page."
+    },
+    "XinYanLi-0725": {
+      "display_name": "XinYanLi-0725",
+      "english_name": "",
+      "github_login": "XinYanLi-0725",
+      "github_url": "https://github.com/XinYanLi-0725",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "xmdhb": {
+      "display_name": "xmdhb",
+      "english_name": "",
+      "github_login": "xmdhb",
+      "github_url": "https://github.com/xmdhb",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "Yushuo-star": {
+      "display_name": "Yushuo-star",
+      "english_name": "",
+      "github_login": "Yushuo-star",
+      "github_url": "https://github.com/Yushuo-star",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": false,
+      "needs_review": true,
+      "display_name_source": "github_login",
+      "sources": [
+        "github_org_members"
+      ],
+      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    }
+  }
+}
