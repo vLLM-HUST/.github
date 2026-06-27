@@ -373,8 +373,14 @@
       "english_name": "",
       "github_login": "junhuizhang-boop",
       "github_url": "https://github.com/junhuizhang-boop",
-      "emails": [],
-      "git_names": [],
+      "emails": [
+        "junhui.zhang@novita.ai",
+        "junhuizhang-boop@users.noreply.github.com"
+      ],
+      "git_names": [
+        "junhuizhang-boop",
+        "张俊辉"
+      ],
       "aliases": [],
       "member_of_org": true,
       "public": true,
@@ -554,8 +560,14 @@
       "english_name": "",
       "github_login": "machuanhu",
       "github_url": "https://github.com/machuanhu",
-      "emails": [],
-      "git_names": [],
+      "emails": [
+        "1748771273@qq.com",
+        "52109545+machuanhu@users.noreply.github.com",
+        "machuanhu@users.noreply.github.com"
+      ],
+      "git_names": [
+        "machuanhu"
+      ],
       "aliases": [],
       "member_of_org": true,
       "public": false,
@@ -1046,9 +1058,13 @@
       "english_name": "",
       "github_login": "WMASTER123",
       "github_url": "https://github.com/WMASTER123",
-      "emails": [],
+      "emails": [
+        "2218857051@qq.com",
+        "wmaster123@users.noreply.github.com"
+      ],
       "git_names": [
-        "MASTER"
+        "MASTER",
+        "WMASTER123"
       ],
       "aliases": [],
       "member_of_org": true,
