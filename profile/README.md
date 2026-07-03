@@ -194,7 +194,7 @@ flowchart TD
 | `vllm-hust` | core inference runtime and serving fork | upstream `vllm`, benchmark, workstation, plugin |
 | `vllm-ascend-hust` | Ascend hardware plugin | `vllm-hust`, upstream `vllm-ascend` |
 | `vllm-ascend-quant-hust` | post-training quantization tooling for Ascend NPUs | `vllm-ascend-hust`, Ascend/CANN quantization stack |
-| `triton-ascend-hust` | Triton compiler backend for Ascend NPUs | `vllm-ascend-hust`, Ascend/CANN compiler stack |
+| `triton-ascend-hust` | upstream-tracking Triton compiler backend fork for Ascend NPUs | upstream `triton-lang/triton-ascend`, `vllm-ascend-hust`, Ascend/CANN compiler stack |
 | `ascend-runtime-manager` | runtime repair and deployment tooling | `vllm-hust`, `vllm-ascend-hust` |
 | `claude-code-hust` | AI-assisted development tooling and adapters | `vllm-hust-dev-hub`, Claude Code integration |
 | `vllm-hust-dev-hub` | multi-repo workspace and bootstrap | all local sibling repos |
@@ -203,7 +203,7 @@ flowchart TD
 | `vllm-hust-website` | landing page and leaderboard snapshots | benchmark exports, workstation embeds |
 | `vllm-hust-workstation` | user-facing web console | `vllm-hust`, EvoScientist |
 | `vllm-hust-docs` | operations, sync notes, internal docs | runtime and plugin repos |
-| `EvoScientist` | higher-level research agent product | `vllm-hust` APIs and tools, trace → benchmark |
+| `EvoScientist` | upstream-tracking research agent product fork | upstream `EvoScientist/EvoScientist`, `vllm-hust` APIs and tools, trace → benchmark |
 | `.github` | org-level community health defaults | shared issue templates, PR template, security policy |
 | `vllm-hust.github.io` | Pages entry and site handoff repo | website publishing and org-facing landing path |
 | `cccf-domestic-inference-engine-survey` | CCCF survey paper on domestic inference engines | org research output, LaTeX writing |
@@ -224,7 +224,7 @@ flowchart TD
   独立的 Ascend 运行时修复与诊断工具，负责环境探测、容器化部署、依赖修复与 Python 栈对齐。
 
 - [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust)
-  Triton 编译器的 Ascend 后端，为 Ascend NPU 提供自定义 kernel 编译支持，服务于 `vllm-ascend-hust` 的高性能算子需求。
+  跟踪上游 `triton-lang/triton-ascend` 的 Triton Ascend fork，为 Ascend NPU 提供自定义 kernel 编译支持，服务于 `vllm-ascend-hust` 的高性能算子需求。
 
 ### 工程与开发体验
 
@@ -252,7 +252,7 @@ flowchart TD
   面向终端用户的 Web 工作站，提供统一推理入口、可视化控制台与 EvoScientist 嵌入能力。
 
 - [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)
-  面向科研工作流的智能体应用，可把 `vllm-hust` 作为底层推理与工具调用后端，其多智能体轨迹已回流为 `vllm-hust-benchmark` 的 agent workload 场景。
+  跟踪上游 `EvoScientist/EvoScientist` 的科研智能体应用 fork，可把 `vllm-hust` 作为底层推理与工具调用后端，其多智能体轨迹已回流为 `vllm-hust-benchmark` 的 agent workload 场景。
 
 ### 组织与发布支撑
 
@@ -305,6 +305,8 @@ For English-speaking contributors, the same reading order applies:
 
 - 上游运行时参考：`vllm-project/vllm`
 - 上游 Ascend 插件参考：`vllm-project/vllm-ascend`
+- 上游 Triton Ascend 参考：`triton-lang/triton-ascend`
+- 上游科研智能体应用参考：`EvoScientist/EvoScientist`
 - 相关比较与生态参考：`sgl-project/sglang`
 
 组织内仓库默认优先保持可维护、可同步、可验证，而不是无边界地与上游分叉。
