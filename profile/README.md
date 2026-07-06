@@ -17,6 +17,7 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 - Benchmark wrapper: [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark)
 - Performance analyzer: [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer)
 - Website: [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)
+- Workshop: [StateSys 2026](https://workshop.sage.org.ai) ([repository](https://github.com/vLLM-HUST/statesys-2026))
 - Workstation: [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation)
 - Docs: [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
 - Research app: [EvoScientist](https://github.com/vLLM-HUST/EvoScientist)
@@ -162,6 +163,7 @@ flowchart TD
 | `vllm-hust-benchmark` | benchmark orchestration and export | `vllm-hust`, `vllm-hust-website`, `EvoScientist` workload traces |
 | `vllm-hust-perf-analyzer` | TraceLoom offline profiler timeline analysis | `vllm-hust`, `vllm-ascend-hust`, profiler outputs |
 | `vllm-hust-website` | landing page and leaderboard snapshots | benchmark exports, workstation embeds |
+| `statesys-2026` | StateSys 2026 workshop website | ACM SIGOPS ATC 2026 workshop page and Cloudflare Pages deployment |
 | `vllm-hust-workstation` | user-facing web console | `vllm-hust`, EvoScientist |
 | `vllm-hust-docs` | operations, sync notes, internal docs | runtime and plugin repos |
 | `EvoScientist` | upstream-tracking research agent product fork | upstream `EvoScientist/EvoScientist`, `vllm-hust` APIs and tools, trace → benchmark |
@@ -211,6 +213,10 @@ flowchart TD
 
 - [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website)
   官网、Leaderboard 与演示入口，展示组织介绍、版本信息和 Benchmark 结果快照。
+
+- [StateSys 2026 workshop](https://workshop.sage.org.ai)
+  ACM SIGOPS ATC 2026 workshop on state management in modern parallel and distributed systems.
+  Website source: [statesys-2026](https://github.com/vLLM-HUST/statesys-2026).
 
 - [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation)
   面向终端用户的 Web 工作站，提供统一推理入口、可视化控制台与 EvoScientist 嵌入能力。
