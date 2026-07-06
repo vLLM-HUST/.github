@@ -10,7 +10,7 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 - Ascend plugin: [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)
 - BidKV scheduling: [vllm-ascend-hust-bidkv](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv)
 - Ascend quantization: [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust)
-- Triton Ascend: [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust)
+- Triton Ascend core backend: [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust)
 - Runtime manager: [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager)
 - Dev workspace: [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub)
 - Claude Code: [claude-code-hust](https://github.com/vLLM-HUST/claude-code-hust)
@@ -35,7 +35,7 @@ An upstream-compatible vLLM fork organization focused on domestic-hardware enabl
 | --- | --- | --- |
 | `vllm-hust` | tracks `vllm-project/vllm` | Ascend compatibility, Knorm hooks, plugin pooling, service health, upstream sync |
 | `vllm-ascend-hust` | tracks `vllm-project/vllm-ascend` | Ascend plugin patches, scheduling, custom kernels, NPU smoke workflow |
-| `triton-ascend-hust` | tracks `triton-lang/triton-ascend` | Triton Ascend compiler backend, kernel development |
+| `triton-ascend-hust` | tracks `triton-lang/triton-ascend` | Triton Ascend compiler backend, kernel development, current 3.5.0-line sync |
 | `EvoScientist` | tracks `EvoScientist/EvoScientist` | research-agent application, workload traces, product integration |
 
 The intended post-sync target is zero commits behind upstream:
@@ -53,7 +53,9 @@ git rev-list --left-right --count origin/main...upstream/main
 - `vllm-ascend-hust`: Ascend runtime patches, scheduling and worker behavior,
   custom-kernel integration, local NPU smoke workflow.
 - `triton-ascend-hust`: Triton Ascend compiler backend and kernel-development
-  support.
+  support. The HUST fork is aligned with the official `triton-lang/triton-ascend`
+  main branch on the 3.5.0 line and is treated as a core dependency of the
+  Ascend serving stack.
 - `EvoScientist`: research-agent application integration and workload traces
   that can feed benchmark scenarios.
 
@@ -186,7 +188,7 @@ flowchart TD
   独立的 Ascend 运行时修复与诊断工具，负责环境探测、容器化部署、依赖修复与 Python 栈对齐。
 
 - [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust)
-  跟踪上游 `triton-lang/triton-ascend` 的 Triton Ascend fork，为 Ascend NPU 提供自定义 kernel 编译支持，服务于 `vllm-ascend-hust` 的高性能算子需求。
+  跟踪上游 `triton-lang/triton-ascend` 的 Triton Ascend 核心编译后端，为 Ascend NPU 提供自定义 kernel 编译支持，服务于 `vllm-ascend-hust` 的高性能算子需求。当前 HUST fork 已对齐官方 main 的 3.5.0 线，并通过 `vllm-ascend-hust` 兼容性分支接入现有服务栈。
 
 ### 工程与开发体验
 
