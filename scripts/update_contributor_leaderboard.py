@@ -666,11 +666,124 @@ def build_section(
     return "\n".join(lines)
 
 
+@dataclass
+class PeopleIndex:
+    by_login: dict[str, dict]
+    by_email: dict[str, dict]
+    by_name: dict[str, dict]
+
+
+def normalize_lookup_value(value: str | None) -> str:
+    return str(value or "").strip().casefold()
+
+
+def load_people_index(repo_root: Path) -> PeopleIndex:
+    people_path = repo_root / "profile" / "people.json"
+    if not people_path.exists():
+        return PeopleIndex(by_login={}, by_email={}, by_name={})
+
+    payload = json.loads(people_path.read_text(encoding="utf-8"))
+    people = payload.get("people") or {}
+    by_login: dict[str, dict] = {}
+    by_email: dict[str, dict] = {}
+    by_name: dict[str, dict] = {}
+
+    for person in people.values():
+        if not isinstance(person, dict):
+            continue
+
+        login_key = normalize_lookup_value(person.get("github_login"))
+        if login_key:
+            by_login[login_key] = person
+
+        for email in person.get("emails") or []:
+            email_key = normalize_lookup_value(email)
+            if email_key:
+                by_email[email_key] = person
+
+        name_candidates = [
+            person.get("display_name"),
+            person.get("chinese_name"),
+            person.get("english_name"),
+            person.get("github_login"),
+        ]
+        name_candidates.extend(person.get("git_names") or [])
+        name_candidates.extend(person.get("aliases") or [])
+        for candidate in name_candidates:
+            name_key = normalize_lookup_value(candidate)
+            if name_key:
+                by_name.setdefault(name_key, person)
+
+    return PeopleIndex(by_login=by_login, by_email=by_email, by_name=by_name)
+
+
+def resolve_person_record(
+    people_index: PeopleIndex,
+    *,
+    login: str | None = None,
+    email: str | None = None,
+    name: str | None = None,
+) -> dict | None:
+    login_key = normalize_lookup_value(login)
+    if login_key and login_key in people_index.by_login:
+        return people_index.by_login[login_key]
+
+    email_key = normalize_lookup_value(email)
+    if email_key and email_key in people_index.by_email:
+        return people_index.by_email[email_key]
+
+    name_key = normalize_lookup_value(name)
+    if name_key and name_key in people_index.by_name:
+        return people_index.by_name[name_key]
+
+    return None
+
+
+def enrich_contributor_item(
+    item: dict,
+    people_index: PeopleIndex,
+    *,
+    contributor_email: str | None = None,
+) -> dict:
+    person = resolve_person_record(
+        people_index,
+        login=item.get("github_login"),
+        email=contributor_email,
+        name=item.get("name"),
+    )
+
+    login = str(item.get("github_login") or "").strip()
+    github_url = str(item.get("github_url") or "").strip()
+    display_name = str(item.get("name") or "").strip()
+    chinese_name = ""
+    english_name = ""
+
+    if person is not None:
+        login = str(person.get("github_login") or login).strip()
+        github_url = str(person.get("github_url") or github_url).strip()
+        chinese_name = str(person.get("chinese_name") or "").strip()
+        english_name = str(person.get("english_name") or "").strip()
+        if chinese_name:
+            display_name = chinese_name
+
+    if login and not github_url:
+        github_url = f"https://github.com/{login}"
+
+    item["github_login"] = login or None
+    item["github_url"] = github_url or None
+    item["display_name"] = display_name
+    item["chinese_name"] = chinese_name
+    item["english_name"] = english_name
+    return item
+
+
 def build_contributor_payload(
+    repo_root: Path,
     all_contributors: list[ContributorStats],
     core_contributors: list[ContributorStats],
 ) -> dict:
     snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    people_index = load_people_index(repo_root)
 
     def _items(contributors: list[ContributorStats], core_only: bool) -> list[dict]:
         items = []
@@ -686,7 +799,7 @@ def build_contributor_payload(
                 added = c.added
                 deleted = c.deleted
                 repos = sorted(c.repos)
-            items.append({
+            item = {
                 "rank": rank,
                 "name": c.name,
                 "github_login": login,
@@ -698,7 +811,8 @@ def build_contributor_payload(
                 "active_repos": len(repos),
                 "repos": repos,
                 "key_contributions": summarize_contributions(c, core_only=core_only),
-            })
+            }
+            items.append(enrich_contributor_item(item, people_index, contributor_email=c.email))
         return items
 
     return {
@@ -719,7 +833,7 @@ def sync_org_profile_contributor_data(
     all_contributors: list[ContributorStats],
     core_contributors: list[ContributorStats],
 ) -> None:
-    payload = build_contributor_payload(all_contributors, core_contributors)
+    payload = build_contributor_payload(repo_root, all_contributors, core_contributors)
     data_path = repo_root / "profile" / "core_contributors.json"
     data_path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
@@ -728,6 +842,7 @@ def sync_org_profile_contributor_data(
 
 
 def sync_website_contributor_data(
+    repo_root: Path,
     workspace_root: Path | None,
     all_contributors: list[ContributorStats],
     core_contributors: list[ContributorStats],
@@ -738,7 +853,7 @@ def sync_website_contributor_data(
     if not (website_root / ".git").exists():
         return
     data_path = website_root / "data" / "core_contributors.json"
-    payload = build_contributor_payload(all_contributors, core_contributors)
+    payload = build_contributor_payload(repo_root, all_contributors, core_contributors)
     data_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
@@ -809,7 +924,7 @@ def main() -> None:
         repo_root / "profile" / "README.md",
         build_section(all_contributors, core_contributors),
     )
-    sync_website_contributor_data(workspace_root, all_contributors, core_contributors)
+    sync_website_contributor_data(repo_root, workspace_root, all_contributors, core_contributors)
 
     print(f"Updated leaderboard: {len(all_contributors)} contributors (all), "
           f"{len(core_contributors)} contributors (core)")
