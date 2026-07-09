@@ -95,12 +95,12 @@ In practice, the organization concentrates on four goals:
 
 ### 组织全仓库
 
-统计组织下 10 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-07-08`。
+统计组织下 10 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-07-09`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 455 | 229,717 | +157,462 / -72,255 | 8 | CI/CD, leaderboard, distributed, bugfix |
-| 2 | Shuhao Zhang (Tony) | 134 | 212,121 | +145,023 / -67,098 | 4 | leaderboard, benchmark, bugfix, distributed |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 463 | 230,032 | +157,657 / -72,375 | 8 | CI/CD, leaderboard, distributed, benchmark |
+| 2 | Shuhao Zhang (Tony) | 136 | 212,903 | +145,790 / -67,113 | 4 | leaderboard, benchmark, bugfix, distributed |
 | 3 | Qoder Agent | 19 | 97,388 | +88,380 / -9,008 | 1 | benchmark, CI/CD, Ascend, distributed |
 | 4 | [Jingyuan Tian](https://github.com/CubeLander) | 39 | 59,406 | +44,686 / -14,720 | 2 | distributed, docs, Ascend, CI/CD |
 | 5 | Jingyuan Tian | 131 | 51,007 | +40,975 / -10,032 | 2 | distributed, Ascend, benchmark, bugfix |
@@ -111,10 +111,10 @@ In practice, the organization concentrates on four goals:
 | 10 | Qoder Agent | 4 | 11,474 | +1,062 / -10,412 | 1 | leaderboard, CI/CD, website |
 | 11 | qoder | 1 | 10,312 | +8,791 / -1,521 | 1 | leaderboard |
 | 12 | [KimmoZAG](https://github.com/KimmoZAG) | 6 | 6,244 | +4,759 / -1,485 | 2 | bugfix, distributed, leaderboard, maintenance |
-| 13 | [luoxiaohei](https://github.com/luoxiaohei) | 16 | 5,239 | +3,397 / -1,842 | 2 | benchmark, leaderboard, CI/CD, distributed |
+| 13 | [luoxiaohei](https://github.com/luoxiaohei) | 21 | 5,793 | +3,939 / -1,854 | 2 | benchmark, leaderboard, distributed, CI/CD |
 | 14 | GuMorming | 6 | 2,720 | +1,360 / -1,360 | 2 | benchmark |
-| 15 | [iliujunn](https://github.com/iliujunn) | 5 | 1,538 | +655 / -883 | 1 | Ascend, CI/CD, bugfix |
-| 16 | vLLM-HUST Developer | 4 | 1,310 | +1,228 / -82 | 2 | misc |
+| 15 | vLLM-HUST Developer | 5 | 1,997 | +1,785 / -212 | 2 | leaderboard |
+| 16 | [iliujunn](https://github.com/iliujunn) | 5 | 1,538 | +655 / -883 | 1 | Ascend, CI/CD, bugfix |
 | 17 | sunYangGitHub | 1 | 1,089 | +1,087 / -2 | 1 | tooling |
 | 18 | luoxiaohei | 7 | 943 | +850 / -93 | 1 | benchmark, distributed |
 | 19 | [aly16-k](https://github.com/aly16-k) | 3 | 437 | +437 / -0 | 1 | misc |
@@ -127,11 +127,11 @@ In practice, the organization concentrates on four goals:
 
 ### 核心性能仓库
 
-仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-07-08`。
+仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-07-09`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 78 | 10,964 | +9,023 / -1,941 | 2 | CI/CD, Ascend, benchmark, bugfix |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 86 | 11,279 | +9,218 / -2,061 | 2 | CI/CD, Ascend, benchmark, bugfix |
 | 2 | [aly16-k](https://github.com/aly16-k) | 3 | 437 | +437 / -0 | 1 | misc |
 | 3 | [Remygred](https://github.com/Remygred) | 1 | 276 | +230 / -46 | 1 | tooling |
 | 4 | [Sheng Wang](https://github.com/moonandlife) | 2 | 4 | +2 / -2 | 1 | kernel |

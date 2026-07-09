@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-08",
+  "updated_at": "2026-07-09",
   "all_repos": {
     "scope_repos": [
       "vllm-hust",
@@ -19,10 +19,10 @@
         "name": "Shuhao Zhang",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 455,
-        "changed_lines": 229717,
-        "added": 157462,
-        "deleted": 72255,
+        "commits": 463,
+        "changed_lines": 230032,
+        "added": 157657,
+        "deleted": 72375,
         "active_repos": 8,
         "repos": [
           ".github",
@@ -34,7 +34,7 @@
           "vllm-hust-website",
           "vllm-hust-workstation"
         ],
-        "key_contributions": "CI/CD, leaderboard, distributed, bugfix",
+        "key_contributions": "CI/CD, leaderboard, distributed, benchmark",
         "display_name": "张书豪",
         "chinese_name": "张书豪",
         "english_name": "Shuhao Zhang"
@@ -44,10 +44,10 @@
         "name": "Shuhao Zhang (Tony)",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 134,
-        "changed_lines": 212121,
-        "added": 145023,
-        "deleted": 67098,
+        "commits": 136,
+        "changed_lines": 212903,
+        "added": 145790,
+        "deleted": 67113,
         "active_repos": 4,
         "repos": [
           ".github",
@@ -256,16 +256,16 @@
         "name": "luoxiaohei",
         "github_login": "luoxiaohei",
         "github_url": "https://github.com/luoxiaohei",
-        "commits": 16,
-        "changed_lines": 5239,
-        "added": 3397,
-        "deleted": 1842,
+        "commits": 21,
+        "changed_lines": 5793,
+        "added": 3939,
+        "deleted": 1854,
         "active_repos": 2,
         "repos": [
           "vllm-hust-benchmark",
           "vllm-hust-website"
         ],
-        "key_contributions": "benchmark, leaderboard, CI/CD, distributed",
+        "key_contributions": "benchmark, leaderboard, distributed, CI/CD",
         "display_name": "luoxiaohei",
         "chinese_name": "",
         "english_name": ""
@@ -291,6 +291,25 @@
       },
       {
         "rank": 15,
+        "name": "vLLM-HUST Developer",
+        "github_login": null,
+        "github_url": null,
+        "commits": 5,
+        "changed_lines": 1997,
+        "added": 1785,
+        "deleted": 212,
+        "active_repos": 2,
+        "repos": [
+          ".github",
+          "vllm-hust-dev-hub"
+        ],
+        "key_contributions": "leaderboard",
+        "display_name": "vLLM-HUST Developer",
+        "chinese_name": "",
+        "english_name": ""
+      },
+      {
+        "rank": 16,
         "name": "iliujunn",
         "github_login": "iliujunn",
         "github_url": "https://github.com/iliujunn",
@@ -306,25 +325,6 @@
         "display_name": "iliujunn",
         "chinese_name": "",
         "english_name": "Lou Jun"
-      },
-      {
-        "rank": 16,
-        "name": "vLLM-HUST Developer",
-        "github_login": null,
-        "github_url": null,
-        "commits": 4,
-        "changed_lines": 1310,
-        "added": 1228,
-        "deleted": 82,
-        "active_repos": 2,
-        "repos": [
-          ".github",
-          "vllm-hust-dev-hub"
-        ],
-        "key_contributions": "misc",
-        "display_name": "vLLM-HUST Developer",
-        "chinese_name": "",
-        "english_name": ""
       },
       {
         "rank": 17,
@@ -466,10 +466,10 @@
         "name": "Shuhao Zhang",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 78,
-        "changed_lines": 10964,
-        "added": 9023,
-        "deleted": 1941,
+        "commits": 86,
+        "changed_lines": 11279,
+        "added": 9218,
+        "deleted": 2061,
         "active_repos": 2,
         "repos": [
           "vllm-ascend-hust",
