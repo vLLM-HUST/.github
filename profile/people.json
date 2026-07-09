@@ -32,7 +32,7 @@
     },
     "Amber1qq": {
       "display_name": "Amber1qq",
-      "chinese_name": "",
+      "chinese_name": "郑凌峰",
       "english_name": "",
       "github_login": "Amber1qq",
       "github_url": "https://github.com/Amber1qq",
@@ -40,17 +40,18 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "AproAkk": {
       "display_name": "AproAkk",
-      "chinese_name": "",
+      "chinese_name": "桂彩玉",
       "english_name": "",
       "github_login": "AproAkk",
       "github_url": "https://github.com/AproAkk",
@@ -58,13 +59,14 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "Chainyinghao": {
       "display_name": "chain",
@@ -221,7 +223,7 @@
     },
     "hmhmhmhhh": {
       "display_name": "hmhmhmhhh",
-      "chinese_name": "",
+      "chinese_name": "何苗",
       "english_name": "",
       "github_login": "hmhmhmhhh",
       "github_url": "https://github.com/hmhmhmhhh",
@@ -229,17 +231,18 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "hustcui": {
       "display_name": "hustcui",
-      "chinese_name": "",
+      "chinese_name": "崔钰嘉",
       "english_name": "",
       "github_login": "hustcui",
       "github_url": "https://github.com/hustcui",
@@ -247,13 +250,14 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "husterL9": {
       "display_name": "soldier",
@@ -326,7 +330,7 @@
     },
     "Jiawan23": {
       "display_name": "Jiawan Zhang",
-      "chinese_name": "",
+      "chinese_name": "张家万",
       "english_name": "Jiawan Zhang",
       "github_login": "Jiawan23",
       "github_url": "https://github.com/Jiawan23",
@@ -336,14 +340,15 @@
       ],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_profile",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
         "github_org_members",
-        "github_profile"
+        "github_profile",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "JieYang2001": {
       "display_name": "Jie Yang",
@@ -381,13 +386,14 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "jxd1111": {
       "display_name": "jxd1111",
-      "chinese_name": "",
+      "chinese_name": "江勰东",
       "english_name": "",
       "github_login": "jxd1111",
       "github_url": "https://github.com/jxd1111",
@@ -395,13 +401,14 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "Kakoyi945": {
       "display_name": "Kakoyi945",
@@ -507,7 +514,7 @@
     },
     "llxler": {
       "display_name": "Lxler",
-      "chinese_name": "",
+      "chinese_name": "雷翔麟",
       "english_name": "",
       "github_login": "llxler",
       "github_url": "https://github.com/llxler",
@@ -517,14 +524,15 @@
       ],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_profile",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
         "github_org_members",
-        "github_profile"
+        "github_profile",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "luoxiaohei": {
       "display_name": "luoxiaohei",
@@ -550,7 +558,7 @@
     },
     "machuanhu": {
       "display_name": "machuanhu",
-      "chinese_name": "",
+      "chinese_name": "马川湖",
       "english_name": "",
       "github_login": "machuanhu",
       "github_url": "https://github.com/machuanhu",
@@ -558,17 +566,18 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "mhyzb117": {
       "display_name": "mhyzb117",
-      "chinese_name": "",
+      "chinese_name": "毛瀚云",
       "english_name": "",
       "github_login": "mhyzb117",
       "github_url": "https://github.com/mhyzb117",
@@ -576,13 +585,14 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "MingqiWang-coder": {
       "display_name": "MingqiWang-coder",
@@ -688,7 +698,7 @@
     },
     "Pulved": {
       "display_name": "Pulved",
-      "chinese_name": "",
+      "chinese_name": "陈罗凯",
       "english_name": "",
       "github_login": "Pulved",
       "github_url": "https://github.com/Pulved",
@@ -696,13 +706,14 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "Pygone": {
       "display_name": "Xincai Zhu",
@@ -734,7 +745,7 @@
     },
     "qingfengyuhuoda": {
       "display_name": "qingfengyuhuoda",
-      "chinese_name": "",
+      "chinese_name": "王晨",
       "english_name": "",
       "github_login": "qingfengyuhuoda",
       "github_url": "https://github.com/qingfengyuhuoda",
@@ -742,13 +753,14 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "QixinZhang26": {
       "display_name": "张启昕",
@@ -791,7 +803,7 @@
     },
     "Raing5Days": {
       "display_name": "Raing5Days",
-      "chinese_name": "",
+      "chinese_name": "吴天宇",
       "english_name": "",
       "github_login": "Raing5Days",
       "github_url": "https://github.com/Raing5Days",
@@ -799,13 +811,14 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "Remygred": {
       "display_name": "Remygred",
@@ -900,7 +913,7 @@
     },
     "Seas0": {
       "display_name": "Seas0",
-      "chinese_name": "",
+      "chinese_name": "刘思辰",
       "english_name": "",
       "github_login": "Seas0",
       "github_url": "https://github.com/Seas0",
@@ -908,13 +921,14 @@
       "git_names": [],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "github_org_members"
+        "github_org_members",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "ShuhaoZhangTony": {
       "display_name": "Shuhao Zhang",
@@ -982,7 +996,7 @@
     },
     "Tkhkrnx": {
       "display_name": "Pharos Peng",
-      "chinese_name": "",
+      "chinese_name": "彭浩然",
       "english_name": "Pharos Peng",
       "github_login": "Tkhkrnx",
       "github_url": "https://github.com/Tkhkrnx",
@@ -992,14 +1006,15 @@
       ],
       "aliases": [],
       "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_profile",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
         "github_org_members",
-        "github_profile"
+        "github_profile",
+        "manual_review"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "notes": "Confirmed for public display by manual review."
     },
     "vincentl3836": {
       "display_name": "Vincent Chiu",
@@ -1140,6 +1155,222 @@
         "github_org_members"
       ],
       "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+    },
+    "rzwang22": {
+      "display_name": "rzwang22",
+      "chinese_name": "王润泽",
+      "english_name": "",
+      "github_login": "rzwang22",
+      "github_url": "https://github.com/rzwang22",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "leftGo17": {
+      "display_name": "leftGo17",
+      "chinese_name": "左敬鹏",
+      "english_name": "",
+      "github_login": "leftGo17",
+      "github_url": "https://github.com/leftGo17",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "Mr-Xiao2021": {
+      "display_name": "Mr-Xiao2021",
+      "chinese_name": "肖先荣",
+      "english_name": "",
+      "github_login": "Mr-Xiao2021",
+      "github_url": "https://github.com/Mr-Xiao2021",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "yangjiashuai2005": {
+      "display_name": "yangjiashuai2005",
+      "chinese_name": "杨家帅",
+      "english_name": "",
+      "github_login": "yangjiashuai2005",
+      "github_url": "https://github.com/yangjiashuai2005",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "mynameisczj": {
+      "display_name": "mynameisczj",
+      "chinese_name": "陈子嘉",
+      "english_name": "",
+      "github_login": "mynameisczj",
+      "github_url": "https://github.com/mynameisczj",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "LuckyWindovo": {
+      "display_name": "LuckyWindovo",
+      "chinese_name": "杜雨枫",
+      "english_name": "",
+      "github_login": "LuckyWindovo",
+      "github_url": "https://github.com/LuckyWindovo",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "KazzeMaru": {
+      "display_name": "KazzeMaru",
+      "chinese_name": "陈稷",
+      "english_name": "",
+      "github_login": "KazzeMaru",
+      "github_url": "https://github.com/KazzeMaru",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "WenjuZhao": {
+      "display_name": "WenjuZhao",
+      "chinese_name": "赵文举",
+      "english_name": "",
+      "github_login": "WenjuZhao",
+      "github_url": "https://github.com/WenjuZhao",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "SuccinctPaul": {
+      "display_name": "SuccinctPaul",
+      "chinese_name": "程月甲",
+      "english_name": "",
+      "github_login": "SuccinctPaul",
+      "github_url": "https://github.com/SuccinctPaul",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "mumu029": {
+      "display_name": "mumu029",
+      "chinese_name": "陈湘",
+      "english_name": "",
+      "github_login": "mumu029",
+      "github_url": "https://github.com/mumu029",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "kimmozhang": {
+      "display_name": "kimmozhang",
+      "chinese_name": "",
+      "english_name": "",
+      "github_login": "kimmozhang",
+      "github_url": "https://github.com/kimmozhang",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
+    },
+    "depictlightning": {
+      "display_name": "depictlightning",
+      "chinese_name": "陈俊杰",
+      "english_name": "",
+      "github_login": "depictlightning",
+      "github_url": "https://github.com/depictlightning",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "Confirmed for public display by manual review."
     }
   }
 }
