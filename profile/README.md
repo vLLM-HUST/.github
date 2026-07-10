@@ -95,12 +95,12 @@ In practice, the organization concentrates on four goals:
 
 ### 组织全仓库
 
-统计组织下 10 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-07-09`。
+统计组织下 10 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-07-10`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
 | 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 463 | 230,032 | +157,657 / -72,375 | 8 | CI/CD, leaderboard, distributed, benchmark |
-| 2 | Shuhao Zhang (Tony) | 136 | 212,903 | +145,790 / -67,113 | 4 | leaderboard, benchmark, bugfix, distributed |
+| 2 | Shuhao Zhang (Tony) | 138 | 215,481 | +147,180 / -68,301 | 4 | leaderboard, benchmark, bugfix, distributed |
 | 3 | Qoder Agent | 19 | 97,388 | +88,380 / -9,008 | 1 | benchmark, CI/CD, Ascend, distributed |
 | 4 | [Jingyuan Tian](https://github.com/CubeLander) | 39 | 59,406 | +44,686 / -14,720 | 2 | distributed, docs, Ascend, CI/CD |
 | 5 | Jingyuan Tian | 131 | 51,007 | +40,975 / -10,032 | 2 | distributed, Ascend, benchmark, bugfix |
@@ -111,7 +111,7 @@ In practice, the organization concentrates on four goals:
 | 10 | Qoder Agent | 4 | 11,474 | +1,062 / -10,412 | 1 | leaderboard, CI/CD, website |
 | 11 | qoder | 1 | 10,312 | +8,791 / -1,521 | 1 | leaderboard |
 | 12 | [KimmoZAG](https://github.com/KimmoZAG) | 6 | 6,244 | +4,759 / -1,485 | 2 | bugfix, distributed, leaderboard, maintenance |
-| 13 | [luoxiaohei](https://github.com/luoxiaohei) | 21 | 5,793 | +3,939 / -1,854 | 2 | benchmark, leaderboard, distributed, CI/CD |
+| 13 | [luoxiaohei](https://github.com/luoxiaohei) | 23 | 6,202 | +4,346 / -1,856 | 2 | benchmark, leaderboard, distributed, CI/CD |
 | 14 | GuMorming | 6 | 2,720 | +1,360 / -1,360 | 2 | benchmark |
 | 15 | vLLM-HUST Developer | 5 | 1,997 | +1,785 / -212 | 2 | leaderboard |
 | 16 | [iliujunn](https://github.com/iliujunn) | 5 | 1,538 | +655 / -883 | 1 | Ascend, CI/CD, bugfix |
@@ -127,7 +127,7 @@ In practice, the organization concentrates on four goals:
 
 ### 核心性能仓库
 
-仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-07-09`。
+仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-07-10`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
