@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09",
+  "updated_at": "2026-07-10",
   "all_repos": {
     "scope_repos": [
       "vllm-hust",
@@ -44,10 +44,10 @@
         "name": "Shuhao Zhang (Tony)",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 136,
-        "changed_lines": 212903,
-        "added": 145790,
-        "deleted": 67113,
+        "commits": 138,
+        "changed_lines": 215481,
+        "added": 147180,
+        "deleted": 68301,
         "active_repos": 4,
         "repos": [
           ".github",
@@ -256,10 +256,10 @@
         "name": "luoxiaohei",
         "github_login": "luoxiaohei",
         "github_url": "https://github.com/luoxiaohei",
-        "commits": 21,
-        "changed_lines": 5793,
-        "added": 3939,
-        "deleted": 1854,
+        "commits": 23,
+        "changed_lines": 6202,
+        "added": 4346,
+        "deleted": 1856,
         "active_repos": 2,
         "repos": [
           "vllm-hust-benchmark",
