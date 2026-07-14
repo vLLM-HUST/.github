@@ -95,12 +95,12 @@ In practice, the organization concentrates on four goals:
 
 ### 组织全仓库
 
-统计组织下 10 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-07-10`。
+统计组织下 10 个仓库的 fork-only 贡献（fork 仓库去除上游 commit，其他仓库全量计入，单次 commit >50k 行视为批量导入排除），快照 `2026-07-13`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 463 | 230,032 | +157,657 / -72,375 | 8 | CI/CD, leaderboard, distributed, benchmark |
-| 2 | Shuhao Zhang (Tony) | 138 | 215,481 | +147,180 / -68,301 | 4 | leaderboard, benchmark, bugfix, distributed |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 465 | 230,089 | +157,699 / -72,390 | 8 | CI/CD, leaderboard, distributed, benchmark |
+| 2 | Shuhao Zhang (Tony) | 139 | 215,507 | +147,193 / -68,314 | 4 | leaderboard, benchmark, bugfix, distributed |
 | 3 | Qoder Agent | 19 | 97,388 | +88,380 / -9,008 | 1 | benchmark, CI/CD, Ascend, distributed |
 | 4 | [Jingyuan Tian](https://github.com/CubeLander) | 39 | 59,406 | +44,686 / -14,720 | 2 | distributed, docs, Ascend, CI/CD |
 | 5 | Jingyuan Tian | 131 | 51,007 | +40,975 / -10,032 | 2 | distributed, Ascend, benchmark, bugfix |
@@ -127,11 +127,11 @@ In practice, the organization concentrates on four goals:
 
 ### 核心性能仓库
 
-仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-07-10`。
+仅统计直接影响推理性能的 3 个核心仓库（`vllm-ascend-hust`, `vllm-ascend-quant-hust`, `vllm-hust`），排除所有上游/初始代码，快照 `2026-07-13`。
 
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 86 | 11,279 | +9,218 / -2,061 | 2 | CI/CD, Ascend, benchmark, bugfix |
+| 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 88 | 11,336 | +9,260 / -2,076 | 2 | CI/CD, Ascend, benchmark, bugfix |
 | 2 | [aly16-k](https://github.com/aly16-k) | 3 | 437 | +437 / -0 | 1 | misc |
 | 3 | [Remygred](https://github.com/Remygred) | 1 | 276 | +230 / -46 | 1 | tooling |
 | 4 | [Sheng Wang](https://github.com/moonandlife) | 2 | 4 | +2 / -2 | 1 | kernel |
