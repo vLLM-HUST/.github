@@ -44,10 +44,10 @@
         "name": "Shuhao Zhang (Tony)",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 140,
-        "changed_lines": 215543,
-        "added": 147211,
-        "deleted": 68332,
+        "commits": 141,
+        "changed_lines": 215623,
+        "added": 147270,
+        "deleted": 68353,
         "active_repos": 4,
         "repos": [
           ".github",
@@ -234,6 +234,25 @@
       },
       {
         "rank": 12,
+        "name": "Paul Cheng",
+        "github_login": null,
+        "github_url": null,
+        "commits": 18,
+        "changed_lines": 8134,
+        "added": 6071,
+        "deleted": 2063,
+        "active_repos": 2,
+        "repos": [
+          "vllm-hust-benchmark",
+          "vllm-hust-website"
+        ],
+        "key_contributions": "maintenance, benchmark, features",
+        "display_name": "Paul Cheng",
+        "chinese_name": "",
+        "english_name": ""
+      },
+      {
+        "rank": 13,
         "name": "KimmoZAG",
         "github_login": "KimmoZAG",
         "github_url": "https://github.com/KimmoZAG",
@@ -252,7 +271,7 @@
         "english_name": ""
       },
       {
-        "rank": 13,
+        "rank": 14,
         "name": "luoxiaohei",
         "github_login": "luoxiaohei",
         "github_url": "https://github.com/luoxiaohei",
@@ -271,7 +290,7 @@
         "english_name": ""
       },
       {
-        "rank": 14,
+        "rank": 15,
         "name": "GuMorming",
         "github_login": "GuMorming",
         "github_url": "https://github.com/GuMorming",
@@ -290,7 +309,7 @@
         "english_name": "Gu Changwei"
       },
       {
-        "rank": 15,
+        "rank": 16,
         "name": "vLLM-HUST Developer",
         "github_login": null,
         "github_url": null,
@@ -309,7 +328,7 @@
         "english_name": ""
       },
       {
-        "rank": 16,
+        "rank": 17,
         "name": "iliujunn",
         "github_login": "iliujunn",
         "github_url": "https://github.com/iliujunn",
@@ -327,7 +346,7 @@
         "english_name": "Lou Jun"
       },
       {
-        "rank": 17,
+        "rank": 18,
         "name": "sunYangGitHub",
         "github_login": null,
         "github_url": null,
@@ -345,7 +364,7 @@
         "english_name": ""
       },
       {
-        "rank": 18,
+        "rank": 19,
         "name": "luoxiaohei",
         "github_login": "luoxiaohei",
         "github_url": "https://github.com/luoxiaohei",
@@ -363,7 +382,7 @@
         "english_name": ""
       },
       {
-        "rank": 19,
+        "rank": 20,
         "name": "aly16-k",
         "github_login": "aly16-k",
         "github_url": "https://github.com/aly16-k",
@@ -381,7 +400,7 @@
         "english_name": ""
       },
       {
-        "rank": 20,
+        "rank": 21,
         "name": "Remygred",
         "github_login": "Remygred",
         "github_url": "https://github.com/Remygred",
@@ -399,7 +418,7 @@
         "english_name": ""
       },
       {
-        "rank": 21,
+        "rank": 22,
         "name": "pygone",
         "github_login": "Pygone",
         "github_url": "https://github.com/Pygone",
@@ -417,7 +436,7 @@
         "english_name": "Xincai Zhu"
       },
       {
-        "rank": 22,
+        "rank": 23,
         "name": "Jingyuan",
         "github_login": null,
         "github_url": null,
@@ -435,7 +454,7 @@
         "english_name": ""
       },
       {
-        "rank": 23,
+        "rank": 24,
         "name": "Paul",
         "github_login": null,
         "github_url": null,
@@ -453,7 +472,7 @@
         "english_name": ""
       },
       {
-        "rank": 24,
+        "rank": 25,
         "name": "MingXuan Kuang",
         "github_login": "sad-and-bad1231",
         "github_url": "https://github.com/sad-and-bad1231",
@@ -469,24 +488,6 @@
         "display_name": "匡明轩",
         "chinese_name": "匡明轩",
         "english_name": "MingXuan Kuang"
-      },
-      {
-        "rank": 25,
-        "name": "Paul Cheng",
-        "github_login": null,
-        "github_url": null,
-        "commits": 1,
-        "changed_lines": 5,
-        "added": 1,
-        "deleted": 4,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust-website"
-        ],
-        "key_contributions": "features",
-        "display_name": "Paul Cheng",
-        "chinese_name": "",
-        "english_name": ""
       }
     ]
   },
