@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13",
+  "updated_at": "2026-07-17",
   "all_repos": {
     "scope_repos": [
       "vllm-hust",
@@ -44,10 +44,10 @@
         "name": "Shuhao Zhang (Tony)",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 139,
-        "changed_lines": 215507,
-        "added": 147193,
-        "deleted": 68314,
+        "commits": 140,
+        "changed_lines": 215543,
+        "added": 147211,
+        "deleted": 68332,
         "active_repos": 4,
         "repos": [
           ".github",
@@ -121,10 +121,10 @@
         "name": "Sheng Wang",
         "github_login": "moonandlife",
         "github_url": "https://github.com/moonandlife",
-        "commits": 57,
-        "changed_lines": 30899,
-        "added": 17526,
-        "deleted": 13373,
+        "commits": 72,
+        "changed_lines": 31958,
+        "added": 18517,
+        "deleted": 13441,
         "active_repos": 5,
         "repos": [
           "vllm-hust",
@@ -133,7 +133,7 @@
           "vllm-hust-docs",
           "vllm-hust-website"
         ],
-        "key_contributions": "leaderboard, CI/CD, benchmark, testing",
+        "key_contributions": "CI/CD, leaderboard, benchmark, testing",
         "display_name": "王胜",
         "chinese_name": "王胜",
         "english_name": "Sheng Wang"
@@ -256,16 +256,16 @@
         "name": "luoxiaohei",
         "github_login": "luoxiaohei",
         "github_url": "https://github.com/luoxiaohei",
-        "commits": 23,
-        "changed_lines": 6202,
-        "added": 4346,
-        "deleted": 1856,
+        "commits": 24,
+        "changed_lines": 6242,
+        "added": 4383,
+        "deleted": 1859,
         "active_repos": 2,
         "repos": [
           "vllm-hust-benchmark",
           "vllm-hust-website"
         ],
-        "key_contributions": "benchmark, leaderboard, distributed, CI/CD",
+        "key_contributions": "benchmark, leaderboard, CI/CD, distributed",
         "display_name": "luoxiaohei",
         "chinese_name": "",
         "english_name": ""
@@ -436,6 +436,24 @@
       },
       {
         "rank": 23,
+        "name": "Paul",
+        "github_login": null,
+        "github_url": null,
+        "commits": 2,
+        "changed_lines": 19,
+        "added": 13,
+        "deleted": 6,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-website"
+        ],
+        "key_contributions": "leaderboard, maintenance",
+        "display_name": "Paul",
+        "chinese_name": "",
+        "english_name": ""
+      },
+      {
+        "rank": 24,
         "name": "MingXuan Kuang",
         "github_login": "sad-and-bad1231",
         "github_url": "https://github.com/sad-and-bad1231",
@@ -451,6 +469,24 @@
         "display_name": "匡明轩",
         "chinese_name": "匡明轩",
         "english_name": "MingXuan Kuang"
+      },
+      {
+        "rank": 25,
+        "name": "Paul Cheng",
+        "github_login": null,
+        "github_url": null,
+        "commits": 1,
+        "changed_lines": 5,
+        "added": 1,
+        "deleted": 4,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-website"
+        ],
+        "key_contributions": "features",
+        "display_name": "Paul Cheng",
+        "chinese_name": "",
+        "english_name": ""
       }
     ]
   },
