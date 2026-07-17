@@ -100,7 +100,7 @@ In practice, the organization concentrates on four goals:
 | Rank | Contributor | Commits | Changed lines | Added / Deleted | Active repos | Key contributions |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
 | 1 | [Shuhao Zhang](https://github.com/ShuhaoZhangTony) | 465 | 230,089 | +157,699 / -72,390 | 8 | CI/CD, leaderboard, distributed, benchmark |
-| 2 | Shuhao Zhang (Tony) | 140 | 215,543 | +147,211 / -68,332 | 4 | leaderboard, benchmark, bugfix, distributed |
+| 2 | Shuhao Zhang (Tony) | 141 | 215,623 | +147,270 / -68,353 | 4 | leaderboard, benchmark, bugfix, distributed |
 | 3 | Qoder Agent | 19 | 97,388 | +88,380 / -9,008 | 1 | benchmark, CI/CD, Ascend, distributed |
 | 4 | [Jingyuan Tian](https://github.com/CubeLander) | 39 | 59,406 | +44,686 / -14,720 | 2 | distributed, docs, Ascend, CI/CD |
 | 5 | Jingyuan Tian | 131 | 51,007 | +40,975 / -10,032 | 2 | distributed, Ascend, benchmark, bugfix |
@@ -110,20 +110,20 @@ In practice, the organization concentrates on four goals:
 | 9 | [Xiling Gao](https://github.com/XilingGao) | 5 | 12,538 | +12,305 / -233 | 1 | leaderboard |
 | 10 | Qoder Agent | 4 | 11,474 | +1,062 / -10,412 | 1 | leaderboard, CI/CD, website |
 | 11 | qoder | 1 | 10,312 | +8,791 / -1,521 | 1 | leaderboard |
-| 12 | [KimmoZAG](https://github.com/KimmoZAG) | 6 | 6,244 | +4,759 / -1,485 | 2 | bugfix, distributed, leaderboard, maintenance |
-| 13 | [luoxiaohei](https://github.com/luoxiaohei) | 24 | 6,242 | +4,383 / -1,859 | 2 | benchmark, leaderboard, CI/CD, distributed |
-| 14 | GuMorming | 6 | 2,720 | +1,360 / -1,360 | 2 | benchmark |
-| 15 | vLLM-HUST Developer | 5 | 1,997 | +1,785 / -212 | 2 | leaderboard |
-| 16 | [iliujunn](https://github.com/iliujunn) | 5 | 1,538 | +655 / -883 | 1 | Ascend, CI/CD, bugfix |
-| 17 | sunYangGitHub | 1 | 1,089 | +1,087 / -2 | 1 | tooling |
-| 18 | luoxiaohei | 7 | 943 | +850 / -93 | 1 | benchmark, distributed |
-| 19 | [aly16-k](https://github.com/aly16-k) | 3 | 437 | +437 / -0 | 1 | misc |
-| 20 | [Remygred](https://github.com/Remygred) | 1 | 276 | +230 / -46 | 1 | tooling |
-| 21 | [pygone](https://github.com/Pygone) | 1 | 187 | +164 / -23 | 1 | leaderboard |
-| 22 | Jingyuan | 1 | 132 | +132 / -0 | 1 | misc |
-| 23 | Paul | 2 | 19 | +13 / -6 | 1 | leaderboard, maintenance |
-| 24 | MingXuan Kuang | 2 | 6 | +3 / -3 | 1 | misc |
-| 25 | Paul Cheng | 1 | 5 | +1 / -4 | 1 | features |
+| 12 | Paul Cheng | 18 | 8,134 | +6,071 / -2,063 | 2 | maintenance, benchmark, features |
+| 13 | [KimmoZAG](https://github.com/KimmoZAG) | 6 | 6,244 | +4,759 / -1,485 | 2 | bugfix, distributed, leaderboard, maintenance |
+| 14 | [luoxiaohei](https://github.com/luoxiaohei) | 24 | 6,242 | +4,383 / -1,859 | 2 | benchmark, leaderboard, CI/CD, distributed |
+| 15 | GuMorming | 6 | 2,720 | +1,360 / -1,360 | 2 | benchmark |
+| 16 | vLLM-HUST Developer | 5 | 1,997 | +1,785 / -212 | 2 | leaderboard |
+| 17 | [iliujunn](https://github.com/iliujunn) | 5 | 1,538 | +655 / -883 | 1 | Ascend, CI/CD, bugfix |
+| 18 | sunYangGitHub | 1 | 1,089 | +1,087 / -2 | 1 | tooling |
+| 19 | luoxiaohei | 7 | 943 | +850 / -93 | 1 | benchmark, distributed |
+| 20 | [aly16-k](https://github.com/aly16-k) | 3 | 437 | +437 / -0 | 1 | misc |
+| 21 | [Remygred](https://github.com/Remygred) | 1 | 276 | +230 / -46 | 1 | tooling |
+| 22 | [pygone](https://github.com/Pygone) | 1 | 187 | +164 / -23 | 1 | leaderboard |
+| 23 | Jingyuan | 1 | 132 | +132 / -0 | 1 | misc |
+| 24 | Paul | 2 | 19 | +13 / -6 | 1 | leaderboard, maintenance |
+| 25 | MingXuan Kuang | 2 | 6 | +3 / -3 | 1 | misc |
 
 ---
 
