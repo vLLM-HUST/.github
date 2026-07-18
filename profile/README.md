@@ -15,9 +15,9 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 
 每个成果仓库对应一项可独立使用的研究成果，集中维护核心实现、论文、实验和运行时集成。
 
-| Repository | Core technique | Publication | Runtime integration |
-| --- | --- | --- | --- |
-| [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) | Utility-guided KV-cache victim selection | *BidKV: Utility-Guided Preemption Scheduling for KV-Pressure LLM Serving*, SC 2026 | `vllm-hust` · `vllm-ascend-hust` · vLLM / SGLang adapters |
+| Repository | Core technique | Publication | Team | Runtime integration |
+| --- | --- | --- | --- | --- |
+| [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) | Utility-guided KV-cache victim selection | *BidKV: Utility-Guided Preemption Scheduling for KV-Pressure LLM Serving*, SC 2026 | 主要作者：陈彦博、王明琪<br>指导老师：张书豪 | `vllm-hust` · `vllm-ascend-hust` · vLLM / SGLang adapters |
 
 ## 仓库索引 / Repository Index
 
