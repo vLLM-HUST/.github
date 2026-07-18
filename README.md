@@ -16,8 +16,8 @@ The content shown on the organization homepage lives in [profile/README.md](prof
 - `profile/README.md`: the rendered GitHub organization homepage
 - `.github/`: default issue templates and pull request template
 - `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `SECURITY.md`, `SUPPORT.md`: shared community health files
-- `scripts/update_contributor_leaderboard.py`: maintenance automation for contributor metadata used by the profile
-- `profile/core_contributors.json`: structured contributor data for rendering
+- `scripts/update_contributor_leaderboard.py`: maintenance automation for structured contributor metadata
+- `profile/core_contributors.json`: contributor data for website and snapshot rendering; the public profile stays compact
 
 ## Scope Boundaries
 

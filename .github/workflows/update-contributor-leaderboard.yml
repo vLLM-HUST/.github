@@ -1,4 +1,4 @@
-name: Update Contributor Leaderboard
+name: Update Contributor Data
 
 on:
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      - name: Update leaderboard
+      - name: Update contributor data
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/update_contributor_leaderboard.py --ci
@@ -43,12 +43,11 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           branch: automation/update-contributor-leaderboard
-          commit-message: 'docs: refresh contributor leaderboard'
-          title: 'docs: refresh contributor leaderboard'
+          commit-message: 'docs: refresh contributor data'
+          title: 'docs: refresh contributor data'
           body: |
-            Automated weekly update of the organization contributor leaderboard.
+            Automated weekly update of structured organization contributor data.
 
             Changes:
-            - Refreshed all-repos and core-repos leaderboard tables
             - Updated `profile/core_contributors.json` data export
           delete-branch: true

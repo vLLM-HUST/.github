@@ -920,10 +920,6 @@ def main() -> None:
     core_contributors = build_core_contributors_list(stats)
 
     sync_org_profile_contributor_data(repo_root, all_contributors, core_contributors)
-    replace_section(
-        repo_root / "profile" / "README.md",
-        build_section(all_contributors, core_contributors),
-    )
     sync_website_contributor_data(repo_root, workspace_root, all_contributors, core_contributors)
 
     print(f"Updated leaderboard: {len(all_contributors)} contributors (all), "
