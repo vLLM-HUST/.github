@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-17",
+  "updated_at": "2026-07-19",
   "all_repos": {
     "scope_repos": [
       "vllm-hust",
@@ -19,10 +19,10 @@
         "name": "Shuhao Zhang",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 465,
-        "changed_lines": 230089,
-        "added": 157699,
-        "deleted": 72390,
+        "commits": 470,
+        "changed_lines": 230703,
+        "added": 158144,
+        "deleted": 72559,
         "active_repos": 8,
         "repos": [
           ".github",
@@ -34,7 +34,7 @@
           "vllm-hust-website",
           "vllm-hust-workstation"
         ],
-        "key_contributions": "CI/CD, leaderboard, distributed, benchmark",
+        "key_contributions": "CI/CD, leaderboard, distributed, bugfix",
         "display_name": "张书豪",
         "chinese_name": "张书豪",
         "english_name": "Shuhao Zhang"
@@ -44,10 +44,10 @@
         "name": "Shuhao Zhang (Tony)",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 141,
-        "changed_lines": 215623,
-        "added": 147270,
-        "deleted": 68353,
+        "commits": 149,
+        "changed_lines": 219825,
+        "added": 149477,
+        "deleted": 70348,
         "active_repos": 4,
         "repos": [
           ".github",
@@ -83,6 +83,25 @@
         "name": "Jingyuan Tian",
         "github_login": "CubeLander",
         "github_url": "https://github.com/CubeLander",
+        "commits": 135,
+        "changed_lines": 71520,
+        "added": 42847,
+        "deleted": 28673,
+        "active_repos": 2,
+        "repos": [
+          "vllm-hust-benchmark",
+          "vllm-hust-perf-analyzer"
+        ],
+        "key_contributions": "distributed, Ascend, benchmark, bugfix",
+        "display_name": "田景远",
+        "chinese_name": "田景远",
+        "english_name": "Jingyuan Tian"
+      },
+      {
+        "rank": 5,
+        "name": "Jingyuan Tian",
+        "github_login": "CubeLander",
+        "github_url": "https://github.com/CubeLander",
         "commits": 39,
         "changed_lines": 59406,
         "added": 44686,
@@ -93,25 +112,6 @@
           "vllm-hust-perf-analyzer"
         ],
         "key_contributions": "distributed, docs, Ascend, CI/CD",
-        "display_name": "田景远",
-        "chinese_name": "田景远",
-        "english_name": "Jingyuan Tian"
-      },
-      {
-        "rank": 5,
-        "name": "Jingyuan Tian",
-        "github_login": "CubeLander",
-        "github_url": "https://github.com/CubeLander",
-        "commits": 131,
-        "changed_lines": 51007,
-        "added": 40975,
-        "deleted": 10032,
-        "active_repos": 2,
-        "repos": [
-          "vllm-hust-benchmark",
-          "vllm-hust-perf-analyzer"
-        ],
-        "key_contributions": "distributed, Ascend, benchmark, bugfix",
         "display_name": "田景远",
         "chinese_name": "田景远",
         "english_name": "Jingyuan Tian"
@@ -347,6 +347,24 @@
       },
       {
         "rank": 18,
+        "name": "Fletcher Tian",
+        "github_login": null,
+        "github_url": null,
+        "commits": 1,
+        "changed_lines": 1155,
+        "added": 1124,
+        "deleted": 31,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-perf-analyzer"
+        ],
+        "key_contributions": "kernel",
+        "display_name": "Fletcher Tian",
+        "chinese_name": "",
+        "english_name": ""
+      },
+      {
+        "rank": 19,
         "name": "sunYangGitHub",
         "github_login": null,
         "github_url": null,
@@ -364,7 +382,7 @@
         "english_name": ""
       },
       {
-        "rank": 19,
+        "rank": 20,
         "name": "luoxiaohei",
         "github_login": "luoxiaohei",
         "github_url": "https://github.com/luoxiaohei",
@@ -382,7 +400,7 @@
         "english_name": ""
       },
       {
-        "rank": 20,
+        "rank": 21,
         "name": "aly16-k",
         "github_login": "aly16-k",
         "github_url": "https://github.com/aly16-k",
@@ -400,7 +418,7 @@
         "english_name": ""
       },
       {
-        "rank": 21,
+        "rank": 22,
         "name": "Remygred",
         "github_login": "Remygred",
         "github_url": "https://github.com/Remygred",
@@ -418,7 +436,7 @@
         "english_name": ""
       },
       {
-        "rank": 22,
+        "rank": 23,
         "name": "pygone",
         "github_login": "Pygone",
         "github_url": "https://github.com/Pygone",
@@ -436,7 +454,7 @@
         "english_name": "Xincai Zhu"
       },
       {
-        "rank": 23,
+        "rank": 24,
         "name": "Jingyuan",
         "github_login": null,
         "github_url": null,
@@ -454,7 +472,7 @@
         "english_name": ""
       },
       {
-        "rank": 24,
+        "rank": 25,
         "name": "Paul",
         "github_login": null,
         "github_url": null,
@@ -472,7 +490,7 @@
         "english_name": ""
       },
       {
-        "rank": 25,
+        "rank": 26,
         "name": "MingXuan Kuang",
         "github_login": "sad-and-bad1231",
         "github_url": "https://github.com/sad-and-bad1231",
