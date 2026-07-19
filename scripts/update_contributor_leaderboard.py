@@ -495,6 +495,63 @@ def collect_stats(repo_root: Path, workspace_root: Path | None) -> dict[str, Con
     return stats
 
 
+def coalesce_stats_by_person(
+    repo_root: Path, stats: dict[str, ContributorStats]
+) -> dict[str, ContributorStats]:
+    """Merge git identities that resolve to the same curated GitHub person.
+
+    Mailmap remains the primary source for author canonicalization.  The people
+    index is a second, curated identity source and can associate newly observed
+    emails or git names with an existing GitHub account.  Without this pass,
+    those aliases appear as separate leaderboard rows even though enrichment
+    later assigns them the same ``github_login``.
+    """
+    people_index = load_people_index(repo_root)
+    merged: dict[str, ContributorStats] = {}
+
+    for email, contributor in stats.items():
+        person = resolve_person_record(
+            people_index, email=email, name=contributor.name
+        )
+        login = str((person or {}).get("github_login") or "").strip()
+        key = f"github:{login.lower()}" if login else f"email:{email.lower()}"
+
+        if key not in merged:
+            canonical_email = email
+            if login:
+                canonical_email = next(
+                    (
+                        candidate
+                        for candidate in (person or {}).get("emails") or []
+                        if GITHUB_LOGIN_BY_EMAIL.get(str(candidate).lower()) == login
+                    ),
+                    email,
+                )
+            canonical_name = str(
+                (person or {}).get("english_name")
+                or (person or {}).get("github_login")
+                or contributor.name
+            ).strip()
+            merged[key] = ContributorStats(
+                name=canonical_name, email=str(canonical_email).lower()
+            )
+
+        target = merged[key]
+        target.added += contributor.added
+        target.deleted += contributor.deleted
+        target.commits += contributor.commits
+        target.repos.update(contributor.repos)
+        for repo_name, value in contributor.per_repo_added.items():
+            target.per_repo_added[repo_name] += value
+        for repo_name, value in contributor.per_repo_deleted.items():
+            target.per_repo_deleted[repo_name] += value
+        for repo_name, value in contributor.per_repo_commits.items():
+            target.per_repo_commits[repo_name] += value
+        target.commit_subjects.extend(contributor.commit_subjects)
+
+    return merged
+
+
 def build_all_contributors_list(stats: dict[str, ContributorStats]) -> list[ContributorStats]:
     """All repos, sorted by changed_lines descending."""
     filtered = [item for item in stats.values() if item.changed_lines > 0]
@@ -915,7 +972,9 @@ def main() -> None:
         candidate = repo_root.parent
         workspace_root = candidate if (candidate / "vllm-hust").exists() else None
 
-    stats = collect_stats(repo_root, workspace_root)
+    stats = coalesce_stats_by_person(
+        repo_root, collect_stats(repo_root, workspace_root)
+    )
     all_contributors = build_all_contributors_list(stats)
     core_contributors = build_core_contributors_list(stats)
 
