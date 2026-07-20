@@ -19,10 +19,10 @@
         "name": "Shuhao Zhang",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 700,
-        "changed_lines": 471392,
-        "added": 324248,
-        "deleted": 147144,
+        "commits": 712,
+        "changed_lines": 500972,
+        "added": 346559,
+        "deleted": 154413,
         "active_repos": 8,
         "repos": [
           ".github",
@@ -253,6 +253,24 @@
       },
       {
         "rank": 13,
+        "name": "Junhui Zhang",
+        "github_login": null,
+        "github_url": null,
+        "commits": 10,
+        "changed_lines": 1776,
+        "added": 1693,
+        "deleted": 83,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-benchmark"
+        ],
+        "key_contributions": "CI/CD, benchmark, engine",
+        "display_name": "Junhui Zhang",
+        "chinese_name": "",
+        "english_name": ""
+      },
+      {
+        "rank": 14,
         "name": "Lou Jun",
         "github_login": "iliujunn",
         "github_url": "https://github.com/iliujunn",
@@ -270,7 +288,7 @@
         "english_name": "Lou Jun"
       },
       {
-        "rank": 14,
+        "rank": 15,
         "name": "Fletcher Tian",
         "github_login": null,
         "github_url": null,
@@ -288,7 +306,7 @@
         "english_name": ""
       },
       {
-        "rank": 15,
+        "rank": 16,
         "name": "sunYangGitHub",
         "github_login": null,
         "github_url": null,
@@ -302,24 +320,6 @@
         ],
         "key_contributions": "tooling",
         "display_name": "sunYangGitHub",
-        "chinese_name": "",
-        "english_name": ""
-      },
-      {
-        "rank": 16,
-        "name": "Junhui Zhang",
-        "github_login": null,
-        "github_url": null,
-        "commits": 8,
-        "changed_lines": 502,
-        "added": 420,
-        "deleted": 82,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust-benchmark"
-        ],
-        "key_contributions": "CI/CD, engine",
-        "display_name": "Junhui Zhang",
         "chinese_name": "",
         "english_name": ""
       },
