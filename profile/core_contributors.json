@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-19",
+  "updated_at": "2026-07-20",
   "all_repos": {
     "scope_repos": [
       "vllm-hust",
@@ -19,10 +19,10 @@
         "name": "Shuhao Zhang",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 699,
-        "changed_lines": 471384,
-        "added": 324244,
-        "deleted": 147140,
+        "commits": 700,
+        "changed_lines": 471392,
+        "added": 324248,
+        "deleted": 147144,
         "active_repos": 8,
         "repos": [
           ".github",
@@ -121,6 +121,26 @@
       },
       {
         "rank": 6,
+        "name": "SuccinctPaul",
+        "github_login": "SuccinctPaul",
+        "github_url": "https://github.com/SuccinctPaul",
+        "commits": 27,
+        "changed_lines": 14776,
+        "added": 11276,
+        "deleted": 3500,
+        "active_repos": 3,
+        "repos": [
+          "vllm-hust-benchmark",
+          "vllm-hust-dev-hub",
+          "vllm-hust-website"
+        ],
+        "key_contributions": "maintenance, benchmark, features, leaderboard",
+        "display_name": "程月甲",
+        "chinese_name": "程月甲",
+        "english_name": ""
+      },
+      {
+        "rank": 7,
         "name": "Xiling Gao",
         "github_login": "XilingGao",
         "github_url": "https://github.com/XilingGao",
@@ -136,25 +156,6 @@
         "display_name": "高西岭",
         "chinese_name": "高西岭",
         "english_name": "Xiling Gao"
-      },
-      {
-        "rank": 7,
-        "name": "Paul Cheng",
-        "github_login": null,
-        "github_url": null,
-        "commits": 24,
-        "changed_lines": 12147,
-        "added": 8653,
-        "deleted": 3494,
-        "active_repos": 2,
-        "repos": [
-          "vllm-hust-benchmark",
-          "vllm-hust-website"
-        ],
-        "key_contributions": "maintenance, benchmark, features",
-        "display_name": "Paul Cheng",
-        "chinese_name": "",
-        "english_name": ""
       },
       {
         "rank": 8,
@@ -306,12 +307,30 @@
       },
       {
         "rank": 16,
+        "name": "Junhui Zhang",
+        "github_login": null,
+        "github_url": null,
+        "commits": 8,
+        "changed_lines": 502,
+        "added": 420,
+        "deleted": 82,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-benchmark"
+        ],
+        "key_contributions": "CI/CD, engine",
+        "display_name": "Junhui Zhang",
+        "chinese_name": "",
+        "english_name": ""
+      },
+      {
+        "rank": 17,
         "name": "aly16-k",
         "github_login": "aly16-k",
         "github_url": "https://github.com/aly16-k",
-        "commits": 3,
-        "changed_lines": 437,
-        "added": 437,
+        "commits": 4,
+        "changed_lines": 489,
+        "added": 489,
         "deleted": 0,
         "active_repos": 1,
         "repos": [
@@ -323,7 +342,7 @@
         "english_name": ""
       },
       {
-        "rank": 17,
+        "rank": 18,
         "name": "Remygred",
         "github_login": "Remygred",
         "github_url": "https://github.com/Remygred",
@@ -341,7 +360,7 @@
         "english_name": ""
       },
       {
-        "rank": 18,
+        "rank": 19,
         "name": "Xincai Zhu",
         "github_login": "Pygone",
         "github_url": "https://github.com/Pygone",
@@ -359,7 +378,7 @@
         "english_name": "Xincai Zhu"
       },
       {
-        "rank": 19,
+        "rank": 20,
         "name": "Jingyuan",
         "github_login": null,
         "github_url": null,
@@ -373,24 +392,6 @@
         ],
         "key_contributions": "misc",
         "display_name": "Jingyuan",
-        "chinese_name": "",
-        "english_name": ""
-      },
-      {
-        "rank": 20,
-        "name": "Paul",
-        "github_login": null,
-        "github_url": null,
-        "commits": 2,
-        "changed_lines": 19,
-        "added": 13,
-        "deleted": 6,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust-website"
-        ],
-        "key_contributions": "leaderboard, maintenance",
-        "display_name": "Paul",
         "chinese_name": "",
         "english_name": ""
       },
@@ -445,9 +446,9 @@
         "name": "aly16-k",
         "github_login": "aly16-k",
         "github_url": "https://github.com/aly16-k",
-        "commits": 3,
-        "changed_lines": 437,
-        "added": 437,
+        "commits": 4,
+        "changed_lines": 489,
+        "added": 489,
         "deleted": 0,
         "active_repos": 1,
         "repos": [
