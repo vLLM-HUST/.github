@@ -1306,17 +1306,24 @@
       "english_name": "",
       "github_login": "SuccinctPaul",
       "github_url": "https://github.com/SuccinctPaul",
-      "emails": [],
-      "git_names": [],
+      "emails": [
+        "108982045+SuccinctPaul@users.noreply.github.com",
+        "chengyuejia@foxmail.com"
+      ],
+      "git_names": [
+        "Paul",
+        "Paul Cheng"
+      ],
       "aliases": [],
       "member_of_org": true,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
       "sources": [
+        "github_commits",
         "manual_review"
       ],
-      "notes": "Confirmed for public display by manual review."
+      "notes": "Git identities verified against commits attributed to the SuccinctPaul GitHub account."
     },
     "mumu029": {
       "display_name": "mumu029",
