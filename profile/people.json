@@ -116,11 +116,17 @@
       "emails": [
         "cubelander@users.noreply.github.com",
         "49518565+cubelander@users.noreply.github.com",
-        "jingyuantian@hust.edu.cn"
+        "jingyuantian@hust.edu.cn",
+        "jingyuan_tian@qq.com",
+        "1365287231@qq.com",
+        "jingyuan@local"
       ],
       "git_names": [
         "Jingyuan Tian",
-        "CubeLander"
+        "CubeLander",
+        "Jingyuan",
+        "Fletcher Tian",
+        "Flecther Tian"
       ],
       "aliases": [],
       "member_of_org": true,
@@ -378,8 +384,13 @@
       "english_name": "",
       "github_login": "junhuizhang-boop",
       "github_url": "https://github.com/junhuizhang-boop",
-      "emails": [],
-      "git_names": [],
+      "emails": [
+        "junhui.zhang@novita.ai"
+      ],
+      "git_names": [
+        "Junhui Zhang",
+        "junhuizhang-boop"
+      ],
       "aliases": [],
       "member_of_org": true,
       "public": true,
