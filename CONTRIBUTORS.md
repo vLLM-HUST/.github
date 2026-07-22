@@ -96,17 +96,19 @@
 python scripts/update_contributor_leaderboard.py --workspace-root /path/to/workspace
 ```
 
-### Fork 仓库 (`vllm-hust`, `vllm-ascend-hust`)
+“组织全仓库”范围在每次运行时从 GitHub 自动发现：计入 vLLM-HUST 下所有公开、未归档、非 GitHub fork 的独立仓库，并额外计入脚本中显式配置了 fork-only 规则的仓库。私有仓库不进入公开榜单；普通外部 fork 只有配置了上游归因规则后才会计入。
 
-- 使用 `git log --first-parent --cherry-pick --right-only FETCH_HEAD...HEAD` 隔离 fork-only 变更
+### 配置了上游的仓库 (`vllm-hust`, `vllm-ascend-hust`)
+
+- 使用 first-parent 历史隔离本组织合入的 PR 与直接提交
 - PR merge commit 的净 diff (`diff-tree`) 归因给 PR 作者（通过 GitHub API 查询）
 - 纯上游同步提交（subject 匹配 `sync upstream` / `main2main` / `upgrade vllm` 等模式）排除
 - 非 PR 的直接提交仅计入组织成员
 
-### 非 Fork 仓库（benchmark、dev-hub、website 等）
+### 独立仓库（bidkv、diffspec、benchmark、dev-hub、website 等）
 
 - 使用 `git log --numstat --no-merges --no-renames` 全量统计
-- 异常大体积初始导入通过 `.mailmap` + commit 排除
+- 单次超过 50k 变更行的异常大体积导入排除
 
 ### 排除规则
 

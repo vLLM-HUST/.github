@@ -184,6 +184,53 @@ def run_git(args: list[str], cwd: Path) -> str:
     return result.stdout
 
 
+def fetch_org_repositories() -> list[dict]:
+    gh_binary = shutil.which("gh")
+    if gh_binary is None:
+        raise RuntimeError("gh CLI is required to discover vLLM-HUST repositories")
+    output = subprocess.run(
+        [gh_binary, "api", f"orgs/{ORG_NAME}/repos?per_page=100&type=all"],
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    repositories = json.loads(output)
+    if not isinstance(repositories, list):
+        raise RuntimeError(f"Failed to resolve {ORG_NAME} repositories")
+    return repositories
+
+
+def expand_repo_specs(configured_specs: list[dict], repositories: list[dict]) -> list[dict]:
+    """Add active public organization-owned repositories to configured specs.
+
+    Explicit specs remain authoritative for repositories that need special
+    upstream or commit-exclusion rules. GitHub forks are not auto-added because
+    they require an explicit fork-only attribution policy; private repositories
+    are excluded from the public leaderboard.
+    """
+    expanded = [dict(spec) for spec in configured_specs]
+    configured_names = {spec["name"] for spec in expanded}
+
+    for repository in sorted(repositories, key=lambda item: str(item.get("name") or "")):
+        name = str(repository.get("name") or "").strip()
+        branch = str(repository.get("default_branch") or "").strip()
+        clone_url = str(repository.get("clone_url") or "").strip()
+        if (
+            not name
+            or name in configured_names
+            or not branch
+            or not clone_url
+            or repository.get("private")
+            or repository.get("archived")
+            or repository.get("fork")
+        ):
+            continue
+        expanded.append({"name": name, "url": clone_url, "branch": branch})
+        configured_names.add(name)
+
+    return expanded
+
+
 def parse_identity(identity: str) -> tuple[str, str]:
     match = re.match(r"\s*(.*?)\s*<(.*?)>\s*$", identity)
     if match:
@@ -1092,6 +1139,8 @@ def convert_urls_to_https() -> None:
 
 def main() -> None:
     args = parse_args()
+
+    REPO_SPECS[:] = expand_repo_specs(REPO_SPECS, fetch_org_repositories())
 
     if args.ci:
         convert_urls_to_https()

@@ -184,3 +184,64 @@ def test_generated_payload_has_unique_mapped_people() -> None:
             if item["github_login"]
         ]
         assert len(logins) == len(set(logins))
+    assert "vllm-ascend-hust-bidkv" in payload["all_repos"]["scope_repos"]
+    mingqi = next(
+        item
+        for item in payload["all_repos"]["contributors"]
+        if item.get("github_login") == "MingqiWang-coder"
+    )
+    assert "vllm-ascend-hust-bidkv" in mingqi["repos"]
+
+
+def test_expand_repo_specs_adds_public_independent_repositories() -> None:
+    configured = [
+        {
+            "name": "vllm-hust",
+            "url": "https://github.com/vLLM-HUST/vllm-hust.git",
+            "branch": "main",
+            "upstream": "https://github.com/vllm-project/vllm.git",
+        }
+    ]
+    repositories = [
+        {
+            "name": "vllm-hust",
+            "clone_url": "https://github.com/vLLM-HUST/vllm-hust.git",
+            "default_branch": "main",
+            "private": False,
+            "archived": False,
+            "fork": True,
+        },
+        {
+            "name": "vllm-ascend-hust-bidkv",
+            "clone_url": "https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv.git",
+            "default_branch": "main",
+            "private": False,
+            "archived": False,
+            "fork": False,
+        },
+        {
+            "name": "private-research",
+            "clone_url": "https://github.com/vLLM-HUST/private-research.git",
+            "default_branch": "main",
+            "private": True,
+            "archived": False,
+            "fork": False,
+        },
+        {
+            "name": "external-fork",
+            "clone_url": "https://github.com/vLLM-HUST/external-fork.git",
+            "default_branch": "main",
+            "private": False,
+            "archived": False,
+            "fork": True,
+        },
+    ]
+
+    expanded = leaderboard.expand_repo_specs(configured, repositories)
+
+    assert [spec["name"] for spec in expanded] == [
+        "vllm-hust",
+        "vllm-ascend-hust-bidkv",
+    ]
+    assert expanded[0]["upstream"].endswith("vllm.git")
+    assert expanded[1]["branch"] == "main"
