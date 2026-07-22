@@ -141,3 +141,107 @@ def test_succinctpaul_identities_coalesce_without_merging_curated_peer(
     assert result["github:succinctpaul"].added == 10
     assert result["github:succinctpaul"].deleted == 4
     assert result["github:other-paul"].commits == 5
+
+
+def test_qoder_agent_is_excluded_as_automation() -> None:
+    assert leaderboard.is_excluded_author_identity("Qoder Agent", "agent@qoder.ai")
+    assert leaderboard.is_excluded_author_identity("Qoder Agent", "agent@qoder.local")
+    assert leaderboard.is_excluded_author_identity("qoder", "qoder@local")
+
+
+def test_org_member_identity_uses_canonical_email_login_mapping() -> None:
+    assert leaderboard.is_org_member_identity(
+        "Jingyuan Tian",
+        "49518565+cubelander@users.noreply.github.com",
+        {"CubeLander"},
+    )
+
+
+def test_upstream_and_sync_subjects_are_excluded() -> None:
+    assert leaderboard.should_exclude_subject("upstream change", {"upstream change"})
+    assert leaderboard.should_exclude_subject("Merge: sync upstream main", set())
+    assert leaderboard.should_exclude_subject("Sync main with upstream vllm/main", set())
+    assert leaderboard.should_exclude_subject(
+        "Merge latest upstream/main into vLLM-HUST", set()
+    )
+    assert not leaderboard.should_exclude_subject("fix: local regression", set())
+
+
+def test_contribution_size_filter_excludes_empty_and_bulk_imports() -> None:
+    assert not leaderboard.is_valid_contribution_size(0, 0)
+    assert leaderboard.is_valid_contribution_size(49_999, 1)
+    assert not leaderboard.is_valid_contribution_size(50_000, 1)
+
+
+def test_generated_payload_has_unique_mapped_people() -> None:
+    root = Path(__file__).resolve().parents[1]
+    payload = json.loads((root / "profile" / "core_contributors.json").read_text())
+    for scope in ("all_repos", "core_repos"):
+        contributors = payload[scope]["contributors"]
+        logins = [
+            item["github_login"].casefold()
+            for item in contributors
+            if item["github_login"]
+        ]
+        assert len(logins) == len(set(logins))
+    assert "vllm-ascend-hust-bidkv" in payload["all_repos"]["scope_repos"]
+    mingqi = next(
+        item
+        for item in payload["all_repos"]["contributors"]
+        if item.get("github_login") == "MingqiWang-coder"
+    )
+    assert "vllm-ascend-hust-bidkv" in mingqi["repos"]
+
+
+def test_expand_repo_specs_adds_public_independent_repositories() -> None:
+    configured = [
+        {
+            "name": "vllm-hust",
+            "url": "https://github.com/vLLM-HUST/vllm-hust.git",
+            "branch": "main",
+            "upstream": "https://github.com/vllm-project/vllm.git",
+        }
+    ]
+    repositories = [
+        {
+            "name": "vllm-hust",
+            "clone_url": "https://github.com/vLLM-HUST/vllm-hust.git",
+            "default_branch": "main",
+            "private": False,
+            "archived": False,
+            "fork": True,
+        },
+        {
+            "name": "vllm-ascend-hust-bidkv",
+            "clone_url": "https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv.git",
+            "default_branch": "main",
+            "private": False,
+            "archived": False,
+            "fork": False,
+        },
+        {
+            "name": "private-research",
+            "clone_url": "https://github.com/vLLM-HUST/private-research.git",
+            "default_branch": "main",
+            "private": True,
+            "archived": False,
+            "fork": False,
+        },
+        {
+            "name": "external-fork",
+            "clone_url": "https://github.com/vLLM-HUST/external-fork.git",
+            "default_branch": "main",
+            "private": False,
+            "archived": False,
+            "fork": True,
+        },
+    ]
+
+    expanded = leaderboard.expand_repo_specs(configured, repositories)
+
+    assert [spec["name"] for spec in expanded] == [
+        "vllm-hust",
+        "vllm-ascend-hust-bidkv",
+    ]
+    assert expanded[0]["upstream"].endswith("vllm.git")
+    assert expanded[1]["branch"] == "main"
