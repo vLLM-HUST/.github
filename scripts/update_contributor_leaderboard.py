@@ -110,6 +110,9 @@ EXCLUDED_AUTHOR_PATTERNS = (
 
 GITHUB_LOGIN_BY_EMAIL = {
     "shuhao_zhang@hust.edu.cn": "ShuhaoZhangTony",
+    "864832769@qq.com": "ShuhaoZhangTony",
+    "420444843@qq.com": "ShuhaoZhangTony",
+    "qixinzhang2601@users.noreply.github.com": "ShuhaoZhangTony",
     "mingqiwang@hust.edu.cn": "MingqiWang-coder",
     "gxl20040702@gmail.com": "XilingGao",
     "995496585@qq.com": "KimmoZAG",

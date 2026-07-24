@@ -18,6 +18,8 @@
 | ShuhaoZhangTony | noreply | GitHub Web 编辑 |
 | Sage | sage@hust.edu.cn | 短名 |
 | chooper26 | tony_zhang@live.com.sg | 旧用户名 |
+| Tony | 864832769@qq.com | 历史提交身份 |
+| qixinzhang2601 | 420444843@qq.com | 历史 GitHub / 提交身份 |
 | my | my@example.com | 临时本地配置 |
 
 ### moonandlife (Jeffrey Wang)

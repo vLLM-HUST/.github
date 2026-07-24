@@ -143,6 +143,30 @@ def test_succinctpaul_identities_coalesce_without_merging_curated_peer(
     assert result["github:other-paul"].commits == 5
 
 
+def test_shuhao_historical_tony_and_qixin_identities_coalesce() -> None:
+    root = Path(__file__).resolve().parents[1]
+    people = leaderboard.load_people_index(root)
+    stats = {
+        email: leaderboard.ContributorStats(
+            name=name,
+            email=email,
+            commits=commits,
+        )
+        for name, email, commits in (
+            ("Shuhao Zhang", "shuhao_zhang@hust.edu.cn", 10),
+            ("Tony", "864832769@qq.com", 2),
+            ("qixinzhang2601", "420444843@qq.com", 1),
+        )
+    }
+
+    result = leaderboard.coalesce_stats_by_person(root, stats)
+
+    assert list(result) == ["github:shuhaozhangtony"]
+    assert result["github:shuhaozhangtony"].commits == 13
+    assert people.by_name["tony"]["github_login"] == "ShuhaoZhangTony"
+    assert people.by_name["qixinzhang2601"]["github_login"] == "ShuhaoZhangTony"
+
+
 def test_qoder_agent_is_excluded_as_automation() -> None:
     assert leaderboard.is_excluded_author_identity("Qoder Agent", "agent@qoder.ai")
     assert leaderboard.is_excluded_author_identity("Qoder Agent", "agent@qoder.local")

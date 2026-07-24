@@ -794,24 +794,6 @@
       ],
       "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
     },
-    "qixinzhang2601": {
-      "display_name": "qixinzhang2601",
-      "chinese_name": "",
-      "english_name": "",
-      "github_login": "qixinzhang2601",
-      "github_url": "https://github.com/qixinzhang2601",
-      "emails": [],
-      "git_names": [],
-      "aliases": [],
-      "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
-      "sources": [
-        "github_org_members"
-      ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
-    },
     "Raing5Days": {
       "display_name": "Raing5Days",
       "chinese_name": "吴天宇",
@@ -954,6 +936,9 @@
         "shuhaozhangtony@users.noreply.github.com",
         "sage@hust.edu.cn",
         "tony_zhang@live.com.sg",
+        "864832769@qq.com",
+        "420444843@qq.com",
+        "qixinzhang2601@users.noreply.github.com",
         "my@example.com",
         "team@intellistream.org"
       ],
@@ -964,6 +949,8 @@
         "shuhao zhang",
         "Shuhao Zhang",
         "ShuhaoZhangTony",
+        "Tony",
+        "qixinzhang2601",
         "Sage",
         "chooper26",
         "my",
@@ -971,7 +958,8 @@
         "GitHub Copilot"
       ],
       "aliases": [
-        "chooper26"
+        "chooper26",
+        "qixinzhang2601"
       ],
       "member_of_org": true,
       "public": true,
@@ -985,7 +973,7 @@
         "leaderboard_script",
         "manual_review"
       ],
-      "notes": "Confirmed for public display by manual review."
+      "notes": "Confirmed for public display by manual review. Tony and qixinzhang2601 are historical identities of Shuhao Zhang."
     },
     "Summerflower5": {
       "display_name": "Summerflower5",
