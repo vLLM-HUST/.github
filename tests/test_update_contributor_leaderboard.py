@@ -184,13 +184,26 @@ def test_generated_payload_has_unique_mapped_people() -> None:
             if item["github_login"]
         ]
         assert len(logins) == len(set(logins))
-    assert "vllm-ascend-hust-bidkv" in payload["all_repos"]["scope_repos"]
-    mingqi = next(
-        item
-        for item in payload["all_repos"]["contributors"]
-        if item.get("github_login") == "MingqiWang-coder"
+    assert "vllm-ascend-hust-bidkv" not in payload["all_repos"]["scope_repos"]
+    assert {
+        "vllm-hust",
+        "vllm-ascend-hust",
+        "vllm-ascend-quant-hust",
+        "vllm-ascend-hust-diffspec",
+        "vllm-hust-bidkv",
+    } == set(payload["core_repos"]["scope_repos"])
+
+
+def test_core_scope_includes_explicit_independent_optimization_repositories() -> None:
+    assert leaderboard.CORE_REPOS == (
+        leaderboard.RUNTIME_CORE_REPOS
+        | leaderboard.INDEPENDENT_OPTIMIZATION_REPOS
     )
-    assert "vllm-ascend-hust-bidkv" in mingqi["repos"]
+    assert leaderboard.INDEPENDENT_OPTIMIZATION_REPOS == {
+        "vllm-ascend-hust-diffspec",
+        "vllm-hust-bidkv",
+    }
+    assert "pegaflow-hust" not in leaderboard.CORE_REPOS
 
 
 def test_expand_repo_specs_adds_public_independent_repositories() -> None:
@@ -212,8 +225,9 @@ def test_expand_repo_specs_adds_public_independent_repositories() -> None:
             "fork": True,
         },
         {
-            "name": "vllm-ascend-hust-bidkv",
-            "clone_url": "https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv.git",
+            "name": "independent-optimizer",
+            "clone_url": "https://github.com/vLLM-HUST/independent-optimizer.git",
+            "ssh_url": "git@github.com:vLLM-HUST/independent-optimizer.git",
             "default_branch": "main",
             "private": False,
             "archived": False,
@@ -241,7 +255,8 @@ def test_expand_repo_specs_adds_public_independent_repositories() -> None:
 
     assert [spec["name"] for spec in expanded] == [
         "vllm-hust",
-        "vllm-ascend-hust-bidkv",
+        "independent-optimizer",
     ]
     assert expanded[0]["upstream"].endswith("vllm.git")
     assert expanded[1]["branch"] == "main"
+    assert expanded[1]["url"].startswith("git@github.com:")

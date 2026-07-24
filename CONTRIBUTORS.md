@@ -110,6 +110,18 @@ python scripts/update_contributor_leaderboard.py --workspace-root /path/to/works
 - 使用 `git log --numstat --no-merges --no-renames` 全量统计
 - 单次超过 50k 变更行的异常大体积导入排除
 
+### 核心仓库统计口径
+
+“核心仓库”榜单优先展示在“组织全仓库”榜单之前，并包含两类仓库：
+
+- 运行时核心仓库：`vllm-hust`、`vllm-ascend-hust`、`vllm-ascend-quant-hust`
+- 团队独立维护、直接优化推理执行层的成果仓库：当前包括
+  `vllm-hust-bidkv` 和 `vllm-ascend-hust-diffspec`
+
+普通工具、网站、文档、benchmark 以及外部成果的集成镜像不会因为位于
+vLLM-HUST 组织内而自动进入核心统计。新增独立优化成果时，应在生成脚本的
+`INDEPENDENT_OPTIMIZATION_REPOS` 中显式登记。
+
 ### 排除规则
 
 - Bot 账号：dependabot[bot], github-actions[bot], copilot-swe-agent[bot] 等
