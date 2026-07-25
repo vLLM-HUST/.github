@@ -252,6 +252,22 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
     people = leaderboard.load_people_index(root)
     expected_names = {
         "kimmozag": "张睿诚",
+        "qixinzhang26": "张书豪",
+        "li-changwu": "李昶吾",
+        "sssarrior": "李旭恒",
+        "hongrugao": "高鸿儒",
+        "tkhkrnx": "彭浩然",
+        "mingqiwang682-boop": "王明琪",
+        "yang-yjy": "杨锦昀",
+        "zerojustme": "王子澳",
+        "zslchase": "张森磊",
+        "pluviophile-chen": "陈德斌",
+        "yancanmao": "毛言粲",
+        "wrp-wrp": "万瑞鹏",
+        "firmamentumx": "周雨桐",
+        "carsontung666": "董君瑶",
+        "leixy2004": "雷欣妍",
+        "luqhhh": "路庆浩",
         "sad-and-bad1231": "匡明轩",
         "sadboineedluv": "匡明轩",
         "kms12425": "马俊豪",
@@ -591,6 +607,22 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     }
 
     assert by_name["张睿诚"]["github_login"] == "KimmoZAG"
+    assert by_name["张书豪"]["github_login"] == "ShuhaoZhangTony"
+    assert by_name["李昶吾"]["github_login"] == "Li-changwu"
+    assert by_name["李旭恒"]["github_login"] == "sssarrior"
+    assert by_name["高鸿儒"]["github_login"] == "hongrugao"
+    assert by_name["彭浩然"]["github_login"] == "Tkhkrnx"
+    assert by_name["王明琪"]["github_login"] == "MingqiWang-coder"
+    assert by_name["杨锦昀"]["github_login"] == "Yang-YJY"
+    assert by_name["王子澳"]["github_login"] == "ZeroJustMe"
+    assert by_name["张森磊"]["github_login"] == "zslchase"
+    assert by_name["陈德斌"]["github_login"] == "pluviophile-chen"
+    assert by_name["毛言粲"]["github_login"] == "yancanmao"
+    assert by_name["万瑞鹏"]["github_login"] == "wrp-wrp"
+    assert by_name["周雨桐"]["github_login"] == "FirmamentumX"
+    assert by_name["董君瑶"]["github_login"] == "carsontung666"
+    assert by_name["雷欣妍"]["github_login"] == "leixy2004"
+    assert by_name["路庆浩"]["github_login"] == "Luqhhh"
     assert by_name["田景远"]["github_login"] == "CubeLander"
     assert by_name["田景远"]["role"]["zh"] == "实习生"
     assert by_name["田景远"]["advisor"]["zh"] == "张书豪"
@@ -659,7 +691,7 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         if item["display_name"] == "李旭恒"
     ]
     assert len(xuheng_rows) == 1
-    assert xuheng_rows[0]["person_id"] == "profile:李旭恒"
+    assert xuheng_rows[0]["person_id"] == "github:sssarrior"
 
     for item in by_name.values():
         assert "contribution_areas" in item

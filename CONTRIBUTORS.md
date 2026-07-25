@@ -93,6 +93,54 @@ GitHub 主账号、历史账号、Git author、邮箱、身份、单位、导师
 | Jeffrey (Huawei) | jeffrey.wangsheng@huawei.com | 华为员工，非 Jeffrey Wang (moonandlife) |
 | Jeffrey Li | jeffrey-dot-li@users.noreply.github.com | 另一位 Jeffrey，非 moonandlife |
 
+## 课题组人员 GitHub 身份对照
+
+下表是 `profile/people.json` 的人可读快照。主账号用于页面链接，其他账号作为
+canonical person 的别名归并，不会产生重复人员。
+
+### 主要成员
+
+| 姓名 | GitHub 主账号 | 已确认的其他账号 | 备注 |
+| --- | --- | --- | --- |
+| 张书豪 | [ShuhaoZhangTony](https://github.com/ShuhaoZhangTony) | chooper26、QixinZhang26、qixinzhang2601 | 同一人 |
+| 张睿诚 | [KimmoZAG](https://github.com/KimmoZAG) | — | — |
+| 刘俊 | [iliujunn](https://github.com/iliujunn) | — | — |
+| 李昶吾 | [Li-changwu](https://github.com/Li-changwu) | — | — |
+| 李旭恒 | [sssarrior](https://github.com/sssarrior) | — | — |
+| 高鸿儒 | [hongrugao](https://github.com/hongrugao) | — | — |
+| 曹哲 | [xmdhb](https://github.com/xmdhb) | — | — |
+| 彭浩然 | [Tkhkrnx](https://github.com/Tkhkrnx) | — | — |
+| 王明琪 | [MingqiWang-coder](https://github.com/MingqiWang-coder) | mingqiwang682-boop | 同一人 |
+| 杨锦昀 | [Yang-YJY](https://github.com/Yang-YJY) | — | — |
+| 王子澳 | [ZeroJustMe](https://github.com/ZeroJustMe) | — | — |
+| 张森磊 | [zslchase](https://github.com/zslchase) | — | — |
+| 陈彦博 | [cybber695](https://github.com/cybber695) | — | — |
+| 朱鑫材 | [Pygone](https://github.com/Pygone) | — | — |
+| 陈德斌 | [pluviophile-chen](https://github.com/pluviophile-chen) | — | — |
+| 王杰 | [WMASTER123](https://github.com/WMASTER123) | — | — |
+| 李庚 | [Anjiangy](https://github.com/Anjiangy) | — | 沿用此前用户确认的账号映射 |
+| 高西岭 | [XilingGao](https://github.com/XilingGao) | Coisinixixi | 同一人 |
+| 王胜 | [moonandlife](https://github.com/moonandlife) | — | — |
+| 程月甲 | [SuccinctPaul](https://github.com/SuccinctPaul) | — | — |
+| 龙斌 | — | — | 已确认无 GitHub ID |
+| 毛言粲 | [yancanmao](https://github.com/yancanmao) | — | — |
+
+### 实习及补充成员
+
+| 姓名 | GitHub 主账号 | 已确认的其他账号 | 备注 |
+| --- | --- | --- | --- |
+| 马俊豪 | [kms12425](https://github.com/kms12425) | kms12425-ctrl | 同一人 |
+| 万瑞鹏 | [wrp-wrp](https://github.com/wrp-wrp) | — | — |
+| 杜雨枫 | [LuckyWindovo](https://github.com/LuckyWindovo) | — | — |
+| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | Sadboineedluv | 本次名单写作“况明轩”；暂沿用此前多次确认的姓名 |
+| 周雨桐 | [FirmamentumX](https://github.com/FirmamentumX) | — | — |
+| 董君瑶 | [carsontung666](https://github.com/carsontung666) | — | — |
+| 田景远 | [CubeLander](https://github.com/CubeLander) | — | — |
+| 赵建军 | [curryzjj](https://github.com/curryzjj) | Jianjun Zhao | 沿用此前确认的中文名 |
+| 邱瑞杰 | [Jerry01020](https://github.com/Jerry01020) | — | — |
+| 雷欣妍 | [leixy2004](https://github.com/leixy2004) | — | — |
+| 路庆浩 | [Luqhhh](https://github.com/Luqhhh) | — | — |
+
 ## GitHub 账号映射
 
 通过 noreply 邮箱或公开信息确认的 GitHub 登录名：

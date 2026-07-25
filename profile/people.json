@@ -864,9 +864,12 @@
         "mingqiwang-coder@users.noreply.github.com"
       ],
       "git_names": [
-        "MingqiWang-coder"
+        "MingqiWang-coder",
+        "mingqiwang682-boop"
       ],
-      "aliases": [],
+      "aliases": [
+        "mingqiwang682-boop"
+      ],
       "member_of_org": true,
       "public": true,
       "needs_review": false,
@@ -889,7 +892,7 @@
           "advisor_en": "Shuhao Zhang"
         }
       },
-      "notes": "Confirmed for public display by manual review."
+      "notes": "User confirmed MingqiWang-coder and mingqiwang682-boop are identities of 王明琪."
     },
     "Miracle0x0": {
       "display_name": "Junyi Zhang",
@@ -1051,27 +1054,6 @@
         "manual_review"
       ],
       "notes": "Confirmed for public display by manual review."
-    },
-    "QixinZhang26": {
-      "display_name": "张启昕",
-      "chinese_name": "张启昕",
-      "english_name": "",
-      "github_login": "QixinZhang26",
-      "github_url": "https://github.com/QixinZhang26",
-      "emails": [],
-      "git_names": [
-        "张启昕"
-      ],
-      "aliases": [],
-      "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_profile",
-      "sources": [
-        "github_org_members",
-        "github_profile"
-      ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
     },
     "Raing5Days": {
       "display_name": "Raing5Days",
@@ -1261,6 +1243,7 @@
         "ShuhaoZhangTony",
         "Tony",
         "qixinzhang2601",
+        "QixinZhang26",
         "Sage",
         "chooper26",
         "my",
@@ -1269,7 +1252,8 @@
       ],
       "aliases": [
         "chooper26",
-        "qixinzhang2601"
+        "qixinzhang2601",
+        "QixinZhang26"
       ],
       "member_of_org": true,
       "public": true,
@@ -1292,7 +1276,7 @@
           "research_direction_en": "State management, distributed runtimes, and LLM inference infrastructure"
         }
       },
-      "notes": "Confirmed for public display by manual review. Tony and qixinzhang2601 are historical identities of Shuhao Zhang."
+      "notes": "User confirmed ShuhaoZhangTony, chooper26, QixinZhang26, and qixinzhang2601 are identities of 张书豪."
     },
     "Summerflower5": {
       "display_name": "Summerflower5",
@@ -1839,8 +1823,8 @@
       "display_name": "Xuheng Li",
       "chinese_name": "李旭恒",
       "english_name": "Xuheng Li",
-      "github_login": "",
-      "github_url": "",
+      "github_login": "sssarrior",
+      "github_url": "https://github.com/sssarrior",
       "emails": [
         "sssarrior@gmail.com"
       ],
@@ -1856,24 +1840,24 @@
       "display_name_source": "manual",
       "sources": ["manual_review", "private_group_roster"],
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "KV Cache跨请求与跨Chunk复用", "research_direction_en": "Cross-request and cross-chunk KV cache reuse", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "Confirmed current research-group participant."
+      "notes": "User confirmed sssarrior is the GitHub account of 李旭恒."
     },
     "vllm-hust-gao-hongru": {
       "display_name": "Hongru Gao",
       "chinese_name": "高鸿儒",
       "english_name": "Hongru Gao",
-      "github_login": "",
-      "github_url": "",
+      "github_login": "hongrugao",
+      "github_url": "https://github.com/hongrugao",
       "emails": [],
-      "git_names": [],
-      "aliases": [],
+      "git_names": ["hongrugao"],
+      "aliases": ["hongrugao"],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "动态图系统、计算机系统结构与国产推理优化", "research_direction_en": "Dynamic graph systems, computer architecture, and domestic inference optimization", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "Confirmed current research-group participant."
+      "notes": "User confirmed hongrugao is the GitHub account of 高鸿儒."
     },
     "vllm-hust-cao-zhe": {
       "display_name": "曹哲",
@@ -1896,69 +1880,69 @@
       "display_name": "Jinyun Yang",
       "chinese_name": "杨锦昀",
       "english_name": "Jinyun Yang",
-      "github_login": "",
-      "github_url": "",
+      "github_login": "Yang-YJY",
+      "github_url": "https://github.com/Yang-YJY",
       "emails": [],
-      "git_names": [],
-      "aliases": [],
+      "git_names": ["Yang-YJY"],
+      "aliases": ["Yang-YJY"],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "Flink、流处理与流推理系统融合", "research_direction_en": "Flink, stream processing, and streaming-inference systems", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "Confirmed current research-group participant."
+      "notes": "User confirmed Yang-YJY is the GitHub account of 杨锦昀."
     },
     "vllm-hust-wang-ziao": {
       "display_name": "Ziao Wang",
       "chinese_name": "王子澳",
       "english_name": "Ziao Wang",
-      "github_login": "",
-      "github_url": "",
+      "github_login": "ZeroJustMe",
+      "github_url": "https://github.com/ZeroJustMe",
       "emails": [],
-      "git_names": [],
-      "aliases": [],
+      "git_names": ["ZeroJustMe"],
+      "aliases": ["ZeroJustMe"],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "ANNS、向量流连接与RAG检索基础设施", "research_direction_en": "ANNS, streaming vector joins, and RAG retrieval infrastructure", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "Confirmed current research-group participant."
+      "notes": "User confirmed ZeroJustMe is the GitHub account of 王子澳."
     },
     "vllm-hust-zhang-senlei": {
       "display_name": "Senlei Zhang",
       "chinese_name": "张森磊",
       "english_name": "Senlei Zhang",
-      "github_login": "",
-      "github_url": "",
+      "github_login": "zslchase",
+      "github_url": "https://github.com/zslchase",
       "emails": [],
-      "git_names": [],
-      "aliases": [],
+      "git_names": ["zslchase"],
+      "aliases": ["zslchase"],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "长上下文分布式推理", "research_direction_en": "Distributed long-context inference", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "Confirmed current research-group participant."
+      "notes": "User confirmed zslchase is the GitHub account of 张森磊."
     },
     "vllm-hust-chen-debin": {
       "display_name": "Debin Chen",
       "chinese_name": "陈德斌",
       "english_name": "Debin Chen",
-      "github_login": "",
-      "github_url": "",
+      "github_login": "pluviophile-chen",
+      "github_url": "https://github.com/pluviophile-chen",
       "emails": [],
-      "git_names": [],
-      "aliases": [],
+      "git_names": ["pluviophile-chen"],
+      "aliases": ["pluviophile-chen"],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "时序数据库与推理引擎工程", "research_direction_en": "Time-series databases and inference-engine engineering", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "Confirmed current research-group participant."
+      "notes": "User confirmed pluviophile-chen is the GitHub account of 陈德斌."
     },
     "vllm-hust-li-geng": {
       "display_name": "李庚",
@@ -2010,6 +1994,108 @@
       "sources": ["manual_review"],
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "participation_direction_zh": "项目方向待补充", "participation_direction_en": "Project direction pending", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
       "notes": "Confirmed current research-group participant."
+    },
+    "yancanmao": {
+      "display_name": "Yancan Mao",
+      "chinese_name": "毛言粲",
+      "english_name": "Yancan Mao",
+      "github_login": "yancanmao",
+      "github_url": "https://github.com/yancanmao",
+      "emails": [],
+      "git_names": ["yancanmao"],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true}},
+      "notes": "User confirmed yancanmao is the GitHub account of 毛言粲."
+    },
+    "wrp-wrp": {
+      "display_name": "万瑞鹏",
+      "chinese_name": "万瑞鹏",
+      "english_name": "",
+      "github_login": "wrp-wrp",
+      "github_url": "https://github.com/wrp-wrp",
+      "emails": [],
+      "git_names": ["wrp-wrp"],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true}},
+      "notes": "User confirmed wrp-wrp is the GitHub account of 万瑞鹏."
+    },
+    "FirmamentumX": {
+      "display_name": "周雨桐",
+      "chinese_name": "周雨桐",
+      "english_name": "",
+      "github_login": "FirmamentumX",
+      "github_url": "https://github.com/FirmamentumX",
+      "emails": [],
+      "git_names": ["FirmamentumX"],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true}},
+      "notes": "User confirmed FirmamentumX is the GitHub account of 周雨桐."
+    },
+    "carsontung666": {
+      "display_name": "董君瑶",
+      "chinese_name": "董君瑶",
+      "english_name": "",
+      "github_login": "carsontung666",
+      "github_url": "https://github.com/carsontung666",
+      "emails": [],
+      "git_names": ["carsontung666"],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true}},
+      "notes": "User confirmed carsontung666 is the GitHub account of 董君瑶."
+    },
+    "leixy2004": {
+      "display_name": "雷欣妍",
+      "chinese_name": "雷欣妍",
+      "english_name": "",
+      "github_login": "leixy2004",
+      "github_url": "https://github.com/leixy2004",
+      "emails": [],
+      "git_names": ["leixy2004"],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true}},
+      "notes": "User confirmed leixy2004 is the GitHub account of 雷欣妍."
+    },
+    "Luqhhh": {
+      "display_name": "路庆浩",
+      "chinese_name": "路庆浩",
+      "english_name": "",
+      "github_login": "Luqhhh",
+      "github_url": "https://github.com/Luqhhh",
+      "emails": [],
+      "git_names": ["Luqhhh"],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true}},
+      "notes": "User confirmed Luqhhh is the GitHub account of 路庆浩."
     },
     "vllm-hust-long-bin": {
       "display_name": "Bin Long",
