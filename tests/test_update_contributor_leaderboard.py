@@ -245,6 +245,16 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
     assert people.by_login["llxler"]["chinese_name"] == "雷翔麟"
     assert people.by_login["seas0"]["chinese_name"] == "刘思辰"
     assert people.by_email["xcx14@outlook.com"]["github_login"] == "xsun2001"
+    assert people.by_login["moonandlife"]["profiles"]["vllm_hust"]["staff_member"]
+    assert people.by_login["succinctpaul"]["profiles"]["vllm_hust"]["staff_member"]
+    long_bin = people.by_name["龙斌"]["profiles"]["vllm_hust"]
+    assert long_bin["staff_member"] is True
+    assert long_bin["role_zh"] == "项目/科研助理"
+    for engineering_member in ("Pygone", "WMASTER123", "XilingGao"):
+        profile = people.by_login[engineering_member.casefold()][
+            "profiles"
+        ]["vllm_hust"]
+        assert profile.get("staff_member") is not True
 
 
 def test_member_profile_classification_uses_merged_core_repos() -> None:
@@ -273,17 +283,35 @@ def test_member_profile_classification_uses_merged_core_repos() -> None:
             }
         },
     }
+    staff_person = {
+        "display_name": "Engineer",
+        "chinese_name": "工程师",
+        "english_name": "Engineer",
+        "github_login": "engineer",
+        "github_url": "https://github.com/engineer",
+        "public": True,
+        "needs_review": False,
+        "profiles": {
+            "vllm_hust": {
+                "participant": True,
+                "staff_member": True,
+                "role_zh": "工程师",
+            }
+        },
+    }
     people = leaderboard.PeopleIndex(
         by_login={
             "participant": participant_person,
             "xsun2001": external_person,
+            "engineer": staff_person,
         },
         by_email={},
         by_name={
             "participant": participant_person,
             "xsun2001": external_person,
+            "engineer": staff_person,
         },
-        people=[participant_person, external_person],
+        people=[participant_person, external_person, staff_person],
     )
     core = {
         "person_id": "github:core",
@@ -314,11 +342,22 @@ def test_member_profile_classification_uses_merged_core_repos() -> None:
         "repos": ["vllm-hust"],
         "core_member": False,
     }
+    staff = {
+        "person_id": "github:engineer",
+        "identity_confirmed": True,
+        "external_contributor": False,
+        "staff_member": True,
+        "name": "Engineer",
+        "display_name": "工程师",
+        "github_login": "engineer",
+        "repos": ["vllm-hust"],
+        "core_member": False,
+    }
 
     profiles = leaderboard.build_member_profiles(
         people,
-        [core, participant, external],
-        [core, external],
+        [core, participant, external, staff],
+        [core, external, staff],
     )
 
     assert [item["person_id"] for item in profiles["core_members"]] == [
@@ -330,6 +369,9 @@ def test_member_profile_classification_uses_merged_core_repos() -> None:
     assert [
         item["person_id"] for item in profiles["external_contributors"]
     ] == ["github:xsun2001"]
+    assert [item["person_id"] for item in profiles["staff_members"]] == [
+        "github:engineer"
+    ]
 
 
 def test_resolve_upstream_ref_reuses_existing_ref_after_fetch_failure(
@@ -421,7 +463,13 @@ def test_generated_member_profiles_share_core_classification_invariants() -> Non
     core_repos = set(profiles["core_repo_names"])
     core_members = profiles["core_members"]
     participants = profiles["participants"]
+    staff = profiles["staff_members"]
     external = profiles["external_contributors"]
+    assert {item["display_name"] for item in staff} == {
+        "王胜",
+        "程月甲",
+        "龙斌",
+    }
 
     assert core_repos == set(payload["core_repos"]["scope_repos"])
     raw_core_ids = {
@@ -433,19 +481,31 @@ def test_generated_member_profiles_share_core_classification_invariants() -> Non
         for item in external
         if set(item["repos"]) & core_repos
     }
-    assert raw_core_ids == classified_core_ids | external_core_ids
+    staff_core_ids = {
+        item["person_id"]
+        for item in staff
+        if set(item["repos"]) & core_repos
+    }
+    assert raw_core_ids == (
+        classified_core_ids | staff_core_ids | external_core_ids
+    )
     assert all(set(item["repos"]) & core_repos for item in core_members)
     assert all(not (set(item["repos"]) & core_repos) for item in participants)
 
     core_ids = [item["person_id"] for item in core_members]
     participant_ids = [item["person_id"] for item in participants]
+    staff_ids = [item["person_id"] for item in staff]
     external_ids = [item["person_id"] for item in external]
     assert len(core_ids) == len(set(core_ids))
     assert len(participant_ids) == len(set(participant_ids))
+    assert len(staff_ids) == len(set(staff_ids))
     assert len(external_ids) == len(set(external_ids))
     assert set(core_ids).isdisjoint(participant_ids)
+    assert set(core_ids).isdisjoint(staff_ids)
     assert set(core_ids).isdisjoint(external_ids)
+    assert set(participant_ids).isdisjoint(staff_ids)
     assert set(participant_ids).isdisjoint(external_ids)
+    assert set(staff_ids).isdisjoint(external_ids)
 
 
 def test_generated_profiles_preserve_manual_metadata_separately() -> None:
@@ -457,6 +517,7 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         for item in (
             profiles["core_members"]
             + profiles["participants"]
+            + profiles["staff_members"]
             + profiles["external_contributors"]
         )
     }
@@ -468,7 +529,11 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["赵建军"]["github_login"] == "curryzjj"
     assert by_name["高西岭"]["github_login"] == "XilingGao"
     assert by_name["王胜"]["role"]["zh"] == "工程师"
+    assert by_name["王胜"]["staff_member"] is True
     assert by_name["程月甲"]["role"]["zh"] == "工程师"
+    assert by_name["程月甲"]["staff_member"] is True
+    assert by_name["龙斌"]["role"]["zh"] == "项目/科研助理"
+    assert by_name["龙斌"]["staff_member"] is True
     assert by_name["赵建军"]["role"]["zh"] == "已毕业博士生，目前已入职高校"
     assert by_name["高西岭"]["research_direction"]["zh"] == "KV量化"
     assert "多级KV缓存" not in by_name["高西岭"]["research_direction"]["zh"]
