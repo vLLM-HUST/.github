@@ -8,6 +8,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 from collections import defaultdict
 from dataclasses import dataclass, field
@@ -75,7 +76,20 @@ REPO_SPECS = [
     },
 ]
 
-CORE_REPOS = {"vllm-hust", "vllm-ascend-hust", "vllm-ascend-quant-hust"}
+RUNTIME_CORE_REPOS = {
+    "vllm-hust",
+    "vllm-ascend-hust",
+    "vllm-ascend-quant-hust",
+}
+
+# Independently maintained result repositories whose implementation directly
+# optimizes the inference execution layer.
+INDEPENDENT_OPTIMIZATION_REPOS = {
+    "vllm-ascend-hust-diffspec",
+    "vllm-hust-bidkv",
+}
+
+CORE_REPOS = RUNTIME_CORE_REPOS | INDEPENDENT_OPTIMIZATION_REPOS
 
 MAX_COMMIT_LINES = 50_000
 
@@ -94,6 +108,9 @@ EXCLUDED_AUTHOR_PATTERNS = (
 
 GITHUB_LOGIN_BY_EMAIL = {
     "shuhao_zhang@hust.edu.cn": "ShuhaoZhangTony",
+    "864832769@qq.com": "ShuhaoZhangTony",
+    "420444843@qq.com": "ShuhaoZhangTony",
+    "qixinzhang2601@users.noreply.github.com": "ShuhaoZhangTony",
     "mingqiwang@hust.edu.cn": "MingqiWang-coder",
     "gxl20040702@gmail.com": "XilingGao",
     "995496585@qq.com": "KimmoZAG",
@@ -214,7 +231,9 @@ def expand_repo_specs(configured_specs: list[dict], repositories: list[dict]) ->
     for repository in sorted(repositories, key=lambda item: str(item.get("name") or "")):
         name = str(repository.get("name") or "").strip()
         branch = str(repository.get("default_branch") or "").strip()
-        clone_url = str(repository.get("clone_url") or "").strip()
+        clone_url = str(
+            repository.get("ssh_url") or repository.get("clone_url") or ""
+        ).strip()
         if (
             not name
             or name in configured_names
@@ -355,8 +374,16 @@ def _resolve_upstream_ref(repo_dir: Path, repo_spec: dict) -> str:
         if remote_name not in remotes:
             run_git(["remote", "add", remote_name, repo_spec["upstream"]], repo_dir)
         fetch_target = remote_name
-    run_git(["fetch", fetch_target, upstream_branch], repo_dir)
-    return f"{fetch_target}/{upstream_branch}"
+    upstream_ref = f"{fetch_target}/{upstream_branch}"
+    try:
+        run_git(["fetch", fetch_target, upstream_branch], repo_dir)
+    except subprocess.CalledProcessError:
+        run_git(["rev-parse", "--verify", f"{upstream_ref}^{{commit}}"], repo_dir)
+        print(
+            f"warning: using existing {upstream_ref} after upstream fetch failed",
+            file=sys.stderr,
+        )
+    return upstream_ref
 
 
 def fetch_org_member_logins() -> set[str]:
@@ -453,6 +480,7 @@ def collect_standard_repo_stats(
             "--numstat",
             "--no-renames",
             "--no-merges",
+            repo_spec.get("branch", "main"),
         ],
         repo_dir,
     )
@@ -876,6 +904,17 @@ def build_section(
         "",
         "> 身份合并规则与统计方法详见 [CONTRIBUTORS.md](../CONTRIBUTORS.md)",
         "",
+        "### 核心仓库与独立优化成果",
+        "",
+        f"优先统计直接影响推理性能的 {len(CORE_REPOS)} 个运行时核心仓库"
+        "与独立优化成果仓库"
+        f"（{core_repo_names}），"
+        f"排除所有上游/初始代码，快照 `{snapshot_date}`。",
+        "",
+        build_table(core_contributors, core_only=True),
+        "",
+        "---",
+        "",
         "### 组织全仓库",
         "",
         f"统计组织下 {len(REPO_SPECS)} 个仓库的 fork-only 贡献"
@@ -884,16 +923,6 @@ def build_section(
         f"快照 `{snapshot_date}`。",
         "",
         build_table(all_contributors, core_only=False),
-        "",
-        "---",
-        "",
-        "### 核心性能仓库",
-        "",
-        f"仅统计直接影响推理性能的 {len(CORE_REPOS)} 个核心仓库"
-        f"（{core_repo_names}），"
-        f"排除所有上游/初始代码，快照 `{snapshot_date}`。",
-        "",
-        build_table(core_contributors, core_only=True),
         "",
         END_MARKER,
     ]

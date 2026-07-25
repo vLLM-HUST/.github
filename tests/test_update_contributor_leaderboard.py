@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import subprocess
 import sys
 from pathlib import Path
+
+import pytest
 
 
 SCRIPT_PATH = (
@@ -143,6 +146,73 @@ def test_succinctpaul_identities_coalesce_without_merging_curated_peer(
     assert result["github:other-paul"].commits == 5
 
 
+def test_shuhao_historical_tony_and_qixin_identities_coalesce() -> None:
+    root = Path(__file__).resolve().parents[1]
+    people = leaderboard.load_people_index(root)
+    stats = {
+        email: leaderboard.ContributorStats(
+            name=name,
+            email=email,
+            commits=commits,
+        )
+        for name, email, commits in (
+            ("Shuhao Zhang", "shuhao_zhang@hust.edu.cn", 10),
+            ("Tony", "864832769@qq.com", 2),
+            ("qixinzhang2601", "420444843@qq.com", 1),
+        )
+    }
+
+    result = leaderboard.coalesce_stats_by_person(root, stats)
+
+    assert list(result) == ["github:shuhaozhangtony"]
+    assert result["github:shuhaozhangtony"].commits == 13
+    assert people.by_name["tony"]["github_login"] == "ShuhaoZhangTony"
+    assert people.by_name["qixinzhang2601"]["github_login"] == "ShuhaoZhangTony"
+
+
+def test_iliujunn_is_publicly_mapped_to_liu_jun() -> None:
+    root = Path(__file__).resolve().parents[1]
+    people = leaderboard.load_people_index(root)
+
+    person = people.by_login["iliujunn"]
+
+    assert person["display_name"] == "Liu Jun"
+    assert person["chinese_name"] == "刘俊"
+    assert person["public"] is True
+    assert person["needs_review"] is False
+
+
+def test_resolve_upstream_ref_reuses_existing_ref_after_fetch_failure(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    calls = []
+
+    def fake_run_git(args: list[str], repo_dir: Path) -> str:
+        calls.append((args, repo_dir))
+        if args == ["remote"]:
+            return "upstream"
+        if args == ["fetch", "upstream", "main"]:
+            raise subprocess.CalledProcessError(128, args)
+        if args == ["rev-parse", "--verify", "upstream/main^{commit}"]:
+            return "abc123"
+        raise AssertionError(f"unexpected git call: {args}")
+
+    monkeypatch.setattr(leaderboard, "run_git", fake_run_git)
+
+    result = leaderboard._resolve_upstream_ref(
+        tmp_path,
+        {
+            "upstream": "https://example.com/upstream.git",
+            "upstream_remote": "upstream",
+            "upstream_branch": "main",
+        },
+    )
+
+    assert result == "upstream/main"
+    assert (["rev-parse", "--verify", "upstream/main^{commit}"], tmp_path) in calls
+
+
 def test_qoder_agent_is_excluded_as_automation() -> None:
     assert leaderboard.is_excluded_author_identity("Qoder Agent", "agent@qoder.ai")
     assert leaderboard.is_excluded_author_identity("Qoder Agent", "agent@qoder.local")
@@ -184,13 +254,14 @@ def test_generated_payload_has_unique_mapped_people() -> None:
             if item["github_login"]
         ]
         assert len(logins) == len(set(logins))
-    assert "vllm-ascend-hust-bidkv" in payload["all_repos"]["scope_repos"]
+    assert "vllm-ascend-hust-bidkv" not in payload["all_repos"]["scope_repos"]
+    assert "vllm-hust-bidkv" in payload["core_repos"]["scope_repos"]
     mingqi = next(
         item
         for item in payload["all_repos"]["contributors"]
         if item.get("github_login") == "MingqiWang-coder"
     )
-    assert "vllm-ascend-hust-bidkv" in mingqi["repos"]
+    assert "vllm-ascend-hust-bidkv" not in mingqi["repos"]
 
 
 def test_expand_repo_specs_adds_public_independent_repositories() -> None:
