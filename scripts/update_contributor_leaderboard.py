@@ -1038,6 +1038,10 @@ def is_external_person(person: dict | None) -> bool:
     )
 
 
+def is_staff_person(person: dict | None) -> bool:
+    return bool(person_vllm_hust_profile(person).get("staff_member"))
+
+
 def localized_profile_value(profile: dict, key: str) -> dict[str, str]:
     return {
         "zh": str(profile.get(f"{key}_zh") or "").strip(),
@@ -1084,6 +1088,7 @@ def enrich_contributor_item(
     item["english_name"] = english_name
     identity_confirmed = is_confirmed_person(person)
     external_contributor = is_external_person(person)
+    staff_member = is_staff_person(person)
     item["person_id"] = (
         f"github:{login.casefold()}"
         if login
@@ -1095,9 +1100,15 @@ def enrich_contributor_item(
     )
     item["identity_confirmed"] = identity_confirmed
     item["external_contributor"] = external_contributor
-    item["core_member"] = bool(
+    item["staff_member"] = staff_member
+    item["core_repository_contributor"] = bool(
         set(item.get("repos") or []) & CORE_REPOS
-    ) and not external_contributor
+    )
+    item["core_member"] = (
+        item["core_repository_contributor"]
+        and not external_contributor
+        and not staff_member
+    )
     item["role"] = localized_profile_value(profile, "role")
     item["research_direction"] = localized_profile_value(
         profile, "research_direction"
@@ -1153,6 +1164,8 @@ def build_profile_only_participant(person: dict) -> dict:
         ),
         "identity_confirmed": True,
         "external_contributor": is_external_person(person),
+        "staff_member": is_staff_person(person),
+        "core_repository_contributor": False,
         "core_member": False,
         "role": localized_profile_value(profile, "role"),
         "research_direction": localized_profile_value(
@@ -1180,17 +1193,42 @@ def build_member_profiles(
         if item.get("external_contributor"):
             external_by_id.setdefault(item["person_id"], dict(item))
 
-    core_members = [
-        item for item in core_items if not item.get("external_contributor")
-    ]
+    staff_by_id: dict[str, dict] = {
+        item["person_id"]: dict(item)
+        for item in core_items
+        if item.get("staff_member")
+        and not item.get("external_contributor")
+    }
+    for item in all_items:
+        if (
+            item.get("staff_member")
+            and not item.get("external_contributor")
+        ):
+            staff_by_id.setdefault(item["person_id"], dict(item))
+
+    core_members = []
+    for rank, item in enumerate(
+        (
+            item
+            for item in core_items
+            if not item.get("external_contributor")
+            and not item.get("staff_member")
+        ),
+        start=1,
+    ):
+        member = dict(item)
+        member["rank"] = rank
+        core_members.append(member)
     core_person_ids = {item["person_id"] for item in core_members}
     external_person_ids = set(external_by_id)
+    staff_person_ids = set(staff_by_id)
     participants_by_id: dict[str, dict] = {}
 
     for item in all_items:
         if (
             item["person_id"] in core_person_ids
             or item["person_id"] in external_person_ids
+            or item["person_id"] in staff_person_ids
             or not item.get("identity_confirmed")
             or is_synthetic_contributor(item)
         ):
@@ -1208,6 +1246,11 @@ def build_member_profiles(
             external = build_profile_only_participant(person)
             external_by_id.setdefault(external["person_id"], external)
             external_person_ids.add(external["person_id"])
+            continue
+        if profile.get("staff_member") and is_confirmed_person(person):
+            staff = build_profile_only_participant(person)
+            staff_by_id.setdefault(staff["person_id"], staff)
+            staff_person_ids.add(staff["person_id"])
             continue
         if (
             not profile.get("participant")
@@ -1228,6 +1271,10 @@ def build_member_profiles(
         external_by_id.values(),
         key=lambda item: normalize_lookup_value(item.get("display_name")),
     )
+    staff_members = sorted(
+        staff_by_id.values(),
+        key=lambda item: normalize_lookup_value(item.get("display_name")),
+    )
     unresolved = [
         dict(item)
         for item in all_items
@@ -1238,6 +1285,7 @@ def build_member_profiles(
         "core_repo_names": sorted(CORE_REPOS),
         "core_members": core_members,
         "participants": participants,
+        "staff_members": staff_members,
         "external_contributors": external_contributors,
         "unresolved_contributors": unresolved,
     }
