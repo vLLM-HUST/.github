@@ -84,7 +84,8 @@
 | aly16-k | [aly16-k](https://github.com/aly16-k) | noreply |
 | 刘世锋 | [Remygred](https://github.com/Remygred) | 人工确认；华科大三实习生，指导老师张书豪 |
 | 曹哲 | [xmdhb](https://github.com/xmdhb) | 人工确认；即将入学的研究生，指导老师张书豪 |
-| 黄禹指导学生（姓名未公开） | [dzcixy](https://github.com/dzcixy) | 人工确认 + 暑期年会任务材料 |
+| 李庚 | [Anjiangy](https://github.com/Anjiangy) | 人工确认；马上入学的华科研究生，指导老师张书豪 |
+| 杜忠承 | [dzcixy](https://github.com/dzcixy) | 人工确认；学生，指导老师黄禹 |
 | sad-and-bad1231 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | noreply |
 | Raing5Days | [Raing5Days](https://github.com/Raing5Days) | noreply |
 | cybber695 | [cybber695](https://github.com/cybber695) | noreply |
