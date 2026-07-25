@@ -91,7 +91,7 @@
           "vllm-hust-dev-hub",
           "vllm-hust-perf-analyzer"
         ],
-        "key_contributions": "distributed, Ascend, docs, benchmark",
+        "key_contributions": "distributed, storage, profiling, development environment",
         "display_name": "田景远",
         "chinese_name": "田景远",
         "english_name": "Jingyuan Tian",
@@ -103,8 +103,8 @@
           "en": "Student intern"
         },
         "research_direction": {
-          "zh": "",
-          "en": ""
+          "zh": "异构大模型推理系统的端到端性能分析与优化",
+          "en": "End-to-end performance analysis and optimization for heterogeneous LLM inference systems"
         },
         "participation_direction": {
           "zh": "",
@@ -114,7 +114,7 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "distributed, Ascend, docs, benchmark",
+        "contribution_areas": "distributed, storage, profiling, development environment",
         "external_contributor": false,
         "staff_member": false,
         "core_repository_contributor": true
@@ -1781,7 +1781,7 @@
           "vllm-ascend-hust",
           "vllm-hust"
         ],
-        "key_contributions": "Ascend, engine",
+        "key_contributions": "distributed, storage, profiling, development environment",
         "display_name": "田景远",
         "chinese_name": "田景远",
         "english_name": "Jingyuan Tian",
@@ -1793,8 +1793,8 @@
           "en": "Student intern"
         },
         "research_direction": {
-          "zh": "",
-          "en": ""
+          "zh": "异构大模型推理系统的端到端性能分析与优化",
+          "en": "End-to-end performance analysis and optimization for heterogeneous LLM inference systems"
         },
         "participation_direction": {
           "zh": "",
@@ -1804,7 +1804,7 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "Ascend, engine",
+        "contribution_areas": "distributed, storage, profiling, development environment",
         "external_contributor": false,
         "staff_member": false,
         "core_repository_contributor": true
@@ -2581,7 +2581,7 @@
           "vllm-ascend-hust",
           "vllm-hust"
         ],
-        "key_contributions": "Ascend, engine",
+        "key_contributions": "distributed, storage, profiling, development environment",
         "display_name": "田景远",
         "chinese_name": "田景远",
         "english_name": "Jingyuan Tian",
@@ -2593,8 +2593,8 @@
           "en": "Student intern"
         },
         "research_direction": {
-          "zh": "",
-          "en": ""
+          "zh": "异构大模型推理系统的端到端性能分析与优化",
+          "en": "End-to-end performance analysis and optimization for heterogeneous LLM inference systems"
         },
         "participation_direction": {
           "zh": "",
@@ -2604,7 +2604,7 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "Ascend, engine",
+        "contribution_areas": "distributed, storage, profiling, development environment",
         "external_contributor": false,
         "staff_member": false,
         "core_repository_contributor": true
