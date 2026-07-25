@@ -68,6 +68,69 @@ def test_coalesce_stats_by_curated_github_identity(tmp_path: Path) -> None:
     assert contributor.per_repo_commits == {"repo-a": 2, "repo-b": 3}
 
 
+def test_profiles_only_refresh_merges_newly_confirmed_aliases(tmp_path: Path) -> None:
+    profile = tmp_path / "profile"
+    profile.mkdir()
+    (profile / "people.json").write_text(
+        json.dumps(
+            {
+                "people": {
+                    "canonical": {
+                        "display_name": "MingXuan Kuang",
+                        "chinese_name": "匡明轩",
+                        "github_login": "sad-and-bad1231",
+                        "github_url": "https://github.com/sad-and-bad1231",
+                        "git_names": ["MingXuan Kuang", "Sadboineedluv"],
+                        "aliases": ["Sadboineedluv"],
+                        "public": True,
+                        "needs_review": False,
+                        "profiles": {"vllm_hust": {"participant": True}},
+                    }
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+    payload = {
+        "all_repos": {
+            "contributors": [
+                {
+                    "rank": 1,
+                    "name": "MingXuan Kuang",
+                    "commits": 3,
+                    "changed_lines": 30,
+                    "added": 20,
+                    "deleted": 10,
+                    "repos": ["vllm-hust"],
+                    "key_contributions": "runtime",
+                },
+                {
+                    "rank": 2,
+                    "name": "Sadboineedluv",
+                    "commits": 2,
+                    "changed_lines": 12,
+                    "added": 8,
+                    "deleted": 4,
+                    "repos": ["survey"],
+                    "key_contributions": "docs",
+                },
+            ]
+        },
+        "core_repos": {"contributors": []},
+    }
+
+    refreshed = leaderboard.refresh_contributor_payload_profiles(tmp_path, payload)
+    rows = refreshed["all_repos"]["contributors"]
+
+    assert len(rows) == 1
+    assert rows[0]["person_id"] == "github:sad-and-bad1231"
+    assert rows[0]["display_name"] == "匡明轩"
+    assert rows[0]["commits"] == 5
+    assert rows[0]["changed_lines"] == 42
+    assert rows[0]["repos"] == ["survey", "vllm-hust"]
+    assert rows[0]["key_contributions"] == "runtime, docs"
+
+
 def test_unmapped_identities_remain_distinct(tmp_path: Path) -> None:
     profile = tmp_path / "profile"
     profile.mkdir()
@@ -188,6 +251,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
     expected_names = {
         "kimmozag": "张睿诚",
         "sad-and-bad1231": "匡明轩",
+        "sadboineedluv": "匡明轩",
         "kms12425": "马俊豪",
         "kms12425-ctrl": "马俊豪",
         "junhao ma": "马俊豪",
@@ -466,6 +530,8 @@ def test_generated_member_profiles_share_core_classification_invariants() -> Non
     staff = profiles["staff_members"]
     external = profiles["external_contributors"]
     assert {item["display_name"] for item in staff} == {
+        "luoxiaohei",
+        "张俊辉",
         "王胜",
         "程月甲",
         "龙斌",
@@ -530,6 +596,11 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["高西岭"]["github_login"] == "XilingGao"
     assert by_name["王胜"]["role"]["zh"] == "工程师"
     assert by_name["王胜"]["staff_member"] is True
+    assert by_name["张俊辉"]["github_login"] == "junhuizhang-boop"
+    assert by_name["张俊辉"]["role"]["zh"] == "工程师（派欧云）"
+    assert by_name["张俊辉"]["staff_member"] is True
+    assert by_name["luoxiaohei"]["role"]["zh"] == "工程师（派欧云）"
+    assert by_name["luoxiaohei"]["staff_member"] is True
     assert by_name["程月甲"]["role"]["zh"] == "工程师"
     assert by_name["程月甲"]["staff_member"] is True
     assert by_name["龙斌"]["role"]["zh"] == "项目/科研助理"
@@ -546,6 +617,10 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["李庚"]["github_login"] == "Anjiangy"
     assert by_name["李庚"]["role"]["zh"] == "马上入学的华科研究生"
     assert by_name["李庚"]["advisor"]["zh"] == "张书豪"
+    assert by_name["马俊豪"]["advisor"]["zh"] == "张书豪"
+    assert by_name["sunYangGitHub"]["github_login"] == "sunYangGitHub"
+    assert by_name["sunYangGitHub"]["role"]["zh"] == "外校实习生"
+    assert by_name["sunYangGitHub"]["advisor"]["zh"] == "张书豪"
     assert by_name["杜忠承"]["github_login"] == "dzcixy"
     assert by_name["杜忠承"]["advisor"]["zh"] == "黄禹"
     assert by_name["徐晨曦"]["github_login"] == "xsun2001"
@@ -556,7 +631,18 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     }
     assert "github:remygred" not in unresolved_ids
     assert "github:dzcixy" not in unresolved_ids
+    assert "github:sunyanggithub" not in unresolved_ids
+    assert "github:luoxiaohei" not in unresolved_ids
     assert "author:sssarrior" not in unresolved_ids
+
+    kuang_rows = [
+        item
+        for item in payload["all_repos"]["contributors"]
+        if item["person_id"] == "github:sad-and-bad1231"
+    ]
+    assert len(kuang_rows) == 1
+    assert kuang_rows[0]["commits"] == 17
+    assert "cccf-domestic-inference-engine-survey" in kuang_rows[0]["repos"]
     xuheng_rows = [
         item
         for item in profiles["participants"]

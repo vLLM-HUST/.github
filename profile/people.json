@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-26",
+  "updated_at": "2026-07-25",
   "people": {
     "aly16-k": {
       "display_name": "aly16-k",
@@ -439,9 +439,9 @@
       "notes": "Confirmed for public display by manual review."
     },
     "junhuizhang-boop": {
-      "display_name": "junhuizhang-boop",
+      "display_name": "张俊辉",
       "chinese_name": "张俊辉",
-      "english_name": "",
+      "english_name": "Junhui Zhang",
       "github_login": "junhuizhang-boop",
       "github_url": "https://github.com/junhuizhang-boop",
       "emails": [
@@ -460,7 +460,17 @@
         "github_org_members",
         "manual_review"
       ],
-      "notes": "Confirmed for public display by manual review."
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "staff_member": true,
+          "role_zh": "工程师（派欧云）",
+          "role_en": "Engineer (PPIO)",
+          "participation_direction_zh": "Benchmark 基础设施、上游同步与推理工程支持",
+          "participation_direction_en": "Benchmark infrastructure, upstream synchronization, and inference engineering support"
+        }
+      },
+      "notes": "User confirmed 张俊辉 is an engineer; contribution records identify a Novita AI email, while the current organizational affiliation was confirmed as PPIO."
     },
     "jxd1111": {
       "display_name": "jxd1111",
@@ -564,10 +574,14 @@
       ],
       "profiles": {
         "vllm_hust": {
-          "participant": true
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
         }
       },
-      "notes": "User confirmed kms12425, kms12425-ctrl, and JunHao Ma are 马俊豪."
+      "notes": "User confirmed kms12425, kms12425-ctrl, and JunHao Ma are 马俊豪, advised by 张书豪."
     },
     "Jerry01020": {
       "display_name": "Ruijie Qiu",
@@ -757,13 +771,24 @@
       ],
       "aliases": [],
       "member_of_org": false,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
-        "leaderboard_script"
+        "leaderboard_script",
+        "manual_review"
       ],
-      "notes": "Present in historical email-to-login mapping; not present in current org members page."
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "staff_member": true,
+          "role_zh": "工程师（派欧云）",
+          "role_en": "Engineer (PPIO)",
+          "participation_direction_zh": "Benchmark、排行榜、CI/CD 与数据质量工程",
+          "participation_direction_en": "Benchmarking, leaderboards, CI/CD, and data-quality engineering"
+        }
+      },
+      "notes": "User confirmed luoxiaohei is a PPIO engineer."
     },
     "machuanhu": {
       "display_name": "machuanhu",
@@ -1135,12 +1160,16 @@
       "github_login": "sad-and-bad1231",
       "github_url": "https://github.com/sad-and-bad1231",
       "emails": [
-        "1648910756@qq.com"
+        "1648910756@qq.com",
+        "2976582520@qq.com"
       ],
       "git_names": [
-        "MingXuan Kuang"
+        "MingXuan Kuang",
+        "Sadboineedluv"
       ],
-      "aliases": [],
+      "aliases": [
+        "Sadboineedluv"
+      ],
       "member_of_org": true,
       "public": true,
       "needs_review": false,
@@ -1157,7 +1186,7 @@
           "participant": true
         }
       },
-      "notes": "Confirmed for public display by manual review."
+      "notes": "User confirmed sad-and-bad1231, MingXuan Kuang, and Sadboineedluv are 匡明轩."
     },
     "Seas0": {
       "display_name": "Seas0",
@@ -1701,6 +1730,41 @@
         }
       },
       "notes": "Git identities verified against commits attributed to the SuccinctPaul GitHub account."
+    },
+    "sunYangGitHub": {
+      "display_name": "sunYangGitHub",
+      "chinese_name": "",
+      "english_name": "",
+      "github_login": "sunYangGitHub",
+      "github_url": "https://github.com/sunYangGitHub",
+      "emails": [],
+      "git_names": [
+        "sunYangGitHub"
+      ],
+      "aliases": [
+        "sunyang"
+      ],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "github_commits",
+        "github_profile",
+        "manual_review"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "外校实习生",
+          "role_en": "Visiting student intern",
+          "participation_direction_zh": "性能分析工具",
+          "participation_direction_en": "Performance-analysis tooling",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
+      "notes": "User confirmed sunYangGitHub is a visiting student intern advised by 张书豪."
     },
     "mumu029": {
       "display_name": "mumu029",

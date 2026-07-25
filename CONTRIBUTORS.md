@@ -63,7 +63,7 @@
 
 | 用户名 | Email(s) | 说明 |
 | --- | --- | --- |
-| luoxiaohei | luoxiaohei@ppio.com, luoxiaohei@gitlab.paigod.work | 与 moonandlife 使用不同邮箱，独立贡献者 |
+| luoxiaohei | luoxiaohei@ppio.com, luoxiaohei@gitlab.paigod.work | 与 moonandlife 使用不同邮箱；已确认为派欧云工程师 |
 | Jeffrey (Huawei) | jeffrey.wangsheng@huawei.com | 华为员工，非 Jeffrey Wang (moonandlife) |
 | Jeffrey Li | jeffrey-dot-li@users.noreply.github.com | 另一位 Jeffrey，非 moonandlife |
 
@@ -87,7 +87,11 @@
 | 李庚 | [Anjiangy](https://github.com/Anjiangy) | 人工确认；马上入学的华科研究生，指导老师张书豪 |
 | 杜忠承 | [dzcixy](https://github.com/dzcixy) | 人工确认；学生，指导老师黄禹 |
 | 徐晨曦 | [xsun2001](https://github.com/xsun2001) | 外部贡献者；港科大（广州），流水线并行解码与均衡微批调度 |
-| sad-and-bad1231 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | noreply |
+| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | 人工确认；Sadboineedluv / MingXuan Kuang 为同一人 |
+| 马俊豪 | [kms12425](https://github.com/kms12425) | 人工确认；kms12425-ctrl / JunHao Ma 为同一人，指导老师张书豪 |
+| sunYangGitHub | [sunYangGitHub](https://github.com/sunYangGitHub) | 人工确认；外校实习生，指导老师张书豪 |
+| luoxiaohei | [luoxiaohei](https://github.com/luoxiaohei) | 人工确认；派欧云工程师 |
+| 张俊辉 | [junhuizhang-boop](https://github.com/junhuizhang-boop) | 人工确认；派欧云工程师 |
 | Raing5Days | [Raing5Days](https://github.com/Raing5Days) | noreply |
 | cybber695 | [cybber695](https://github.com/cybber695) | noreply |
 | bnellnm | [bnellnm](https://github.com/bnellnm) | noreply |

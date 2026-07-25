@@ -1354,10 +1354,41 @@ def refresh_contributor_payload_profiles(repo_root: Path, payload: dict) -> dict
     refreshed_scopes: dict[str, dict] = {}
     for scope_name in ("all_repos", "core_repos"):
         scope = dict(payload.get(scope_name) or {})
-        scope["contributors"] = [
+        enriched_items = [
             enrich_contributor_item(dict(item), people_index)
             for item in scope.get("contributors") or []
         ]
+        merged_by_person: dict[str, dict] = {}
+        contribution_tags: dict[str, list[str]] = {}
+        for item in enriched_items:
+            person_id = item["person_id"]
+            tags = [
+                tag.strip()
+                for tag in str(item.get("key_contributions") or "").split(",")
+                if tag.strip()
+            ]
+            if person_id not in merged_by_person:
+                merged_by_person[person_id] = dict(item)
+                contribution_tags[person_id] = list(dict.fromkeys(tags))
+                continue
+
+            merged = merged_by_person[person_id]
+            for field in ("commits", "changed_lines", "added", "deleted"):
+                merged[field] = int(merged.get(field) or 0) + int(item.get(field) or 0)
+            merged["repos"] = sorted(
+                set(merged.get("repos") or []) | set(item.get("repos") or [])
+            )
+            merged["active_repos"] = len(merged["repos"])
+            contribution_tags[person_id] = list(
+                dict.fromkeys(contribution_tags[person_id] + tags)
+            )
+
+        scope["contributors"] = list(merged_by_person.values())
+        for rank, item in enumerate(scope["contributors"], start=1):
+            item["rank"] = rank
+            tags = contribution_tags[item["person_id"]]
+            item["key_contributions"] = ", ".join(tags)
+            item["contribution_areas"] = item["key_contributions"]
         refreshed_scopes[scope_name] = scope
         refreshed[scope_name] = scope
     refreshed["member_profiles"] = build_member_profiles(
