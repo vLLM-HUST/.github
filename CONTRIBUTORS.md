@@ -95,12 +95,13 @@ GitHub 主账号、历史账号、Git author、邮箱、身份、单位、导师
 
 ## 课题组人员 GitHub 身份对照
 
-下表是 `profile/people.json` 的人可读快照。主账号用于页面链接，其他账号作为
-canonical person 的别名归并，不会产生重复人员。
+下表是 `profile/people.json` 的人可读快照。主账号用于页面链接；其他 GitHub
+账号或提交作者身份作为 canonical person 的别名归并，不会产生重复人员。只有
+经 GitHub 验证可访问的主账号才生成页面链接，提交作者身份不等同于 GitHub 账号。
 
 ### 主要成员
 
-| 姓名 | GitHub 主账号 | 已确认的其他账号 | 备注 |
+| 姓名 | GitHub 主账号 | 其他账号/提交身份 | 备注 |
 | --- | --- | --- | --- |
 | 张书豪 | [ShuhaoZhangTony](https://github.com/ShuhaoZhangTony) | chooper26、QixinZhang26、qixinzhang2601 | 同一人 |
 | 张睿诚 | [KimmoZAG](https://github.com/KimmoZAG) | — | — |
@@ -119,6 +120,8 @@ canonical person 的别名归并，不会产生重复人员。
 | 陈德斌 | [pluviophile-chen](https://github.com/pluviophile-chen) | — | — |
 | 王杰 | [WMASTER123](https://github.com/WMASTER123) | — | — |
 | 李庚 | [Anjiangy](https://github.com/Anjiangy) | — | 沿用此前用户确认的账号映射 |
+| 宋功轩 | 待确认 | — | 已确认成员，尚未确认 GitHub ID |
+| 彭成 | 待确认 | — | 已确认成员，尚未确认 GitHub ID |
 | 高西岭 | [XilingGao](https://github.com/XilingGao) | Coisinixixi | 同一人 |
 | 王胜 | [moonandlife](https://github.com/moonandlife) | — | — |
 | 程月甲 | [SuccinctPaul](https://github.com/SuccinctPaul) | — | — |
@@ -127,12 +130,12 @@ canonical person 的别名归并，不会产生重复人员。
 
 ### 实习及补充成员
 
-| 姓名 | GitHub 主账号 | 已确认的其他账号 | 备注 |
+| 姓名 | GitHub 主账号 | 其他账号/提交身份 | 备注 |
 | --- | --- | --- | --- |
 | 马俊豪 | [kms12425](https://github.com/kms12425) | kms12425-ctrl | 同一人 |
 | 万瑞鹏 | [wrp-wrp](https://github.com/wrp-wrp) | — | — |
 | 杜雨枫 | [LuckyWindovo](https://github.com/LuckyWindovo) | — | — |
-| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | Sadboineedluv | 本次名单写作“况明轩”；暂沿用此前多次确认的姓名 |
+| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | Sadboineedluv（提交身份） | 本次名单写作“况明轩”；暂沿用此前多次确认的姓名 |
 | 周雨桐 | [FirmamentumX](https://github.com/FirmamentumX) | — | — |
 | 董君瑶 | [carsontung666](https://github.com/carsontung666) | — | — |
 | 田景远 | [CubeLander](https://github.com/CubeLander) | — | — |

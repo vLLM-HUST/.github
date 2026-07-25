@@ -233,6 +233,9 @@ def test_shuhao_historical_tony_and_qixin_identities_coalesce() -> None:
     assert result["github:shuhaozhangtony"].commits == 13
     assert people.by_name["tony"]["github_login"] == "ShuhaoZhangTony"
     assert people.by_name["qixinzhang2601"]["github_login"] == "ShuhaoZhangTony"
+    assert people.by_name["qixinzhang26"]["github_login"] == "ShuhaoZhangTony"
+    assert people.by_name["chooper26"]["github_login"] == "ShuhaoZhangTony"
+    assert "chooper26" not in people.by_login
 
 
 def test_iliujunn_is_publicly_mapped_to_liu_jun() -> None:
@@ -647,6 +650,9 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["程月甲"]["staff_member"] is True
     assert by_name["龙斌"]["role"]["zh"] == "项目/科研助理"
     assert by_name["龙斌"]["staff_member"] is True
+    assert by_name["龙斌"]["github_status"]["zh"] == "无 GitHub ID"
+    assert by_name["宋功轩"]["github_status"]["zh"] == "GitHub ID 待确认"
+    assert by_name["彭成"]["github_status"]["zh"] == "GitHub ID 待确认"
     assert by_name["赵建军"]["role"]["zh"] == "已毕业博士生，目前已入职高校"
     assert by_name["高西岭"]["research_direction"]["zh"] == "KV量化"
     assert "多级KV缓存" not in by_name["高西岭"]["research_direction"]["zh"]
@@ -697,6 +703,8 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         assert "contribution_areas" in item
         assert "research_direction" in item
         assert item["contribution_areas"] == item["key_contributions"]
+        if not item.get("github_login"):
+            assert item["github_status"]["zh"]
 
     people_payload = json.loads((root / "profile" / "people.json").read_text())
     student_role_markers = ("学生", "研究生", "实习生")

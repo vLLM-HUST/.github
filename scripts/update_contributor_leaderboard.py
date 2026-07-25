@@ -1121,6 +1121,7 @@ def enrich_contributor_item(
         profile, "participation_direction"
     )
     item["advisor"] = localized_profile_value(profile, "advisor")
+    item["github_status"] = localized_profile_value(profile, "github_status")
     contribution_areas = profile_contribution_areas(
         profile, item.get("key_contributions")
     )
@@ -1184,6 +1185,7 @@ def build_profile_only_participant(person: dict) -> dict:
             profile, "participation_direction"
         ),
         "advisor": localized_profile_value(profile, "advisor"),
+        "github_status": localized_profile_value(profile, "github_status"),
         "contribution_areas": contribution_areas,
     }
 
