@@ -129,6 +129,8 @@ def test_profiles_only_refresh_merges_newly_confirmed_aliases(tmp_path: Path) ->
     assert rows[0]["changed_lines"] == 42
     assert rows[0]["repos"] == ["survey", "vllm-hust"]
     assert rows[0]["key_contributions"] == "runtime, docs"
+    assert rows[0]["core_repository_contributor"] is True
+    assert rows[0]["core_member"] is True
 
 
 def test_unmapped_identities_remain_distinct(tmp_path: Path) -> None:

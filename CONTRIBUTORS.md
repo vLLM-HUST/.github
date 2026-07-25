@@ -1,10 +1,35 @@
 # Contributor Identity & Methodology
 
-本文档记录 vLLM-HUST 组织贡献者排行榜的统计方法、身份合并规则和 GitHub 映射表。
+本文档记录 vLLM-HUST 组织贡献者排行榜的统计方法、人员身份、账号归并规则和 GitHub 映射表。
 
-## 身份合并规则 (`.mailmap`)
+## 身份信息的唯一事实来源
 
-组织使用 `.mailmap` 文件规范化 Git author 身份。以下为当前合并规则：
+`profile/people.json` 是人员身份的唯一事实来源，维护一个人对应的中文名、英文名、
+GitHub 主账号、历史账号、Git author、邮箱、身份、单位、导师和页面分类信息。
+
+- `aliases`、`git_names`、`emails` 只负责把多个提交身份归并为同一个人。
+- `profiles.vllm_hust` 记录该人员在 vLLM-HUST 中的身份、参与方向、导师以及属于
+  核心成员、参与人员、工程师/助理或外部贡献者的关系。
+- `.mailmap` 是 Git 工具层的兼容映射，不是人员档案的替代品。
+- `profile/core_contributors.json` 和网站中的同名数据都是生成结果，不应手工维护。
+- 身份变更后应运行 `--profiles-only`，并验证组织档案与网站快照完全一致。
+
+### 近期确认的人员信息
+
+| 人员 | Canonical GitHub | 已归并身份 | 身份/单位 | 指导老师 | 页面分类 |
+| --- | --- | --- | --- | --- | --- |
+| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | MingXuan Kuang、Sadboineedluv；`1648910756@qq.com`、`2976582520@qq.com` | 团队成员 | — | 按核心仓库真实贡献判定 |
+| 马俊豪 | [kms12425](https://github.com/kms12425) | kms12425-ctrl、Jun Hao Ma、JunHao Ma | 学生 | 张书豪 | 按核心仓库真实贡献判定 |
+| sunYangGitHub | [sunYangGitHub](https://github.com/sunYangGitHub) | sunyang、sunYangGitHub | 外校实习生 | 张书豪 | 参与人员 |
+| luoxiaohei | [luoxiaohei](https://github.com/luoxiaohei) | `luoxiaohei@ppio.com`、`luoxiaohei@gitlab.paigod.work` | 派欧云工程师 | — | 工程师/助理 |
+| 张俊辉 | [junhuizhang-boop](https://github.com/junhuizhang-boop) | Junhui Zhang、`junhui.zhang@novita.ai` | 派欧云工程师 | — | 工程师/助理 |
+
+未获得中文姓名时保留已确认的 GitHub 主账号作为公开名称，不根据邮箱或用户名猜测
+实名。后续获得实名后只更新 `profile/people.json`，再由脚本同步生成数据。
+
+## Git author 合并规则 (`.mailmap`)
+
+组织同时使用 `.mailmap` 规范化 Git author 身份。以下为当前兼容映射：
 
 ### Shuhao Zhang
 

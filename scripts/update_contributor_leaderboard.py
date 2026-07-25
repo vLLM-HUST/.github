@@ -1389,6 +1389,14 @@ def refresh_contributor_payload_profiles(repo_root: Path, payload: dict) -> dict
             tags = contribution_tags[item["person_id"]]
             item["key_contributions"] = ", ".join(tags)
             item["contribution_areas"] = item["key_contributions"]
+            item["core_repository_contributor"] = bool(
+                set(item.get("repos") or []) & CORE_REPOS
+            )
+            item["core_member"] = (
+                item["core_repository_contributor"]
+                and not item.get("external_contributor")
+                and not item.get("staff_member")
+            )
         refreshed_scopes[scope_name] = scope
         refreshed[scope_name] = scope
     refreshed["member_profiles"] = build_member_profiles(
