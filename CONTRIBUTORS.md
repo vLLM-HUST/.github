@@ -43,12 +43,12 @@
 | iliujunn / Lou Jun | iliujun@msn.com | 刘俊的主提交身份 |
 | liu | 99582471+irving11-bkn@users.noreply.github.com | GitHub noreply |
 
-### Remygred
+### 刘世锋 (Remygred)
 
 | Git Author | Email | 来源 |
 | --- | --- | --- |
-| Remygred | 153624059+Remygred@users.noreply.github.com | 主身份 |
-| Remygred | 2779387088@qq.com | 备用邮箱 |
+| Remygred | 153624059+Remygred@users.noreply.github.com | 刘世锋的主提交身份 |
+| Remygred | 2779387088@qq.com | 刘世锋的备用提交邮箱 |
 
 ### aly16-k / vllm-hust-quantization
 
@@ -82,7 +82,9 @@
 | Jingyuan Tian | [CubeLander](https://github.com/CubeLander) | noreply |
 | pygone | [Pygone](https://github.com/Pygone) | noreply |
 | aly16-k | [aly16-k](https://github.com/aly16-k) | noreply |
-| Remygred | [Remygred](https://github.com/Remygred) | noreply |
+| 刘世锋 | [Remygred](https://github.com/Remygred) | 人工确认；华科大三实习生，指导老师张书豪 |
+| 曹哲 | [xmdhb](https://github.com/xmdhb) | 人工确认；即将入学的研究生，指导老师张书豪 |
+| 黄禹指导学生（姓名未公开） | [dzcixy](https://github.com/dzcixy) | 人工确认 + 暑期年会任务材料 |
 | sad-and-bad1231 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | noreply |
 | Raing5Days | [Raing5Days](https://github.com/Raing5Days) | noreply |
 | cybber695 | [cybber695](https://github.com/cybber695) | noreply |
@@ -96,6 +98,15 @@
 
 ```bash
 python scripts/update_contributor_leaderboard.py --workspace-root /path/to/workspace
+```
+
+只更新已确认姓名、账号别名、身份和研究/参与方向，而保留上一次真实
+Git 统计数据时，可运行：
+
+```bash
+python scripts/update_contributor_leaderboard.py \
+  --workspace-root /path/to/workspace \
+  --profiles-only
 ```
 
 “组织全仓库”范围在每次运行时从 GitHub 自动发现：计入 vLLM-HUST 下所有公开、未归档、非 GitHub fork 的独立仓库，并额外计入脚本中显式配置了 fork-only 规则的仓库。私有仓库不进入公开榜单；普通外部 fork 只有配置了上游归因规则后才会计入。
