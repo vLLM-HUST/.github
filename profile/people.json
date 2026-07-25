@@ -163,7 +163,16 @@
         "leaderboard_script",
         "manual_review"
       ],
-      "notes": "Confirmed for public display by manual review."
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "实习生",
+          "role_en": "Student intern",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
+      "notes": "User confirmed 田景远 is a student intern advised by 张书豪."
     },
     "cybber695": {
       "display_name": "Yanbo Chen",
@@ -1184,10 +1193,12 @@
       ],
       "profiles": {
         "vllm_hust": {
-          "participant": true
+          "participant": true,
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
         }
       },
-      "notes": "User confirmed sad-and-bad1231, MingXuan Kuang, and Sadboineedluv are 匡明轩."
+      "notes": "User confirmed sad-and-bad1231, MingXuan Kuang, and Sadboineedluv are 匡明轩, advised by 张书豪."
     },
     "Seas0": {
       "display_name": "Seas0",

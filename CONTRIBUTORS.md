@@ -18,7 +18,8 @@ GitHub 主账号、历史账号、Git author、邮箱、身份、单位、导师
 
 | 人员 | Canonical GitHub | 已归并身份 | 身份/单位 | 指导老师 | 页面分类 |
 | --- | --- | --- | --- | --- | --- |
-| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | MingXuan Kuang、Sadboineedluv；`1648910756@qq.com`、`2976582520@qq.com` | 团队成员 | — | 按核心仓库真实贡献判定 |
+| 田景远 | [CubeLander](https://github.com/CubeLander) | Jingyuan Tian、Jingyuan、Fletcher Tian、Flecther Tian | 实习生 | 张书豪 | 按核心仓库真实贡献判定 |
+| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | MingXuan Kuang、Sadboineedluv；`1648910756@qq.com`、`2976582520@qq.com` | 团队成员 | 张书豪 | 按核心仓库真实贡献判定 |
 | 马俊豪 | [kms12425](https://github.com/kms12425) | kms12425-ctrl、Jun Hao Ma、JunHao Ma | 学生 | 张书豪 | 按核心仓库真实贡献判定 |
 | sunYangGitHub | [sunYangGitHub](https://github.com/sunYangGitHub) | sunyang、sunYangGitHub | 外校实习生 | 张书豪 | 参与人员 |
 | luoxiaohei | [luoxiaohei](https://github.com/luoxiaohei) | `luoxiaohei@ppio.com`、`luoxiaohei@gitlab.paigod.work` | 派欧云工程师 | — | 工程师/助理 |
@@ -104,7 +105,7 @@ GitHub 主账号、历史账号、Git author、邮箱、身份、单位、导师
 | Xiling Gao | [XilingGao](https://github.com/XilingGao) | email |
 | KimmoZAG | [KimmoZAG](https://github.com/KimmoZAG) | noreply |
 | 刘俊 | [iliujunn](https://github.com/iliujunn) | 人工确认 |
-| Jingyuan Tian | [CubeLander](https://github.com/CubeLander) | noreply |
+| 田景远 | [CubeLander](https://github.com/CubeLander) | 人工确认；实习生，指导老师张书豪 |
 | pygone | [Pygone](https://github.com/Pygone) | noreply |
 | aly16-k | [aly16-k](https://github.com/aly16-k) | noreply |
 | 刘世锋 | [Remygred](https://github.com/Remygred) | 人工确认；华科大三实习生，指导老师张书豪 |
@@ -112,7 +113,7 @@ GitHub 主账号、历史账号、Git author、邮箱、身份、单位、导师
 | 李庚 | [Anjiangy](https://github.com/Anjiangy) | 人工确认；马上入学的华科研究生，指导老师张书豪 |
 | 杜忠承 | [dzcixy](https://github.com/dzcixy) | 人工确认；学生，指导老师黄禹 |
 | 徐晨曦 | [xsun2001](https://github.com/xsun2001) | 外部贡献者；港科大（广州），流水线并行解码与均衡微批调度 |
-| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | 人工确认；Sadboineedluv / MingXuan Kuang 为同一人 |
+| 匡明轩 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | 人工确认；Sadboineedluv / MingXuan Kuang 为同一人，指导老师张书豪 |
 | 马俊豪 | [kms12425](https://github.com/kms12425) | 人工确认；kms12425-ctrl / JunHao Ma 为同一人，指导老师张书豪 |
 | sunYangGitHub | [sunYangGitHub](https://github.com/sunYangGitHub) | 人工确认；外校实习生，指导老师张书豪 |
 | luoxiaohei | [luoxiaohei](https://github.com/luoxiaohei) | 人工确认；派欧云工程师 |

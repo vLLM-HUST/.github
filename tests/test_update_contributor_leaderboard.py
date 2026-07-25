@@ -591,7 +591,11 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     }
 
     assert by_name["张睿诚"]["github_login"] == "KimmoZAG"
+    assert by_name["田景远"]["github_login"] == "CubeLander"
+    assert by_name["田景远"]["role"]["zh"] == "实习生"
+    assert by_name["田景远"]["advisor"]["zh"] == "张书豪"
     assert by_name["匡明轩"]["github_login"] == "sad-and-bad1231"
+    assert by_name["匡明轩"]["advisor"]["zh"] == "张书豪"
     assert by_name["马俊豪"]["github_login"] == "kms12425"
     assert by_name["邱瑞杰"]["github_login"] == "Jerry01020"
     assert by_name["赵建军"]["github_login"] == "curryzjj"
@@ -657,6 +661,17 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         assert "contribution_areas" in item
         assert "research_direction" in item
         assert item["contribution_areas"] == item["key_contributions"]
+
+    people_payload = json.loads((root / "profile" / "people.json").read_text())
+    student_role_markers = ("学生", "研究生", "实习生")
+    for person in people_payload["people"].values():
+        profile = (person.get("profiles") or {}).get("vllm_hust") or {}
+        role = profile.get("role_zh") or ""
+        if any(marker in role for marker in student_role_markers):
+            assert profile.get("advisor_zh"), (
+                f"{person.get('chinese_name') or person.get('github_login')} "
+                f"has role {role} but no advisor"
+            )
 
 
 def test_expand_repo_specs_adds_public_independent_repositories() -> None:
