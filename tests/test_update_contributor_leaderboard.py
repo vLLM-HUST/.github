@@ -200,6 +200,8 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "succinctpaul": "程月甲",
         "remygred": "刘世锋",
         "xmdhb": "曹哲",
+        "anjiangy": "李庚",
+        "dzcixy": "杜忠承",
         "renty-0": "王润泽",
         "ilnnfover": "吴天宇",
     }
@@ -424,8 +426,11 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["曹哲"]["github_login"] == "xmdhb"
     assert by_name["曹哲"]["role"]["zh"] == "即将入学的研究生"
     assert by_name["曹哲"]["advisor"]["zh"] == "张书豪"
-    assert by_name["dzcixy"]["github_login"] == "dzcixy"
-    assert by_name["dzcixy"]["advisor"]["zh"] == "黄禹"
+    assert by_name["李庚"]["github_login"] == "Anjiangy"
+    assert by_name["李庚"]["role"]["zh"] == "马上入学的华科研究生"
+    assert by_name["李庚"]["advisor"]["zh"] == "张书豪"
+    assert by_name["杜忠承"]["github_login"] == "dzcixy"
+    assert by_name["杜忠承"]["advisor"]["zh"] == "黄禹"
     unresolved_ids = {
         item["person_id"] for item in profiles["unresolved_contributors"]
     }
