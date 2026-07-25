@@ -129,6 +129,7 @@ GITHUB_LOGIN_BY_EMAIL = {
     "luoxiaohei@ppio.com": "luoxiaohei",
     "153624059+remygred@users.noreply.github.com": "Remygred",
     "2779387088@qq.com": "Remygred",
+    "961554798@qq.com": "dzcixy",
 }
 
 PR_MERGE_PATTERN = re.compile(r"^Merge pull request #(\d+) from (?P<owner>[^/]+)/")
@@ -1074,12 +1075,17 @@ def enrich_contributor_item(
     item["display_name"] = display_name
     item["chinese_name"] = chinese_name
     item["english_name"] = english_name
+    identity_confirmed = is_confirmed_person(person)
     item["person_id"] = (
         f"github:{login.casefold()}"
         if login
-        else f"author:{normalize_lookup_value(item.get('name'))}"
+        else (
+            f"profile:{normalize_lookup_value(display_name)}"
+            if identity_confirmed
+            else f"author:{normalize_lookup_value(item.get('name'))}"
+        )
     )
-    item["identity_confirmed"] = is_confirmed_person(person)
+    item["identity_confirmed"] = identity_confirmed
     item["core_member"] = bool(set(item.get("repos") or []) & CORE_REPOS)
     item["role"] = localized_profile_value(profile, "role")
     item["research_direction"] = localized_profile_value(

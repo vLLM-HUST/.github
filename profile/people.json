@@ -28,6 +28,17 @@
         "leaderboard_script",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "混合精度量化与精度成本权衡",
+          "research_direction_en": "Mixed-precision quantization and accuracy-cost trade-offs",
+          "advisor_zh": "项翔",
+          "advisor_en": "Xiang Xiang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "Amber1qq": {
@@ -47,6 +58,17 @@
         "github_org_members",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "状态传输与调度协同优化",
+          "research_direction_en": "State transfer and scheduling co-optimization",
+          "advisor_zh": "刘海坤",
+          "advisor_en": "Haikun Liu"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "AproAkk": {
@@ -166,10 +188,10 @@
       "profiles": {
         "vllm_hust": {
           "participant": true,
-          "role_zh": "工程成员",
-          "role_en": "Engineering member",
-          "research_direction_zh": "国产硬件推理引擎适配与性能优化",
-          "research_direction_en": "Domestic-hardware inference adaptation and performance optimization",
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "压力感知KV缓存驱逐机制",
+          "research_direction_en": "Pressure-aware KV-cache eviction",
           "advisor_zh": "张书豪",
           "advisor_en": "Shuhao Zhang"
         }
@@ -215,6 +237,17 @@
         "github_profile",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "前缀与共享状态索引机制",
+          "research_direction_en": "Prefix and shared-state indexing",
+          "advisor_zh": "罗瑞坤",
+          "advisor_en": "Ruikun Luo"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "healer-positive": {
@@ -274,6 +307,17 @@
         "github_org_members",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "面向国产平台的KV动态量化",
+          "research_direction_en": "Dynamic KV quantization for domestic platforms",
+          "advisor_zh": "姚鹏程",
+          "advisor_en": "Pengcheng Yao"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "husterL9": {
@@ -339,24 +383,6 @@
       },
       "notes": "User confirmed that iliujunn / Lou Jun is 刘俊."
     },
-    "ilnnfover": {
-      "display_name": "ilnnfover",
-      "chinese_name": "",
-      "english_name": "",
-      "github_login": "ilnnfover",
-      "github_url": "https://github.com/ilnnfover",
-      "emails": [],
-      "git_names": [],
-      "aliases": [],
-      "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
-      "sources": [
-        "github_org_members"
-      ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
-    },
     "Jiawan23": {
       "display_name": "Jiawan Zhang",
       "chinese_name": "张家万",
@@ -399,6 +425,17 @@
         "github_profile",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "状态分层驻留与生命周期管理",
+          "research_direction_en": "Tiered state residency and lifecycle management",
+          "advisor_zh": "赵进",
+          "advisor_en": "Jin Zhao"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "junhuizhang-boop": {
@@ -594,6 +631,42 @@
       },
       "notes": "User confirmed curryzjj / Jianjun Zhao is 赵建军, a PhD alumnus now employed by a university."
     },
+    "dzcixy": {
+      "display_name": "dzcixy",
+      "chinese_name": "",
+      "english_name": "",
+      "github_login": "dzcixy",
+      "github_url": "https://github.com/dzcixy",
+      "emails": [
+        "961554798@qq.com"
+      ],
+      "git_names": [
+        "dzcixy"
+      ],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "github_profile",
+      "sources": [
+        "core_contributors",
+        "github_profile",
+        "manual_review",
+        "summer_meeting_materials"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "黄禹指导学生",
+          "role_en": "Student advised by Yu Huang",
+          "participation_direction_zh": "推测解码与阶段协同执行优化",
+          "participation_direction_en": "Speculative decoding and coordinated execution",
+          "advisor_zh": "黄禹",
+          "advisor_en": "Yu Huang"
+        }
+      },
+      "notes": "User confirmed dzcixy is a student advised by 黄禹; the summer-meeting materials place DiffSpec work in speculative decoding and coordinated execution. Legal name remains unpublished."
+    },
     "kotoriqaq0": {
       "display_name": "kotoriqaq",
       "chinese_name": "",
@@ -638,10 +711,10 @@
       "profiles": {
         "vllm_hust": {
           "participant": true,
-          "role_zh": "学术成员",
-          "role_en": "Academic member",
-          "research_direction_zh": "状态分层、硬件感知执行与Agentic I/O",
-          "research_direction_en": "State tiering, hardware-aware execution, and agentic I/O",
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "动态专家卸载与图重放适配机制",
+          "research_direction_en": "Dynamic expert offloading and graph-replay adaptation",
           "advisor_zh": "张书豪",
           "advisor_en": "Shuhao Zhang"
         }
@@ -709,6 +782,17 @@
         "github_org_members",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "统一执行抽象与执行图建模",
+          "research_direction_en": "Unified execution abstraction and execution-graph modeling",
+          "advisor_zh": "王雄",
+          "advisor_en": "Xiong Wang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "mhyzb117": {
@@ -958,20 +1042,34 @@
       "github_url": "https://github.com/Raing5Days",
       "emails": [],
       "git_names": [],
-      "aliases": [],
+      "aliases": [
+        "ilnnfover"
+      ],
       "member_of_org": true,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
       "sources": [
         "github_org_members",
-        "manual_review"
+        "manual_review",
+        "summer_meeting_task_roster"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "动态图执行与原生算子优化",
+          "research_direction_en": "Dynamic-graph execution and native-operator optimization",
+          "advisor_zh": "郑龙",
+          "advisor_en": "Long Zheng"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "Remygred": {
-      "display_name": "Remygred",
-      "chinese_name": "",
+      "display_name": "刘世锋",
+      "chinese_name": "刘世锋",
       "english_name": "",
       "github_login": "Remygred",
       "github_url": "https://github.com/Remygred",
@@ -985,33 +1083,28 @@
       ],
       "aliases": [],
       "member_of_org": false,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
         "core_contributors",
         "mailmap",
-        "leaderboard_script"
+        "leaderboard_script",
+        "manual_review",
+        "private_group_roster"
       ],
-      "notes": "Existing leaderboard uses GitHub login; not present in current org members page."
-    },
-    "Renty-0": {
-      "display_name": "Renty-0",
-      "chinese_name": "",
-      "english_name": "",
-      "github_login": "Renty-0",
-      "github_url": "https://github.com/Renty-0",
-      "emails": [],
-      "git_names": [],
-      "aliases": [],
-      "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
-      "sources": [
-        "github_org_members"
-      ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "华科大三实习生",
+          "role_en": "HUST third-year undergraduate intern",
+          "participation_direction_zh": "vLLM推理运行时与调度优化",
+          "participation_direction_en": "vLLM inference runtime and scheduling optimization",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
+      "notes": "User-confirmed canonical mapping: Remygred is 刘世锋, a HUST third-year undergraduate intern advised by 张书豪."
     },
     "rkluohust": {
       "display_name": "rkluo",
@@ -1082,6 +1175,17 @@
         "github_org_members",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "稀疏量化协同与国产硬件适配",
+          "research_direction_en": "Sparse-quantization co-design and domestic-hardware adaptation",
+          "advisor_zh": "万瑶",
+          "advisor_en": "Yao Wan"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "ShuhaoZhangTony": {
@@ -1325,24 +1429,6 @@
       ],
       "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
     },
-    "xmdhb": {
-      "display_name": "xmdhb",
-      "chinese_name": "",
-      "english_name": "",
-      "github_login": "xmdhb",
-      "github_url": "https://github.com/xmdhb",
-      "emails": [],
-      "git_names": [],
-      "aliases": [],
-      "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
-      "sources": [
-        "github_org_members"
-      ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
-    },
     "Yushuo-star": {
       "display_name": "Yushuo-star",
       "chinese_name": "",
@@ -1369,14 +1455,28 @@
       "github_url": "https://github.com/rzwang22",
       "emails": [],
       "git_names": [],
-      "aliases": [],
+      "aliases": [
+        "Renty-0"
+      ],
       "member_of_org": true,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
       "sources": [
-        "manual_review"
+        "manual_review",
+        "summer_meeting_task_roster"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "推测解码与阶段协同执行优化",
+          "research_direction_en": "Speculative decoding and coordinated execution",
+          "advisor_zh": "王庆刚",
+          "advisor_en": "Qinggang Wang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "leftGo17": {
@@ -1518,6 +1618,17 @@
       "sources": [
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "面向国产平台的KV动态量化",
+          "research_direction_en": "Dynamic KV quantization for domestic platforms",
+          "advisor_zh": "姚鹏程",
+          "advisor_en": "Pengcheng Yao"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "SuccinctPaul": {
@@ -1614,14 +1725,20 @@
       "english_name": "Xuheng Li",
       "github_login": "",
       "github_url": "",
-      "emails": [],
-      "git_names": [],
-      "aliases": [],
+      "emails": [
+        "sssarrior@gmail.com"
+      ],
+      "git_names": [
+        "sssarrior"
+      ],
+      "aliases": [
+        "sssarrior"
+      ],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
-      "sources": ["manual_review"],
+      "sources": ["manual_review", "private_group_roster"],
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "KV Cache跨请求与跨Chunk复用", "research_direction_en": "Cross-request and cross-chunk KV cache reuse", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
       "notes": "Confirmed current research-group participant."
     },
@@ -1643,21 +1760,21 @@
       "notes": "Confirmed current research-group participant."
     },
     "vllm-hust-cao-zhe": {
-      "display_name": "Zhe Cao",
+      "display_name": "曹哲",
       "chinese_name": "曹哲",
       "english_name": "Zhe Cao",
-      "github_login": "",
-      "github_url": "",
+      "github_login": "xmdhb",
+      "github_url": "https://github.com/xmdhb",
       "emails": [],
-      "git_names": [],
-      "aliases": [],
-      "member_of_org": false,
+      "git_names": ["xmdhb"],
+      "aliases": ["xmdhb"],
+      "member_of_org": true,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
-      "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "语义感知KV管理、缓存驱逐与在线自适应", "research_direction_en": "Semantic-aware KV management, cache eviction, and online adaptation", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "Confirmed current research-group participant."
+      "sources": ["github_org_members", "manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "即将入学的研究生", "role_en": "Incoming graduate student", "research_direction_zh": "语义感知KV管理、缓存驱逐与在线自适应", "research_direction_en": "Semantic-aware KV management, cache eviction, and online adaptation", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "User-confirmed canonical mapping: xmdhb is 曹哲, an incoming graduate student advised by 张书豪."
     },
     "vllm-hust-yang-jinyun": {
       "display_name": "Jinyun Yang",

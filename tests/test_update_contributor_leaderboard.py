@@ -198,6 +198,10 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "coisinixixi": "高西岭",
         "moonandlife": "王胜",
         "succinctpaul": "程月甲",
+        "remygred": "刘世锋",
+        "xmdhb": "曹哲",
+        "renty-0": "王润泽",
+        "ilnnfover": "吴天宇",
     }
     for alias, chinese_name in expected_names.items():
         assert people.by_name[alias]["chinese_name"] == chinese_name
@@ -208,6 +212,35 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
     assert zhao["role_zh"] == "已毕业博士生，目前已入职高校"
     xiling = people.by_login["xilinggao"]["profiles"]["vllm_hust"]
     assert xiling["research_direction_zh"] == "KV量化"
+    dzcixy = people.by_login["dzcixy"]
+    assert dzcixy["public"] is True
+    assert dzcixy["needs_review"] is False
+    assert dzcixy["profiles"]["vllm_hust"]["advisor_zh"] == "黄禹"
+    assert (
+        dzcixy["profiles"]["vllm_hust"]["participation_direction_zh"]
+        == "推测解码与阶段协同执行优化"
+    )
+    expected_advisors = {
+        "machuanhu": "王雄",
+        "raing5days": "郑龙",
+        "li-changwu": "张书豪",
+        "rzwang22": "王庆刚",
+        "gumorming": "罗瑞坤",
+        "jieyang2001": "赵进",
+        "cybber695": "张书豪",
+        "amber1qq": "刘海坤",
+        "aly16-k": "项翔",
+        "hustcui": "姚鹏程",
+        "wenjuzhao": "姚鹏程",
+        "seas0": "万瑶",
+    }
+    for login, advisor in expected_advisors.items():
+        profile = people.by_login[login]["profiles"]["vllm_hust"]
+        assert profile["advisor_zh"] == advisor
+        assert profile["role_zh"] == "学生"
+
+    assert people.by_login["llxler"]["chinese_name"] == "雷翔麟"
+    assert people.by_login["seas0"]["chinese_name"] == "刘思辰"
 
 
 def test_member_profile_classification_uses_merged_core_repos() -> None:
@@ -385,6 +418,27 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["赵建军"]["role"]["zh"] == "已毕业博士生，目前已入职高校"
     assert by_name["高西岭"]["research_direction"]["zh"] == "KV量化"
     assert "多级KV缓存" not in by_name["高西岭"]["research_direction"]["zh"]
+    assert by_name["刘世锋"]["github_login"] == "Remygred"
+    assert by_name["刘世锋"]["role"]["zh"] == "华科大三实习生"
+    assert by_name["刘世锋"]["advisor"]["zh"] == "张书豪"
+    assert by_name["曹哲"]["github_login"] == "xmdhb"
+    assert by_name["曹哲"]["role"]["zh"] == "即将入学的研究生"
+    assert by_name["曹哲"]["advisor"]["zh"] == "张书豪"
+    assert by_name["dzcixy"]["github_login"] == "dzcixy"
+    assert by_name["dzcixy"]["advisor"]["zh"] == "黄禹"
+    unresolved_ids = {
+        item["person_id"] for item in profiles["unresolved_contributors"]
+    }
+    assert "github:remygred" not in unresolved_ids
+    assert "github:dzcixy" not in unresolved_ids
+    assert "author:sssarrior" not in unresolved_ids
+    xuheng_rows = [
+        item
+        for item in profiles["participants"]
+        if item["display_name"] == "李旭恒"
+    ]
+    assert len(xuheng_rows) == 1
+    assert xuheng_rows[0]["person_id"] == "profile:李旭恒"
 
     for item in by_name.values():
         assert "contribution_areas" in item
