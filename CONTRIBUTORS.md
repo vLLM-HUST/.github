@@ -86,6 +86,7 @@
 | 曹哲 | [xmdhb](https://github.com/xmdhb) | 人工确认；即将入学的研究生，指导老师张书豪 |
 | 李庚 | [Anjiangy](https://github.com/Anjiangy) | 人工确认；马上入学的华科研究生，指导老师张书豪 |
 | 杜忠承 | [dzcixy](https://github.com/dzcixy) | 人工确认；学生，指导老师黄禹 |
+| 徐晨曦 | [xsun2001](https://github.com/xsun2001) | 外部贡献者；港科大（广州），流水线并行解码与均衡微批调度 |
 | sad-and-bad1231 | [sad-and-bad1231](https://github.com/sad-and-bad1231) | noreply |
 | Raing5Days | [Raing5Days](https://github.com/Raing5Days) | noreply |
 | cybber695 | [cybber695](https://github.com/cybber695) | noreply |

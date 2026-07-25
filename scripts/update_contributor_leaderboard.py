@@ -130,6 +130,7 @@ GITHUB_LOGIN_BY_EMAIL = {
     "153624059+remygred@users.noreply.github.com": "Remygred",
     "2779387088@qq.com": "Remygred",
     "961554798@qq.com": "dzcixy",
+    "xcx14@outlook.com": "xsun2001",
 }
 
 PR_MERGE_PATTERN = re.compile(r"^Merge pull request #(\d+) from (?P<owner>[^/]+)/")
@@ -1031,6 +1032,12 @@ def person_vllm_hust_profile(person: dict | None) -> dict:
     return profile if isinstance(profile, dict) else {}
 
 
+def is_external_person(person: dict | None) -> bool:
+    return bool(
+        person_vllm_hust_profile(person).get("external_contributor")
+    )
+
+
 def localized_profile_value(profile: dict, key: str) -> dict[str, str]:
     return {
         "zh": str(profile.get(f"{key}_zh") or "").strip(),
@@ -1076,6 +1083,7 @@ def enrich_contributor_item(
     item["chinese_name"] = chinese_name
     item["english_name"] = english_name
     identity_confirmed = is_confirmed_person(person)
+    external_contributor = is_external_person(person)
     item["person_id"] = (
         f"github:{login.casefold()}"
         if login
@@ -1086,7 +1094,10 @@ def enrich_contributor_item(
         )
     )
     item["identity_confirmed"] = identity_confirmed
-    item["core_member"] = bool(set(item.get("repos") or []) & CORE_REPOS)
+    item["external_contributor"] = external_contributor
+    item["core_member"] = bool(
+        set(item.get("repos") or []) & CORE_REPOS
+    ) and not external_contributor
     item["role"] = localized_profile_value(profile, "role")
     item["research_direction"] = localized_profile_value(
         profile, "research_direction"
@@ -1141,6 +1152,7 @@ def build_profile_only_participant(person: dict) -> dict:
             else f"profile:{normalize_lookup_value(display_name)}"
         ),
         "identity_confirmed": True,
+        "external_contributor": is_external_person(person),
         "core_member": False,
         "role": localized_profile_value(profile, "role"),
         "research_direction": localized_profile_value(
@@ -1159,12 +1171,26 @@ def build_member_profiles(
     all_items: list[dict],
     core_items: list[dict],
 ) -> dict:
-    core_person_ids = {item["person_id"] for item in core_items}
+    external_by_id: dict[str, dict] = {
+        item["person_id"]: dict(item)
+        for item in core_items
+        if item.get("external_contributor")
+    }
+    for item in all_items:
+        if item.get("external_contributor"):
+            external_by_id.setdefault(item["person_id"], dict(item))
+
+    core_members = [
+        item for item in core_items if not item.get("external_contributor")
+    ]
+    core_person_ids = {item["person_id"] for item in core_members}
+    external_person_ids = set(external_by_id)
     participants_by_id: dict[str, dict] = {}
 
     for item in all_items:
         if (
             item["person_id"] in core_person_ids
+            or item["person_id"] in external_person_ids
             or not item.get("identity_confirmed")
             or is_synthetic_contributor(item)
         ):
@@ -1175,6 +1201,14 @@ def build_member_profiles(
 
     for person in people_index.people:
         profile = person_vllm_hust_profile(person)
+        if (
+            profile.get("external_contributor")
+            and is_confirmed_person(person)
+        ):
+            external = build_profile_only_participant(person)
+            external_by_id.setdefault(external["person_id"], external)
+            external_person_ids.add(external["person_id"])
+            continue
         if (
             not profile.get("participant")
             or not is_confirmed_person(person)
@@ -1190,6 +1224,10 @@ def build_member_profiles(
         participants_by_id.values(),
         key=lambda item: normalize_lookup_value(item.get("display_name")),
     )
+    external_contributors = sorted(
+        external_by_id.values(),
+        key=lambda item: normalize_lookup_value(item.get("display_name")),
+    )
     unresolved = [
         dict(item)
         for item in all_items
@@ -1198,8 +1236,9 @@ def build_member_profiles(
     ]
     return {
         "core_repo_names": sorted(CORE_REPOS),
-        "core_members": core_items,
+        "core_members": core_members,
         "participants": participants,
+        "external_contributors": external_contributors,
         "unresolved_contributors": unresolved,
     }
 

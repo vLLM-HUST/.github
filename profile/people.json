@@ -1411,6 +1411,41 @@
       },
       "notes": "Confirmed for public display by manual review. Coisinixixi is an alias of XilingGao."
     },
+    "xsun2001": {
+      "display_name": "徐晨曦",
+      "chinese_name": "徐晨曦",
+      "english_name": "Chenxi Xu",
+      "github_login": "xsun2001",
+      "github_url": "https://github.com/xsun2001",
+      "emails": [
+        "xcx14@outlook.com"
+      ],
+      "git_names": [
+        "Chenxi XU",
+        "Chenxi Xu",
+        "xsun2001"
+      ],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "github_profile",
+      "sources": [
+        "github_profile",
+        "manual_review",
+        "pull_request"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "external_contributor": true,
+          "role_zh": "外部贡献者（港科大（广州））",
+          "role_en": "External contributor (HKUST(GZ))",
+          "participation_direction_zh": "流水线并行解码与均衡微批调度",
+          "participation_direction_en": "Pipeline-parallel decoding and balanced microbatch scheduling"
+        }
+      },
+      "notes": "External contributor who authored vllm-hust#135 and companion vllm-ascend-hust#136. Maintainer integration PRs #145 and #144 preserve the original commit authorship; all four PRs remained unmerged at the 2026-07-25 audit."
+    },
     "XinYanLi-0725": {
       "display_name": "XinYanLi-0725",
       "chinese_name": "",
