@@ -18,6 +18,8 @@
 | ShuhaoZhangTony | noreply | GitHub Web 编辑 |
 | Sage | sage@hust.edu.cn | 短名 |
 | chooper26 | tony_zhang@live.com.sg | 旧用户名 |
+| Tony | 864832769@qq.com | 历史提交身份 |
+| qixinzhang2601 | 420444843@qq.com | 历史 GitHub / 提交身份 |
 | my | my@example.com | 临时本地配置 |
 
 ### moonandlife (Jeffrey Wang)
@@ -34,11 +36,11 @@
 | MingqiWang-coder | mingqiwang@hust.edu.cn | 主身份 |
 | MingqiWang-coder | 15751853706@163.com | 备用邮箱 |
 
-### iliujunn
+### 刘俊 (iliujunn)
 
 | Git Author | Email | 来源 |
 | --- | --- | --- |
-| iliujunn | iliujun@msn.com | 主身份 |
+| iliujunn / Lou Jun | iliujun@msn.com | 刘俊的主提交身份 |
 | liu | 99582471+irving11-bkn@users.noreply.github.com | GitHub noreply |
 
 ### Remygred
@@ -76,7 +78,7 @@
 | MingqiWang-coder | [MingqiWang-coder](https://github.com/MingqiWang-coder) | noreply |
 | Xiling Gao | [XilingGao](https://github.com/XilingGao) | email |
 | KimmoZAG | [KimmoZAG](https://github.com/KimmoZAG) | noreply |
-| iliujunn | [iliujunn](https://github.com/iliujunn) | noreply |
+| 刘俊 | [iliujunn](https://github.com/iliujunn) | 人工确认 |
 | Jingyuan Tian | [CubeLander](https://github.com/CubeLander) | noreply |
 | pygone | [Pygone](https://github.com/Pygone) | noreply |
 | aly16-k | [aly16-k](https://github.com/aly16-k) | noreply |
