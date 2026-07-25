@@ -182,6 +182,85 @@ def test_iliujunn_is_publicly_mapped_to_liu_jun() -> None:
     assert person["needs_review"] is False
 
 
+def test_required_canonical_people_and_aliases_are_mapped() -> None:
+    root = Path(__file__).resolve().parents[1]
+    people = leaderboard.load_people_index(root)
+    expected_names = {
+        "kimmozag": "张睿诚",
+        "sad-and-bad1231": "匡明轩",
+        "kms12425": "马俊豪",
+        "kms12425-ctrl": "马俊豪",
+        "junhao ma": "马俊豪",
+        "jerry01020": "邱瑞杰",
+        "curryzjj": "赵建军",
+        "jianjun zhao": "赵建军",
+        "xilinggao": "高西岭",
+        "coisinixixi": "高西岭",
+        "moonandlife": "王胜",
+        "succinctpaul": "程月甲",
+    }
+    for alias, chinese_name in expected_names.items():
+        assert people.by_name[alias]["chinese_name"] == chinese_name
+
+    assert people.by_login["moonandlife"]["profiles"]["vllm_hust"]["role_zh"] == "工程师"
+    assert people.by_login["succinctpaul"]["profiles"]["vllm_hust"]["role_zh"] == "工程师"
+    zhao = people.by_login["curryzjj"]["profiles"]["vllm_hust"]
+    assert zhao["role_zh"] == "已毕业博士生，目前已入职高校"
+    xiling = people.by_login["xilinggao"]["profiles"]["vllm_hust"]
+    assert xiling["research_direction_zh"] == "KV量化"
+
+
+def test_member_profile_classification_uses_merged_core_repos() -> None:
+    participant_person = {
+        "display_name": "Participant",
+        "chinese_name": "参与者",
+        "english_name": "Participant",
+        "github_login": "participant",
+        "github_url": "https://github.com/participant",
+        "public": True,
+        "needs_review": False,
+        "profiles": {"vllm_hust": {"participant": True}},
+    }
+    people = leaderboard.PeopleIndex(
+        by_login={"participant": participant_person},
+        by_email={},
+        by_name={"participant": participant_person},
+        people=[participant_person],
+    )
+    core = {
+        "person_id": "github:core",
+        "identity_confirmed": True,
+        "name": "Core",
+        "display_name": "Core",
+        "github_login": "core",
+        "repos": ["vllm-hust"],
+        "core_member": True,
+    }
+    participant = {
+        "person_id": "github:participant",
+        "identity_confirmed": True,
+        "name": "Participant",
+        "display_name": "参与者",
+        "github_login": "participant",
+        "repos": ["vllm-hust-website"],
+        "core_member": False,
+        "rank": 1,
+    }
+
+    profiles = leaderboard.build_member_profiles(
+        people,
+        [core, participant],
+        [core],
+    )
+
+    assert [item["person_id"] for item in profiles["core_members"]] == [
+        "github:core"
+    ]
+    assert [item["person_id"] for item in profiles["participants"]] == [
+        "github:participant"
+    ]
+
+
 def test_resolve_upstream_ref_reuses_existing_ref_after_fetch_failure(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
@@ -262,6 +341,55 @@ def test_generated_payload_has_unique_mapped_people() -> None:
         if item.get("github_login") == "MingqiWang-coder"
     )
     assert "vllm-ascend-hust-bidkv" not in mingqi["repos"]
+
+
+def test_generated_member_profiles_share_core_classification_invariants() -> None:
+    root = Path(__file__).resolve().parents[1]
+    payload = json.loads((root / "profile" / "core_contributors.json").read_text())
+    profiles = payload["member_profiles"]
+    core_repos = set(profiles["core_repo_names"])
+    core_members = profiles["core_members"]
+    participants = profiles["participants"]
+
+    assert core_repos == set(payload["core_repos"]["scope_repos"])
+    assert [item["person_id"] for item in core_members] == [
+        item["person_id"] for item in payload["core_repos"]["contributors"]
+    ]
+    assert all(set(item["repos"]) & core_repos for item in core_members)
+    assert all(not (set(item["repos"]) & core_repos) for item in participants)
+
+    core_ids = [item["person_id"] for item in core_members]
+    participant_ids = [item["person_id"] for item in participants]
+    assert len(core_ids) == len(set(core_ids))
+    assert len(participant_ids) == len(set(participant_ids))
+    assert set(core_ids).isdisjoint(participant_ids)
+
+
+def test_generated_profiles_preserve_manual_metadata_separately() -> None:
+    root = Path(__file__).resolve().parents[1]
+    payload = json.loads((root / "profile" / "core_contributors.json").read_text())
+    profiles = payload["member_profiles"]
+    by_name = {
+        item["display_name"]: item
+        for item in profiles["core_members"] + profiles["participants"]
+    }
+
+    assert by_name["张睿诚"]["github_login"] == "KimmoZAG"
+    assert by_name["匡明轩"]["github_login"] == "sad-and-bad1231"
+    assert by_name["马俊豪"]["github_login"] == "kms12425"
+    assert by_name["邱瑞杰"]["github_login"] == "Jerry01020"
+    assert by_name["赵建军"]["github_login"] == "curryzjj"
+    assert by_name["高西岭"]["github_login"] == "XilingGao"
+    assert by_name["王胜"]["role"]["zh"] == "工程师"
+    assert by_name["程月甲"]["role"]["zh"] == "工程师"
+    assert by_name["赵建军"]["role"]["zh"] == "已毕业博士生，目前已入职高校"
+    assert by_name["高西岭"]["research_direction"]["zh"] == "KV量化"
+    assert "多级KV缓存" not in by_name["高西岭"]["research_direction"]["zh"]
+
+    for item in by_name.values():
+        assert "contribution_areas" in item
+        assert "research_direction" in item
+        assert item["contribution_areas"] == item["key_contributions"]
 
 
 def test_expand_repo_specs_adds_public_independent_repositories() -> None:

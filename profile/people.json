@@ -163,6 +163,17 @@
         "github_profile",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "工程成员",
+          "role_en": "Engineering member",
+          "research_direction_zh": "国产硬件推理引擎适配与性能优化",
+          "research_direction_en": "Domestic-hardware inference adaptation and performance optimization",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "Fuze1111": {
@@ -315,6 +326,17 @@
         "leaderboard_script",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学术成员",
+          "role_en": "Academic member",
+          "research_direction_zh": "SLO感知调度、KV/MLA、多GPU解码",
+          "research_direction_en": "SLO-aware scheduling, KV/MLA, and multi-GPU decoding",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
       "notes": "User confirmed that iliujunn / Lou Jun is 刘俊."
     },
     "ilnnfover": {
@@ -441,9 +463,9 @@
       "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
     },
     "KimmoZAG": {
-      "display_name": "KimmoZAG",
-      "chinese_name": "",
-      "english_name": "",
+      "display_name": "Ruicheng Zhang",
+      "chinese_name": "张睿诚",
+      "english_name": "Ruicheng Zhang",
       "github_login": "KimmoZAG",
       "github_url": "https://github.com/KimmoZAG",
       "emails": [
@@ -454,32 +476,123 @@
       ],
       "aliases": [],
       "member_of_org": false,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
       "sources": [
         "core_contributors",
-        "leaderboard_script"
+        "leaderboard_script",
+        "manual_review"
       ],
-      "notes": "Existing leaderboard uses GitHub login; not present in current org members page."
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学术成员",
+          "role_en": "Academic member",
+          "research_direction_zh": "智能体记忆体、长期记忆评测、多模态长上下文推理",
+          "research_direction_en": "Agent memory, long-term memory evaluation, and multimodal long-context inference",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
+      "notes": "User confirmed KimmoZAG is 张睿诚."
     },
     "kms12425": {
-      "display_name": "kms12425",
-      "chinese_name": "",
-      "english_name": "",
+      "display_name": "Junhao Ma",
+      "chinese_name": "马俊豪",
+      "english_name": "Junhao Ma",
       "github_login": "kms12425",
       "github_url": "https://github.com/kms12425",
-      "emails": [],
-      "git_names": [],
-      "aliases": [],
-      "member_of_org": true,
-      "public": false,
-      "needs_review": true,
-      "display_name_source": "github_login",
-      "sources": [
-        "github_org_members"
+      "emails": [
+        "180929231+kms12425-ctrl@users.noreply.github.com",
+        "ma.rocky.oa@outlook.com"
       ],
-      "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
+      "git_names": [
+        "Jun Hao Ma",
+        "JunHao Ma",
+        "kms12425",
+        "kms12425-ctrl"
+      ],
+      "aliases": [
+        "kms12425-ctrl"
+      ],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "github_org_members",
+        "github_commits",
+        "manual_review"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true
+        }
+      },
+      "notes": "User confirmed kms12425, kms12425-ctrl, and JunHao Ma are 马俊豪."
+    },
+    "Jerry01020": {
+      "display_name": "Ruijie Qiu",
+      "chinese_name": "邱瑞杰",
+      "english_name": "Ruijie Qiu",
+      "github_login": "Jerry01020",
+      "github_url": "https://github.com/Jerry01020",
+      "emails": [
+        "2819959180@qq.com"
+      ],
+      "git_names": [
+        "Jerry01020"
+      ],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "github_commits",
+        "manual_review"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "participation_direction_zh": "国产推理引擎调研",
+          "participation_direction_en": "Domestic inference-engine survey"
+        }
+      },
+      "notes": "User confirmed Jerry01020 is 邱瑞杰."
+    },
+    "curryzjj": {
+      "display_name": "Jianjun Zhao",
+      "chinese_name": "赵建军",
+      "english_name": "Jianjun Zhao",
+      "github_login": "curryzjj",
+      "github_url": "https://github.com/curryzjj",
+      "emails": [],
+      "git_names": [
+        "Jianjun Zhao",
+        "curryzjj"
+      ],
+      "aliases": [
+        "Jianjun Zhao"
+      ],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "已毕业博士生，目前已入职高校",
+          "role_en": "PhD alumnus, now university faculty",
+          "participation_direction_zh": "流处理与数据系统",
+          "participation_direction_en": "Stream processing and data systems"
+        }
+      },
+      "notes": "User confirmed curryzjj / Jianjun Zhao is 赵建军, a PhD alumnus now employed by a university."
     },
     "kotoriqaq0": {
       "display_name": "kotoriqaq",
@@ -522,6 +635,17 @@
         "github_profile",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学术成员",
+          "role_en": "Academic member",
+          "research_direction_zh": "状态分层、硬件感知执行与Agentic I/O",
+          "research_direction_en": "State tiering, hardware-aware execution, and agentic I/O",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "llxler": {
@@ -632,6 +756,17 @@
         "leaderboard_script",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "工程成员",
+          "role_en": "Engineering member",
+          "research_direction_zh": "vLLM工程化、推理算子与运行时性能优化",
+          "research_direction_en": "vLLM engineering, inference operators, and runtime performance",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "Miracle0x0": {
@@ -687,6 +822,15 @@
         "leaderboard_script",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "工程师",
+          "role_en": "Engineer",
+          "participation_direction_zh": "推理引擎工程治理、上游协作与性能回归",
+          "participation_direction_en": "Inference-engine governance, upstream collaboration, and performance regression"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "peter17-17": {
@@ -753,6 +897,17 @@
         "leaderboard_script",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "工程成员",
+          "role_en": "Engineering member",
+          "research_direction_zh": "AgentDB、智能体状态持久化与记忆中间件",
+          "research_direction_en": "AgentDB, agent-state persistence, and memory middleware",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "qingfengyuhuoda": {
@@ -903,6 +1058,11 @@
         "core_contributors",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "Seas0": {
@@ -974,6 +1134,15 @@
         "leaderboard_script",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "课题负责人",
+          "role_en": "Project lead",
+          "research_direction_zh": "状态管理、分布式运行时与大模型推理基础设施",
+          "research_direction_en": "State management, distributed runtimes, and LLM inference infrastructure"
+        }
+      },
       "notes": "Confirmed for public display by manual review. Tony and qixinzhang2601 are historical identities of Shuhao Zhang."
     },
     "Summerflower5": {
@@ -1014,6 +1183,17 @@
         "github_profile",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学术成员",
+          "role_en": "Academic member",
+          "research_direction_zh": "工作流感知Serving、程序感知调度与Agent状态管理",
+          "research_direction_en": "Workflow-aware serving, program-aware scheduling, and agent state management",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "vincentl3836": {
@@ -1075,6 +1255,17 @@
         "github_profile",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "工程成员",
+          "role_en": "Engineering member",
+          "research_direction_zh": "推理引擎实现、测试与工程优化",
+          "research_direction_en": "Inference-engine implementation, testing, and engineering optimization",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
       "notes": "Confirmed for public display by manual review."
     },
     "XilingGao": {
@@ -1088,9 +1279,12 @@
       ],
       "git_names": [
         "Xiling Gao",
-        "XilingGao"
+        "XilingGao",
+        "Coisinixixi"
       ],
-      "aliases": [],
+      "aliases": [
+        "Coisinixixi"
+      ],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
@@ -1100,7 +1294,18 @@
         "leaderboard_script",
         "manual_review"
       ],
-      "notes": "Confirmed for public display by manual review."
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "工程成员",
+          "role_en": "Engineering member",
+          "research_direction_zh": "KV量化",
+          "research_direction_en": "KV quantization",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
+        }
+      },
+      "notes": "Confirmed for public display by manual review. Coisinixixi is an alias of XilingGao."
     },
     "XinYanLi-0725": {
       "display_name": "XinYanLi-0725",
@@ -1229,14 +1434,24 @@
       "notes": "Confirmed for public display by manual review."
     },
     "mynameisczj": {
-      "display_name": "mynameisczj",
+      "display_name": "Zijia Chen",
       "chinese_name": "陈子嘉",
-      "english_name": "",
+      "english_name": "Zijia Chen",
       "github_login": "mynameisczj",
       "github_url": "https://github.com/mynameisczj",
-      "emails": [],
-      "git_names": [],
-      "aliases": [],
+      "emails": [
+        "czjwangyi2023@163.com",
+        "141249024+mynameisczj@users.noreply.github.com"
+      ],
+      "git_names": [
+        "czj",
+        "nknow",
+        "mynameisczj"
+      ],
+      "aliases": [
+        "czj",
+        "nknow"
+      ],
       "member_of_org": true,
       "public": true,
       "needs_review": false,
@@ -1244,7 +1459,12 @@
       "sources": [
         "manual_review"
       ],
-      "notes": "Confirmed for public display by manual review."
+      "profiles": {
+        "vllm_hust": {
+          "participant": true
+        }
+      },
+      "notes": "Confirmed for public display by manual review. Pegaflow author aliases czj and nknow resolve to mynameisczj."
     },
     "LuckyWindovo": {
       "display_name": "LuckyWindovo",
@@ -1323,6 +1543,15 @@
         "github_commits",
         "manual_review"
       ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "工程师",
+          "role_en": "Engineer",
+          "participation_direction_zh": "Benchmark 基础设施与网站工程",
+          "participation_direction_en": "Benchmark infrastructure and website engineering"
+        }
+      },
       "notes": "Git identities verified against commits attributed to the SuccinctPaul GitHub account."
     },
     "mumu029": {
@@ -1378,6 +1607,193 @@
         "manual_review"
       ],
       "notes": "Confirmed for public display by manual review."
+    },
+    "vllm-hust-li-xuheng": {
+      "display_name": "Xuheng Li",
+      "chinese_name": "李旭恒",
+      "english_name": "Xuheng Li",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "KV Cache跨请求与跨Chunk复用", "research_direction_en": "Cross-request and cross-chunk KV cache reuse", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-gao-hongru": {
+      "display_name": "Hongru Gao",
+      "chinese_name": "高鸿儒",
+      "english_name": "Hongru Gao",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "动态图系统、计算机系统结构与国产推理优化", "research_direction_en": "Dynamic graph systems, computer architecture, and domestic inference optimization", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-cao-zhe": {
+      "display_name": "Zhe Cao",
+      "chinese_name": "曹哲",
+      "english_name": "Zhe Cao",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "语义感知KV管理、缓存驱逐与在线自适应", "research_direction_en": "Semantic-aware KV management, cache eviction, and online adaptation", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-yang-jinyun": {
+      "display_name": "Jinyun Yang",
+      "chinese_name": "杨锦昀",
+      "english_name": "Jinyun Yang",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "Flink、流处理与流推理系统融合", "research_direction_en": "Flink, stream processing, and streaming-inference systems", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-wang-ziao": {
+      "display_name": "Ziao Wang",
+      "chinese_name": "王子澳",
+      "english_name": "Ziao Wang",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "ANNS、向量流连接与RAG检索基础设施", "research_direction_en": "ANNS, streaming vector joins, and RAG retrieval infrastructure", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-zhang-senlei": {
+      "display_name": "Senlei Zhang",
+      "chinese_name": "张森磊",
+      "english_name": "Senlei Zhang",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "长上下文分布式推理", "research_direction_en": "Distributed long-context inference", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-chen-debin": {
+      "display_name": "Debin Chen",
+      "chinese_name": "陈德斌",
+      "english_name": "Debin Chen",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "时序数据库与推理引擎工程", "research_direction_en": "Time-series databases and inference-engine engineering", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-li-geng": {
+      "display_name": "Geng Li",
+      "chinese_name": "李庚",
+      "english_name": "Geng Li",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "participation_direction_zh": "LLM推理系统工程化", "participation_direction_en": "LLM inference-system engineering", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-song-gongxuan": {
+      "display_name": "Gongxuan Song",
+      "chinese_name": "宋功轩",
+      "english_name": "Gongxuan Song",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "participation_direction_zh": "LLM推理系统工程化", "participation_direction_en": "LLM inference-system engineering", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-peng-cheng": {
+      "display_name": "Cheng Peng",
+      "chinese_name": "彭成",
+      "english_name": "Cheng Peng",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "participation_direction_zh": "项目方向待补充", "participation_direction_en": "Project direction pending", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "Confirmed current research-group participant."
+    },
+    "vllm-hust-long-bin": {
+      "display_name": "Bin Long",
+      "chinese_name": "龙斌",
+      "english_name": "Bin Long",
+      "github_login": "",
+      "github_url": "",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": false,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": ["manual_review"],
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "项目/科研助理", "role_en": "Project and research assistant", "participation_direction_zh": "科研项目管理与团队协同", "participation_direction_en": "Research project management and team coordination"}},
+      "notes": "Confirmed project-support participant."
     }
   }
 }

@@ -114,6 +114,11 @@ GITHUB_LOGIN_BY_EMAIL = {
     "mingqiwang@hust.edu.cn": "MingqiWang-coder",
     "gxl20040702@gmail.com": "XilingGao",
     "995496585@qq.com": "KimmoZAG",
+    "180929231+kms12425-ctrl@users.noreply.github.com": "kms12425",
+    "ma.rocky.oa@outlook.com": "kms12425",
+    "2819959180@qq.com": "Jerry01020",
+    "czjwangyi2023@163.com": "mynameisczj",
+    "141249024+mynameisczj@users.noreply.github.com": "mynameisczj",
     "iliujun@msn.com": "iliujunn",
     "cubelander@users.noreply.github.com": "CubeLander",
     "49518565+cubelander@users.noreply.github.com": "CubeLander",
@@ -150,6 +155,9 @@ NAME_MAP: dict[str, str] = {
 START_MARKER = "<!-- contributor-leaderboard:start -->"
 END_MARKER = "<!-- contributor-leaderboard:end -->"
 ORG_NAME = "vLLM-HUST"
+SYNTHETIC_CONTRIBUTOR_IDENTITIES = {
+    "vllm-hust developer",
+}
 
 
 @dataclass
@@ -934,6 +942,7 @@ class PeopleIndex:
     by_login: dict[str, dict]
     by_email: dict[str, dict]
     by_name: dict[str, dict]
+    people: list[dict]
 
 
 def normalize_lookup_value(value: str | None) -> str:
@@ -943,7 +952,7 @@ def normalize_lookup_value(value: str | None) -> str:
 def load_people_index(repo_root: Path) -> PeopleIndex:
     people_path = repo_root / "profile" / "people.json"
     if not people_path.exists():
-        return PeopleIndex(by_login={}, by_email={}, by_name={})
+        return PeopleIndex(by_login={}, by_email={}, by_name={}, people=[])
 
     payload = json.loads(people_path.read_text(encoding="utf-8"))
     people = payload.get("people") or {}
@@ -977,7 +986,12 @@ def load_people_index(repo_root: Path) -> PeopleIndex:
             if name_key:
                 by_name.setdefault(name_key, person)
 
-    return PeopleIndex(by_login=by_login, by_email=by_email, by_name=by_name)
+    return PeopleIndex(
+        by_login=by_login,
+        by_email=by_email,
+        by_name=by_name,
+        people=[person for person in people.values() if isinstance(person, dict)],
+    )
 
 
 def resolve_person_record(
@@ -1002,6 +1016,27 @@ def resolve_person_record(
     return None
 
 
+def is_confirmed_person(person: dict | None) -> bool:
+    return bool(
+        person
+        and person.get("public")
+        and not person.get("needs_review")
+    )
+
+
+def person_vllm_hust_profile(person: dict | None) -> dict:
+    profiles = (person or {}).get("profiles") or {}
+    profile = profiles.get("vllm_hust") or {}
+    return profile if isinstance(profile, dict) else {}
+
+
+def localized_profile_value(profile: dict, key: str) -> dict[str, str]:
+    return {
+        "zh": str(profile.get(f"{key}_zh") or "").strip(),
+        "en": str(profile.get(f"{key}_en") or "").strip(),
+    }
+
+
 def enrich_contributor_item(
     item: dict,
     people_index: PeopleIndex,
@@ -1020,6 +1055,7 @@ def enrich_contributor_item(
     display_name = str(item.get("name") or "").strip()
     chinese_name = ""
     english_name = ""
+    profile: dict = {}
 
     if person is not None:
         login = str(person.get("github_login") or login).strip()
@@ -1028,6 +1064,7 @@ def enrich_contributor_item(
         english_name = str(person.get("english_name") or "").strip()
         if chinese_name:
             display_name = chinese_name
+        profile = person_vllm_hust_profile(person)
 
     if login and not github_url:
         github_url = f"https://github.com/{login}"
@@ -1037,7 +1074,128 @@ def enrich_contributor_item(
     item["display_name"] = display_name
     item["chinese_name"] = chinese_name
     item["english_name"] = english_name
+    item["person_id"] = (
+        f"github:{login.casefold()}"
+        if login
+        else f"author:{normalize_lookup_value(item.get('name'))}"
+    )
+    item["identity_confirmed"] = is_confirmed_person(person)
+    item["core_member"] = bool(set(item.get("repos") or []) & CORE_REPOS)
+    item["role"] = localized_profile_value(profile, "role")
+    item["research_direction"] = localized_profile_value(
+        profile, "research_direction"
+    )
+    item["participation_direction"] = localized_profile_value(
+        profile, "participation_direction"
+    )
+    item["advisor"] = localized_profile_value(profile, "advisor")
+    item["contribution_areas"] = str(item.get("key_contributions") or "")
     return item
+
+
+def is_synthetic_contributor(item: dict) -> bool:
+    identities = {
+        normalize_lookup_value(item.get("name")),
+        normalize_lookup_value(item.get("display_name")),
+        normalize_lookup_value(item.get("github_login")),
+    }
+    return bool(identities & SYNTHETIC_CONTRIBUTOR_IDENTITIES)
+
+
+def build_profile_only_participant(person: dict) -> dict:
+    login = str(person.get("github_login") or "").strip()
+    display_name = str(
+        person.get("chinese_name")
+        or person.get("display_name")
+        or person.get("english_name")
+        or login
+    ).strip()
+    profile = person_vllm_hust_profile(person)
+    return {
+        "name": str(
+            person.get("english_name")
+            or person.get("display_name")
+            or display_name
+        ).strip(),
+        "github_login": login or None,
+        "github_url": str(person.get("github_url") or "").strip() or None,
+        "commits": 0,
+        "changed_lines": 0,
+        "added": 0,
+        "deleted": 0,
+        "active_repos": 0,
+        "repos": [],
+        "key_contributions": "",
+        "display_name": display_name,
+        "chinese_name": str(person.get("chinese_name") or "").strip(),
+        "english_name": str(person.get("english_name") or "").strip(),
+        "person_id": (
+            f"github:{login.casefold()}"
+            if login
+            else f"profile:{normalize_lookup_value(display_name)}"
+        ),
+        "identity_confirmed": True,
+        "core_member": False,
+        "role": localized_profile_value(profile, "role"),
+        "research_direction": localized_profile_value(
+            profile, "research_direction"
+        ),
+        "participation_direction": localized_profile_value(
+            profile, "participation_direction"
+        ),
+        "advisor": localized_profile_value(profile, "advisor"),
+        "contribution_areas": "",
+    }
+
+
+def build_member_profiles(
+    people_index: PeopleIndex,
+    all_items: list[dict],
+    core_items: list[dict],
+) -> dict:
+    core_person_ids = {item["person_id"] for item in core_items}
+    participants_by_id: dict[str, dict] = {}
+
+    for item in all_items:
+        if (
+            item["person_id"] in core_person_ids
+            or not item.get("identity_confirmed")
+            or is_synthetic_contributor(item)
+        ):
+            continue
+        participant = dict(item)
+        participant["all_repos_rank"] = participant.pop("rank", None)
+        participants_by_id[participant["person_id"]] = participant
+
+    for person in people_index.people:
+        profile = person_vllm_hust_profile(person)
+        if (
+            not profile.get("participant")
+            or not is_confirmed_person(person)
+        ):
+            continue
+        participant = build_profile_only_participant(person)
+        person_id = participant["person_id"]
+        if person_id in core_person_ids:
+            continue
+        participants_by_id.setdefault(person_id, participant)
+
+    participants = sorted(
+        participants_by_id.values(),
+        key=lambda item: normalize_lookup_value(item.get("display_name")),
+    )
+    unresolved = [
+        dict(item)
+        for item in all_items
+        if not item.get("identity_confirmed")
+        and not is_synthetic_contributor(item)
+    ]
+    return {
+        "core_repo_names": sorted(CORE_REPOS),
+        "core_members": core_items,
+        "participants": participants,
+        "unresolved_contributors": unresolved,
+    }
 
 
 def build_contributor_payload(
@@ -1078,17 +1236,43 @@ def build_contributor_payload(
             items.append(enrich_contributor_item(item, people_index, contributor_email=c.email))
         return items
 
+    all_items = _items(all_contributors, core_only=False)
+    core_items = _items(core_contributors, core_only=True)
     return {
         "updated_at": snapshot_date,
         "all_repos": {
             "scope_repos": [spec["name"] for spec in REPO_SPECS],
-            "contributors": _items(all_contributors, core_only=False),
+            "contributors": all_items,
         },
         "core_repos": {
             "scope_repos": sorted(CORE_REPOS),
-            "contributors": _items(core_contributors, core_only=True),
+            "contributors": core_items,
         },
+        "member_profiles": build_member_profiles(
+            people_index, all_items, core_items
+        ),
     }
+
+
+def refresh_contributor_payload_profiles(repo_root: Path, payload: dict) -> dict:
+    """Reapply canonical identity/profile metadata without recomputing git stats."""
+    people_index = load_people_index(repo_root)
+    refreshed = dict(payload)
+    refreshed_scopes: dict[str, dict] = {}
+    for scope_name in ("all_repos", "core_repos"):
+        scope = dict(payload.get(scope_name) or {})
+        scope["contributors"] = [
+            enrich_contributor_item(dict(item), people_index)
+            for item in scope.get("contributors") or []
+        ]
+        refreshed_scopes[scope_name] = scope
+        refreshed[scope_name] = scope
+    refreshed["member_profiles"] = build_member_profiles(
+        people_index,
+        refreshed_scopes["all_repos"]["contributors"],
+        refreshed_scopes["core_repos"]["contributors"],
+    )
+    return refreshed
 
 
 def sync_org_profile_contributor_data(
@@ -1151,6 +1335,12 @@ def parse_args() -> argparse.Namespace:
         default=False,
         help="CI mode: convert SSH git URLs to HTTPS for token-based auth",
     )
+    parser.add_argument(
+        "--profiles-only",
+        action="store_true",
+        default=False,
+        help="Refresh canonical identities and member profiles from the existing snapshot",
+    )
     return parser.parse_args()
 
 
@@ -1179,6 +1369,25 @@ def main() -> None:
     if workspace_root is None:
         candidate = repo_root.parent
         workspace_root = candidate if (candidate / "vllm-hust").exists() else None
+
+    if args.profiles_only:
+        data_path = repo_root / "profile" / "core_contributors.json"
+        payload = refresh_contributor_payload_profiles(
+            repo_root, json.loads(data_path.read_text(encoding="utf-8"))
+        )
+        data_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        if workspace_root is not None:
+            website_path = workspace_root / "vllm-hust-website"
+            if (website_path / ".git").exists():
+                (website_path / "data" / "core_contributors.json").write_text(
+                    json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                )
+        print("Refreshed contributor identities and member profiles from existing stats")
+        return
 
     stats = coalesce_stats_by_person(
         repo_root, collect_stats(repo_root, workspace_root)
