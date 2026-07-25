@@ -594,6 +594,10 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["田景远"]["github_login"] == "CubeLander"
     assert by_name["田景远"]["role"]["zh"] == "实习生"
     assert by_name["田景远"]["advisor"]["zh"] == "张书豪"
+    assert (
+        by_name["田景远"]["key_contributions"]
+        == "distributed, storage, profiling, development environment"
+    )
     assert by_name["匡明轩"]["github_login"] == "sad-and-bad1231"
     assert by_name["匡明轩"]["advisor"]["zh"] == "张书豪"
     assert by_name["马俊豪"]["github_login"] == "kms12425"

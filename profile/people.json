@@ -170,6 +170,7 @@
           "role_en": "Student intern",
           "research_direction_zh": "异构大模型推理系统的端到端性能分析与优化",
           "research_direction_en": "End-to-end performance analysis and optimization for heterogeneous LLM inference systems",
+          "contribution_areas": "distributed, storage, profiling, development environment",
           "advisor_zh": "张书豪",
           "advisor_en": "Shuhao Zhang"
         }

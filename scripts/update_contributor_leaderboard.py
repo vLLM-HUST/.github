@@ -1049,6 +1049,10 @@ def localized_profile_value(profile: dict, key: str) -> dict[str, str]:
     }
 
 
+def profile_contribution_areas(profile: dict, fallback: object = "") -> str:
+    return str(profile.get("contribution_areas") or fallback or "").strip()
+
+
 def enrich_contributor_item(
     item: dict,
     people_index: PeopleIndex,
@@ -1117,7 +1121,11 @@ def enrich_contributor_item(
         profile, "participation_direction"
     )
     item["advisor"] = localized_profile_value(profile, "advisor")
-    item["contribution_areas"] = str(item.get("key_contributions") or "")
+    contribution_areas = profile_contribution_areas(
+        profile, item.get("key_contributions")
+    )
+    item["key_contributions"] = contribution_areas
+    item["contribution_areas"] = contribution_areas
     return item
 
 
@@ -1139,6 +1147,7 @@ def build_profile_only_participant(person: dict) -> dict:
         or login
     ).strip()
     profile = person_vllm_hust_profile(person)
+    contribution_areas = profile_contribution_areas(profile)
     return {
         "name": str(
             person.get("english_name")
@@ -1153,7 +1162,7 @@ def build_profile_only_participant(person: dict) -> dict:
         "deleted": 0,
         "active_repos": 0,
         "repos": [],
-        "key_contributions": "",
+        "key_contributions": contribution_areas,
         "display_name": display_name,
         "chinese_name": str(person.get("chinese_name") or "").strip(),
         "english_name": str(person.get("english_name") or "").strip(),
@@ -1175,7 +1184,7 @@ def build_profile_only_participant(person: dict) -> dict:
             profile, "participation_direction"
         ),
         "advisor": localized_profile_value(profile, "advisor"),
-        "contribution_areas": "",
+        "contribution_areas": contribution_areas,
     }
 
 
