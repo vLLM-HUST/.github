@@ -202,6 +202,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "xmdhb": "曹哲",
         "anjiangy": "李庚",
         "dzcixy": "杜忠承",
+        "xsun2001": "徐晨曦",
         "renty-0": "王润泽",
         "ilnnfover": "吴天宇",
     }
@@ -243,6 +244,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
 
     assert people.by_login["llxler"]["chinese_name"] == "雷翔麟"
     assert people.by_login["seas0"]["chinese_name"] == "刘思辰"
+    assert people.by_email["xcx14@outlook.com"]["github_login"] == "xsun2001"
 
 
 def test_member_profile_classification_uses_merged_core_repos() -> None:
@@ -256,11 +258,32 @@ def test_member_profile_classification_uses_merged_core_repos() -> None:
         "needs_review": False,
         "profiles": {"vllm_hust": {"participant": True}},
     }
+    external_person = {
+        "display_name": "徐晨曦",
+        "chinese_name": "徐晨曦",
+        "english_name": "Chenxi Xu",
+        "github_login": "xsun2001",
+        "github_url": "https://github.com/xsun2001",
+        "public": True,
+        "needs_review": False,
+        "profiles": {
+            "vllm_hust": {
+                "external_contributor": True,
+                "role_zh": "外部贡献者（港科大（广州））",
+            }
+        },
+    }
     people = leaderboard.PeopleIndex(
-        by_login={"participant": participant_person},
+        by_login={
+            "participant": participant_person,
+            "xsun2001": external_person,
+        },
         by_email={},
-        by_name={"participant": participant_person},
-        people=[participant_person],
+        by_name={
+            "participant": participant_person,
+            "xsun2001": external_person,
+        },
+        people=[participant_person, external_person],
     )
     core = {
         "person_id": "github:core",
@@ -281,11 +304,21 @@ def test_member_profile_classification_uses_merged_core_repos() -> None:
         "core_member": False,
         "rank": 1,
     }
+    external = {
+        "person_id": "github:xsun2001",
+        "identity_confirmed": True,
+        "external_contributor": True,
+        "name": "Chenxi Xu",
+        "display_name": "徐晨曦",
+        "github_login": "xsun2001",
+        "repos": ["vllm-hust"],
+        "core_member": False,
+    }
 
     profiles = leaderboard.build_member_profiles(
         people,
-        [core, participant],
-        [core],
+        [core, participant, external],
+        [core, external],
     )
 
     assert [item["person_id"] for item in profiles["core_members"]] == [
@@ -294,6 +327,9 @@ def test_member_profile_classification_uses_merged_core_repos() -> None:
     assert [item["person_id"] for item in profiles["participants"]] == [
         "github:participant"
     ]
+    assert [
+        item["person_id"] for item in profiles["external_contributors"]
+    ] == ["github:xsun2001"]
 
 
 def test_resolve_upstream_ref_reuses_existing_ref_after_fetch_failure(
@@ -385,19 +421,31 @@ def test_generated_member_profiles_share_core_classification_invariants() -> Non
     core_repos = set(profiles["core_repo_names"])
     core_members = profiles["core_members"]
     participants = profiles["participants"]
+    external = profiles["external_contributors"]
 
     assert core_repos == set(payload["core_repos"]["scope_repos"])
-    assert [item["person_id"] for item in core_members] == [
+    raw_core_ids = {
         item["person_id"] for item in payload["core_repos"]["contributors"]
-    ]
+    }
+    classified_core_ids = {item["person_id"] for item in core_members}
+    external_core_ids = {
+        item["person_id"]
+        for item in external
+        if set(item["repos"]) & core_repos
+    }
+    assert raw_core_ids == classified_core_ids | external_core_ids
     assert all(set(item["repos"]) & core_repos for item in core_members)
     assert all(not (set(item["repos"]) & core_repos) for item in participants)
 
     core_ids = [item["person_id"] for item in core_members]
     participant_ids = [item["person_id"] for item in participants]
+    external_ids = [item["person_id"] for item in external]
     assert len(core_ids) == len(set(core_ids))
     assert len(participant_ids) == len(set(participant_ids))
+    assert len(external_ids) == len(set(external_ids))
     assert set(core_ids).isdisjoint(participant_ids)
+    assert set(core_ids).isdisjoint(external_ids)
+    assert set(participant_ids).isdisjoint(external_ids)
 
 
 def test_generated_profiles_preserve_manual_metadata_separately() -> None:
@@ -406,7 +454,11 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     profiles = payload["member_profiles"]
     by_name = {
         item["display_name"]: item
-        for item in profiles["core_members"] + profiles["participants"]
+        for item in (
+            profiles["core_members"]
+            + profiles["participants"]
+            + profiles["external_contributors"]
+        )
     }
 
     assert by_name["张睿诚"]["github_login"] == "KimmoZAG"
@@ -431,6 +483,9 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["李庚"]["advisor"]["zh"] == "张书豪"
     assert by_name["杜忠承"]["github_login"] == "dzcixy"
     assert by_name["杜忠承"]["advisor"]["zh"] == "黄禹"
+    assert by_name["徐晨曦"]["github_login"] == "xsun2001"
+    assert by_name["徐晨曦"]["external_contributor"] is True
+    assert by_name["徐晨曦"]["role"]["zh"] == "外部贡献者（港科大（广州））"
     unresolved_ids = {
         item["person_id"] for item in profiles["unresolved_contributors"]
     }
