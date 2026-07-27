@@ -18,7 +18,7 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 | Repository | Core technique | Publication | Team | Runtime integration |
 | --- | --- | --- | --- | --- |
 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) | Utility-guided KV-cache victim selection | *BidKV: Utility-Guided Preemption Scheduling for KV-Pressure LLM Serving*, SC 2026 | 主要作者：陈彦博、王明琪<br>指导老师：张书豪 | `vllm-hust` · `vllm-ascend-hust` · vLLM / SGLang adapters |
-| [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) | Differential speculative decoding | *DiffSpec: Accelerating Long Sequence Generation with Differential Speculative Decoding* | 主要作者：杜忠承<br>指导老师：黄禹 | — |
+| [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) | Differential speculative decoding | *DiffSpec: Accelerating Long Sequence Generation with Differential Speculative Decoding* | 主要作者：杜忠承<br>指导老师：黄禹 | `vllm-hust` · `vllm-ascend-hust` · vLLM adapters |
 
 ## 仓库索引 / Repository Index
 
@@ -49,7 +49,7 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 | Paper | Venue | Repository |
 | --- | --- | --- |
 | BidKV: Utility-Guided Preemption Scheduling for KV-Pressure LLM Serving | SC 2026 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) |
-| DiffSpec: Accelerating Long Sequence Generation with Differential Speculative Decoding | — | [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) |
+| DiffSpec: Accelerating Long Sequence Generation with Differential Speculative Decoding | SC 2026 | [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) |
 | 国产算力推理引擎综述 | CCCF 通讯专刊 | [cccf-domestic-inference-engine-survey](https://github.com/vLLM-HUST/cccf-domestic-inference-engine-survey) |
 | LLM-Powered Recommendation Systems on Domestic AI Chips | Frontiers of Computer Science | `fcs-domestic-chip-llm-recsys`（private） |
 
