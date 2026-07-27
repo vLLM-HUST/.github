@@ -7,7 +7,7 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 | 快速入口 | 仓库 |
 | --- | --- |
 | 推理运行时 | [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) · [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) · [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust) |
-| 成果仓库 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) |
+| 成果仓库 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) · [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) |
 | 开发与验证 | [Dev Hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub) · [Benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark) · [Performance Analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) |
 | 文档与展示 | [Docs](https://github.com/vLLM-HUST/vllm-hust-docs) · [Website](https://github.com/vLLM-HUST/vllm-hust-website) · [Workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) |
 
@@ -18,6 +18,7 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 | Repository | Core technique | Publication | Team | Runtime integration |
 | --- | --- | --- | --- | --- |
 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) | Utility-guided KV-cache victim selection | *BidKV: Utility-Guided Preemption Scheduling for KV-Pressure LLM Serving*, SC 2026 | 主要作者：陈彦博、王明琪<br>指导老师：张书豪 | `vllm-hust` · `vllm-ascend-hust` · vLLM / SGLang adapters |
+| [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) | Differential speculative decoding | *DiffSpec: Accelerating Long Sequence Generation with Differential Speculative Decoding* | 主要作者：杜忠承<br>指导老师：黄禹 | — |
 
 ## 仓库索引 / Repository Index
 
@@ -25,6 +26,7 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 | --- | --- | --- |
 | 核心运行时 | [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) · [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) · [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust) | vLLM 服务、Ascend 硬件插件、Triton Ascend 编译后端 |
 | 成果仓库 | [vllm-ascend-hust-bidkv](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) | 核心技术、论文、实验与运行时插件 |
+| 成果仓库 | [vllm-ascend-hust-diffspec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) | 核心技术、论文、实验与运行时集成 |
 | Ascend 工具 | [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust) · [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) | 量化、环境诊断与运行时修复 |
 | 开发与验证 | [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub) · [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark) · [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) · [claude-code-hust](https://github.com/vLLM-HUST/claude-code-hust) | 多仓工作区、Benchmark、Profiler 分析与开发工具 |
 | 产品与应用 | [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website) · [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) · [EvoScientist](https://github.com/vLLM-HUST/EvoScientist) | 官网、Web 工作台与科研智能体应用 |
@@ -47,6 +49,7 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 | Paper | Venue | Repository |
 | --- | --- | --- |
 | BidKV: Utility-Guided Preemption Scheduling for KV-Pressure LLM Serving | SC 2026 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) |
+| DiffSpec: Accelerating Long Sequence Generation with Differential Speculative Decoding | — | [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) |
 | 国产算力推理引擎综述 | CCCF 通讯专刊 | [cccf-domestic-inference-engine-survey](https://github.com/vLLM-HUST/cccf-domestic-inference-engine-survey) |
 | LLM-Powered Recommendation Systems on Domestic AI Chips | Frontiers of Computer Science | `fcs-domestic-chip-llm-recsys`（private） |
 
@@ -58,5 +61,5 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 
 - 运行时与服务： [vllm-hust](https://github.com/vLLM-HUST/vllm-hust)
 - Ascend 支持： [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust)
-- 研究成果与复现： [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv)
+- 研究成果与复现： [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) · [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec)
 - 开发环境与文档： [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub) · [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs)
