@@ -686,7 +686,7 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["刘世峰"]["advisor"]["zh"] == "张书豪"
     expected_research_interests = {
         "张睿诚": "记忆体",
-        "刘俊": "SLO-aware 调度",
+        "刘俊": "SLO 感知的 LLM Serving 调度；MLA 与 KV Cache 优化；张量并行与多 GPU 推理解码；延迟保障与资源分配；应用感知 Serving",
         "李昶吾": "MoE 专家卸载优化；控制面优化",
         "李旭恒": "KV 复用",
         "高鸿儒": "动态图",
