@@ -685,19 +685,20 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["刘世峰"]["role"]["zh"] == "华科大三实习生"
     assert by_name["刘世峰"]["advisor"]["zh"] == "张书豪"
     expected_research_interests = {
-        "张睿诚": "记忆体",
+        "张书豪": "并行与分布式系统；状态管理；流处理；运行时系统；大模型推理基础设施；状态复用；记忆增强智能体中间件",
+        "张睿诚": "智能体记忆体；长期记忆评测；推理技术实现；Benchmark；多模态长上下文推理",
         "刘俊": "SLO 感知的 LLM Serving 调度；MLA 与 KV Cache 优化；张量并行与多 GPU 推理解码；延迟保障与资源分配；应用感知 Serving",
         "李昶吾": "MoE 专家卸载优化；控制面优化",
-        "李旭恒": "KV 复用",
-        "高鸿儒": "动态图",
-        "曹哲": "KV 复用",
-        "彭浩然": "SLO-aware 调度",
+        "李旭恒": "KV Cache 跨请求与跨 Chunk 复用；共享选择层；缓存精度与存储权衡；vLLM、SGLang、Mooncake 与 CacheBlend",
+        "高鸿儒": "动态图系统；计算机系统结构；国产硬件运行时与推理引擎优化",
+        "曹哲": "Prompt/KV Cache 复用；缓存驱逐；语义感知与在线自适应策略；Agent 场景缓存生命周期管理",
+        "彭浩然": "SLO-aware 调度；Workflow/Agent-aware Serving；程序感知调度；工作流状态管理",
         "王明琪": "大模型推理系统工程开发；LLM Serving；vLLM 架构；KV Cache 生命周期管理；PagedAttention；缓存置换与资源调度；长序列推理内存优化",
-        "杨锦昀": "Flink",
-        "王子澳": "ANNS",
+        "杨锦昀": "Flink 流处理；分布式数据处理；流系统与推理系统协同",
+        "王子澳": "ANNS；向量流连接；多核并行；RAG 检索基础设施",
         "张森磊": "待定",
-        "陈彦博": "SLO-aware 请求调度",
-        "朱鑫材": "AgentDB",
+        "陈彦博": "SLO-aware 请求调度；国产硬件推理引擎适配；性能测试与工程实现",
+        "朱鑫材": "智能体数据库；Agent 状态与记忆持久化；数据管理中间件",
         "陈德斌": "MoE 专家卸载优化；控制面优化（与李昶吾协作）",
         "王杰": "面向长上下文工作负载的大模型推理引擎性能优化；Prefill 阶段计算与数据搬运瓶颈；KV Cache 复用；分层缓存；运行时调度；算子优化",
         "李庚": "分布式推理加速",
@@ -722,6 +723,11 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         "李林浩": "待定",
         "余天成": "大模型推理方向待定；愿意根据课题安排探索相关研究",
         "李欣妍": "模型执行优化；状态管理；KV Cache 复用与压缩；多模态推理优化；AI4S 场景",
+        "韦若皓": "待补充",
+        "万瑞鹏": "待补充",
+        "周雨桐": "待补充",
+        "毛言粲": "待补充",
+        "雷欣妍": "待补充",
     }
     for name, expected in expected_research_interests.items():
         assert by_name[name]["research_direction"]["zh"] == expected

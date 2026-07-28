@@ -184,13 +184,13 @@
           "participant": true,
           "role_zh": "学生",
           "role_en": "Student",
-          "research_direction_zh": "SLO-aware 请求调度",
-          "research_direction_en": "SLO-aware request scheduling",
+          "research_direction_zh": "SLO-aware 请求调度；国产硬件推理引擎适配；性能测试与工程实现",
+          "research_direction_en": "SLO-aware request scheduling; domestic-hardware inference-engine adaptation; performance testing and engineering implementation",
           "advisor_zh": "张书豪",
           "advisor_en": "Shuhao Zhang"
         }
       },
-      "notes": "Confirmed for public display by manual review."
+      "notes": "Confirmed for public display by manual review. The research profile preserves the previously confirmed scheduling and domestic-hardware inference expertise."
     },
     "Fuze1111": {
       "display_name": "沈家乐",
@@ -608,13 +608,13 @@
           "participant": true,
           "role_zh": "学术成员",
           "role_en": "Academic member",
-          "research_direction_zh": "记忆体",
-          "research_direction_en": "Memory systems",
+          "research_direction_zh": "智能体记忆体；长期记忆评测；推理技术实现；Benchmark；多模态长上下文推理",
+          "research_direction_en": "Agent memory systems; long-term memory evaluation; inference implementation; benchmarking; multimodal long-context inference",
           "advisor_zh": "张书豪",
           "advisor_en": "Shuhao Zhang"
         }
       },
-      "notes": "User confirmed KimmoZAG is 张睿诚."
+      "notes": "User confirmed KimmoZAG is 张睿诚 and previously provided the full memory-system research profile."
     },
     "kms12425": {
       "display_name": "Junhao Ma",
@@ -780,6 +780,8 @@
           "participant": true,
           "role_zh": "学生",
           "role_en": "Student",
+          "research_direction_zh": "待补充",
+          "research_direction_en": "To be provided",
           "advisor_zh": "万瑶",
           "advisor_en": "Yao Wan"
         }
@@ -1100,13 +1102,13 @@
           "participant": true,
           "role_zh": "工程成员",
           "role_en": "Engineering member",
-          "research_direction_zh": "AgentDB",
-          "research_direction_en": "AgentDB",
+          "research_direction_zh": "智能体数据库；Agent 状态与记忆持久化；数据管理中间件",
+          "research_direction_en": "Agent databases; Agent state and memory persistence; data-management middleware",
           "advisor_zh": "张书豪",
           "advisor_en": "Shuhao Zhang"
         }
       },
-      "notes": "Confirmed for public display by manual review."
+      "notes": "Confirmed for public display by manual review. The research profile restores the previously confirmed AgentDB systems scope."
     },
     "qingfengyuhuoda": {
       "display_name": "qingfengyuhuoda",
@@ -1346,8 +1348,8 @@
           "participant": true,
           "role_zh": "课题负责人",
           "role_en": "Project lead",
-          "research_direction_zh": "状态管理、分布式运行时与大模型推理基础设施",
-          "research_direction_en": "State management, distributed runtimes, and LLM inference infrastructure"
+          "research_direction_zh": "并行与分布式系统；状态管理；流处理；运行时系统；大模型推理基础设施；状态复用；记忆增强智能体中间件",
+          "research_direction_en": "Parallel and distributed systems; state management; stream processing; runtime systems; LLM inference infrastructure; state reuse; memory-augmented agent middleware"
         }
       },
       "notes": "User confirmed ShuhaoZhangTony, chooper26, QixinZhang26, and qixinzhang2601 are identities of 张书豪."
@@ -1395,13 +1397,13 @@
           "participant": true,
           "role_zh": "学术成员",
           "role_en": "Academic member",
-          "research_direction_zh": "SLO-aware 调度",
-          "research_direction_en": "SLO-aware scheduling",
+          "research_direction_zh": "SLO-aware 调度；Workflow/Agent-aware Serving；程序感知调度；工作流状态管理",
+          "research_direction_en": "SLO-aware scheduling; workflow- and agent-aware serving; program-aware scheduling; workflow state management",
           "advisor_zh": "张书豪",
           "advisor_en": "Shuhao Zhang"
         }
       },
-      "notes": "Confirmed for public display by manual review."
+      "notes": "Confirmed for public display by manual review. The research profile restores the previously confirmed workflow-aware serving scope."
     },
     "vincentl3836": {
       "display_name": "Vincent Chiu",
@@ -1931,8 +1933,8 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review", "private_group_roster"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "KV 复用", "research_direction_en": "KV reuse", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "User confirmed sssarrior is the GitHub account of 李旭恒."
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "KV Cache 跨请求与跨 Chunk 复用；共享选择层；缓存精度与存储权衡；vLLM、SGLang、Mooncake 与 CacheBlend", "research_direction_en": "Cross-request and cross-chunk KV Cache reuse; shared selection layers; cache-accuracy and storage tradeoffs; vLLM, SGLang, Mooncake, and CacheBlend", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "User confirmed sssarrior is the GitHub account of 李旭恒 and previously provided the full KV Cache reuse research profile."
     },
     "vllm-hust-gao-hongru": {
       "display_name": "Hongru Gao",
@@ -1948,8 +1950,8 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "动态图", "research_direction_en": "Dynamic graphs", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "User confirmed hongrugao is the GitHub account of 高鸿儒."
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学术成员", "role_en": "Academic member", "research_direction_zh": "动态图系统；计算机系统结构；国产硬件运行时与推理引擎优化", "research_direction_en": "Dynamic-graph systems; computer architecture; runtime and inference-engine optimization on domestic hardware", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "User confirmed hongrugao is the GitHub account of 高鸿儒 and previously provided the full systems research profile."
     },
     "vllm-hust-cao-zhe": {
       "display_name": "曹哲",
@@ -1965,8 +1967,8 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["github_org_members", "manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "即将入学的研究生", "role_en": "Incoming graduate student", "research_direction_zh": "KV 复用", "research_direction_en": "KV reuse", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "User-confirmed canonical mapping: xmdhb is 曹哲, an incoming graduate student advised by 张书豪."
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "即将入学的研究生", "role_en": "Incoming graduate student", "research_direction_zh": "Prompt/KV Cache 复用；缓存驱逐；语义感知与在线自适应策略；Agent 场景缓存生命周期管理", "research_direction_en": "Prompt and KV Cache reuse; cache eviction; semantic-aware and online-adaptive policies; cache lifecycle management for Agent workloads", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "User-confirmed canonical mapping: xmdhb is 曹哲, an incoming graduate student advised by 张书豪. The research profile restores the previously confirmed semantic-aware cache-management scope."
     },
     "vllm-hust-yang-jinyun": {
       "display_name": "Jinyun Yang",
@@ -1982,8 +1984,8 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "Flink", "research_direction_en": "Flink", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "User confirmed Yang-YJY is the GitHub account of 杨锦昀."
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "Flink 流处理；分布式数据处理；流系统与推理系统协同", "research_direction_en": "Flink stream processing; distributed data processing; stream-system and inference-system integration", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "User confirmed Yang-YJY is the GitHub account of 杨锦昀 and previously provided the full stream-processing profile."
     },
     "vllm-hust-wang-ziao": {
       "display_name": "Ziao Wang",
@@ -1999,8 +2001,8 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "ANNS", "research_direction_en": "ANNS", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
-      "notes": "User confirmed ZeroJustMe is the GitHub account of 王子澳."
+      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "research_direction_zh": "ANNS；向量流连接；多核并行；RAG 检索基础设施", "research_direction_en": "ANNS; streaming vector joins; multicore parallelism; RAG retrieval infrastructure", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
+      "notes": "User confirmed ZeroJustMe is the GitHub account of 王子澳 and previously provided the full vector-systems profile."
     },
     "vllm-hust-zhang-senlei": {
       "display_name": "Senlei Zhang",
@@ -2101,7 +2103,7 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true}},
+      "profiles": {"vllm_hust": {"participant": true, "research_direction_zh": "待补充", "research_direction_en": "To be provided"}},
       "notes": "User confirmed yancanmao is the GitHub account of 毛言粲."
     },
     "wrp-wrp": {
@@ -2118,7 +2120,7 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true}},
+      "profiles": {"vllm_hust": {"participant": true, "research_direction_zh": "待补充", "research_direction_en": "To be provided"}},
       "notes": "User confirmed wrp-wrp is the GitHub account of 万瑞鹏."
     },
     "FirmamentumX": {
@@ -2135,7 +2137,7 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true}},
+      "profiles": {"vllm_hust": {"participant": true, "research_direction_zh": "待补充", "research_direction_en": "To be provided"}},
       "notes": "User confirmed FirmamentumX is the GitHub account of 周雨桐."
     },
     "carsontung666": {
@@ -2169,7 +2171,7 @@
       "needs_review": false,
       "display_name_source": "manual",
       "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true}},
+      "profiles": {"vllm_hust": {"participant": true, "research_direction_zh": "待补充", "research_direction_en": "To be provided"}},
       "notes": "User confirmed leixy2004 is the GitHub account of 雷欣妍."
     },
     "Luqhhh": {
