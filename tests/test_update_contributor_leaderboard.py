@@ -688,7 +688,7 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         "张书豪": "并行与分布式系统；状态管理；流处理；运行时系统；大模型推理基础设施；状态复用；记忆增强智能体中间件",
         "张睿诚": "智能体记忆体；长期记忆评测；推理技术实现；Benchmark；多模态长上下文推理",
         "刘俊": "SLO 感知的 LLM Serving 调度；MLA 与 KV Cache 优化；张量并行与多 GPU 推理解码；延迟保障与资源分配；应用感知 Serving",
-        "李昶吾": "MoE 专家卸载优化；控制面优化",
+        "李昶吾": "大模型推理系统软硬件协同优化；动态 MoE 推理；AI 加速器执行效率优化；Ascend NPU Host–Device 协同优化",
         "李旭恒": "KV Cache 跨请求与跨 Chunk 复用；共享选择层；缓存精度与存储权衡；vLLM、SGLang、Mooncake 与 CacheBlend",
         "高鸿儒": "动态图系统；计算机系统结构；国产硬件运行时与推理引擎优化",
         "曹哲": "Prompt/KV Cache 复用；缓存驱逐；语义感知与在线自适应策略；Agent 场景缓存生命周期管理",
