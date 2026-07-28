@@ -283,13 +283,26 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "coisinixixi": "高西岭",
         "moonandlife": "王胜",
         "succinctpaul": "程月甲",
-        "remygred": "刘世锋",
+        "remygred": "刘世峰",
         "xmdhb": "曹哲",
         "anjiangy": "李庚",
         "dzcixy": "杜忠承",
         "xsun2001": "徐晨曦",
         "renty-0": "王润泽",
         "ilnnfover": "吴天宇",
+        "liu-zimo-lzm": "刘子墨",
+        "oddod": "欧丹丹",
+        "devilsssssss": "钱柯彤",
+        "qingwanruojun": "段盈君",
+        "healer-positive": "何维",
+        "xiehanlong834-gif": "谢汉龙",
+        "keridone": "周升晖",
+        "ywhuter": "姚世文",
+        "fuze1111": "沈家乐",
+        "sunshine-llh": "李林浩",
+        "yutiantian0115": "余天成",
+        "xinyanli-0725": "李欣妍",
+        "kotoriqaq0": "韦若皓",
     }
     for alias, chinese_name in expected_names.items():
         assert people.by_name[alias]["chinese_name"] == chinese_name
@@ -299,7 +312,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
     zhao = people.by_login["curryzjj"]["profiles"]["vllm_hust"]
     assert zhao["role_zh"] == "已毕业博士生，目前已入职高校"
     xiling = people.by_login["xilinggao"]["profiles"]["vllm_hust"]
-    assert xiling["research_direction_zh"] == "KV量化"
+    assert xiling["research_direction_zh"] == "KV 量化"
     dzcixy = people.by_login["dzcixy"]
     assert dzcixy["public"] is True
     assert dzcixy["needs_review"] is False
@@ -321,6 +334,18 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "hustcui": "姚鹏程",
         "wenjuzhao": "姚鹏程",
         "seas0": "万瑶",
+        "keridone": "张书豪",
+        "healer-positive": "张书豪",
+        "luqhhh": "张书豪",
+        "devilsssssss": "张书豪",
+        "fuze1111": "张书豪",
+        "liu-zimo-lzm": "张书豪",
+        "oddod": "张书豪",
+        "qingwanruojun": "张书豪",
+        "mynameisczj": "张书豪",
+        "carsontung666": "张书豪",
+        "xiehanlong834-gif": "张书豪",
+        "ywhuter": "张书豪",
     }
     for login, advisor in expected_advisors.items():
         profile = people.by_login[login]["profiles"]["vllm_hust"]
@@ -654,11 +679,57 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["宋功轩"]["github_status"]["zh"] == "GitHub ID 待确认"
     assert by_name["彭成"]["github_status"]["zh"] == "GitHub ID 待确认"
     assert by_name["赵建军"]["role"]["zh"] == "已毕业博士生，目前已入职高校"
-    assert by_name["高西岭"]["research_direction"]["zh"] == "KV量化"
+    assert by_name["高西岭"]["research_direction"]["zh"] == "KV 量化"
     assert "多级KV缓存" not in by_name["高西岭"]["research_direction"]["zh"]
-    assert by_name["刘世锋"]["github_login"] == "Remygred"
-    assert by_name["刘世锋"]["role"]["zh"] == "华科大三实习生"
-    assert by_name["刘世锋"]["advisor"]["zh"] == "张书豪"
+    assert by_name["刘世峰"]["github_login"] == "Remygred"
+    assert by_name["刘世峰"]["role"]["zh"] == "华科大三实习生"
+    assert by_name["刘世峰"]["advisor"]["zh"] == "张书豪"
+    expected_research_interests = {
+        "张睿诚": "记忆体",
+        "刘俊": "SLO-aware 调度",
+        "李昶吾": "MoE 专家卸载优化；控制面优化",
+        "李旭恒": "KV 复用",
+        "高鸿儒": "动态图",
+        "曹哲": "KV 复用",
+        "彭浩然": "SLO-aware 调度",
+        "王明琪": "大模型推理系统工程开发；LLM Serving；vLLM 架构；KV Cache 生命周期管理；PagedAttention；缓存置换与资源调度；长序列推理内存优化",
+        "杨锦昀": "Flink",
+        "王子澳": "ANNS",
+        "张森磊": "待定",
+        "陈彦博": "SLO-aware 请求调度",
+        "朱鑫材": "AgentDB",
+        "陈德斌": "MoE 专家卸载优化；控制面优化（与李昶吾协作）",
+        "王杰": "面向长上下文工作负载的大模型推理引擎性能优化；Prefill 阶段计算与数据搬运瓶颈；KV Cache 复用；分层缓存；运行时调度；算子优化",
+        "李庚": "分布式推理加速",
+        "高西岭": "KV 量化",
+        "刘子墨": "待定",
+        "欧丹丹": "待定",
+        "钱柯彤": "vLLM-HUST 推理系统性能分析与调度优化；系统 Profiling；瓶颈定位；资源利用率提升；工程化性能改进",
+        "段盈君": "算子优化；寒武纪算子开发",
+        "陈子嘉": "昇腾 NPU 算子级性能调优；PyPTO Tile 编程；算子融合",
+        "何维": "性能优化；算法与硬件调优；方向适应性强",
+        "马俊豪": "待定",
+        "匡明轩": "KV Cache 压缩；调度同步开销优化；Attention Kernel",
+        "董君瑶": "向量数据库",
+        "田景远": "昇腾 NPU 推理系统优化；调度优化；通信—计算重叠；多卡扩展；软硬件协同；真实负载",
+        "邱瑞杰": "待定",
+        "路庆浩": "Profiling；vLLM 性能问题分析与优化",
+        "刘世峰": "请求调度；资源管理；KV Cache 优化；长上下文服务",
+        "谢汉龙": "异构 GPU 推理分离；系统架构；资源调度；异构兼容；成本敏感型部署；自动并行",
+        "周升晖": "Profiling；算子性能瓶颈分析；算子融合；减少计算冗余",
+        "姚世文": "资源调度；任务卸载；复杂系统优化；LLM Serving 性能优化；智能调度；异构计算",
+        "沈家乐": "KV Cache 复用；长上下文推理优化；多后端运行时适配",
+        "李林浩": "待定",
+        "余天成": "大模型推理方向待定；愿意根据课题安排探索相关研究",
+        "李欣妍": "模型执行优化；状态管理；KV Cache 复用与压缩；多模态推理优化；AI4S 场景",
+    }
+    for name, expected in expected_research_interests.items():
+        assert by_name[name]["research_direction"]["zh"] == expected
+        for name in ("李林浩", "余天成"):
+            assert by_name[name]["role"]["zh"] == "2027 年待入学学生"
+            assert by_name[name]["advisor"]["zh"] == "张书豪"
+        assert by_name["李欣妍"]["role"]["zh"] == "学生"
+        assert by_name["李欣妍"]["advisor"]["zh"] == "张书豪"
     assert by_name["曹哲"]["github_login"] == "xmdhb"
     assert by_name["曹哲"]["role"]["zh"] == "即将入学的研究生"
     assert by_name["曹哲"]["advisor"]["zh"] == "张书豪"
@@ -682,6 +753,10 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert "github:sunyanggithub" not in unresolved_ids
     assert "github:luoxiaohei" not in unresolved_ids
     assert "author:sssarrior" not in unresolved_ids
+    assert "github:kotoriqaq0" not in unresolved_ids
+    assert by_name["韦若皓"]["github_login"] == "kotoriqaq0"
+    assert by_name["韦若皓"]["role"]["zh"] == "学生"
+    assert by_name["韦若皓"]["advisor"]["zh"] == "万瑶"
 
     kuang_rows = [
         item
