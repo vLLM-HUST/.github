@@ -2311,8 +2311,8 @@
       "notes": "User confirmed the public name, GitHub account, research-interest profile, and 张书豪 as advisor."
     },
     "Apei-520": {
-      "display_name": "Apei-520",
-      "chinese_name": "",
+      "display_name": "裴方睿",
+      "chinese_name": "裴方睿",
       "english_name": "",
       "github_login": "Apei-520",
       "github_url": "https://github.com/Apei-520",
@@ -2322,8 +2322,8 @@
       "member_of_org": false,
       "public": true,
       "needs_review": false,
-      "display_name_source": "github_profile",
-      "sources": ["github_profile", "manual_research_intake"],
+      "display_name_source": "manual",
+      "sources": ["github_profile", "manual_research_intake", "manual_review"],
       "profiles": {
         "vllm_hust": {
           "participant": true,
@@ -2333,11 +2333,11 @@
           "advisor_en": "Shuhao Zhang",
           "research_direction_zh": "推理集群并行计算与通信优化；HCCL/NCCL；计算—通信协同；无损网络与跨机通信；资源受限的单卡与单机推理优化",
           "research_direction_en": "Parallel computing and communication optimization for inference clusters; HCCL/NCCL; communication-computation co-design; lossless and inter-node networking; resource-constrained single-device and single-server inference optimization",
-          "github_status_zh": "GitHub ID 已确认；两个组织的普通成员邀请待接受；姓名待补充",
-          "github_status_en": "GitHub ID confirmed; ordinary-member invitations to both organizations are pending; name pending"
+          "github_status_zh": "姓名和 GitHub ID 已确认；两个组织的普通成员邀请待接受",
+          "github_status_en": "Name and GitHub ID confirmed; ordinary-member invitations to both organizations are pending"
         }
       },
-      "notes": "Research-interest intake supplied by the user. GitHub account verified; legal/display name and project assignment remain pending."
+      "notes": "User confirmed the public name, GitHub account, research-interest profile, and 张书豪 as advisor. Project assignment remains pending."
     },
     "vllm-hust-long-bin": {
       "display_name": "Bin Long",
