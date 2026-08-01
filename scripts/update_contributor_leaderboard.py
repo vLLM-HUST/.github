@@ -1042,6 +1042,10 @@ def is_staff_person(person: dict | None) -> bool:
     return bool(person_vllm_hust_profile(person).get("staff_member"))
 
 
+def is_former_person(person: dict | None) -> bool:
+    return bool(person_vllm_hust_profile(person).get("former_member"))
+
+
 def localized_profile_value(profile: dict, key: str) -> dict[str, str]:
     return {
         "zh": str(profile.get(f"{key}_zh") or "").strip(),
@@ -1093,6 +1097,7 @@ def enrich_contributor_item(
     identity_confirmed = is_confirmed_person(person)
     external_contributor = is_external_person(person)
     staff_member = is_staff_person(person)
+    former_member = is_former_person(person)
     item["person_id"] = (
         f"github:{login.casefold()}"
         if login
@@ -1105,6 +1110,10 @@ def enrich_contributor_item(
     item["identity_confirmed"] = identity_confirmed
     item["external_contributor"] = external_contributor
     item["staff_member"] = staff_member
+    if former_member:
+        item["former_member"] = True
+    else:
+        item.pop("former_member", None)
     item["core_repository_contributor"] = bool(
         set(item.get("repos") or []) & CORE_REPOS
     )
@@ -1112,6 +1121,7 @@ def enrich_contributor_item(
         item["core_repository_contributor"]
         and not external_contributor
         and not staff_member
+        and not former_member
     )
     item["role"] = localized_profile_value(profile, "role")
     item["research_direction"] = localized_profile_value(
@@ -1199,9 +1209,10 @@ def build_member_profiles(
         item["person_id"]: dict(item)
         for item in core_items
         if item.get("external_contributor")
+        and not item.get("former_member")
     }
     for item in all_items:
-        if item.get("external_contributor"):
+        if item.get("external_contributor") and not item.get("former_member"):
             external_by_id.setdefault(item["person_id"], dict(item))
 
     staff_by_id: dict[str, dict] = {
@@ -1209,11 +1220,13 @@ def build_member_profiles(
         for item in core_items
         if item.get("staff_member")
         and not item.get("external_contributor")
+        and not item.get("former_member")
     }
     for item in all_items:
         if (
             item.get("staff_member")
             and not item.get("external_contributor")
+            and not item.get("former_member")
         ):
             staff_by_id.setdefault(item["person_id"], dict(item))
 
@@ -1224,6 +1237,7 @@ def build_member_profiles(
             for item in core_items
             if not item.get("external_contributor")
             and not item.get("staff_member")
+            and not item.get("former_member")
         ),
         start=1,
     ):
@@ -1240,6 +1254,7 @@ def build_member_profiles(
             item["person_id"] in core_person_ids
             or item["person_id"] in external_person_ids
             or item["person_id"] in staff_person_ids
+            or item.get("former_member")
             or not item.get("identity_confirmed")
             or is_synthetic_contributor(item)
         ):
@@ -1407,6 +1422,7 @@ def refresh_contributor_payload_profiles(repo_root: Path, payload: dict) -> dict
                 item["core_repository_contributor"]
                 and not item.get("external_contributor")
                 and not item.get("staff_member")
+                and not item.get("former_member")
             )
         refreshed_scopes[scope_name] = scope
         refreshed[scope_name] = scope

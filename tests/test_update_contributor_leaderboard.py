@@ -307,7 +307,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
     for alias, chinese_name in expected_names.items():
         assert people.by_name[alias]["chinese_name"] == chinese_name
 
-    assert people.by_login["moonandlife"]["profiles"]["vllm_hust"]["role_zh"] == "工程师"
+    assert people.by_login["moonandlife"]["profiles"]["vllm_hust"]["role_zh"] == "历史贡献者"
     assert people.by_login["succinctpaul"]["profiles"]["vllm_hust"]["role_zh"] == "工程师"
     zhao = people.by_login["curryzjj"]["profiles"]["vllm_hust"]
     assert zhao["role_zh"] == "已毕业博士生，目前已入职高校"
@@ -355,7 +355,8 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
     assert people.by_login["llxler"]["chinese_name"] == "雷翔麟"
     assert people.by_login["seas0"]["chinese_name"] == "刘思辰"
     assert people.by_email["xcx14@outlook.com"]["github_login"] == "xsun2001"
-    assert people.by_login["moonandlife"]["profiles"]["vllm_hust"]["staff_member"]
+    assert not people.by_login["moonandlife"]["profiles"]["vllm_hust"]["staff_member"]
+    assert people.by_login["moonandlife"]["profiles"]["vllm_hust"]["former_member"]
     assert people.by_login["succinctpaul"]["profiles"]["vllm_hust"]["staff_member"]
     long_bin = people.by_name["龙斌"]["profiles"]["vllm_hust"]
     assert long_bin["staff_member"] is True
@@ -578,9 +579,18 @@ def test_generated_member_profiles_share_core_classification_invariants() -> Non
     assert {item["display_name"] for item in staff} == {
         "luoxiaohei",
         "张俊辉",
-        "王胜",
         "程月甲",
         "龙斌",
+    }
+    assert "王胜" not in {
+        item["display_name"]
+        for group in (
+            profiles["core_members"],
+            profiles["participants"],
+            profiles["staff_members"],
+            profiles["external_contributors"],
+        )
+        for item in group
     }
 
     assert core_repos == set(payload["core_repos"]["scope_repos"])
@@ -598,8 +608,13 @@ def test_generated_member_profiles_share_core_classification_invariants() -> Non
         for item in staff
         if set(item["repos"]) & core_repos
     }
+    former_core_ids = {
+        item["person_id"]
+        for item in payload["core_repos"]["contributors"]
+        if item.get("former_member")
+    }
     assert raw_core_ids == (
-        classified_core_ids | staff_core_ids | external_core_ids
+        classified_core_ids | staff_core_ids | external_core_ids | former_core_ids
     )
     assert all(set(item["repos"]) & core_repos for item in core_members)
     assert all(not (set(item["repos"]) & core_repos) for item in participants)
@@ -664,8 +679,6 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["邱瑞杰"]["github_login"] == "Jerry01020"
     assert by_name["赵建军"]["github_login"] == "curryzjj"
     assert by_name["高西岭"]["github_login"] == "XilingGao"
-    assert by_name["王胜"]["role"]["zh"] == "工程师"
-    assert by_name["王胜"]["staff_member"] is True
     assert by_name["张俊辉"]["github_login"] == "junhuizhang-boop"
     assert by_name["张俊辉"]["role"]["zh"] == "工程师（派欧云）"
     assert by_name["张俊辉"]["staff_member"] is True

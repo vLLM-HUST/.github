@@ -1009,7 +1009,7 @@
       "aliases": [
         "Jeffrey Wang"
       ],
-      "member_of_org": true,
+      "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
@@ -1023,15 +1023,16 @@
       ],
       "profiles": {
         "vllm_hust": {
-          "participant": true,
-          "staff_member": true,
-          "role_zh": "工程师",
-          "role_en": "Engineer",
+          "participant": false,
+          "staff_member": false,
+          "former_member": true,
+          "role_zh": "历史贡献者",
+          "role_en": "Historical contributor",
           "participation_direction_zh": "推理引擎工程治理、上游协作与性能回归",
           "participation_direction_en": "Inference-engine governance, upstream collaboration, and performance regression"
         }
       },
-      "notes": "Confirmed for public display by manual review."
+      "notes": "Former team member; retained for historical contribution attribution after offboarding on 2026-08-01."
     },
     "peter17-17": {
       "display_name": "peter17-17",
