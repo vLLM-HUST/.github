@@ -1,2 +1,5 @@
 get_response.json
 patch_response.json
+.planning/
+__pycache__/
+*.pyc
