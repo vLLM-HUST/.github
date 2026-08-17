@@ -13,9 +13,9 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 
 ## 生态边界 / Ecosystem Boundary
 
-[RIDE Lab](https://github.com/RIDE-Lab) 面向智能体原生系统开展研究；其旗舰开源产品 [SAGE](https://github.com/RIDE-Lab/SAGE) 负责编程与编排，[Sage Mate](https://github.com/RIDE-Lab/sage-mate) 是基于 SAGE 构建的应用。这些调用方使用 vLLM-HUST 完成模型执行。
+[SAGE](https://github.com/RIDE-Lab/SAGE)（Streaming-Augmented Generative Execution）是 IntelliStream 研究生态的共同旗舰产品，以流计算思维赋能大模型推理与智能体执行。[RIDE Lab](https://github.com/RIDE-Lab) 负责其核心仓库的主要维护，[Sage Mate](https://github.com/RIDE-Lab/sage-mate) 是基于 SAGE 构建的应用。这些调用方使用 vLLM-HUST 完成模型执行。
 
-[RIDE Lab](https://github.com/RIDE-Lab) conducts agent-native systems research. Its flagship open-source product [SAGE](https://github.com/RIDE-Lab/SAGE) provides agent programming and orchestration, while [Sage Mate](https://github.com/RIDE-Lab/sage-mate) is an application built with SAGE. These caller-side systems use vLLM-HUST for model execution.
+[SAGE](https://github.com/RIDE-Lab/SAGE) — Streaming-Augmented Generative Execution — is the IntelliStream research ecosystem's shared flagship product, applying streaming-computing principles to LLM inference and agent execution. [RIDE Lab](https://github.com/RIDE-Lab) is the principal steward of its core repositories, while [Sage Mate](https://github.com/RIDE-Lab/sage-mate) is an application built with SAGE. These caller-side systems use vLLM-HUST for model execution.
 
 vLLM-HUST 是独立的推理底座，拥有模型执行、KV-cache、解码调度、编译、算子与硬件后端；RIDE Lab 和 SAGE 不是 vLLM-HUST 内部的运行时层。
 
