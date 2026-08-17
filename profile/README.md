@@ -11,6 +11,14 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 | 开发与验证 | [Dev Hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub) · [Benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark) · [Performance Analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) |
 | 文档与展示 | [Docs](https://github.com/vLLM-HUST/vllm-hust-docs) · [Website](https://github.com/vLLM-HUST/vllm-hust-website) · [Workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) |
 
+## 生态边界 / Ecosystem Boundary
+
+[RIDE Lab](https://github.com/RIDE-Lab) 面向智能体原生系统开展研究；其旗舰开源产品 [SAGE](https://github.com/RIDE-Lab/SAGE) 负责编程与编排，[Sage Mate](https://github.com/RIDE-Lab/sage-mate) 是基于 SAGE 构建的应用。这些调用方使用 vLLM-HUST 完成模型执行。
+
+[RIDE Lab](https://github.com/RIDE-Lab) conducts agent-native systems research. Its flagship open-source product [SAGE](https://github.com/RIDE-Lab/SAGE) provides agent programming and orchestration, while [Sage Mate](https://github.com/RIDE-Lab/sage-mate) is an application built with SAGE. These caller-side systems use vLLM-HUST for model execution.
+
+vLLM-HUST 是独立的推理底座，拥有模型执行、KV-cache、解码调度、编译、算子与硬件后端；RIDE Lab 和 SAGE 不是 vLLM-HUST 内部的运行时层。
+
 ## 成果仓库 / Research Outcomes
 
 每个成果仓库对应一项可独立使用的研究成果，集中维护核心实现、论文、实验和运行时集成。
