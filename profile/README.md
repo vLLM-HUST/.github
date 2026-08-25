@@ -6,7 +6,9 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 
 | 快速入口 | 仓库 |
 | --- | --- |
-| 推理运行时 | [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) · [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) · [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust) |
+| 推理运行时 | [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) · [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) |
+| 插件生态 | [插件目录与路线图](https://vllm-hust.sage.org.ai/plugins.html) |
+| 编译与模型工具 | [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust) · [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust) |
 | 成果仓库 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) · [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) |
 | 开发与验证 | [Dev Hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub) · [Benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark) · [Performance Analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) |
 | 文档与展示 | [Docs](https://github.com/vLLM-HUST/vllm-hust-docs) · [Website](https://github.com/vLLM-HUST/vllm-hust-website) · [Workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) |
@@ -32,14 +34,15 @@ vLLM-HUST 是独立的推理底座，拥有模型执行、KV-cache、解码调�
 
 | 类别 | 仓库 | 用途 |
 | --- | --- | --- |
-| 核心运行时 | [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) · [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) · [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust) | vLLM 服务、Ascend 硬件插件、Triton Ascend 编译后端 |
+| 核心运行时 | [vllm-hust](https://github.com/vLLM-HUST/vllm-hust) · [vllm-ascend-hust](https://github.com/vLLM-HUST/vllm-ascend-hust) | vLLM 服务与 Ascend 硬件插件 |
+| 编译与算子基础设施 | [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust) | Triton Ascend 编译后端；为运行时插件提供基础设施，但本身不是插件 |
 | 成果仓库 | [vllm-ascend-hust-bidkv](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) | 核心技术、论文、实验与运行时插件 |
 | 成果仓库 | [vllm-ascend-hust-diffspec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) | 核心技术、论文、实验与运行时集成 |
-| Ascend 工具 | [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust) · [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) | 量化、环境诊断与运行时修复 |
+| Ascend 工具 | [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust) · [ascend-runtime-manager](https://github.com/vLLM-HUST/ascend-runtime-manager) | 模型量化准备、环境诊断与运行时维护；不作为 vLLM 运行时插件展示 |
 | 开发与验证 | [vllm-hust-dev-hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub) · [vllm-hust-benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark) · [vllm-hust-perf-analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) · [claude-code-hust](https://github.com/vLLM-HUST/claude-code-hust) | 多仓工作区、Benchmark、Profiler 分析与开发工具 |
 | 产品与应用 | [vllm-hust-website](https://github.com/vLLM-HUST/vllm-hust-website) · [vllm-hust-workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) · [EvoScientist](https://github.com/vLLM-HUST/EvoScientist) | 官网、Web 工作台与科研智能体应用 |
 | 文档与社区 | [vllm-hust-docs](https://github.com/vLLM-HUST/vllm-hust-docs) · [.github](https://github.com/vLLM-HUST/.github) · [vllm-hust.github.io](https://github.com/vLLM-HUST/vllm-hust.github.io) | 文档、组织级社区配置与 Pages 入口 |
-| 论文与活动 | [CCCF 综述](https://github.com/vLLM-HUST/cccf-domestic-inference-engine-survey) · `fcs-domestic-chip-llm-recsys`（private） · [StateSys 2026](https://github.com/vLLM-HUST/statesys-2026) | 论文仓库与学术活动 |
+| 论文与活动 | [CCCF 综述](https://github.com/vLLM-HUST/cccf-domestic-inference-engine-survey) · `fcs-domestic-chip-llm-recsys`（链接未公开） · [StateSys 2026](https://github.com/vLLM-HUST/statesys-2026) | 论文仓库与学术活动 |
 
 ## Fork Status
 
@@ -59,7 +62,7 @@ vLLM-HUST 是独立的推理底座，拥有模型执行、KV-cache、解码调�
 | BidKV: Utility-Guided Preemption Scheduling for KV-Pressure LLM Serving | SC 2026 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) |
 | DiffSpec: Accelerating Long Sequence Generation with Differential Speculative Decoding | SC 2026 | [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) |
 | 国产算力推理引擎综述 | CCCF 通讯专刊 | [cccf-domestic-inference-engine-survey](https://github.com/vLLM-HUST/cccf-domestic-inference-engine-survey) |
-| LLM-Powered Recommendation Systems on Domestic AI Chips | Frontiers of Computer Science | `fcs-domestic-chip-llm-recsys`（private） |
+| LLM-Powered Recommendation Systems on Domestic AI Chips | Frontiers of Computer Science | `fcs-domestic-chip-llm-recsys`（链接未公开） |
 
 ## 贡献者
 
