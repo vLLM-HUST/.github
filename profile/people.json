@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-30",
+  "updated_at": "2026-08-26",
   "people": {
     "aly16-k": {
       "display_name": "aly16-k",
@@ -1600,6 +1600,24 @@
       ],
       "notes": "Initial candidate from GitHub org/profile data; review before public replacement."
     },
+    "Renty-0": {
+      "display_name": "Renty-0",
+      "chinese_name": "任天宇",
+      "english_name": "",
+      "github_login": "Renty-0",
+      "github_url": "https://github.com/Renty-0",
+      "emails": [],
+      "git_names": [],
+      "aliases": [],
+      "member_of_org": true,
+      "public": true,
+      "needs_review": false,
+      "display_name_source": "manual",
+      "sources": [
+        "manual_review"
+      ],
+      "notes": "User confirmed Renty-0 is 任天宇 for public display."
+    },
     "rzwang22": {
       "display_name": "rzwang22",
       "chinese_name": "王润泽",
@@ -1608,9 +1626,7 @@
       "github_url": "https://github.com/rzwang22",
       "emails": [],
       "git_names": [],
-      "aliases": [
-        "Renty-0"
-      ],
+      "aliases": [],
       "member_of_org": true,
       "public": true,
       "needs_review": false,

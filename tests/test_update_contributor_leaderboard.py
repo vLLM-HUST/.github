@@ -250,6 +250,39 @@ def test_iliujunn_is_publicly_mapped_to_liu_jun() -> None:
     assert person["needs_review"] is False
 
 
+def test_confirmed_member_logins_have_unique_real_name_mappings() -> None:
+    root = Path(__file__).resolve().parents[1]
+    people = leaderboard.load_people_index(root)
+    expected_names = {
+        "Renty-0": "任天宇",
+        "rzwang22": "王润泽",
+        "jxd1111": "江勰东",
+        "mumu029": "陈湘",
+        "peter17-17": "李佳乐",
+    }
+
+    assert len(set(expected_names.values())) == len(expected_names)
+    for login, chinese_name in expected_names.items():
+        login_key = leaderboard.normalize_lookup_value(login)
+        person = people.by_login[login_key]
+        assert person["github_login"] == login
+        assert person["chinese_name"] == chinese_name
+        assert person["public"] is True
+        assert person["needs_review"] is False
+        assert people.by_name[login_key] is person
+        assert [
+            candidate
+            for candidate in people.people
+            if leaderboard.normalize_lookup_value(candidate.get("github_login"))
+            == login_key
+        ] == [person]
+        assert [
+            candidate
+            for candidate in people.people
+            if candidate.get("chinese_name") == chinese_name
+        ] == [person]
+
+
 def test_required_canonical_people_and_aliases_are_mapped() -> None:
     root = Path(__file__).resolve().parents[1]
     people = leaderboard.load_people_index(root)
@@ -288,7 +321,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "anjiangy": "李庚",
         "dzcixy": "杜忠承",
         "xsun2001": "徐晨曦",
-        "renty-0": "王润泽",
+        "renty-0": "任天宇",
         "ilnnfover": "吴天宇",
         "liu-zimo-lzm": "刘子墨",
         "oddod": "欧丹丹",
