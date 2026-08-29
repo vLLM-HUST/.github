@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "canonical_registry": "https://github.com/vLLM-HUST/vllm-hust-docs/tree/codex/ecosystem-architecture-reorganization/registry",
+  "repository": "https://github.com/vLLM-HUST/.github",
+  "repository_role": "organization_governance",
+  "relation_to_runtime": "organization_wide",
+  "lifecycle": "core",
+  "artifacts": [
+    {
+      "id": "vllm-hust-organization-governance",
+      "artifact_type": "governance",
+      "system_role": "organization_governance",
+      "delivery_model": "source_repository",
+      "execution_planes": ["offline"],
+      "integration_contracts": []
+    }
+  ],
+  "system_boundaries": {
+    "is": [
+      "the GitHub organization profile and shared community-health policy source",
+      "an organization-wide governance and contributor entry point"
+    ],
+    "is_not": [
+      "a runtime implementation or extension bundle",
+      "the canonical ecosystem classification registry",
+      "a benchmark evidence store"
+    ]
+  },
+  "validation": ["git diff --check"],
+  "compatibility_document": "README.md"
+}
