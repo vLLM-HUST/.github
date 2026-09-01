@@ -456,7 +456,7 @@
       "notes": "User confirmed that iliujunn / Lou Jun is 刘俊. The full research profile restores the previously confirmed systems expertise instead of retaining only the short SLO-aware scheduling label."
     },
     "Jiawan23": {
-      "display_name": "Jiawan Zhang",
+      "display_name": "张家万",
       "chinese_name": "张家万",
       "english_name": "Jiawan Zhang",
       "github_login": "Jiawan23",
@@ -475,7 +475,13 @@
         "github_profile",
         "manual_review"
       ],
-      "notes": "Confirmed for public display by manual review."
+      "profiles": {
+        "vllm_hust": {
+          "advisor_zh": "万瑶",
+          "advisor_en": "Yao Wan"
+        }
+      },
+      "notes": "User confirmed Jiawan23 is 张家万 and advised by 万瑶."
     },
     "JieYang2001": {
       "display_name": "Jie Yang",
@@ -1791,7 +1797,7 @@
       "notes": "Confirmed for public display by manual review."
     },
     "SuccinctPaul": {
-      "display_name": "SuccinctPaul",
+      "display_name": "程月甲",
       "chinese_name": "程月甲",
       "english_name": "",
       "github_login": "SuccinctPaul",
@@ -1820,10 +1826,12 @@
           "role_zh": "工程师",
           "role_en": "Engineer",
           "participation_direction_zh": "Benchmark 基础设施与网站工程",
-          "participation_direction_en": "Benchmark infrastructure and website engineering"
+          "participation_direction_en": "Benchmark infrastructure and website engineering",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang"
         }
       },
-      "notes": "Git identities verified against commits attributed to the SuccinctPaul GitHub account."
+      "notes": "Git identities verified against commits attributed to the SuccinctPaul GitHub account. User confirmed SuccinctPaul is 程月甲 and advised by 张书豪."
     },
     "sunYangGitHub": {
       "display_name": "sunYangGitHub",
