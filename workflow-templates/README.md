@@ -47,6 +47,12 @@ requires checking credentials, SSO, installation scope or branch rules. Other AP
 errors remain errors, not fabricated success. Retrying is safe after diagnosis.
 
 The merge API uses the exact observed upstream SHA rather than a moving branch.
+Already synchronized snapshots return after a read-only ancestry check, avoiding
+unnecessary writes and their permission checks. After an actual merge, the response
+SHA is recorded and branch/compare reads are retried at most five times (two-second
+intervals) to tolerate GitHub read-after-write lag. The mutation is never retried;
+persistent ancestry failures still fail closed.
+
 Its commit message includes `[skip ci]`: unlike `GITHUB_TOKEN`, a dedicated App/PAT
 would otherwise trigger imported push CI, including hardware tests and releases.
 This preserves the previous sync-only behavior. Explicit product validation and

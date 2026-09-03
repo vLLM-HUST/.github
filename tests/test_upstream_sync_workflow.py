@@ -30,10 +30,18 @@ def run_step(tmp_path):
         "'timeout':'Unable to determine if workflow can be updated due to timeout (HTTP 422)', "
         "'auth':'Bad credentials (HTTP 401)', 'api':'Internal error (HTTP 500)'}\n"
         " if scenario in errors: print(errors[scenario], file=sys.stderr); sys.exit(1)\n"
-        " if scenario!='noop': print(json.dumps({'commit':{'message':'Merged upstream'}}))\n"
+        " if scenario!='http204': print(json.dumps({'sha':'c'*40,'commit':{'message':'Merged upstream'}}))\n"
         "elif '/compare/' in ' '.join(a):\n"
-        " print('diverged' if scenario=='ancestry' else 'ahead')\n"
-        "elif '/commits/' in ' '.join(a): print('a'*40)\n"
+        " endpoint=a[1]\n"
+        " if scenario=='ancestry': print('diverged')\n"
+        " elif endpoint.endswith('b'*40+'...'+'a'*40): print('ahead' if scenario=='noop' else 'behind')\n"
+        " elif endpoint.endswith('c'*40+'...'+'a'*40): print('behind')\n"
+        " else: print('ahead')\n"
+        "elif '/commits/' in ' '.join(a):\n"
+        " if 'official/core' in a[1]: print('b'*40)\n"
+        " else:\n"
+        "  reads=sum('/commits/' in line and 'test/fork' in line for line in p.read_text().splitlines())\n"
+        "  print('a'*40 if reads==1 or (scenario=='stale-read' and reads==2) else 'c'*40)\n"
         "elif a[1]=='repos/test/fork':\n"
         " print(json.dumps({'default_branch':'main', 'parent':None if scenario=='not-fork' "
         "else {'full_name':'official/core'}}))\n"
@@ -41,6 +49,9 @@ def run_step(tmp_path):
         "else: raise AssertionError(a)\n"
     )
     gh.chmod(0o755)
+    sleep = tmp_path / "sleep"
+    sleep.write_text("#!/bin/sh\nexit 0\n")
+    sleep.chmod(0o755)
 
     def run(step_id, **extra):
         step = next(s for s in STEPS if s.get("id", s["name"]) == step_id)
@@ -125,22 +136,46 @@ def test_merge_preserves_fork_and_upstream_ancestry(run_step):
     assert "has-sync-credential=true" in output
     assert "Both previous fork HEAD and observed upstream HEAD" in summary
     api_calls = [json.loads(line) for line in calls.splitlines()]
-    assert sum("/compare/" in " ".join(call) for call in api_calls) == 2
+    assert sum("/compare/" in " ".join(call) for call in api_calls) == 4
     assert all("force" not in " ".join(call) for call in api_calls)
     merge = next(call for call in api_calls if "/merges" in " ".join(call))
-    assert "head=" + "a" * 40 in merge
+    assert "head=" + "b" * 40 in merge
     assert "[skip ci]" in " ".join(merge)
 
 
 def test_http_204_noop_still_verifies_ancestry(run_step):
-    result, _, summary, calls = run_step("merge", SCENARIO="noop")
+    result, _, summary, calls = run_step("merge", SCENARIO="http204")
     assert result.returncode == 0
     assert "HTTP 204" in summary
-    assert calls.count("/compare/") == 2
+    assert calls.count("/compare/") == 4
+
+
+def test_noop_is_read_only_even_when_a_write_token_is_unavailable(run_step):
+    result, _, summary, calls = run_step("merge", SCENARIO="noop")
+    assert result.returncode == 0
+    assert "No-op:" in summary
+    assert "/merges" not in calls
+
+
+def test_stale_branch_read_recovers_without_repeating_the_merge(run_step):
+    result, _, summary, calls = run_step("merge", SCENARIO="stale-read")
+    assert result.returncode == 0
+    assert "Waiting for branch/compare consistency" in result.stdout
+    assert calls.count("/merges") == 1
+    assert "Merge response SHA: `" + "c" * 40 in summary
+
+
+def test_persistent_ancestry_failure_has_a_bounded_read_retry(run_step):
+    result, _, _, calls = run_step("merge", SCENARIO="ancestry")
+    assert result.returncode != 0
+    assert calls.count("/merges") == 1
+    assert calls.count("repos/test/fork/commits/main") == 6
 
 
 def test_default_token_noop_does_not_claim_credential_recovery(run_step):
-    result, output, _, _ = run_step("merge", HAS_SYNC_CREDENTIAL="false")
+    result, output, _, _ = run_step(
+        "merge", HAS_SYNC_CREDENTIAL="false", SCENARIO="noop"
+    )
     assert result.returncode == 0
     assert "::warning::" in result.stdout
     assert "has-sync-credential=false" in output
