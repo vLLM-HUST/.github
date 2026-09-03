@@ -1,0 +1,5 @@
+{
+  "name": "HUST upstream synchronization",
+  "description": "Preserve fork commits while synchronizing upstream, with dedicated workflow-write credentials and ancestry verification.",
+  "categories": ["Automation"]
+}

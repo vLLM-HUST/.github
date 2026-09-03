@@ -1,0 +1,39 @@
+name: Test upstream sync automation
+
+on:
+  push:
+    paths:
+      - workflow-templates/**
+      - tests/test_upstream_sync_workflow.py
+      - .github/workflows/test-upstream-sync.yml
+  pull_request:
+    paths:
+      - workflow-templates/**
+      - tests/test_upstream_sync_workflow.py
+      - .github/workflows/test-upstream-sync.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Run shell behavior and workflow contracts
+        run: |
+          python3 -m venv .test-venv
+          .test-venv/bin/pip install pytest==9.1.1 PyYAML==6.0.3
+          .test-venv/bin/python -m pytest tests/test_upstream_sync_workflow.py -q
+      - name: Validate GitHub Actions schema and expressions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.7.12 --repo rhysd/actionlint \
+            --pattern actionlint_1.7.12_linux_amd64.tar.gz \
+            --pattern actionlint_1.7.12_checksums.txt
+          sha256sum --check --ignore-missing actionlint_1.7.12_checksums.txt
+          tar -xzf actionlint_1.7.12_linux_amd64.tar.gz actionlint
+          ./actionlint -shellcheck= -pyflakes= workflow-templates/hust-upstream-sync.yml .github/workflows/test-upstream-sync.yml
