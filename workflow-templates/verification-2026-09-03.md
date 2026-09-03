@@ -1,21 +1,29 @@
 # Upstream sync recovery: 2026-09-03
 
-Last verified: **2026-09-03 00:33 UTC**. This is a source/automation verification,
-not a model/runtime compatibility or deployment approval.
+Initial source verification: **2026-09-03 00:33 UTC**. The credential follow-up below
+supersedes the initial missing-credential limitation. This is a source/automation
+verification, not a model/runtime compatibility or deployment approval.
 
-## Result and remaining administrator action
+## Initial result and credential follow-up
 
 All seven managed fork defaults contain their observed upstream main snapshots,
 preserve previous fork heads, and have a successful final dispatched sync run.
 All remediation commits are on the respective remote main branches.
 
-**Dedicated workflow-write credentials are still not configured.** The action
-supports a repository-scoped App or dedicated token, but a successful source-only
-merge or no-op does not prove that the next upstream workflow-file change will
-succeed. Follow [credential setup](README.md#credentials-required-for-upstream-workflow-changes).
-Do not copy a privileged personal CLI token into shared Actions secrets.
-Credential-related incidents should remain open until a correctly scoped
-credential has been installed and workflow-file synchronization has been verified.
+At the initial 00:33 UTC verification, no workflow-write credential was configured;
+the green runs alone did not resolve that limitation. Following explicit owner
+authorization, organization Actions secret `UPSTREAM_SYNC_TOKEN` was configured
+at **2026-09-03 01:15:16 UTC**, with `selected` visibility and exactly the seven
+managed forks. The token was transferred through stdin and client-side encryption,
+not printed, placed in command arguments or saved in repository/task files.
+
+All seven follow-up runs confirmed `HAS_SYNC_CREDENTIAL=true` and succeeded. The
+configured PAT has the required `repo` and `workflow` scopes. It is an authorized
+existing personal credential, **not** a least-privilege dedicated App: selected
+secret visibility restricts distribution but does not reduce the PAT's original
+API permissions. Migration to a dedicated App/token remains a hardening
+recommendation, not an unconfigured-secret blocker. See
+[credential setup](README.md#credentials-required-for-upstream-workflow-changes).
 
 ## Initial failures
 
@@ -83,3 +91,31 @@ the table records the resulting merged main, not just the run's starting SHA.
   production hardware were not changed. No force push or external upstream PR was
   used. Merge commits retain the original sync-only CI-trigger semantics via
   `[skip ci]`; runtime validation and deployment remain separate.
+
+## Credential-backed verification at 01:15 UTC
+
+| Fork | Actions run | Sync credential present | Result | Resulting main |
+| --- | --- | --- | --- | --- |
+| vllm-hust | [33702920975](https://github.com/vLLM-HUST/vllm-hust/actions/runs/33702920975) | true | success (real merge) | `86ffadbd8d27d6b17c7053420254caa239158774` |
+| vllm-ascend-hust | [33702920331](https://github.com/vLLM-HUST/vllm-ascend-hust/actions/runs/33702920331) | true | success (real merge) | `1d2f1f87a7449cd86fd6c2946174224ee81def52` |
+| triton-ascend-hust | [33702921859](https://github.com/vLLM-HUST/triton-ascend-hust/actions/runs/33702921859) | true | success (already synchronized) | `148a35c01391c6bb3d34cdbc7d485a4e82480048` |
+| vllm-metal-hust | [33702921330](https://github.com/vLLM-HUST/vllm-metal-hust/actions/runs/33702921330) | true | success (already synchronized) | `a1cc8d4c9c9d0dfaf4d9088bb3ba6b0143b975f8` |
+| sglang-hust | [33702920642](https://github.com/vLLM-HUST/sglang-hust/actions/runs/33702920642) | true | success (real merge) | `bee0ebc7148483846a4973ac2fadf480d48067cd` |
+| mooncake-hust | [33702920628](https://github.com/vLLM-HUST/mooncake-hust/actions/runs/33702920628) | true | success (already synchronized) | `4f5562c2518c9448913e5a8961622af7d9227c53` |
+| production-stack-hust | [33702920763](https://github.com/vLLM-HUST/production-stack-hust/actions/runs/33702920763) | true | success (already synchronized) | `00f27f3b08d518580cdcdb00815aea2685673de3` |
+
+The Ascend run merged upstream `6d02e22f078e59eb4b7947a887116151ad8eb100`
+into `1d2f1f87a7449cd86fd6c2946174224ee81def52`, including these changed files:
+
+- `.github/workflows/scripts/coverage.py`
+- `.github/workflows/scripts/select_tests.py`
+- `.github/workflows/scripts/test_config.yaml`
+- `.github/workflows/scripts/update_estimated_times.py`
+
+This is a real workflow-file merge by GitHub Actions using the configured secret,
+including the path originally rejected with HTTP 422. Core and SGLang also
+performed real source merges; other forks were already synchronized. All runs
+preserved ancestry and reached the credential-gated recovery step. The organization
+unit suite was rerun unchanged: **37 passed**. No runtime deployment or NPU work
+was performed. Token rotation/revocation must be accompanied by secret replacement;
+an expiring least-privilege App remains preferable for long-term operation.

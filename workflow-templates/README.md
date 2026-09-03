@@ -25,9 +25,14 @@ Preferred configuration:
 Alternatively, store a dedicated, expiring fine-grained token in
 `UPSTREAM_SYNC_TOKEN`, scoped to those repositories with the same permissions.
 If organizational policy requires a classic token, it needs `repo` and `workflow`;
-prefer the narrower App instead. Never copy an administrator's personal CLI token
-into a shared secret. Credential creation/installation requires administrator
-approval. Secret values must not appear in logs, issue bodies or documentation.
+prefer the narrower App instead. Do not copy an administrator's personal CLI token
+into a shared secret without explicit owner authorization. An authorized existing
+PAT can be used for recovery, but it retains all original privileges: a secret's
+selected-repository visibility limits distribution, not the token's API authority.
+Keep that exception documented and migrate to a dedicated App/token when practical.
+Credential creation/installation requires administrator approval. Transfer secret
+values only through protected stdin/API encryption, never command arguments, task
+files, logs, issue bodies or documentation.
 
 App configuration takes precedence over the dedicated token, then `GITHUB_TOKEN`.
 An incomplete App configuration fails rather than silently falling back. The final
