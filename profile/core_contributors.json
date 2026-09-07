@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-25",
+  "updated_at": "2026-09-07",
   "all_repos": {
     "scope_repos": [
       "vllm-hust",
@@ -14,11 +14,32 @@
       ".github",
       "ascend-runtime-manager",
       "cccf-domestic-inference-engine-survey",
+      "extension-manager",
+      "extension-template",
       "pegaflow-hust",
       "statesys-2026",
+      "vllm-ascend-hust-LatchMoE",
       "vllm-ascend-hust-diffspec",
+      "vllm-ascend-kvcompress-hust",
+      "vllm-ascend-layered-prefill-hust",
+      "vllm-ascend-mapped-kv-offload-hust",
+      "vllm-ascend-pyramidkv-hust",
+      "vllm-ascend-quantized-kv-cache-hust",
+      "vllm-ascend-simllm-hust",
+      "vllm-ascend-split-batch-hust",
+      "vllm-hust-activation-sparsity",
       "vllm-hust-bidkv",
+      "vllm-hust-knorm",
+      "vllm-hust-kv-tiering",
+      "vllm-hust-kv-transfer-observability",
+      "vllm-hust-pipeline-microbatch",
+      "vllm-hust-prefix-router",
       "vllm-hust-profiling",
+      "vllm-hust-qos-scheduler",
+      "vllm-hust-scheduler-policy-lab",
+      "vllm-hust-slicegpt",
+      "vllm-hust-stateharbor",
+      "vllm-hust-unified-comm",
       "vllm-hust.github.io"
     ],
     "contributors": [
@@ -27,31 +48,59 @@
         "name": "Shuhao Zhang",
         "github_login": "ShuhaoZhangTony",
         "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 863,
-        "changed_lines": 594607,
-        "added": 410946,
-        "deleted": 183661,
-        "active_repos": 12,
+        "commits": 1378,
+        "changed_lines": 1247695,
+        "added": 816229,
+        "deleted": 431466,
+        "active_repos": 37,
         "repos": [
           ".github",
           "ascend-runtime-manager",
           "cccf-domestic-inference-engine-survey",
+          "extension-manager",
+          "extension-template",
+          "pegaflow-hust",
           "statesys-2026",
           "vllm-ascend-hust",
+          "vllm-ascend-hust-LatchMoE",
+          "vllm-ascend-hust-diffspec",
+          "vllm-ascend-layered-prefill-hust",
+          "vllm-ascend-mapped-kv-offload-hust",
+          "vllm-ascend-pyramidkv-hust",
+          "vllm-ascend-quant-hust",
+          "vllm-ascend-quantized-kv-cache-hust",
+          "vllm-ascend-simllm-hust",
+          "vllm-ascend-split-batch-hust",
           "vllm-hust",
+          "vllm-hust-activation-sparsity",
           "vllm-hust-benchmark",
+          "vllm-hust-bidkv",
           "vllm-hust-dev-hub",
           "vllm-hust-docs",
+          "vllm-hust-knorm",
+          "vllm-hust-kv-tiering",
+          "vllm-hust-kv-transfer-observability",
+          "vllm-hust-perf-analyzer",
+          "vllm-hust-pipeline-microbatch",
+          "vllm-hust-prefix-router",
+          "vllm-hust-qos-scheduler",
+          "vllm-hust-scheduler-policy-lab",
+          "vllm-hust-slicegpt",
+          "vllm-hust-stateharbor",
+          "vllm-hust-unified-comm",
           "vllm-hust-website",
           "vllm-hust-workstation",
           "vllm-hust.github.io"
         ],
-        "key_contributions": "CI/CD, leaderboard, distributed, benchmark",
+        "key_contributions": "CI/CD, leaderboard, distributed, bugfix",
         "display_name": "张书豪",
         "chinese_name": "张书豪",
         "english_name": "Shuhao Zhang",
         "person_id": "github:shuhaozhangtony",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "课题负责人",
@@ -69,87 +118,36 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": "CI/CD, leaderboard, distributed, benchmark",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "CI/CD, leaderboard, distributed, bugfix"
       },
       {
         "rank": 2,
-        "name": "Jingyuan Tian",
-        "github_login": "CubeLander",
-        "github_url": "https://github.com/CubeLander",
-        "commits": 182,
-        "changed_lines": 134558,
-        "added": 90376,
-        "deleted": 44182,
-        "active_repos": 5,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust",
-          "vllm-hust-benchmark",
-          "vllm-hust-dev-hub",
-          "vllm-hust-perf-analyzer"
-        ],
-        "key_contributions": "distributed, storage, profiling, development environment",
-        "display_name": "田景远",
-        "chinese_name": "田景远",
-        "english_name": "Jingyuan Tian",
-        "person_id": "github:cubelander",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "实习生",
-          "en": "Student intern"
-        },
-        "research_direction": {
-          "zh": "昇腾 NPU 推理系统优化；调度优化；通信—计算重叠；多卡扩展；软硬件协同；真实负载",
-          "en": "Ascend NPU inference-system optimization; scheduling; communication-computation overlap; multi-device scaling; hardware-software co-design; real workloads"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "distributed, storage, profiling, development environment",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 3,
         "name": "SuccinctPaul",
         "github_login": "SuccinctPaul",
         "github_url": "https://github.com/SuccinctPaul",
-        "commits": 56,
-        "changed_lines": 71540,
-        "added": 46768,
-        "deleted": 24772,
-        "active_repos": 5,
+        "commits": 121,
+        "changed_lines": 403828,
+        "added": 286420,
+        "deleted": 117408,
+        "active_repos": 3,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust",
           "vllm-hust-benchmark",
           "vllm-hust-dev-hub",
           "vllm-hust-website"
         ],
-        "key_contributions": "maintenance, features, Ascend, benchmark",
+        "key_contributions": "maintenance, features, CI/CD, benchmark",
         "display_name": "程月甲",
         "chinese_name": "程月甲",
         "english_name": "",
         "person_id": "github:succinctpaul",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": true,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程师",
@@ -167,144 +165,45 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "maintenance, features, Ascend, benchmark",
-        "external_contributor": false,
-        "staff_member": true,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "maintenance, features, CI/CD, benchmark"
       },
       {
-        "rank": 4,
-        "name": "Sheng Wang",
-        "github_login": "moonandlife",
-        "github_url": "https://github.com/moonandlife",
-        "commits": 121,
-        "changed_lines": 44648,
-        "added": 29586,
-        "deleted": 15062,
-        "active_repos": 8,
+        "rank": 3,
+        "name": "Jingyuan Tian",
+        "github_login": "CubeLander",
+        "github_url": "https://github.com/CubeLander",
+        "commits": 300,
+        "changed_lines": 275460,
+        "added": 183149,
+        "deleted": 92311,
+        "active_repos": 4,
         "repos": [
-          "ascend-runtime-manager",
-          "vllm-ascend-hust",
-          "vllm-hust",
+          ".github",
           "vllm-hust-benchmark",
           "vllm-hust-dev-hub",
-          "vllm-hust-docs",
-          "vllm-hust-profiling",
-          "vllm-hust-website"
+          "vllm-hust-perf-analyzer"
         ],
-        "key_contributions": "CI/CD, leaderboard, Ascend, benchmark",
-        "display_name": "王胜",
-        "chinese_name": "王胜",
-        "english_name": "Sheng Wang",
-        "person_id": "github:moonandlife",
+        "key_contributions": "distributed, storage, profiling, development environment",
+        "display_name": "田景远",
+        "chinese_name": "田景远",
+        "english_name": "Jingyuan Tian",
+        "person_id": "github:cubelander",
         "identity_confirmed": true,
-        "core_member": false,
-        "role": {
-          "zh": "历史贡献者",
-          "en": "Historical contributor"
-        },
-        "research_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "participation_direction": {
-          "zh": "推理引擎工程治理、上游协作与性能回归",
-          "en": "Inference-engine governance, upstream collaboration, and performance regression"
-        },
-        "advisor": {
-          "zh": "",
-          "en": ""
-        },
-        "contribution_areas": "CI/CD, leaderboard, Ascend, benchmark",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        },
-        "former_member": true
-      },
-      {
-        "rank": 5,
-        "name": "MingqiWang-coder",
-        "github_login": "MingqiWang-coder",
-        "github_url": "https://github.com/MingqiWang-coder",
-        "commits": 38,
-        "changed_lines": 21449,
-        "added": 7608,
-        "deleted": 13841,
-        "active_repos": 2,
-        "repos": [
-          "vllm-hust-benchmark",
-          "vllm-hust-website"
-        ],
-        "key_contributions": "CI/CD, leaderboard, benchmark, maintenance",
-        "display_name": "王明琪",
-        "chinese_name": "王明琪",
-        "english_name": "",
-        "person_id": "github:mingqiwang-coder",
-        "identity_confirmed": true,
-        "core_member": false,
-        "role": {
-          "zh": "工程成员",
-          "en": "Engineering member"
-        },
-        "research_direction": {
-          "zh": "大模型推理系统工程开发；LLM Serving；vLLM 架构；KV Cache 生命周期管理；PagedAttention；缓存置换与资源调度；长序列推理内存优化",
-          "en": "LLM inference-system engineering; LLM Serving; vLLM architecture; KV Cache lifecycle management; PagedAttention; cache eviction and resource scheduling; long-sequence memory optimization"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "CI/CD, leaderboard, benchmark, maintenance",
         "external_contributor": false,
         "staff_member": false,
         "core_repository_contributor": false,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 6,
-        "name": "Yanbo Chen",
-        "github_login": "cybber695",
-        "github_url": "https://github.com/cybber695",
-        "commits": 6,
-        "changed_lines": 21084,
-        "added": 20929,
-        "deleted": 155,
-        "active_repos": 4,
-        "repos": [
-          "pegaflow-hust",
-          "vllm-ascend-hust",
-          "vllm-hust",
-          "vllm-hust-bidkv"
-        ],
-        "key_contributions": "Ascend, engine, features",
-        "display_name": "陈彦博",
-        "chinese_name": "陈彦博",
-        "english_name": "Yanbo Chen",
-        "person_id": "github:cybber695",
-        "identity_confirmed": true,
-        "core_member": true,
+        "core_member": false,
         "role": {
-          "zh": "学生",
-          "en": "Student"
+          "zh": "实习生",
+          "en": "Student intern"
         },
         "research_direction": {
-          "zh": "SLO-aware 请求调度；国产硬件推理引擎适配；性能测试与工程实现",
-          "en": "SLO-aware request scheduling; domestic-hardware inference-engine adaptation; performance testing and engineering implementation"
+          "zh": "昇腾 NPU 推理系统优化；调度优化；通信—计算重叠；多卡扩展；软硬件协同；真实负载",
+          "en": "Ascend NPU inference-system optimization; scheduling; communication-computation overlap; multi-device scaling; hardware-software co-design; real workloads"
         },
         "participation_direction": {
           "zh": "",
@@ -314,82 +213,34 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "Ascend, engine, features",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "distributed, storage, profiling, development environment"
       },
       {
-        "rank": 7,
-        "name": "junhuizhang-boop",
-        "github_login": "junhuizhang-boop",
-        "github_url": "https://github.com/junhuizhang-boop",
-        "commits": 32,
-        "changed_lines": 15162,
-        "added": 14144,
-        "deleted": 1018,
-        "active_repos": 4,
-        "repos": [
-          "ascend-runtime-manager",
-          "vllm-ascend-hust",
-          "vllm-hust",
-          "vllm-hust-benchmark"
-        ],
-        "key_contributions": "benchmark, CI/CD, Ascend, bugfix",
-        "display_name": "张俊辉",
-        "chinese_name": "张俊辉",
-        "english_name": "Junhui Zhang",
-        "person_id": "github:junhuizhang-boop",
-        "identity_confirmed": true,
-        "core_member": false,
-        "role": {
-          "zh": "工程师（派欧云）",
-          "en": "Engineer (PPIO)"
-        },
-        "research_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "participation_direction": {
-          "zh": "Benchmark 基础设施、上游同步与推理工程支持",
-          "en": "Benchmark infrastructure, upstream synchronization, and inference engineering support"
-        },
-        "advisor": {
-          "zh": "",
-          "en": ""
-        },
-        "contribution_areas": "benchmark, CI/CD, Ascend, bugfix",
-        "external_contributor": false,
-        "staff_member": true,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 8,
+        "rank": 4,
         "name": "Zijia Chen",
         "github_login": "mynameisczj",
         "github_url": "https://github.com/mynameisczj",
-        "commits": 16,
-        "changed_lines": 14536,
-        "added": 9640,
-        "deleted": 4896,
+        "commits": 70,
+        "changed_lines": 203130,
+        "added": 186751,
+        "deleted": 16379,
         "active_repos": 1,
         "repos": [
           "pegaflow-hust"
         ],
-        "key_contributions": "Ascend, CI/CD, distributed, features",
+        "key_contributions": "benchmark, Ascend, CI/CD, tooling",
         "display_name": "陈子嘉",
         "chinese_name": "陈子嘉",
         "english_name": "Zijia Chen",
         "person_id": "github:mynameisczj",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "学生",
@@ -407,17 +258,343 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "Ascend, CI/CD, distributed, features",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "benchmark, Ascend, CI/CD, tooling"
+      },
+      {
+        "rank": 5,
+        "name": "Li Changwu",
+        "github_login": null,
+        "github_url": null,
+        "commits": 15,
+        "changed_lines": 62563,
+        "added": 41827,
+        "deleted": 20736,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-hust-LatchMoE"
+        ],
+        "key_contributions": "Ascend, CI/CD, bugfix, docs",
+        "display_name": "Li Changwu",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:li changwu",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "Ascend, CI/CD, bugfix, docs"
+      },
+      {
+        "rank": 6,
+        "name": "Changwu Li",
+        "github_login": "Li-changwu",
+        "github_url": "https://github.com/Li-changwu",
+        "commits": 70,
+        "changed_lines": 55625,
+        "added": 49450,
+        "deleted": 6175,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-hust-LatchMoE"
+        ],
+        "key_contributions": "bugfix, features, distributed, Ascend",
+        "display_name": "李昶吾",
+        "chinese_name": "李昶吾",
+        "english_name": "Changwu Li",
+        "person_id": "github:li-changwu",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "大模型推理系统软硬件协同优化；动态 MoE 推理；AI 加速器执行效率优化；Ascend NPU Host–Device 协同优化",
+          "en": "Hardware-software co-optimization for LLM inference systems; dynamic MoE inference; AI-accelerator execution-efficiency optimization; Host-Device co-optimization on Ascend NPUs"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "bugfix, features, distributed, Ascend"
+      },
+      {
+        "rank": 7,
+        "name": "Sheng Wang",
+        "github_login": "moonandlife",
+        "github_url": "https://github.com/moonandlife",
+        "commits": 101,
+        "changed_lines": 41406,
+        "added": 24337,
+        "deleted": 17069,
+        "active_repos": 7,
+        "repos": [
+          ".github",
+          "ascend-runtime-manager",
+          "vllm-hust-benchmark",
+          "vllm-hust-dev-hub",
+          "vllm-hust-docs",
+          "vllm-hust-profiling",
+          "vllm-hust-website"
+        ],
+        "key_contributions": "CI/CD, leaderboard, distributed, benchmark",
+        "display_name": "王胜",
+        "chinese_name": "王胜",
+        "english_name": "Sheng Wang",
+        "person_id": "github:moonandlife",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "former_member": true,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "历史贡献者",
+          "en": "Historical contributor"
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "推理引擎工程治理、上游协作与性能回归",
+          "en": "Inference-engine governance, upstream collaboration, and performance regression"
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "CI/CD, leaderboard, distributed, benchmark"
+      },
+      {
+        "rank": 8,
+        "name": "Yanbo Chen",
+        "github_login": "cybber695",
+        "github_url": "https://github.com/cybber695",
+        "commits": 14,
+        "changed_lines": 30164,
+        "added": 30009,
+        "deleted": 155,
+        "active_repos": 4,
+        "repos": [
+          "pegaflow-hust",
+          "vllm-hust-benchmark",
+          "vllm-hust-bidkv",
+          "vllm-hust-docs"
+        ],
+        "key_contributions": "Ascend, bugfix, CI/CD, docs",
+        "display_name": "陈彦博",
+        "chinese_name": "陈彦博",
+        "english_name": "Yanbo Chen",
+        "person_id": "github:cybber695",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
+        "core_member": true,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "SLO-aware 请求调度；国产硬件推理引擎适配；性能测试与工程实现",
+          "en": "SLO-aware request scheduling; domestic-hardware inference-engine adaptation; performance testing and engineering implementation"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "Ascend, bugfix, CI/CD, docs"
       },
       {
         "rank": 9,
+        "name": "MingqiWang-coder",
+        "github_login": "MingqiWang-coder",
+        "github_url": "https://github.com/MingqiWang-coder",
+        "commits": 39,
+        "changed_lines": 21552,
+        "added": 7711,
+        "deleted": 13841,
+        "active_repos": 3,
+        "repos": [
+          "vllm-hust-benchmark",
+          "vllm-hust-dev-hub",
+          "vllm-hust-website"
+        ],
+        "key_contributions": "CI/CD, leaderboard, benchmark, maintenance",
+        "display_name": "王明琪",
+        "chinese_name": "王明琪",
+        "english_name": "",
+        "person_id": "github:mingqiwang-coder",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "工程成员",
+          "en": "Engineering member"
+        },
+        "research_direction": {
+          "zh": "大模型推理系统工程开发；LLM Serving；vLLM 架构；KV Cache 生命周期管理；PagedAttention；缓存置换与资源调度；长序列推理内存优化",
+          "en": "LLM inference-system engineering; LLM Serving; vLLM architecture; KV Cache lifecycle management; PagedAttention; cache eviction and resource scheduling; long-sequence memory optimization"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "CI/CD, leaderboard, benchmark, maintenance"
+      },
+      {
+        "rank": 10,
+        "name": "Junhui Zhang",
+        "github_login": "junhuizhang-boop",
+        "github_url": "https://github.com/junhuizhang-boop",
+        "commits": 43,
+        "changed_lines": 14006,
+        "added": 11206,
+        "deleted": 2800,
+        "active_repos": 3,
+        "repos": [
+          "ascend-runtime-manager",
+          "vllm-hust-benchmark",
+          "vllm-hust-website"
+        ],
+        "key_contributions": "CI/CD, benchmark, website, leaderboard",
+        "display_name": "张俊辉",
+        "chinese_name": "张俊辉",
+        "english_name": "Junhui Zhang",
+        "person_id": "github:junhuizhang-boop",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": true,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "工程师（派欧云）",
+          "en": "Engineer (PPIO)"
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "Benchmark 基础设施、上游同步与推理工程支持",
+          "en": "Benchmark infrastructure, upstream synchronization, and inference engineering support"
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "CI/CD, benchmark, website, leaderboard"
+      },
+      {
+        "rank": 11,
+        "name": "Jiawan Zhang",
+        "github_login": "Jiawan23",
+        "github_url": "https://github.com/Jiawan23",
+        "commits": 3,
+        "changed_lines": 13057,
+        "added": 10297,
+        "deleted": 2760,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-kvcompress-hust"
+        ],
+        "key_contributions": "kernel, Ascend",
+        "display_name": "张家万",
+        "chinese_name": "张家万",
+        "english_name": "Jiawan Zhang",
+        "person_id": "github:jiawan23",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "万瑶",
+          "en": "Yao Wan"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "kernel, Ascend"
+      },
+      {
+        "rank": 12,
         "name": "Xiling Gao",
         "github_login": "XilingGao",
         "github_url": "https://github.com/XilingGao",
@@ -435,6 +612,9 @@
         "english_name": "Xiling Gao",
         "person_id": "github:xilinggao",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程成员",
@@ -452,17 +632,14 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "leaderboard",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "leaderboard"
       },
       {
-        "rank": 10,
+        "rank": 13,
         "name": "hustcui",
         "github_login": "hustcui",
         "github_url": "https://github.com/hustcui",
@@ -480,6 +657,9 @@
         "english_name": "",
         "person_id": "github:hustcui",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "学生",
@@ -497,64 +677,14 @@
           "zh": "姚鹏程",
           "en": "Pengcheng Yao"
         },
-        "contribution_areas": "benchmark",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "benchmark"
       },
       {
-        "rank": 11,
-        "name": "Gu Changwei",
-        "github_login": "GuMorming",
-        "github_url": "https://github.com/GuMorming",
-        "commits": 9,
-        "changed_lines": 8490,
-        "added": 7046,
-        "deleted": 1444,
-        "active_repos": 3,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust-benchmark",
-          "vllm-hust-website"
-        ],
-        "key_contributions": "benchmark, engine",
-        "display_name": "谷昌伟",
-        "chinese_name": "谷昌伟",
-        "english_name": "Gu Changwei",
-        "person_id": "github:gumorming",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "前缀与共享状态索引机制",
-          "en": "Prefix and shared-state indexing"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "罗瑞坤",
-          "en": "Ruikun Luo"
-        },
-        "contribution_areas": "benchmark, engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 12,
+        "rank": 14,
         "name": "luoxiaohei",
         "github_login": "luoxiaohei",
         "github_url": "https://github.com/luoxiaohei",
@@ -573,6 +703,9 @@
         "english_name": "",
         "person_id": "github:luoxiaohei",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": true,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程师（派欧云）",
@@ -590,62 +723,62 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": "benchmark, distributed, leaderboard, CI/CD",
-        "external_contributor": false,
-        "staff_member": true,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "benchmark, distributed, leaderboard, CI/CD"
       },
       {
-        "rank": 13,
-        "name": "Amber1qq",
-        "github_login": "Amber1qq",
-        "github_url": "https://github.com/Amber1qq",
-        "commits": 1,
-        "changed_lines": 6246,
-        "added": 6223,
-        "deleted": 23,
-        "active_repos": 1,
+        "rank": 15,
+        "name": "OpenAI Codex",
+        "github_login": null,
+        "github_url": null,
+        "commits": 77,
+        "changed_lines": 6581,
+        "added": 4392,
+        "deleted": 2189,
+        "active_repos": 4,
         "repos": [
-          "vllm-hust"
+          "pegaflow-hust",
+          "vllm-hust-bidkv",
+          "vllm-hust-docs",
+          "vllm-hust-website"
         ],
-        "key_contributions": "misc",
-        "display_name": "郑凌峰",
-        "chinese_name": "郑凌峰",
+        "key_contributions": "distributed, bugfix, Ascend, engine",
+        "display_name": "OpenAI Codex",
+        "chinese_name": "",
         "english_name": "",
-        "person_id": "github:amber1qq",
-        "identity_confirmed": true,
+        "person_id": "author:openai codex",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
-          "zh": "学生",
-          "en": "Student"
+          "zh": "",
+          "en": ""
         },
         "research_direction": {
-          "zh": "状态传输与调度协同优化",
-          "en": "State transfer and scheduling co-optimization"
+          "zh": "",
+          "en": ""
         },
         "participation_direction": {
           "zh": "",
           "en": ""
         },
         "advisor": {
-          "zh": "刘海坤",
-          "en": "Haikun Liu"
+          "zh": "",
+          "en": ""
         },
-        "contribution_areas": "misc",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "distributed, bugfix, Ascend, engine"
       },
       {
-        "rank": 14,
+        "rank": 16,
         "name": "Ruicheng Zhang",
         "github_login": "KimmoZAG",
         "github_url": "https://github.com/KimmoZAG",
@@ -664,6 +797,9 @@
         "english_name": "Ruicheng Zhang",
         "person_id": "github:kimmozag",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "学术成员",
@@ -681,18 +817,15 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "bugfix, distributed, leaderboard, maintenance",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "bugfix, distributed, leaderboard, maintenance"
       },
       {
-        "rank": 15,
-        "name": "dzcixy",
+        "rank": 17,
+        "name": "Zhongcheng Du",
         "github_login": "dzcixy",
         "github_url": "https://github.com/dzcixy",
         "commits": 1,
@@ -709,6 +842,9 @@
         "english_name": "Zhongcheng Du",
         "person_id": "github:dzcixy",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "学生",
@@ -726,128 +862,218 @@
           "zh": "黄禹",
           "en": "Yu Huang"
         },
-        "contribution_areas": "distributed",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
-      },
-      {
-        "rank": 16,
-        "name": "machuanhu",
-        "github_login": "machuanhu",
-        "github_url": "https://github.com/machuanhu",
-        "commits": 1,
-        "changed_lines": 4774,
-        "added": 4773,
-        "deleted": 1,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "distributed",
-        "display_name": "马川湖",
-        "chinese_name": "马川湖",
-        "english_name": "",
-        "person_id": "github:machuanhu",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
         },
-        "research_direction": {
-          "zh": "统一执行抽象与执行图建模",
-          "en": "Unified execution abstraction and execution-graph modeling"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "王雄",
-          "en": "Xiong Wang"
-        },
-        "contribution_areas": "distributed",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 17,
-        "name": "Jie Yang",
-        "github_login": "JieYang2001",
-        "github_url": "https://github.com/JieYang2001",
-        "commits": 1,
-        "changed_lines": 4195,
-        "added": 4119,
-        "deleted": 76,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "misc",
-        "display_name": "杨杰",
-        "chinese_name": "杨杰",
-        "english_name": "Jie Yang",
-        "person_id": "github:jieyang2001",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "状态分层驻留与生命周期管理",
-          "en": "Tiered state residency and lifecycle management"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "赵进",
-          "en": "Jin Zhao"
-        },
-        "contribution_areas": "misc",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
+        "contribution_areas": "distributed"
       },
       {
         "rank": 18,
-        "name": "Sadboineedluv",
+        "name": "Super User",
+        "github_login": null,
+        "github_url": null,
+        "commits": 9,
+        "changed_lines": 4602,
+        "added": 4482,
+        "deleted": 120,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-perf-analyzer"
+        ],
+        "key_contributions": "distributed, testing, bugfix, features",
+        "display_name": "Super User",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:super user",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "distributed, testing, bugfix, features"
+      },
+      {
+        "rank": 19,
+        "name": "Mhyzb",
+        "github_login": null,
+        "github_url": null,
+        "commits": 2,
+        "changed_lines": 3661,
+        "added": 3654,
+        "deleted": 7,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-pyramidkv-hust"
+        ],
+        "key_contributions": "benchmark, features",
+        "display_name": "Mhyzb",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:mhyzb",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "benchmark, features"
+      },
+      {
+        "rank": 20,
+        "name": "Luqhhh",
+        "github_login": "Luqhhh",
+        "github_url": "https://github.com/Luqhhh",
+        "commits": 6,
+        "changed_lines": 3511,
+        "added": 3279,
+        "deleted": 232,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-perf-analyzer"
+        ],
+        "key_contributions": "bugfix, features, Ascend",
+        "display_name": "路庆浩",
+        "chinese_name": "路庆浩",
+        "english_name": "",
+        "person_id": "github:luqhhh",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "Profiling；vLLM 性能问题分析与优化",
+          "en": "Profiling; vLLM performance diagnosis and optimization"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "bugfix, features, Ascend"
+      },
+      {
+        "rank": 21,
+        "name": "Gu Changwei",
+        "github_login": "GuMorming",
+        "github_url": "https://github.com/GuMorming",
+        "commits": 13,
+        "changed_lines": 3214,
+        "added": 1817,
+        "deleted": 1397,
+        "active_repos": 3,
+        "repos": [
+          "vllm-hust-benchmark",
+          "vllm-hust-dev-hub",
+          "vllm-hust-website"
+        ],
+        "key_contributions": "benchmark, bugfix, features, maintenance",
+        "display_name": "谷昌伟",
+        "chinese_name": "谷昌伟",
+        "english_name": "Gu Changwei",
+        "person_id": "github:gumorming",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "前缀与共享状态索引机制",
+          "en": "Prefix and shared-state indexing"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "罗瑞坤",
+          "en": "Ruikun Luo"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "benchmark, bugfix, features, maintenance"
+      },
+      {
+        "rank": 22,
+        "name": "MingXuan Kuang",
         "github_login": "sad-and-bad1231",
         "github_url": "https://github.com/sad-and-bad1231",
-        "commits": 17,
-        "changed_lines": 3806,
-        "added": 2577,
-        "deleted": 1229,
-        "active_repos": 4,
+        "commits": 11,
+        "changed_lines": 2803,
+        "added": 1695,
+        "deleted": 1108,
+        "active_repos": 2,
         "repos": [
           ".github",
-          "cccf-domestic-inference-engine-survey",
-          "vllm-ascend-hust",
-          "vllm-hust"
+          "cccf-domestic-inference-engine-survey"
         ],
-        "key_contributions": "engine, benchmark, CI/CD",
+        "key_contributions": "engine",
         "display_name": "匡明轩",
         "chinese_name": "匡明轩",
         "english_name": "MingXuan Kuang",
         "person_id": "github:sad-and-bad1231",
         "identity_confirmed": true,
-        "core_member": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
         "role": {
           "zh": "",
           "en": ""
@@ -864,68 +1090,59 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "engine, benchmark, CI/CD",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "engine"
       },
       {
-        "rank": 19,
-        "name": "Liu Jun",
-        "github_login": "iliujunn",
-        "github_url": "https://github.com/iliujunn",
-        "commits": 7,
-        "changed_lines": 2505,
-        "added": 1569,
-        "deleted": 936,
-        "active_repos": 3,
+        "rank": 23,
+        "name": "Raing5Days",
+        "github_login": "Raing5Days",
+        "github_url": "https://github.com/Raing5Days",
+        "commits": 5,
+        "changed_lines": 2514,
+        "added": 2364,
+        "deleted": 150,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust",
-          "vllm-hust-dev-hub"
+          "vllm-hust-benchmark"
         ],
-        "key_contributions": "Ascend, CI/CD, bugfix, distributed",
-        "display_name": "刘俊",
-        "chinese_name": "刘俊",
-        "english_name": "Liu Jun",
-        "person_id": "github:iliujunn",
+        "key_contributions": "CI/CD, engine",
+        "display_name": "吴天宇",
+        "chinese_name": "吴天宇",
+        "english_name": "",
+        "person_id": "github:raing5days",
         "identity_confirmed": true,
-        "core_member": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
         "role": {
-          "zh": "学术成员",
-          "en": "Academic member"
+          "zh": "学生",
+          "en": "Student"
         },
         "research_direction": {
-          "zh": "SLO 感知的 LLM Serving 调度；MLA 与 KV Cache 优化；张量并行与多 GPU 推理解码；延迟保障与资源分配；应用感知 Serving",
-          "en": "SLO-aware LLM serving and scheduling; MLA and KV Cache optimization; tensor parallelism and multi-GPU decoding; latency guarantees and resource allocation; application-aware serving"
-        },
-        "profile_status": {
-          "zh": "GitHub 已确认",
-          "en": "GitHub confirmed"
+          "zh": "动态图执行与原生算子优化",
+          "en": "Dynamic-graph execution and native-operator optimization"
         },
         "participation_direction": {
           "zh": "",
           "en": ""
         },
         "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
+          "zh": "郑龙",
+          "en": "Long Zheng"
         },
-        "contribution_areas": "Ascend, CI/CD, bugfix, distributed",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "CI/CD, engine"
       },
       {
-        "rank": 20,
+        "rank": 24,
         "name": "vLLM-HUST Developer",
         "github_login": null,
         "github_url": null,
@@ -944,6 +1161,9 @@
         "english_name": "",
         "person_id": "author:vllm-hust developer",
         "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "",
@@ -961,28 +1181,24 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": "leaderboard",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "leaderboard"
       },
       {
-        "rank": 21,
+        "rank": 25,
         "name": "Junhao Ma",
         "github_login": "kms12425",
         "github_url": "https://github.com/kms12425",
-        "commits": 4,
-        "changed_lines": 1681,
-        "added": 869,
-        "deleted": 812,
-        "active_repos": 2,
+        "commits": 3,
+        "changed_lines": 1616,
+        "added": 830,
+        "deleted": 786,
+        "active_repos": 1,
         "repos": [
-          "cccf-domestic-inference-engine-survey",
-          "vllm-hust"
+          "cccf-domestic-inference-engine-survey"
         ],
         "key_contributions": "CI/CD, engine",
         "display_name": "马俊豪",
@@ -990,7 +1206,10 @@
         "english_name": "Junhao Ma",
         "person_id": "github:kms12425",
         "identity_confirmed": true,
-        "core_member": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
         "role": {
           "zh": "学生",
           "en": "Student"
@@ -1007,17 +1226,59 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "CI/CD, engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "CI/CD, engine"
       },
       {
-        "rank": 22,
+        "rank": 26,
+        "name": "Liu Jun",
+        "github_login": "iliujunn",
+        "github_url": "https://github.com/iliujunn",
+        "commits": 5,
+        "changed_lines": 1538,
+        "added": 655,
+        "deleted": 883,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-dev-hub"
+        ],
+        "key_contributions": "Ascend, CI/CD, bugfix",
+        "display_name": "刘俊",
+        "chinese_name": "刘俊",
+        "english_name": "Liu Jun",
+        "person_id": "github:iliujunn",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学术成员",
+          "en": "Academic member"
+        },
+        "research_direction": {
+          "zh": "SLO 感知的 LLM Serving 调度；MLA 与 KV Cache 优化；张量并行与多 GPU 推理解码；延迟保障与资源分配；应用感知 Serving",
+          "en": "SLO-aware LLM serving and scheduling; MLA and KV Cache optimization; tensor parallelism and multi-GPU decoding; latency guarantees and resource allocation; application-aware serving"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "Ascend, CI/CD, bugfix"
+      },
+      {
+        "rank": 27,
         "name": "sunYangGitHub",
         "github_login": "sunYangGitHub",
         "github_url": "https://github.com/sunYangGitHub",
@@ -1035,6 +1296,9 @@
         "english_name": "",
         "person_id": "github:sunyanggithub",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "外校实习生",
@@ -1052,172 +1316,79 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "tooling",
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "tooling"
+      },
+      {
+        "rank": 28,
+        "name": "Amber1qq",
+        "github_login": "Amber1qq",
+        "github_url": "https://github.com/Amber1qq",
+        "commits": 1,
+        "changed_lines": 915,
+        "added": 915,
+        "deleted": 0,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-benchmark"
+        ],
+        "key_contributions": "misc",
+        "display_name": "郑凌峰",
+        "chinese_name": "郑凌峰",
+        "english_name": "",
+        "person_id": "github:amber1qq",
+        "identity_confirmed": true,
         "external_contributor": false,
         "staff_member": false,
         "core_repository_contributor": false,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 23,
-        "name": "WMASTER123",
-        "github_login": "WMASTER123",
-        "github_url": "https://github.com/WMASTER123",
-        "commits": 2,
-        "changed_lines": 1021,
-        "added": 910,
-        "deleted": 111,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "CI/CD, kernel",
-        "display_name": "王杰",
-        "chinese_name": "王杰",
-        "english_name": "",
-        "person_id": "github:wmaster123",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "工程成员",
-          "en": "Engineering member"
-        },
-        "research_direction": {
-          "zh": "面向长上下文工作负载的大模型推理引擎性能优化；Prefill 阶段计算与数据搬运瓶颈；KV Cache 复用；分层缓存；运行时调度；算子优化",
-          "en": "LLM inference-engine optimization for long-context workloads; Prefill compute and data-movement bottlenecks; KV Cache reuse; hierarchical caching; runtime scheduling; operator optimization"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "CI/CD, kernel",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 24,
-        "name": "Remygred",
-        "github_login": "Remygred",
-        "github_url": "https://github.com/Remygred",
-        "commits": 7,
-        "changed_lines": 757,
-        "added": 586,
-        "deleted": 171,
-        "active_repos": 2,
-        "repos": [
-          "cccf-domestic-inference-engine-survey",
-          "vllm-hust"
-        ],
-        "key_contributions": "engine, distributed, tooling",
-        "display_name": "刘世峰",
-        "chinese_name": "刘世峰",
-        "english_name": "",
-        "person_id": "github:remygred",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "华科大三实习生",
-          "en": "HUST third-year undergraduate intern"
-        },
-        "research_direction": {
-          "zh": "请求调度；资源管理；KV Cache 优化；长上下文服务",
-          "en": "Request scheduling; resource management; KV Cache optimization; long-context serving"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "engine, distributed, tooling",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 25,
-        "name": "kotoriqaq0",
-        "github_login": "kotoriqaq0",
-        "github_url": "https://github.com/kotoriqaq0",
-        "commits": 1,
-        "changed_lines": 613,
-        "added": 609,
-        "deleted": 4,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "features",
-        "display_name": "韦若皓",
-        "chinese_name": "韦若皓",
-        "english_name": "",
-        "person_id": "github:kotoriqaq0",
-        "identity_confirmed": true,
-        "core_member": true,
+        "core_member": false,
         "role": {
           "zh": "学生",
           "en": "Student"
         },
         "research_direction": {
-          "zh": "待补充",
-          "en": "To be provided"
+          "zh": "状态传输与调度协同优化",
+          "en": "State transfer and scheduling co-optimization"
         },
         "participation_direction": {
           "zh": "",
           "en": ""
         },
         "advisor": {
-          "zh": "万瑶",
-          "en": "Yao Wan"
+          "zh": "刘海坤",
+          "en": "Haikun Liu"
         },
-        "contribution_areas": "features",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "misc"
       },
       {
-        "rank": 26,
+        "rank": 29,
         "name": "aly16-k",
         "github_login": "aly16-k",
         "github_url": "https://github.com/aly16-k",
-        "commits": 5,
-        "changed_lines": 522,
-        "added": 520,
-        "deleted": 2,
-        "active_repos": 2,
+        "commits": 4,
+        "changed_lines": 489,
+        "added": 489,
+        "deleted": 0,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
           "vllm-ascend-quant-hust"
         ],
-        "key_contributions": "engine",
+        "key_contributions": "misc",
         "display_name": "王鸿坤",
         "chinese_name": "王鸿坤",
         "english_name": "",
         "person_id": "github:aly16-k",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "学生",
@@ -1235,63 +1406,59 @@
           "zh": "项翔",
           "en": "Xiang Xiang"
         },
-        "contribution_areas": "engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "misc"
       },
       {
-        "rank": 27,
-        "name": "rzwang22",
-        "github_login": "rzwang22",
-        "github_url": "https://github.com/rzwang22",
-        "commits": 2,
-        "changed_lines": 403,
-        "added": 392,
-        "deleted": 11,
-        "active_repos": 2,
+        "rank": 30,
+        "name": "Remygred",
+        "github_login": "Remygred",
+        "github_url": "https://github.com/Remygred",
+        "commits": 6,
+        "changed_lines": 481,
+        "added": 356,
+        "deleted": 125,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
+          "cccf-domestic-inference-engine-survey"
         ],
-        "key_contributions": "features, kernel",
-        "display_name": "王润泽",
-        "chinese_name": "王润泽",
+        "key_contributions": "engine, distributed",
+        "display_name": "刘世峰",
+        "chinese_name": "刘世峰",
         "english_name": "",
-        "person_id": "github:rzwang22",
+        "person_id": "github:remygred",
         "identity_confirmed": true,
-        "core_member": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
         "role": {
-          "zh": "学生",
-          "en": "Student"
+          "zh": "华科大三实习生",
+          "en": "HUST third-year undergraduate intern"
         },
         "research_direction": {
-          "zh": "推测解码与阶段协同执行优化",
-          "en": "Speculative decoding and coordinated execution"
+          "zh": "请求调度；资源管理；KV Cache 优化；长上下文服务",
+          "en": "Request scheduling; resource management; KV Cache optimization; long-context serving"
         },
         "participation_direction": {
           "zh": "",
           "en": ""
         },
         "advisor": {
-          "zh": "王庆刚",
-          "en": "Qinggang Wang"
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
         },
-        "contribution_areas": "features, kernel",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "engine, distributed"
       },
       {
-        "rank": 28,
+        "rank": 31,
         "name": "Ruijie Qiu",
         "github_login": "Jerry01020",
         "github_url": "https://github.com/Jerry01020",
@@ -1309,6 +1476,9 @@
         "english_name": "Ruijie Qiu",
         "person_id": "github:jerry01020",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "",
@@ -1326,17 +1496,14 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": "distributed, docs",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "distributed, docs"
       },
       {
-        "rank": 29,
+        "rank": 32,
         "name": "Xincai Zhu",
         "github_login": "Pygone",
         "github_url": "https://github.com/Pygone",
@@ -1354,6 +1521,9 @@
         "english_name": "Xincai Zhu",
         "person_id": "github:pygone",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程成员",
@@ -1371,112 +1541,15 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "leaderboard",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "leaderboard"
       },
       {
-        "rank": 30,
-        "name": "xmdhb",
-        "github_login": "xmdhb",
-        "github_url": "https://github.com/xmdhb",
-        "commits": 1,
-        "changed_lines": 144,
-        "added": 135,
-        "deleted": 9,
-        "active_repos": 1,
-        "repos": [
-          "vllm-ascend-hust"
-        ],
-        "key_contributions": "Ascend",
-        "display_name": "曹哲",
-        "chinese_name": "曹哲",
-        "english_name": "Zhe Cao",
-        "person_id": "github:xmdhb",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "即将入学的研究生",
-          "en": "Incoming graduate student"
-        },
-        "research_direction": {
-          "zh": "Prompt/KV Cache 复用；缓存驱逐；语义感知与在线自适应策略；Agent 场景缓存生命周期管理",
-          "en": "Prompt and KV Cache reuse; cache eviction; semantic-aware and online-adaptive policies; cache lifecycle management for Agent workloads"
-        },
-        "profile_status": {
-          "zh": "GitHub 已确认",
-          "en": "GitHub confirmed"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "Ascend",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 31,
-        "name": "Raing5Days",
-        "github_login": "Raing5Days",
-        "github_url": "https://github.com/Raing5Days",
-        "commits": 2,
-        "changed_lines": 40,
-        "added": 40,
-        "deleted": 0,
-        "active_repos": 1,
-        "repos": [
-          "vllm-ascend-hust"
-        ],
-        "key_contributions": "tooling",
-        "display_name": "吴天宇",
-        "chinese_name": "吴天宇",
-        "english_name": "",
-        "person_id": "github:raing5days",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "动态图执行与原生算子优化",
-          "en": "Dynamic-graph execution and native-operator optimization"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "郑龙",
-          "en": "Long Zheng"
-        },
-        "contribution_areas": "tooling",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 32,
-        "name": "sssarrior",
+        "rank": 33,
+        "name": "Xuheng Li",
         "github_login": "sssarrior",
         "github_url": "https://github.com/sssarrior",
         "commits": 1,
@@ -1493,6 +1566,9 @@
         "english_name": "Xuheng Li",
         "person_id": "github:sssarrior",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "学术成员",
@@ -1510,14 +1586,101 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "engine"
+      },
+      {
+        "rank": 34,
+        "name": "Ketong Qian",
+        "github_login": null,
+        "github_url": null,
+        "commits": 1,
+        "changed_lines": 13,
+        "added": 12,
+        "deleted": 1,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-profiling"
+        ],
+        "key_contributions": "features",
+        "display_name": "Ketong Qian",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:ketong qian",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "features"
+      },
+      {
+        "rank": 35,
+        "name": "Eagle Sean",
+        "github_login": null,
+        "github_url": null,
+        "commits": 1,
+        "changed_lines": 4,
+        "added": 4,
+        "deleted": 0,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-quant-hust"
+        ],
+        "key_contributions": "docs",
+        "display_name": "Eagle Sean",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:eagle sean",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
+        "core_member": true,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "docs"
       }
     ]
   },
@@ -1532,71 +1695,26 @@
     "contributors": [
       {
         "rank": 1,
-        "name": "Shuhao Zhang",
-        "github_login": "ShuhaoZhangTony",
-        "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 136,
-        "changed_lines": 22366,
-        "added": 18632,
-        "deleted": 3734,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "CI/CD, Ascend, benchmark, docs",
-        "display_name": "张书豪",
-        "chinese_name": "张书豪",
-        "english_name": "Shuhao Zhang",
-        "person_id": "github:shuhaozhangtony",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "课题负责人",
-          "en": "Project lead"
-        },
-        "research_direction": {
-          "zh": "并行与分布式系统；状态管理；流处理；运行时系统；大模型推理基础设施；状态复用；记忆增强智能体中间件",
-          "en": "Parallel and distributed systems; state management; stream processing; runtime systems; LLM inference infrastructure; state reuse; memory-augmented agent middleware"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "",
-          "en": ""
-        },
-        "contribution_areas": "CI/CD, Ascend, benchmark, docs",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 2,
         "name": "Yanbo Chen",
         "github_login": "cybber695",
         "github_url": "https://github.com/cybber695",
-        "commits": 5,
-        "changed_lines": 21084,
-        "added": 20929,
-        "deleted": 155,
-        "active_repos": 3,
+        "commits": 2,
+        "changed_lines": 18634,
+        "added": 18634,
+        "deleted": 0,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust",
           "vllm-hust-bidkv"
         ],
-        "key_contributions": "engine, features",
+        "key_contributions": "features",
         "display_name": "陈彦博",
         "chinese_name": "陈彦博",
         "english_name": "Yanbo Chen",
         "person_id": "github:cybber695",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "学生",
@@ -1614,201 +1732,64 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "engine, features",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "features"
+      },
+      {
+        "rank": 2,
+        "name": "Shuhao Zhang",
+        "github_login": "ShuhaoZhangTony",
+        "github_url": "https://github.com/ShuhaoZhangTony",
+        "commits": 78,
+        "changed_lines": 9143,
+        "added": 7252,
+        "deleted": 1891,
+        "active_repos": 5,
+        "repos": [
+          "vllm-ascend-hust",
+          "vllm-ascend-hust-diffspec",
+          "vllm-ascend-quant-hust",
+          "vllm-hust",
+          "vllm-hust-bidkv"
+        ],
+        "key_contributions": "bugfix, distributed, CI/CD, kernel",
+        "display_name": "张书豪",
+        "chinese_name": "张书豪",
+        "english_name": "Shuhao Zhang",
+        "person_id": "github:shuhaozhangtony",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
+        "core_member": true,
+        "role": {
+          "zh": "课题负责人",
+          "en": "Project lead"
+        },
+        "research_direction": {
+          "zh": "并行与分布式系统；状态管理；流处理；运行时系统；大模型推理基础设施；状态复用；记忆增强智能体中间件",
+          "en": "Parallel and distributed systems; state management; stream processing; runtime systems; LLM inference infrastructure; state reuse; memory-augmented agent middleware"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "bugfix, distributed, CI/CD, kernel"
       },
       {
         "rank": 3,
-        "name": "junhuizhang-boop",
-        "github_login": "junhuizhang-boop",
-        "github_url": "https://github.com/junhuizhang-boop",
-        "commits": 18,
-        "changed_lines": 13136,
-        "added": 12246,
-        "deleted": 890,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "benchmark, CI/CD, Ascend",
-        "display_name": "张俊辉",
-        "chinese_name": "张俊辉",
-        "english_name": "Junhui Zhang",
-        "person_id": "github:junhuizhang-boop",
-        "identity_confirmed": true,
-        "core_member": false,
-        "role": {
-          "zh": "工程师（派欧云）",
-          "en": "Engineer (PPIO)"
-        },
-        "research_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "participation_direction": {
-          "zh": "Benchmark 基础设施、上游同步与推理工程支持",
-          "en": "Benchmark infrastructure, upstream synchronization, and inference engineering support"
-        },
-        "advisor": {
-          "zh": "",
-          "en": ""
-        },
-        "contribution_areas": "benchmark, CI/CD, Ascend",
-        "external_contributor": false,
-        "staff_member": true,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 4,
-        "name": "Sheng Wang",
-        "github_login": "moonandlife",
-        "github_url": "https://github.com/moonandlife",
-        "commits": 27,
-        "changed_lines": 10106,
-        "added": 8684,
-        "deleted": 1422,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "CI/CD, kernel, Ascend, engine",
-        "display_name": "王胜",
-        "chinese_name": "王胜",
-        "english_name": "Sheng Wang",
-        "person_id": "github:moonandlife",
-        "identity_confirmed": true,
-        "core_member": false,
-        "role": {
-          "zh": "历史贡献者",
-          "en": "Historical contributor"
-        },
-        "research_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "participation_direction": {
-          "zh": "推理引擎工程治理、上游协作与性能回归",
-          "en": "Inference-engine governance, upstream collaboration, and performance regression"
-        },
-        "advisor": {
-          "zh": "",
-          "en": ""
-        },
-        "contribution_areas": "CI/CD, kernel, Ascend, engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        },
-        "former_member": true
-      },
-      {
-        "rank": 5,
-        "name": "Amber1qq",
-        "github_login": "Amber1qq",
-        "github_url": "https://github.com/Amber1qq",
-        "commits": 1,
-        "changed_lines": 6246,
-        "added": 6223,
-        "deleted": 23,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "misc",
-        "display_name": "郑凌峰",
-        "chinese_name": "郑凌峰",
-        "english_name": "",
-        "person_id": "github:amber1qq",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "状态传输与调度协同优化",
-          "en": "State transfer and scheduling co-optimization"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "刘海坤",
-          "en": "Haikun Liu"
-        },
-        "contribution_areas": "misc",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 6,
-        "name": "Gu Changwei",
-        "github_login": "GuMorming",
-        "github_url": "https://github.com/GuMorming",
-        "commits": 3,
-        "changed_lines": 5770,
-        "added": 5686,
-        "deleted": 84,
-        "active_repos": 1,
-        "repos": [
-          "vllm-ascend-hust"
-        ],
-        "key_contributions": "benchmark, engine",
-        "display_name": "谷昌伟",
-        "chinese_name": "谷昌伟",
-        "english_name": "Gu Changwei",
-        "person_id": "github:gumorming",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "前缀与共享状态索引机制",
-          "en": "Prefix and shared-state indexing"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "罗瑞坤",
-          "en": "Ruikun Luo"
-        },
-        "contribution_areas": "benchmark, engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 7,
-        "name": "dzcixy",
+        "name": "Zhongcheng Du",
         "github_login": "dzcixy",
         "github_url": "https://github.com/dzcixy",
         "commits": 1,
@@ -1825,6 +1806,9 @@
         "english_name": "Zhongcheng Du",
         "person_id": "github:dzcixy",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "学生",
@@ -1842,354 +1826,34 @@
           "zh": "黄禹",
           "en": "Yu Huang"
         },
-        "contribution_areas": "distributed",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "distributed"
       },
       {
-        "rank": 8,
-        "name": "machuanhu",
-        "github_login": "machuanhu",
-        "github_url": "https://github.com/machuanhu",
-        "commits": 1,
-        "changed_lines": 4774,
-        "added": 4773,
-        "deleted": 1,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "distributed",
-        "display_name": "马川湖",
-        "chinese_name": "马川湖",
-        "english_name": "",
-        "person_id": "github:machuanhu",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "统一执行抽象与执行图建模",
-          "en": "Unified execution abstraction and execution-graph modeling"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "王雄",
-          "en": "Xiong Wang"
-        },
-        "contribution_areas": "distributed",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 9,
-        "name": "Jie Yang",
-        "github_login": "JieYang2001",
-        "github_url": "https://github.com/JieYang2001",
-        "commits": 1,
-        "changed_lines": 4195,
-        "added": 4119,
-        "deleted": 76,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "misc",
-        "display_name": "杨杰",
-        "chinese_name": "杨杰",
-        "english_name": "Jie Yang",
-        "person_id": "github:jieyang2001",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "状态分层驻留与生命周期管理",
-          "en": "Tiered state residency and lifecycle management"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "赵进",
-          "en": "Jin Zhao"
-        },
-        "contribution_areas": "misc",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 10,
-        "name": "Jingyuan Tian",
-        "github_login": "CubeLander",
-        "github_url": "https://github.com/CubeLander",
-        "commits": 4,
-        "changed_lines": 1692,
-        "added": 934,
-        "deleted": 758,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "distributed, storage, profiling, development environment",
-        "display_name": "田景远",
-        "chinese_name": "田景远",
-        "english_name": "Jingyuan Tian",
-        "person_id": "github:cubelander",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "实习生",
-          "en": "Student intern"
-        },
-        "research_direction": {
-          "zh": "昇腾 NPU 推理系统优化；调度优化；通信—计算重叠；多卡扩展；软硬件协同；真实负载",
-          "en": "Ascend NPU inference-system optimization; scheduling; communication-computation overlap; multi-device scaling; hardware-software co-design; real workloads"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "distributed, storage, profiling, development environment",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 11,
-        "name": "WMASTER123",
-        "github_login": "WMASTER123",
-        "github_url": "https://github.com/WMASTER123",
-        "commits": 2,
-        "changed_lines": 1021,
-        "added": 910,
-        "deleted": 111,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "CI/CD, kernel",
-        "display_name": "王杰",
-        "chinese_name": "王杰",
-        "english_name": "",
-        "person_id": "github:wmaster123",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "工程成员",
-          "en": "Engineering member"
-        },
-        "research_direction": {
-          "zh": "面向长上下文工作负载的大模型推理引擎性能优化；Prefill 阶段计算与数据搬运瓶颈；KV Cache 复用；分层缓存；运行时调度；算子优化",
-          "en": "LLM inference-engine optimization for long-context workloads; Prefill compute and data-movement bottlenecks; KV Cache reuse; hierarchical caching; runtime scheduling; operator optimization"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "CI/CD, kernel",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 12,
-        "name": "MingXuan Kuang",
-        "github_login": "sad-and-bad1231",
-        "github_url": "https://github.com/sad-and-bad1231",
-        "commits": 6,
-        "changed_lines": 1003,
-        "added": 882,
-        "deleted": 121,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "benchmark, CI/CD, engine",
-        "display_name": "匡明轩",
-        "chinese_name": "匡明轩",
-        "english_name": "MingXuan Kuang",
-        "person_id": "github:sad-and-bad1231",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "",
-          "en": ""
-        },
-        "research_direction": {
-          "zh": "KV Cache 压缩；调度同步开销优化；Attention Kernel",
-          "en": "KV Cache compression; scheduling synchronization-overhead optimization; Attention kernels"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "benchmark, CI/CD, engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 13,
-        "name": "Liu Jun",
-        "github_login": "iliujunn",
-        "github_url": "https://github.com/iliujunn",
-        "commits": 2,
-        "changed_lines": 967,
-        "added": 914,
-        "deleted": 53,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "distributed, kernel",
-        "display_name": "刘俊",
-        "chinese_name": "刘俊",
-        "english_name": "Liu Jun",
-        "person_id": "github:iliujunn",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学术成员",
-          "en": "Academic member"
-        },
-        "research_direction": {
-          "zh": "SLO 感知的 LLM Serving 调度；MLA 与 KV Cache 优化；张量并行与多 GPU 推理解码；延迟保障与资源分配；应用感知 Serving",
-          "en": "SLO-aware LLM serving and scheduling; MLA and KV Cache optimization; tensor parallelism and multi-GPU decoding; latency guarantees and resource allocation; application-aware serving"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "distributed, kernel",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 14,
-        "name": "kotoriqaq0",
-        "github_login": "kotoriqaq0",
-        "github_url": "https://github.com/kotoriqaq0",
-        "commits": 1,
-        "changed_lines": 613,
-        "added": 609,
-        "deleted": 4,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "features",
-        "display_name": "韦若皓",
-        "chinese_name": "韦若皓",
-        "english_name": "",
-        "person_id": "github:kotoriqaq0",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "待补充",
-          "en": "To be provided"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "万瑶",
-          "en": "Yao Wan"
-        },
-        "contribution_areas": "features",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 15,
+        "rank": 4,
         "name": "aly16-k",
         "github_login": "aly16-k",
         "github_url": "https://github.com/aly16-k",
-        "commits": 5,
-        "changed_lines": 522,
-        "added": 520,
-        "deleted": 2,
-        "active_repos": 2,
+        "commits": 4,
+        "changed_lines": 489,
+        "added": 489,
+        "deleted": 0,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
           "vllm-ascend-quant-hust"
         ],
-        "key_contributions": "engine",
+        "key_contributions": "misc",
         "display_name": "王鸿坤",
         "chinese_name": "王鸿坤",
         "english_name": "",
         "person_id": "github:aly16-k",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "学生",
@@ -2207,286 +1871,101 @@
           "zh": "项翔",
           "en": "Xiang Xiang"
         },
-        "contribution_areas": "engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "misc"
       },
       {
-        "rank": 16,
-        "name": "rzwang22",
-        "github_login": "rzwang22",
-        "github_url": "https://github.com/rzwang22",
-        "commits": 2,
-        "changed_lines": 403,
-        "added": 392,
-        "deleted": 11,
-        "active_repos": 2,
+        "rank": 5,
+        "name": "OpenAI Codex",
+        "github_login": null,
+        "github_url": null,
+        "commits": 6,
+        "changed_lines": 467,
+        "added": 434,
+        "deleted": 33,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
+          "vllm-hust-bidkv"
         ],
-        "key_contributions": "features, kernel",
-        "display_name": "王润泽",
-        "chinese_name": "王润泽",
+        "key_contributions": "engine, distributed, features",
+        "display_name": "OpenAI Codex",
+        "chinese_name": "",
         "english_name": "",
-        "person_id": "github:rzwang22",
-        "identity_confirmed": true,
+        "person_id": "author:openai codex",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
-          "zh": "学生",
-          "en": "Student"
+          "zh": "",
+          "en": ""
         },
         "research_direction": {
-          "zh": "推测解码与阶段协同执行优化",
-          "en": "Speculative decoding and coordinated execution"
+          "zh": "",
+          "en": ""
         },
         "participation_direction": {
           "zh": "",
           "en": ""
         },
         "advisor": {
-          "zh": "王庆刚",
-          "en": "Qinggang Wang"
+          "zh": "",
+          "en": ""
         },
-        "contribution_areas": "features, kernel",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "engine, distributed, features"
       },
       {
-        "rank": 17,
-        "name": "Remygred",
-        "github_login": "Remygred",
-        "github_url": "https://github.com/Remygred",
+        "rank": 6,
+        "name": "Eagle Sean",
+        "github_login": null,
+        "github_url": null,
         "commits": 1,
-        "changed_lines": 276,
-        "added": 230,
-        "deleted": 46,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "tooling",
-        "display_name": "刘世峰",
-        "chinese_name": "刘世峰",
-        "english_name": "",
-        "person_id": "github:remygred",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "华科大三实习生",
-          "en": "HUST third-year undergraduate intern"
-        },
-        "research_direction": {
-          "zh": "请求调度；资源管理；KV Cache 优化；长上下文服务",
-          "en": "Request scheduling; resource management; KV Cache optimization; long-context serving"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "tooling",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 18,
-        "name": "xmdhb",
-        "github_login": "xmdhb",
-        "github_url": "https://github.com/xmdhb",
-        "commits": 1,
-        "changed_lines": 144,
-        "added": 135,
-        "deleted": 9,
-        "active_repos": 1,
-        "repos": [
-          "vllm-ascend-hust"
-        ],
-        "key_contributions": "Ascend",
-        "display_name": "曹哲",
-        "chinese_name": "曹哲",
-        "english_name": "Zhe Cao",
-        "person_id": "github:xmdhb",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "即将入学的研究生",
-          "en": "Incoming graduate student"
-        },
-        "research_direction": {
-          "zh": "Prompt/KV Cache 复用；缓存驱逐；语义感知与在线自适应策略；Agent 场景缓存生命周期管理",
-          "en": "Prompt and KV Cache reuse; cache eviction; semantic-aware and online-adaptive policies; cache lifecycle management for Agent workloads"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "Ascend",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 19,
-        "name": "Junhao Ma",
-        "github_login": "kms12425",
-        "github_url": "https://github.com/kms12425",
-        "commits": 1,
-        "changed_lines": 65,
-        "added": 39,
-        "deleted": 26,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "misc",
-        "display_name": "马俊豪",
-        "chinese_name": "马俊豪",
-        "english_name": "Junhao Ma",
-        "person_id": "github:kms12425",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "待定",
-          "en": "To be determined"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "misc",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 20,
-        "name": "Raing5Days",
-        "github_login": "Raing5Days",
-        "github_url": "https://github.com/Raing5Days",
-        "commits": 2,
-        "changed_lines": 40,
-        "added": 40,
+        "changed_lines": 4,
+        "added": 4,
         "deleted": 0,
         "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust"
+          "vllm-ascend-quant-hust"
         ],
-        "key_contributions": "tooling",
-        "display_name": "吴天宇",
-        "chinese_name": "吴天宇",
+        "key_contributions": "docs",
+        "display_name": "Eagle Sean",
+        "chinese_name": "",
         "english_name": "",
-        "person_id": "github:raing5days",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "动态图执行与原生算子优化",
-          "en": "Dynamic-graph execution and native-operator optimization"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "郑龙",
-          "en": "Long Zheng"
-        },
-        "contribution_areas": "tooling",
+        "person_id": "author:eagle sean",
+        "identity_confirmed": false,
         "external_contributor": false,
         "staff_member": false,
         "core_repository_contributor": true,
-        "github_status": {
+        "core_member": true,
+        "role": {
           "zh": "",
           "en": ""
-        }
-      },
-      {
-        "rank": 21,
-        "name": "SuccinctPaul",
-        "github_login": "SuccinctPaul",
-        "github_url": "https://github.com/SuccinctPaul",
-        "commits": 2,
-        "changed_lines": 13,
-        "added": 7,
-        "deleted": 6,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "CI/CD",
-        "display_name": "程月甲",
-        "chinese_name": "程月甲",
-        "english_name": "",
-        "person_id": "github:succinctpaul",
-        "identity_confirmed": true,
-        "core_member": false,
-        "role": {
-          "zh": "工程师",
-          "en": "Engineer"
         },
         "research_direction": {
           "zh": "",
           "en": ""
         },
         "participation_direction": {
-          "zh": "Benchmark 基础设施与网站工程",
-          "en": "Benchmark infrastructure and website engineering"
+          "zh": "",
+          "en": ""
         },
         "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
+          "zh": "",
+          "en": ""
         },
-        "contribution_areas": "CI/CD",
-        "external_contributor": false,
-        "staff_member": true,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "docs"
       }
     ]
   },
@@ -2501,71 +1980,26 @@
     "core_members": [
       {
         "rank": 1,
-        "name": "Shuhao Zhang",
-        "github_login": "ShuhaoZhangTony",
-        "github_url": "https://github.com/ShuhaoZhangTony",
-        "commits": 136,
-        "changed_lines": 22366,
-        "added": 18632,
-        "deleted": 3734,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "CI/CD, Ascend, benchmark, docs",
-        "display_name": "张书豪",
-        "chinese_name": "张书豪",
-        "english_name": "Shuhao Zhang",
-        "person_id": "github:shuhaozhangtony",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "课题负责人",
-          "en": "Project lead"
-        },
-        "research_direction": {
-          "zh": "并行与分布式系统；状态管理；流处理；运行时系统；大模型推理基础设施；状态复用；记忆增强智能体中间件",
-          "en": "Parallel and distributed systems; state management; stream processing; runtime systems; LLM inference infrastructure; state reuse; memory-augmented agent middleware"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "",
-          "en": ""
-        },
-        "contribution_areas": "CI/CD, Ascend, benchmark, docs",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 2,
         "name": "Yanbo Chen",
         "github_login": "cybber695",
         "github_url": "https://github.com/cybber695",
-        "commits": 5,
-        "changed_lines": 21084,
-        "added": 20929,
-        "deleted": 155,
-        "active_repos": 3,
+        "commits": 2,
+        "changed_lines": 18634,
+        "added": 18634,
+        "deleted": 0,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust",
           "vllm-hust-bidkv"
         ],
-        "key_contributions": "engine, features",
+        "key_contributions": "features",
         "display_name": "陈彦博",
         "chinese_name": "陈彦博",
         "english_name": "Yanbo Chen",
         "person_id": "github:cybber695",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "学生",
@@ -2583,108 +2017,64 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "engine, features",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "features"
+      },
+      {
+        "rank": 2,
+        "name": "Shuhao Zhang",
+        "github_login": "ShuhaoZhangTony",
+        "github_url": "https://github.com/ShuhaoZhangTony",
+        "commits": 78,
+        "changed_lines": 9143,
+        "added": 7252,
+        "deleted": 1891,
+        "active_repos": 5,
+        "repos": [
+          "vllm-ascend-hust",
+          "vllm-ascend-hust-diffspec",
+          "vllm-ascend-quant-hust",
+          "vllm-hust",
+          "vllm-hust-bidkv"
+        ],
+        "key_contributions": "bugfix, distributed, CI/CD, kernel",
+        "display_name": "张书豪",
+        "chinese_name": "张书豪",
+        "english_name": "Shuhao Zhang",
+        "person_id": "github:shuhaozhangtony",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
+        "core_member": true,
+        "role": {
+          "zh": "课题负责人",
+          "en": "Project lead"
+        },
+        "research_direction": {
+          "zh": "并行与分布式系统；状态管理；流处理；运行时系统；大模型推理基础设施；状态复用；记忆增强智能体中间件",
+          "en": "Parallel and distributed systems; state management; stream processing; runtime systems; LLM inference infrastructure; state reuse; memory-augmented agent middleware"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "bugfix, distributed, CI/CD, kernel"
       },
       {
         "rank": 3,
-        "name": "Amber1qq",
-        "github_login": "Amber1qq",
-        "github_url": "https://github.com/Amber1qq",
-        "commits": 1,
-        "changed_lines": 6246,
-        "added": 6223,
-        "deleted": 23,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "misc",
-        "display_name": "郑凌峰",
-        "chinese_name": "郑凌峰",
-        "english_name": "",
-        "person_id": "github:amber1qq",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "状态传输与调度协同优化",
-          "en": "State transfer and scheduling co-optimization"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "刘海坤",
-          "en": "Haikun Liu"
-        },
-        "contribution_areas": "misc",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 4,
-        "name": "Gu Changwei",
-        "github_login": "GuMorming",
-        "github_url": "https://github.com/GuMorming",
-        "commits": 3,
-        "changed_lines": 5770,
-        "added": 5686,
-        "deleted": 84,
-        "active_repos": 1,
-        "repos": [
-          "vllm-ascend-hust"
-        ],
-        "key_contributions": "benchmark, engine",
-        "display_name": "谷昌伟",
-        "chinese_name": "谷昌伟",
-        "english_name": "Gu Changwei",
-        "person_id": "github:gumorming",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "前缀与共享状态索引机制",
-          "en": "Prefix and shared-state indexing"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "罗瑞坤",
-          "en": "Ruikun Luo"
-        },
-        "contribution_areas": "benchmark, engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 5,
-        "name": "dzcixy",
+        "name": "Zhongcheng Du",
         "github_login": "dzcixy",
         "github_url": "https://github.com/dzcixy",
         "commits": 1,
@@ -2701,6 +2091,9 @@
         "english_name": "Zhongcheng Du",
         "person_id": "github:dzcixy",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "学生",
@@ -2718,354 +2111,34 @@
           "zh": "黄禹",
           "en": "Yu Huang"
         },
-        "contribution_areas": "distributed",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "distributed"
       },
       {
-        "rank": 6,
-        "name": "machuanhu",
-        "github_login": "machuanhu",
-        "github_url": "https://github.com/machuanhu",
-        "commits": 1,
-        "changed_lines": 4774,
-        "added": 4773,
-        "deleted": 1,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "distributed",
-        "display_name": "马川湖",
-        "chinese_name": "马川湖",
-        "english_name": "",
-        "person_id": "github:machuanhu",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "统一执行抽象与执行图建模",
-          "en": "Unified execution abstraction and execution-graph modeling"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "王雄",
-          "en": "Xiong Wang"
-        },
-        "contribution_areas": "distributed",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 7,
-        "name": "Jie Yang",
-        "github_login": "JieYang2001",
-        "github_url": "https://github.com/JieYang2001",
-        "commits": 1,
-        "changed_lines": 4195,
-        "added": 4119,
-        "deleted": 76,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "misc",
-        "display_name": "杨杰",
-        "chinese_name": "杨杰",
-        "english_name": "Jie Yang",
-        "person_id": "github:jieyang2001",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "状态分层驻留与生命周期管理",
-          "en": "Tiered state residency and lifecycle management"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "赵进",
-          "en": "Jin Zhao"
-        },
-        "contribution_areas": "misc",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 8,
-        "name": "Jingyuan Tian",
-        "github_login": "CubeLander",
-        "github_url": "https://github.com/CubeLander",
-        "commits": 4,
-        "changed_lines": 1692,
-        "added": 934,
-        "deleted": 758,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "distributed, storage, profiling, development environment",
-        "display_name": "田景远",
-        "chinese_name": "田景远",
-        "english_name": "Jingyuan Tian",
-        "person_id": "github:cubelander",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "实习生",
-          "en": "Student intern"
-        },
-        "research_direction": {
-          "zh": "昇腾 NPU 推理系统优化；调度优化；通信—计算重叠；多卡扩展；软硬件协同；真实负载",
-          "en": "Ascend NPU inference-system optimization; scheduling; communication-computation overlap; multi-device scaling; hardware-software co-design; real workloads"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "distributed, storage, profiling, development environment",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 9,
-        "name": "WMASTER123",
-        "github_login": "WMASTER123",
-        "github_url": "https://github.com/WMASTER123",
-        "commits": 2,
-        "changed_lines": 1021,
-        "added": 910,
-        "deleted": 111,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "CI/CD, kernel",
-        "display_name": "王杰",
-        "chinese_name": "王杰",
-        "english_name": "",
-        "person_id": "github:wmaster123",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "工程成员",
-          "en": "Engineering member"
-        },
-        "research_direction": {
-          "zh": "面向长上下文工作负载的大模型推理引擎性能优化；Prefill 阶段计算与数据搬运瓶颈；KV Cache 复用；分层缓存；运行时调度；算子优化",
-          "en": "LLM inference-engine optimization for long-context workloads; Prefill compute and data-movement bottlenecks; KV Cache reuse; hierarchical caching; runtime scheduling; operator optimization"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "CI/CD, kernel",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 10,
-        "name": "MingXuan Kuang",
-        "github_login": "sad-and-bad1231",
-        "github_url": "https://github.com/sad-and-bad1231",
-        "commits": 6,
-        "changed_lines": 1003,
-        "added": 882,
-        "deleted": 121,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "benchmark, CI/CD, engine",
-        "display_name": "匡明轩",
-        "chinese_name": "匡明轩",
-        "english_name": "MingXuan Kuang",
-        "person_id": "github:sad-and-bad1231",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "",
-          "en": ""
-        },
-        "research_direction": {
-          "zh": "KV Cache 压缩；调度同步开销优化；Attention Kernel",
-          "en": "KV Cache compression; scheduling synchronization-overhead optimization; Attention kernels"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "benchmark, CI/CD, engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 11,
-        "name": "Liu Jun",
-        "github_login": "iliujunn",
-        "github_url": "https://github.com/iliujunn",
-        "commits": 2,
-        "changed_lines": 967,
-        "added": 914,
-        "deleted": 53,
-        "active_repos": 2,
-        "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
-        ],
-        "key_contributions": "distributed, kernel",
-        "display_name": "刘俊",
-        "chinese_name": "刘俊",
-        "english_name": "Liu Jun",
-        "person_id": "github:iliujunn",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学术成员",
-          "en": "Academic member"
-        },
-        "research_direction": {
-          "zh": "SLO 感知的 LLM Serving 调度；MLA 与 KV Cache 优化；张量并行与多 GPU 推理解码；延迟保障与资源分配；应用感知 Serving",
-          "en": "SLO-aware LLM serving and scheduling; MLA and KV Cache optimization; tensor parallelism and multi-GPU decoding; latency guarantees and resource allocation; application-aware serving"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "distributed, kernel",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 12,
-        "name": "kotoriqaq0",
-        "github_login": "kotoriqaq0",
-        "github_url": "https://github.com/kotoriqaq0",
-        "commits": 1,
-        "changed_lines": 613,
-        "added": 609,
-        "deleted": 4,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "features",
-        "display_name": "韦若皓",
-        "chinese_name": "韦若皓",
-        "english_name": "",
-        "person_id": "github:kotoriqaq0",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "待补充",
-          "en": "To be provided"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "万瑶",
-          "en": "Yao Wan"
-        },
-        "contribution_areas": "features",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 13,
+        "rank": 4,
         "name": "aly16-k",
         "github_login": "aly16-k",
         "github_url": "https://github.com/aly16-k",
-        "commits": 5,
-        "changed_lines": 522,
-        "added": 520,
-        "deleted": 2,
-        "active_repos": 2,
+        "commits": 4,
+        "changed_lines": 489,
+        "added": 489,
+        "deleted": 0,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
           "vllm-ascend-quant-hust"
         ],
-        "key_contributions": "engine",
+        "key_contributions": "misc",
         "display_name": "王鸿坤",
         "chinese_name": "王鸿坤",
         "english_name": "",
         "person_id": "github:aly16-k",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
           "zh": "学生",
@@ -3083,240 +2156,101 @@
           "zh": "项翔",
           "en": "Xiang Xiang"
         },
-        "contribution_areas": "engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "misc"
       },
       {
-        "rank": 14,
-        "name": "rzwang22",
-        "github_login": "rzwang22",
-        "github_url": "https://github.com/rzwang22",
-        "commits": 2,
-        "changed_lines": 403,
-        "added": 392,
-        "deleted": 11,
-        "active_repos": 2,
+        "rank": 5,
+        "name": "OpenAI Codex",
+        "github_login": null,
+        "github_url": null,
+        "commits": 6,
+        "changed_lines": 467,
+        "added": 434,
+        "deleted": 33,
+        "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
+          "vllm-hust-bidkv"
         ],
-        "key_contributions": "features, kernel",
-        "display_name": "王润泽",
-        "chinese_name": "王润泽",
+        "key_contributions": "engine, distributed, features",
+        "display_name": "OpenAI Codex",
+        "chinese_name": "",
         "english_name": "",
-        "person_id": "github:rzwang22",
-        "identity_confirmed": true,
+        "person_id": "author:openai codex",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
-          "zh": "学生",
-          "en": "Student"
+          "zh": "",
+          "en": ""
         },
         "research_direction": {
-          "zh": "推测解码与阶段协同执行优化",
-          "en": "Speculative decoding and coordinated execution"
+          "zh": "",
+          "en": ""
         },
         "participation_direction": {
           "zh": "",
           "en": ""
         },
         "advisor": {
-          "zh": "王庆刚",
-          "en": "Qinggang Wang"
+          "zh": "",
+          "en": ""
         },
-        "contribution_areas": "features, kernel",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "engine, distributed, features"
       },
       {
-        "rank": 15,
-        "name": "Remygred",
-        "github_login": "Remygred",
-        "github_url": "https://github.com/Remygred",
+        "rank": 6,
+        "name": "Eagle Sean",
+        "github_login": null,
+        "github_url": null,
         "commits": 1,
-        "changed_lines": 276,
-        "added": 230,
-        "deleted": 46,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "tooling",
-        "display_name": "刘世峰",
-        "chinese_name": "刘世峰",
-        "english_name": "",
-        "person_id": "github:remygred",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "华科大三实习生",
-          "en": "HUST third-year undergraduate intern"
-        },
-        "research_direction": {
-          "zh": "请求调度；资源管理；KV Cache 优化；长上下文服务",
-          "en": "Request scheduling; resource management; KV Cache optimization; long-context serving"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "tooling",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 16,
-        "name": "xmdhb",
-        "github_login": "xmdhb",
-        "github_url": "https://github.com/xmdhb",
-        "commits": 1,
-        "changed_lines": 144,
-        "added": 135,
-        "deleted": 9,
-        "active_repos": 1,
-        "repos": [
-          "vllm-ascend-hust"
-        ],
-        "key_contributions": "Ascend",
-        "display_name": "曹哲",
-        "chinese_name": "曹哲",
-        "english_name": "Zhe Cao",
-        "person_id": "github:xmdhb",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "即将入学的研究生",
-          "en": "Incoming graduate student"
-        },
-        "research_direction": {
-          "zh": "Prompt/KV Cache 复用；缓存驱逐；语义感知与在线自适应策略；Agent 场景缓存生命周期管理",
-          "en": "Prompt and KV Cache reuse; cache eviction; semantic-aware and online-adaptive policies; cache lifecycle management for Agent workloads"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "Ascend",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 17,
-        "name": "Junhao Ma",
-        "github_login": "kms12425",
-        "github_url": "https://github.com/kms12425",
-        "commits": 1,
-        "changed_lines": 65,
-        "added": 39,
-        "deleted": 26,
-        "active_repos": 1,
-        "repos": [
-          "vllm-hust"
-        ],
-        "key_contributions": "misc",
-        "display_name": "马俊豪",
-        "chinese_name": "马俊豪",
-        "english_name": "Junhao Ma",
-        "person_id": "github:kms12425",
-        "identity_confirmed": true,
-        "core_member": true,
-        "role": {
-          "zh": "学生",
-          "en": "Student"
-        },
-        "research_direction": {
-          "zh": "待定",
-          "en": "To be determined"
-        },
-        "participation_direction": {
-          "zh": "",
-          "en": ""
-        },
-        "advisor": {
-          "zh": "张书豪",
-          "en": "Shuhao Zhang"
-        },
-        "contribution_areas": "misc",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
-        "github_status": {
-          "zh": "",
-          "en": ""
-        }
-      },
-      {
-        "rank": 18,
-        "name": "Raing5Days",
-        "github_login": "Raing5Days",
-        "github_url": "https://github.com/Raing5Days",
-        "commits": 2,
-        "changed_lines": 40,
-        "added": 40,
+        "changed_lines": 4,
+        "added": 4,
         "deleted": 0,
         "active_repos": 1,
         "repos": [
-          "vllm-ascend-hust"
+          "vllm-ascend-quant-hust"
         ],
-        "key_contributions": "tooling",
-        "display_name": "吴天宇",
-        "chinese_name": "吴天宇",
+        "key_contributions": "docs",
+        "display_name": "Eagle Sean",
+        "chinese_name": "",
         "english_name": "",
-        "person_id": "github:raing5days",
-        "identity_confirmed": true,
+        "person_id": "author:eagle sean",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
         "core_member": true,
         "role": {
-          "zh": "学生",
-          "en": "Student"
+          "zh": "",
+          "en": ""
         },
         "research_direction": {
-          "zh": "动态图执行与原生算子优化",
-          "en": "Dynamic-graph execution and native-operator optimization"
+          "zh": "",
+          "en": ""
         },
         "participation_direction": {
           "zh": "",
           "en": ""
         },
         "advisor": {
-          "zh": "郑龙",
-          "en": "Long Zheng"
+          "zh": "",
+          "en": ""
         },
-        "contribution_areas": "tooling",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "docs"
       }
     ],
     "participants": [
@@ -3338,6 +2272,9 @@
         "english_name": "",
         "person_id": "github:sunyanggithub",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "外校实习生",
@@ -3355,15 +2292,12 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "tooling",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
-        "all_repos_rank": 22
+        "contribution_areas": "tooling",
+        "all_repos_rank": 27
       },
       {
         "name": "万瑞鹏",
@@ -3492,6 +2426,96 @@
         "contribution_areas": ""
       },
       {
+        "name": "Remygred",
+        "github_login": "Remygred",
+        "github_url": "https://github.com/Remygred",
+        "commits": 6,
+        "changed_lines": 481,
+        "added": 356,
+        "deleted": 125,
+        "active_repos": 1,
+        "repos": [
+          "cccf-domestic-inference-engine-survey"
+        ],
+        "key_contributions": "engine, distributed",
+        "display_name": "刘世峰",
+        "chinese_name": "刘世峰",
+        "english_name": "",
+        "person_id": "github:remygred",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "华科大三实习生",
+          "en": "HUST third-year undergraduate intern"
+        },
+        "research_direction": {
+          "zh": "请求调度；资源管理；KV Cache 优化；长上下文服务",
+          "en": "Request scheduling; resource management; KV Cache optimization; long-context serving"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "engine, distributed",
+        "all_repos_rank": 30
+      },
+      {
+        "name": "Liu Jun",
+        "github_login": "iliujunn",
+        "github_url": "https://github.com/iliujunn",
+        "commits": 5,
+        "changed_lines": 1538,
+        "added": 655,
+        "deleted": 883,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-dev-hub"
+        ],
+        "key_contributions": "Ascend, CI/CD, bugfix",
+        "display_name": "刘俊",
+        "chinese_name": "刘俊",
+        "english_name": "Liu Jun",
+        "person_id": "github:iliujunn",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学术成员",
+          "en": "Academic member"
+        },
+        "research_direction": {
+          "zh": "SLO 感知的 LLM Serving 调度；MLA 与 KV Cache 优化；张量并行与多 GPU 推理解码；延迟保障与资源分配；应用感知 Serving",
+          "en": "SLO-aware LLM serving and scheduling; MLA and KV Cache optimization; tensor parallelism and multi-GPU decoding; latency guarantees and resource allocation; application-aware serving"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "Ascend, CI/CD, bugfix",
+        "all_repos_rank": 26
+      },
+      {
         "name": "刘子墨",
         "github_login": "Liu-zimo-LZM",
         "github_url": "https://github.com/Liu-zimo-LZM",
@@ -3574,6 +2598,97 @@
           "en": ""
         },
         "contribution_areas": ""
+      },
+      {
+        "name": "MingXuan Kuang",
+        "github_login": "sad-and-bad1231",
+        "github_url": "https://github.com/sad-and-bad1231",
+        "commits": 11,
+        "changed_lines": 2803,
+        "added": 1695,
+        "deleted": 1108,
+        "active_repos": 2,
+        "repos": [
+          ".github",
+          "cccf-domestic-inference-engine-survey"
+        ],
+        "key_contributions": "engine",
+        "display_name": "匡明轩",
+        "chinese_name": "匡明轩",
+        "english_name": "MingXuan Kuang",
+        "person_id": "github:sad-and-bad1231",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "KV Cache 压缩；调度同步开销优化；Attention Kernel",
+          "en": "KV Cache compression; scheduling synchronization-overhead optimization; Attention kernels"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "engine",
+        "all_repos_rank": 22
+      },
+      {
+        "name": "Raing5Days",
+        "github_login": "Raing5Days",
+        "github_url": "https://github.com/Raing5Days",
+        "commits": 5,
+        "changed_lines": 2514,
+        "added": 2364,
+        "deleted": 150,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-benchmark"
+        ],
+        "key_contributions": "CI/CD, engine",
+        "display_name": "吴天宇",
+        "chinese_name": "吴天宇",
+        "english_name": "",
+        "person_id": "github:raing5days",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "动态图执行与原生算子优化",
+          "en": "Dynamic-graph execution and native-operator optimization"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "郑龙",
+          "en": "Long Zheng"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "CI/CD, engine",
+        "all_repos_rank": 23
       },
       {
         "name": "周升晖",
@@ -3761,6 +2876,9 @@
         "english_name": "",
         "person_id": "github:hustcui",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "学生",
@@ -3778,15 +2896,57 @@
           "zh": "姚鹏程",
           "en": "Pengcheng Yao"
         },
-        "contribution_areas": "benchmark",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
-        "all_repos_rank": 10
+        "contribution_areas": "benchmark",
+        "all_repos_rank": 13
+      },
+      {
+        "name": "Jiawan Zhang",
+        "github_login": "Jiawan23",
+        "github_url": "https://github.com/Jiawan23",
+        "commits": 3,
+        "changed_lines": 13057,
+        "added": 10297,
+        "deleted": 2760,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-kvcompress-hust"
+        ],
+        "key_contributions": "kernel, Ascend",
+        "display_name": "张家万",
+        "chinese_name": "张家万",
+        "english_name": "Jiawan Zhang",
+        "person_id": "github:jiawan23",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "万瑶",
+          "en": "Yao Wan"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "kernel, Ascend",
+        "all_repos_rank": 11
       },
       {
         "name": "Senlei Zhang",
@@ -3849,6 +3009,9 @@
         "english_name": "Ruicheng Zhang",
         "person_id": "github:kimmozag",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "学术成员",
@@ -3866,15 +3029,12 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "bugfix, distributed, leaderboard, maintenance",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
-        "all_repos_rank": 14
+        "contribution_areas": "bugfix, distributed, leaderboard, maintenance",
+        "all_repos_rank": 16
       },
       {
         "name": "Cheng Peng",
@@ -3961,6 +3121,48 @@
         "contribution_areas": ""
       },
       {
+        "name": "Zhe Cao",
+        "github_login": "xmdhb",
+        "github_url": "https://github.com/xmdhb",
+        "commits": 0,
+        "changed_lines": 0,
+        "added": 0,
+        "deleted": 0,
+        "active_repos": 0,
+        "repos": [],
+        "key_contributions": "",
+        "display_name": "曹哲",
+        "chinese_name": "曹哲",
+        "english_name": "Zhe Cao",
+        "person_id": "github:xmdhb",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "即将入学的研究生",
+          "en": "Incoming graduate student"
+        },
+        "research_direction": {
+          "zh": "Prompt/KV Cache 复用；缓存驱逐；语义感知与在线自适应策略；Agent 场景缓存生命周期管理",
+          "en": "Prompt and KV Cache reuse; cache eviction; semantic-aware and online-adaptive policies; cache lifecycle management for Agent workloads"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": ""
+      },
+      {
         "name": "Xincai Zhu",
         "github_login": "Pygone",
         "github_url": "https://github.com/Pygone",
@@ -3978,6 +3180,9 @@
         "english_name": "Xincai Zhu",
         "person_id": "github:pygone",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程成员",
@@ -3995,15 +3200,12 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "leaderboard",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
-        "all_repos_rank": 29
+        "contribution_areas": "leaderboard",
+        "all_repos_rank": 32
       },
       {
         "name": "Geng Li",
@@ -4048,7 +3250,7 @@
         "contribution_areas": ""
       },
       {
-        "name": "sssarrior",
+        "name": "Xuheng Li",
         "github_login": "sssarrior",
         "github_url": "https://github.com/sssarrior",
         "commits": 1,
@@ -4065,6 +3267,9 @@
         "english_name": "Xuheng Li",
         "person_id": "github:sssarrior",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "学术成员",
@@ -4082,27 +3287,26 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "engine",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
-        "all_repos_rank": 32
+        "contribution_areas": "engine",
+        "all_repos_rank": 33
       },
       {
         "name": "Changwu Li",
         "github_login": "Li-changwu",
         "github_url": "https://github.com/Li-changwu",
-        "commits": 0,
-        "changed_lines": 0,
-        "added": 0,
-        "deleted": 0,
-        "active_repos": 0,
-        "repos": [],
-        "key_contributions": "",
+        "commits": 70,
+        "changed_lines": 55625,
+        "added": 49450,
+        "deleted": 6175,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-hust-LatchMoE"
+        ],
+        "key_contributions": "bugfix, features, distributed, Ascend",
         "display_name": "李昶吾",
         "chinese_name": "李昶吾",
         "english_name": "Changwu Li",
@@ -4132,7 +3336,8 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": ""
+        "contribution_areas": "bugfix, features, distributed, Ascend",
+        "all_repos_rank": 6
       },
       {
         "name": "李林浩",
@@ -4211,6 +3416,48 @@
         "advisor": {
           "zh": "张书豪",
           "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": ""
+      },
+      {
+        "name": "Jie Yang",
+        "github_login": "JieYang2001",
+        "github_url": "https://github.com/JieYang2001",
+        "commits": 0,
+        "changed_lines": 0,
+        "added": 0,
+        "deleted": 0,
+        "active_repos": 0,
+        "repos": [],
+        "key_contributions": "",
+        "display_name": "杨杰",
+        "chinese_name": "杨杰",
+        "english_name": "Jie Yang",
+        "person_id": "github:jieyang2001",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "状态分层驻留与生命周期管理",
+          "en": "Tiered state residency and lifecycle management"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "赵进",
+          "en": "Jin Zhao"
         },
         "github_status": {
           "zh": "",
@@ -4474,13 +3721,14 @@
         "name": "MingqiWang-coder",
         "github_login": "MingqiWang-coder",
         "github_url": "https://github.com/MingqiWang-coder",
-        "commits": 38,
-        "changed_lines": 21449,
-        "added": 7608,
+        "commits": 39,
+        "changed_lines": 21552,
+        "added": 7711,
         "deleted": 13841,
-        "active_repos": 2,
+        "active_repos": 3,
         "repos": [
           "vllm-hust-benchmark",
+          "vllm-hust-dev-hub",
           "vllm-hust-website"
         ],
         "key_contributions": "CI/CD, leaderboard, benchmark, maintenance",
@@ -4489,6 +3737,9 @@
         "english_name": "",
         "person_id": "github:mingqiwang-coder",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程成员",
@@ -4506,15 +3757,144 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "CI/CD, leaderboard, benchmark, maintenance",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
-        "all_repos_rank": 5
+        "contribution_areas": "CI/CD, leaderboard, benchmark, maintenance",
+        "all_repos_rank": 9
+      },
+      {
+        "name": "MASTER",
+        "github_login": "WMASTER123",
+        "github_url": "https://github.com/WMASTER123",
+        "commits": 0,
+        "changed_lines": 0,
+        "added": 0,
+        "deleted": 0,
+        "active_repos": 0,
+        "repos": [],
+        "key_contributions": "",
+        "display_name": "王杰",
+        "chinese_name": "王杰",
+        "english_name": "",
+        "person_id": "github:wmaster123",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "工程成员",
+          "en": "Engineering member"
+        },
+        "research_direction": {
+          "zh": "面向长上下文工作负载的大模型推理引擎性能优化；Prefill 阶段计算与数据搬运瓶颈；KV Cache 复用；分层缓存；运行时调度；算子优化",
+          "en": "LLM inference-engine optimization for long-context workloads; Prefill compute and data-movement bottlenecks; KV Cache reuse; hierarchical caching; runtime scheduling; operator optimization"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": ""
+      },
+      {
+        "name": "rzwang22",
+        "github_login": "rzwang22",
+        "github_url": "https://github.com/rzwang22",
+        "commits": 0,
+        "changed_lines": 0,
+        "added": 0,
+        "deleted": 0,
+        "active_repos": 0,
+        "repos": [],
+        "key_contributions": "",
+        "display_name": "王润泽",
+        "chinese_name": "王润泽",
+        "english_name": "",
+        "person_id": "github:rzwang22",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "推测解码与阶段协同执行优化",
+          "en": "Speculative decoding and coordinated execution"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "王庆刚",
+          "en": "Qinggang Wang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": ""
+      },
+      {
+        "name": "Jingyuan Tian",
+        "github_login": "CubeLander",
+        "github_url": "https://github.com/CubeLander",
+        "commits": 300,
+        "changed_lines": 275460,
+        "added": 183149,
+        "deleted": 92311,
+        "active_repos": 4,
+        "repos": [
+          ".github",
+          "vllm-hust-benchmark",
+          "vllm-hust-dev-hub",
+          "vllm-hust-perf-analyzer"
+        ],
+        "key_contributions": "distributed, storage, profiling, development environment",
+        "display_name": "田景远",
+        "chinese_name": "田景远",
+        "english_name": "Jingyuan Tian",
+        "person_id": "github:cubelander",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "实习生",
+          "en": "Student intern"
+        },
+        "research_direction": {
+          "zh": "昇腾 NPU 推理系统优化；调度优化；通信—计算重叠；多卡扩展；软硬件协同；真实负载",
+          "en": "Ascend NPU inference-system optimization; scheduling; communication-computation overlap; multi-device scaling; hardware-software co-design; real workloads"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "distributed, storage, profiling, development environment",
+        "all_repos_rank": 3
       },
       {
         "name": "董君瑶",
@@ -4643,6 +4023,53 @@
         "contribution_areas": ""
       },
       {
+        "name": "Gu Changwei",
+        "github_login": "GuMorming",
+        "github_url": "https://github.com/GuMorming",
+        "commits": 13,
+        "changed_lines": 3214,
+        "added": 1817,
+        "deleted": 1397,
+        "active_repos": 3,
+        "repos": [
+          "vllm-hust-benchmark",
+          "vllm-hust-dev-hub",
+          "vllm-hust-website"
+        ],
+        "key_contributions": "benchmark, bugfix, features, maintenance",
+        "display_name": "谷昌伟",
+        "chinese_name": "谷昌伟",
+        "english_name": "Gu Changwei",
+        "person_id": "github:gumorming",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "前缀与共享状态索引机制",
+          "en": "Prefix and shared-state indexing"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "罗瑞坤",
+          "en": "Ruikun Luo"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "benchmark, bugfix, features, maintenance",
+        "all_repos_rank": 21
+      },
+      {
         "name": "Jianjun Zhao",
         "github_login": "curryzjj",
         "github_url": "https://github.com/curryzjj",
@@ -4727,16 +4154,18 @@
         "contribution_areas": ""
       },
       {
-        "name": "路庆浩",
+        "name": "Luqhhh",
         "github_login": "Luqhhh",
         "github_url": "https://github.com/Luqhhh",
-        "commits": 0,
-        "changed_lines": 0,
-        "added": 0,
-        "deleted": 0,
-        "active_repos": 0,
-        "repos": [],
-        "key_contributions": "",
+        "commits": 6,
+        "changed_lines": 3511,
+        "added": 3279,
+        "deleted": 232,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-perf-analyzer"
+        ],
+        "key_contributions": "bugfix, features, Ascend",
         "display_name": "路庆浩",
         "chinese_name": "路庆浩",
         "english_name": "",
@@ -4766,7 +4195,8 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": ""
+        "contribution_areas": "bugfix, features, Ascend",
+        "all_repos_rank": 20
       },
       {
         "name": "Ruijie Qiu",
@@ -4786,6 +4216,9 @@
         "english_name": "Ruijie Qiu",
         "person_id": "github:jerry01020",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "",
@@ -4803,14 +4236,56 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": "distributed, docs",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
+        "contribution_areas": "distributed, docs",
+        "all_repos_rank": 31
+      },
+      {
+        "name": "Amber1qq",
+        "github_login": "Amber1qq",
+        "github_url": "https://github.com/Amber1qq",
+        "commits": 1,
+        "changed_lines": 915,
+        "added": 915,
+        "deleted": 0,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-benchmark"
+        ],
+        "key_contributions": "misc",
+        "display_name": "郑凌峰",
+        "chinese_name": "郑凌峰",
+        "english_name": "",
+        "person_id": "github:amber1qq",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "状态传输与调度协同优化",
+          "en": "State transfer and scheduling co-optimization"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "刘海坤",
+          "en": "Haikun Liu"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "misc",
         "all_repos_rank": 28
       },
       {
@@ -4859,20 +4334,23 @@
         "name": "Zijia Chen",
         "github_login": "mynameisczj",
         "github_url": "https://github.com/mynameisczj",
-        "commits": 16,
-        "changed_lines": 14536,
-        "added": 9640,
-        "deleted": 4896,
+        "commits": 70,
+        "changed_lines": 203130,
+        "added": 186751,
+        "deleted": 16379,
         "active_repos": 1,
         "repos": [
           "pegaflow-hust"
         ],
-        "key_contributions": "Ascend, CI/CD, distributed, features",
+        "key_contributions": "benchmark, Ascend, CI/CD, tooling",
         "display_name": "陈子嘉",
         "chinese_name": "陈子嘉",
         "english_name": "Zijia Chen",
         "person_id": "github:mynameisczj",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "学生",
@@ -4890,15 +4368,12 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "Ascend, CI/CD, distributed, features",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
-        "all_repos_rank": 8
+        "contribution_areas": "benchmark, Ascend, CI/CD, tooling",
+        "all_repos_rank": 4
       },
       {
         "name": "Debin Chen",
@@ -4985,6 +4460,135 @@
         "contribution_areas": ""
       },
       {
+        "name": "韦若皓",
+        "github_login": "kotoriqaq0",
+        "github_url": "https://github.com/kotoriqaq0",
+        "commits": 0,
+        "changed_lines": 0,
+        "added": 0,
+        "deleted": 0,
+        "active_repos": 0,
+        "repos": [],
+        "key_contributions": "",
+        "display_name": "韦若皓",
+        "chinese_name": "韦若皓",
+        "english_name": "",
+        "person_id": "github:kotoriqaq0",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "待补充",
+          "en": "To be provided"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "万瑶",
+          "en": "Yao Wan"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": ""
+      },
+      {
+        "name": "Junhao Ma",
+        "github_login": "kms12425",
+        "github_url": "https://github.com/kms12425",
+        "commits": 3,
+        "changed_lines": 1616,
+        "added": 830,
+        "deleted": 786,
+        "active_repos": 1,
+        "repos": [
+          "cccf-domestic-inference-engine-survey"
+        ],
+        "key_contributions": "CI/CD, engine",
+        "display_name": "马俊豪",
+        "chinese_name": "马俊豪",
+        "english_name": "Junhao Ma",
+        "person_id": "github:kms12425",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "待定",
+          "en": "To be determined"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "张书豪",
+          "en": "Shuhao Zhang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "CI/CD, engine",
+        "all_repos_rank": 25
+      },
+      {
+        "name": "machuanhu",
+        "github_login": "machuanhu",
+        "github_url": "https://github.com/machuanhu",
+        "commits": 0,
+        "changed_lines": 0,
+        "added": 0,
+        "deleted": 0,
+        "active_repos": 0,
+        "repos": [],
+        "key_contributions": "",
+        "display_name": "马川湖",
+        "chinese_name": "马川湖",
+        "english_name": "",
+        "person_id": "github:machuanhu",
+        "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "学生",
+          "en": "Student"
+        },
+        "research_direction": {
+          "zh": "统一执行抽象与执行图建模",
+          "en": "Unified execution abstraction and execution-graph modeling"
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "王雄",
+          "en": "Xiong Wang"
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": ""
+      },
+      {
         "name": "Xiling Gao",
         "github_login": "XilingGao",
         "github_url": "https://github.com/XilingGao",
@@ -5002,6 +4606,9 @@
         "english_name": "Xiling Gao",
         "person_id": "github:xilinggao",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程成员",
@@ -5019,15 +4626,12 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "leaderboard",
-        "external_contributor": false,
-        "staff_member": false,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
         },
-        "all_repos_rank": 9
+        "contribution_areas": "leaderboard",
+        "all_repos_rank": 12
       },
       {
         "name": "Hongru Gao",
@@ -5074,7 +4678,7 @@
     ],
     "staff_members": [
       {
-        "rank": 12,
+        "rank": 14,
         "name": "luoxiaohei",
         "github_login": "luoxiaohei",
         "github_url": "https://github.com/luoxiaohei",
@@ -5093,6 +4697,9 @@
         "english_name": "",
         "person_id": "github:luoxiaohei",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": true,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程师（派欧云）",
@@ -5110,35 +4717,36 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": "benchmark, distributed, leaderboard, CI/CD",
-        "external_contributor": false,
-        "staff_member": true,
-        "core_repository_contributor": false,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "benchmark, distributed, leaderboard, CI/CD"
       },
       {
-        "rank": 3,
-        "name": "junhuizhang-boop",
+        "rank": 10,
+        "name": "Junhui Zhang",
         "github_login": "junhuizhang-boop",
         "github_url": "https://github.com/junhuizhang-boop",
-        "commits": 18,
-        "changed_lines": 13136,
-        "added": 12246,
-        "deleted": 890,
-        "active_repos": 2,
+        "commits": 43,
+        "changed_lines": 14006,
+        "added": 11206,
+        "deleted": 2800,
+        "active_repos": 3,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
+          "ascend-runtime-manager",
+          "vllm-hust-benchmark",
+          "vllm-hust-website"
         ],
-        "key_contributions": "benchmark, CI/CD, Ascend",
+        "key_contributions": "CI/CD, benchmark, website, leaderboard",
         "display_name": "张俊辉",
         "chinese_name": "张俊辉",
         "english_name": "Junhui Zhang",
         "person_id": "github:junhuizhang-boop",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": true,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程师（派欧云）",
@@ -5156,35 +4764,36 @@
           "zh": "",
           "en": ""
         },
-        "contribution_areas": "benchmark, CI/CD, Ascend",
-        "external_contributor": false,
-        "staff_member": true,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "CI/CD, benchmark, website, leaderboard"
       },
       {
-        "rank": 21,
+        "rank": 2,
         "name": "SuccinctPaul",
         "github_login": "SuccinctPaul",
         "github_url": "https://github.com/SuccinctPaul",
-        "commits": 2,
-        "changed_lines": 13,
-        "added": 7,
-        "deleted": 6,
-        "active_repos": 2,
+        "commits": 121,
+        "changed_lines": 403828,
+        "added": 286420,
+        "deleted": 117408,
+        "active_repos": 3,
         "repos": [
-          "vllm-ascend-hust",
-          "vllm-hust"
+          "vllm-hust-benchmark",
+          "vllm-hust-dev-hub",
+          "vllm-hust-website"
         ],
-        "key_contributions": "CI/CD",
+        "key_contributions": "maintenance, features, CI/CD, benchmark",
         "display_name": "程月甲",
         "chinese_name": "程月甲",
         "english_name": "",
         "person_id": "github:succinctpaul",
         "identity_confirmed": true,
+        "external_contributor": false,
+        "staff_member": true,
+        "core_repository_contributor": false,
         "core_member": false,
         "role": {
           "zh": "工程师",
@@ -5202,14 +4811,11 @@
           "zh": "张书豪",
           "en": "Shuhao Zhang"
         },
-        "contribution_areas": "CI/CD",
-        "external_contributor": false,
-        "staff_member": true,
-        "core_repository_contributor": true,
         "github_status": {
           "zh": "",
           "en": ""
-        }
+        },
+        "contribution_areas": "maintenance, features, CI/CD, benchmark"
       },
       {
         "name": "Bin Long",
@@ -5298,6 +4904,280 @@
         "contribution_areas": ""
       }
     ],
-    "unresolved_contributors": []
+    "unresolved_contributors": [
+      {
+        "rank": 5,
+        "name": "Li Changwu",
+        "github_login": null,
+        "github_url": null,
+        "commits": 15,
+        "changed_lines": 62563,
+        "added": 41827,
+        "deleted": 20736,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-hust-LatchMoE"
+        ],
+        "key_contributions": "Ascend, CI/CD, bugfix, docs",
+        "display_name": "Li Changwu",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:li changwu",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "Ascend, CI/CD, bugfix, docs"
+      },
+      {
+        "rank": 15,
+        "name": "OpenAI Codex",
+        "github_login": null,
+        "github_url": null,
+        "commits": 77,
+        "changed_lines": 6581,
+        "added": 4392,
+        "deleted": 2189,
+        "active_repos": 4,
+        "repos": [
+          "pegaflow-hust",
+          "vllm-hust-bidkv",
+          "vllm-hust-docs",
+          "vllm-hust-website"
+        ],
+        "key_contributions": "distributed, bugfix, Ascend, engine",
+        "display_name": "OpenAI Codex",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:openai codex",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
+        "core_member": true,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "distributed, bugfix, Ascend, engine"
+      },
+      {
+        "rank": 18,
+        "name": "Super User",
+        "github_login": null,
+        "github_url": null,
+        "commits": 9,
+        "changed_lines": 4602,
+        "added": 4482,
+        "deleted": 120,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-perf-analyzer"
+        ],
+        "key_contributions": "distributed, testing, bugfix, features",
+        "display_name": "Super User",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:super user",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "distributed, testing, bugfix, features"
+      },
+      {
+        "rank": 19,
+        "name": "Mhyzb",
+        "github_login": null,
+        "github_url": null,
+        "commits": 2,
+        "changed_lines": 3661,
+        "added": 3654,
+        "deleted": 7,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-pyramidkv-hust"
+        ],
+        "key_contributions": "benchmark, features",
+        "display_name": "Mhyzb",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:mhyzb",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "benchmark, features"
+      },
+      {
+        "rank": 34,
+        "name": "Ketong Qian",
+        "github_login": null,
+        "github_url": null,
+        "commits": 1,
+        "changed_lines": 13,
+        "added": 12,
+        "deleted": 1,
+        "active_repos": 1,
+        "repos": [
+          "vllm-hust-profiling"
+        ],
+        "key_contributions": "features",
+        "display_name": "Ketong Qian",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:ketong qian",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": false,
+        "core_member": false,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "features"
+      },
+      {
+        "rank": 35,
+        "name": "Eagle Sean",
+        "github_login": null,
+        "github_url": null,
+        "commits": 1,
+        "changed_lines": 4,
+        "added": 4,
+        "deleted": 0,
+        "active_repos": 1,
+        "repos": [
+          "vllm-ascend-quant-hust"
+        ],
+        "key_contributions": "docs",
+        "display_name": "Eagle Sean",
+        "chinese_name": "",
+        "english_name": "",
+        "person_id": "author:eagle sean",
+        "identity_confirmed": false,
+        "external_contributor": false,
+        "staff_member": false,
+        "core_repository_contributor": true,
+        "core_member": true,
+        "role": {
+          "zh": "",
+          "en": ""
+        },
+        "research_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "participation_direction": {
+          "zh": "",
+          "en": ""
+        },
+        "advisor": {
+          "zh": "",
+          "en": ""
+        },
+        "github_status": {
+          "zh": "",
+          "en": ""
+        },
+        "contribution_areas": "docs"
+      }
+    ]
   }
 }
