@@ -250,6 +250,25 @@ def test_iliujunn_is_publicly_mapped_to_liu_jun() -> None:
     assert person["needs_review"] is False
 
 
+def test_renty_and_rzwang_have_distinct_confirmed_identities() -> None:
+    root = Path(__file__).resolve().parents[1]
+    people = leaderboard.load_people_index(root)
+
+    renty = people.by_login["renty-0"]
+    rzwang = people.by_login["rzwang22"]
+
+    assert renty is not rzwang
+    assert renty["github_login"] == "Renty-0"
+    assert renty["chinese_name"] == "任天宇"
+    assert renty["aliases"] == []
+    assert renty["profiles"]["vllm_hust"]["advisor_zh"] == "王庆刚"
+    assert renty["profiles"]["vllm_hust"]["advisor_en"] == "Qinggang Wang"
+    assert rzwang["github_login"] == "rzwang22"
+    assert rzwang["chinese_name"] == "王润泽"
+    assert "Renty-0" not in rzwang["aliases"]
+    assert people.by_name["renty-0"] is renty
+
+
 def test_required_canonical_people_and_aliases_are_mapped() -> None:
     root = Path(__file__).resolve().parents[1]
     people = leaderboard.load_people_index(root)
@@ -288,7 +307,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "anjiangy": "李庚",
         "dzcixy": "杜忠承",
         "xsun2001": "徐晨曦",
-        "renty-0": "王润泽",
+        "renty-0": "任天宇",
         "ilnnfover": "吴天宇",
         "liu-zimo-lzm": "刘子墨",
         "oddod": "欧丹丹",
@@ -326,6 +345,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "raing5days": "郑龙",
         "li-changwu": "张书豪",
         "rzwang22": "王庆刚",
+        "renty-0": "王庆刚",
         "gumorming": "罗瑞坤",
         "jieyang2001": "赵进",
         "cybber695": "张书豪",
