@@ -225,60 +225,6 @@
       },
       "notes": "User confirmed Fuze1111 is 沈家乐, provided the current research work and interests, and confirmed 张书豪 as advisor."
     },
-    "Sunshine-llh": {
-      "display_name": "李林浩",
-      "chinese_name": "李林浩",
-      "english_name": "",
-      "github_login": "Sunshine-llh",
-      "github_url": "https://github.com/Sunshine-llh",
-      "emails": [],
-      "git_names": ["Sunshine-llh"],
-      "aliases": [],
-      "member_of_org": false,
-      "public": true,
-      "needs_review": false,
-      "display_name_source": "manual",
-      "sources": ["manual_review"],
-      "profiles": {
-        "vllm_hust": {
-          "participant": true,
-          "role_zh": "2027 年待入学学生",
-          "role_en": "Incoming student (2027 cohort)",
-          "research_direction_zh": "待定",
-          "research_direction_en": "To be determined",
-          "advisor_zh": "张书豪",
-          "advisor_en": "Shuhao Zhang"
-        }
-      },
-      "notes": "User confirmed Sunshine-llh is 李林浩, an incoming 2027 student advised by 张书豪."
-    },
-    "yutiantian0115": {
-      "display_name": "余天成",
-      "chinese_name": "余天成",
-      "english_name": "",
-      "github_login": "yutiantian0115",
-      "github_url": "https://github.com/yutiantian0115",
-      "emails": [],
-      "git_names": ["yutiantian0115"],
-      "aliases": [],
-      "member_of_org": false,
-      "public": true,
-      "needs_review": false,
-      "display_name_source": "manual",
-      "sources": ["manual_review"],
-      "profiles": {
-        "vllm_hust": {
-          "participant": true,
-          "role_zh": "2027 年待入学学生",
-          "role_en": "Incoming student (2027 cohort)",
-          "research_direction_zh": "大模型推理方向待定；愿意根据课题安排探索相关研究",
-          "research_direction_en": "LLM inference direction to be determined; open to exploring research topics aligned with project needs",
-          "advisor_zh": "张书豪",
-          "advisor_en": "Shuhao Zhang"
-        }
-      },
-      "notes": "User confirmed yutiantian0115 is 余天成, an incoming 2027 student advised by 张书豪."
-    },
     "GuMorming": {
       "display_name": "GuMorming",
       "chinese_name": "谷昌伟",
@@ -318,7 +264,8 @@
       "github_url": "https://github.com/healer-positive",
       "emails": [],
       "git_names": [
-        "He Wei"
+        "He Wei",
+        "healer"
       ],
       "aliases": [],
       "member_of_org": true,
@@ -1144,9 +1091,7 @@
       "github_url": "https://github.com/Raing5Days",
       "emails": [],
       "git_names": [],
-      "aliases": [
-        "ilnnfover"
-      ],
+      "aliases": [],
       "member_of_org": true,
       "public": true,
       "needs_review": false,
@@ -1590,7 +1535,7 @@
     },
     "Yushuo-star": {
       "display_name": "Yushuo-star",
-      "chinese_name": "",
+      "chinese_name": "郁硕",
       "english_name": "",
       "github_login": "Yushuo-star",
       "github_url": "https://github.com/Yushuo-star",
@@ -2089,23 +2034,6 @@
       "profiles": {"vllm_hust": {"participant": true, "role_zh": "马上入学的华科研究生", "role_en": "Incoming HUST graduate student", "research_direction_zh": "分布式推理加速", "research_direction_en": "Distributed inference acceleration", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang"}},
       "notes": "User-confirmed canonical mapping: Anjiangy is 李庚, an incoming HUST graduate student advised by 张书豪."
     },
-    "vllm-hust-song-gongxuan": {
-      "display_name": "Gongxuan Song",
-      "chinese_name": "宋功轩",
-      "english_name": "Gongxuan Song",
-      "github_login": "",
-      "github_url": "",
-      "emails": [],
-      "git_names": [],
-      "aliases": [],
-      "member_of_org": false,
-      "public": true,
-      "needs_review": false,
-      "display_name_source": "manual",
-      "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "工程成员", "role_en": "Engineering member", "participation_direction_zh": "LLM推理系统工程化", "participation_direction_en": "LLM inference-system engineering", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang", "github_status_zh": "GitHub ID 待确认", "github_status_en": "GitHub ID pending confirmation"}},
-      "notes": "Confirmed current research-group participant; GitHub ID is pending confirmation."
-    },
     "vllm-hust-peng-cheng": {
       "display_name": "Cheng Peng",
       "chinese_name": "彭成",
@@ -2266,14 +2194,29 @@
       "github_login": "Devilsssssss",
       "github_url": "https://github.com/Devilsssssss",
       "emails": [],
-      "git_names": ["Devilsssssss"],
+      "git_names": [
+        "Devilsssssss",
+        "Ketong Qian"
+      ],
       "aliases": [],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
-      "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学生", "role_en": "Student", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang", "research_direction_zh": "vLLM-HUST 推理系统性能分析与调度优化；系统 Profiling；瓶颈定位；资源利用率提升；工程化性能改进", "research_direction_en": "vLLM-HUST inference performance analysis and scheduling optimization; system profiling; bottleneck diagnosis; resource-utilization improvement; engineering performance optimization"}},
+      "sources": [
+        "manual_review"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang",
+          "research_direction_zh": "vLLM-HUST 推理系统性能分析与调度优化；系统 Profiling；瓶颈定位；资源利用率提升；工程化性能改进",
+          "research_direction_en": "vLLM-HUST inference performance analysis and scheduling optimization; system profiling; bottleneck diagnosis; resource-utilization improvement; engineering performance optimization"
+        }
+      },
       "notes": "User confirmed the public name, GitHub account, research-interest profile, and 张书豪 as advisor."
     },
     "qingwanruojun": {
@@ -2300,14 +2243,29 @@
       "github_login": "xiehanlong834-gif",
       "github_url": "https://github.com/xiehanlong834-gif",
       "emails": [],
-      "git_names": ["xiehanlong834-gif"],
+      "git_names": [
+        "xiehanlong834-gif",
+        "Xie Hanlong"
+      ],
       "aliases": [],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
-      "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学生", "role_en": "Student", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang", "research_direction_zh": "异构 GPU 推理分离；系统架构；资源调度；异构兼容；成本敏感型部署；自动并行", "research_direction_en": "Heterogeneous GPU inference disaggregation; system architecture; resource scheduling; heterogeneous compatibility; cost-aware deployment; automatic parallelism"}},
+      "sources": [
+        "manual_review"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang",
+          "research_direction_zh": "异构 GPU 推理分离；系统架构；资源调度；异构兼容；成本敏感型部署；自动并行",
+          "research_direction_en": "Heterogeneous GPU inference disaggregation; system architecture; resource scheduling; heterogeneous compatibility; cost-aware deployment; automatic parallelism"
+        }
+      },
       "notes": "User confirmed the public name, GitHub account, research-interest profile, and 张书豪 as advisor."
     },
     "keridone": {
@@ -2317,14 +2275,29 @@
       "github_login": "keridone",
       "github_url": "https://github.com/keridone",
       "emails": [],
-      "git_names": ["keridone"],
+      "git_names": [
+        "keridone",
+        "Shenghui Zhou"
+      ],
       "aliases": [],
       "member_of_org": false,
       "public": true,
       "needs_review": false,
       "display_name_source": "manual",
-      "sources": ["manual_review"],
-      "profiles": {"vllm_hust": {"participant": true, "role_zh": "学生", "role_en": "Student", "advisor_zh": "张书豪", "advisor_en": "Shuhao Zhang", "research_direction_zh": "Profiling；算子性能瓶颈分析；算子融合；减少计算冗余", "research_direction_en": "Profiling; operator bottleneck analysis; operator fusion; reduction of redundant computation"}},
+      "sources": [
+        "manual_review"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang",
+          "research_direction_zh": "Profiling；算子性能瓶颈分析；算子融合；减少计算冗余",
+          "research_direction_en": "Profiling; operator bottleneck analysis; operator fusion; reduction of redundant computation"
+        }
+      },
       "notes": "User confirmed the public name, GitHub account, research-interest profile, and 张书豪 as advisor."
     },
     "YWHUTER": {
@@ -2389,6 +2362,223 @@
       "sources": ["manual_review"],
       "profiles": {"vllm_hust": {"participant": true, "staff_member": true, "role_zh": "项目/科研助理", "role_en": "Project and research assistant", "participation_direction_zh": "科研项目管理与团队协同", "participation_direction_en": "Research project management and team coordination", "github_status_zh": "无 GitHub ID", "github_status_en": "No GitHub ID"}},
       "notes": "Confirmed project-support participant."
+    },
+    "Lan-Fa": {
+      "display_name": "阮宏毅",
+      "chinese_name": "阮宏毅",
+      "english_name": "",
+      "github_login": "Lan-Fa",
+      "github_url": "https://github.com/Lan-Fa",
+      "emails": [],
+      "git_names": [
+        "Lan-Fa"
+      ],
+      "aliases": [],
+      "public": true,
+      "needs_review": false,
+      "sources": [
+        "audited_website_roster"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "",
+          "research_direction_en": "",
+          "participation_direction_zh": "",
+          "participation_direction_en": "",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang",
+          "github_status_zh": "",
+          "github_status_en": ""
+        }
+      }
+    },
+    "zhangshengxiang682": {
+      "display_name": "张盛翔",
+      "chinese_name": "张盛翔",
+      "english_name": "",
+      "github_login": "zhangshengxiang682",
+      "github_url": "https://github.com/zhangshengxiang682",
+      "emails": [],
+      "git_names": [
+        "zhangshengxiang682"
+      ],
+      "aliases": [],
+      "public": true,
+      "needs_review": false,
+      "sources": [
+        "audited_website_roster"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "",
+          "research_direction_en": "",
+          "participation_direction_zh": "",
+          "participation_direction_en": "",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang",
+          "github_status_zh": "",
+          "github_status_en": ""
+        }
+      }
+    },
+    "fw1688": {
+      "display_name": "冯威",
+      "chinese_name": "冯威",
+      "english_name": "",
+      "github_login": "fw1688",
+      "github_url": "https://github.com/fw1688",
+      "emails": [],
+      "git_names": [
+        "fw1688"
+      ],
+      "aliases": [],
+      "public": true,
+      "needs_review": false,
+      "sources": [
+        "audited_website_roster"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "2027 年待入学学生",
+          "role_en": "Incoming student (2027 cohort)",
+          "research_direction_zh": "待补充",
+          "research_direction_en": "To be determined",
+          "participation_direction_zh": "",
+          "participation_direction_en": "",
+          "advisor_zh": "张书豪",
+          "advisor_en": "Shuhao Zhang",
+          "github_status_zh": "负责人确认；组织邀请待接受",
+          "github_status_en": "Confirmed by the advisor; organization invitation pending"
+        }
+      }
+    },
+    "eljrte": {
+      "display_name": "李佳润",
+      "chinese_name": "李佳润",
+      "english_name": "",
+      "github_login": "eljrte",
+      "github_url": "https://github.com/eljrte",
+      "emails": [],
+      "git_names": [
+        "eljrte"
+      ],
+      "aliases": [],
+      "public": true,
+      "needs_review": false,
+      "sources": [
+        "audited_website_roster"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "",
+          "research_direction_en": "",
+          "participation_direction_zh": "",
+          "participation_direction_en": "",
+          "advisor_zh": "赵进",
+          "advisor_en": "Jin Zhao",
+          "github_status_zh": "",
+          "github_status_en": ""
+        }
+      }
+    },
+    "ilnnfover": {
+      "display_name": "李上上",
+      "chinese_name": "李上上",
+      "english_name": "",
+      "github_login": "ilnnfover",
+      "github_url": "https://github.com/ilnnfover",
+      "emails": [],
+      "git_names": [
+        "ilnnfover"
+      ],
+      "aliases": [],
+      "public": true,
+      "needs_review": false,
+      "sources": [
+        "audited_website_roster"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "",
+          "research_direction_en": "",
+          "participation_direction_zh": "",
+          "participation_direction_en": "",
+          "advisor_zh": "郑龙",
+          "advisor_en": "Long Zheng",
+          "github_status_zh": "",
+          "github_status_en": ""
+        }
+      }
+    },
+    "Irisuko": {
+      "display_name": "毛潮云",
+      "chinese_name": "毛潮云",
+      "english_name": "",
+      "github_login": "Irisuko",
+      "github_url": "https://github.com/Irisuko",
+      "emails": [],
+      "git_names": [
+        "Irisuko",
+        "Mhyzb"
+      ],
+      "aliases": [],
+      "public": true,
+      "needs_review": false,
+      "sources": [
+        "audited_website_roster"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "participant": true,
+          "role_zh": "学生",
+          "role_en": "Student",
+          "research_direction_zh": "",
+          "research_direction_en": "",
+          "participation_direction_zh": "",
+          "participation_direction_en": "",
+          "advisor_zh": "罗瑞坤",
+          "advisor_en": "",
+          "github_status_zh": "",
+          "github_status_en": ""
+        }
+      }
+    },
+    "eglxiang": {
+      "display_name": "项翔",
+      "chinese_name": "项翔",
+      "english_name": "Xiang Xiang",
+      "github_login": "eglxiang",
+      "github_url": "https://github.com/eglxiang",
+      "emails": [],
+      "git_names": [
+        "Eagle Sean"
+      ],
+      "aliases": [],
+      "public": true,
+      "needs_review": false,
+      "sources": [
+        "audited_website_roster",
+        "github_commit_author"
+      ],
+      "profiles": {
+        "vllm_hust": {
+          "role_zh": "指导老师",
+          "role_en": "Advisor"
+        }
+      }
     }
   }
 }
