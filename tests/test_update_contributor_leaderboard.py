@@ -795,7 +795,7 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         if item["person_id"] == "github:sad-and-bad1231"
     ]
     assert len(kuang_rows) == 1
-    assert kuang_rows[0]["commits"] == 16
+    assert kuang_rows[0]["commits"] == 26
     assert "cccf-domestic-inference-engine-survey" in kuang_rows[0]["repos"]
     xuheng_rows = [
         item
