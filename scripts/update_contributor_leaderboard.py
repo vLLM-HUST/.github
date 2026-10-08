@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import shutil
 import subprocess
@@ -86,7 +85,22 @@ RUNTIME_CORE_REPOS = {
 # optimizes the inference execution layer.
 INDEPENDENT_OPTIMIZATION_REPOS = {
     "vllm-ascend-hust-diffspec",
+    "vllm-ascend-kvcompress-hust",
+    "vllm-ascend-layered-prefill-hust",
+    "vllm-ascend-mapped-kv-offload-hust",
+    "vllm-ascend-pyramidkv-hust",
+    "vllm-ascend-quantized-kv-cache-hust",
+    "vllm-ascend-simllm-hust",
+    "vllm-ascend-split-batch-hust",
+    "vllm-hust-activation-sparsity",
     "vllm-hust-bidkv",
+    "vllm-hust-knorm",
+    "vllm-hust-kv-tiering",
+    "vllm-hust-kv-transfer-observability",
+    "vllm-hust-pipeline-microbatch",
+    "vllm-hust-qos-scheduler",
+    "vllm-hust-stateharbor",
+    "vllm-hust-unified-comm",
 }
 
 CORE_REPOS = RUNTIME_CORE_REPOS | INDEPENDENT_OPTIMIZATION_REPOS
@@ -159,6 +173,9 @@ END_MARKER = "<!-- contributor-leaderboard:end -->"
 ORG_NAME = "vLLM-HUST"
 SYNTHETIC_CONTRIBUTOR_IDENTITIES = {
     "vllm-hust developer",
+    "vllm-hust-dev",
+    "openai codex",
+    "super user",
 }
 
 
@@ -497,7 +514,6 @@ def collect_standard_repo_stats(
 
     # Parse commits with per-commit size tracking
     current_identity: tuple[str, str] | None = None
-    current_hash: str | None = None
     commit_added = 0
     commit_deleted = 0
 
@@ -536,11 +552,9 @@ def collect_standard_repo_stats(
             parts = header.split("\t", 2)
             if len(parts) < 3:
                 current_identity = None
-                current_hash = None
                 continue
 
             commit_hash, identity_text, subject = parts
-            current_hash = commit_hash
 
             # Check excluded commits
             if any(commit_hash.startswith(prefix) for prefix in exclude_prefixes):
@@ -769,7 +783,11 @@ def coalesce_stats_by_person(
 
 def build_all_contributors_list(stats: dict[str, ContributorStats]) -> list[ContributorStats]:
     """All repos, sorted by changed_lines descending."""
-    filtered = [item for item in stats.values() if item.changed_lines > 0]
+    filtered = [
+        item for item in stats.values()
+        if item.changed_lines > 0
+        and item.name.strip().casefold() not in SYNTHETIC_CONTRIBUTOR_IDENTITIES
+    ]
     filtered.sort(
         key=lambda item: (item.changed_lines, item.added, item.commits, item.name.lower()),
         reverse=True,
@@ -779,7 +797,11 @@ def build_all_contributors_list(stats: dict[str, ContributorStats]) -> list[Cont
 
 def build_core_contributors_list(stats: dict[str, ContributorStats]) -> list[ContributorStats]:
     """Core repos only, sorted by core_changed_lines descending."""
-    filtered = [item for item in stats.values() if item.core_changed_lines() > 0]
+    filtered = [
+        item for item in stats.values()
+        if item.core_changed_lines() > 0
+        and item.name.strip().casefold() not in SYNTHETIC_CONTRIBUTOR_IDENTITIES
+    ]
     filtered.sort(
         key=lambda item: (item.core_changed_lines(), item.core_added(), item.commits, item.name.lower()),
         reverse=True,
@@ -905,7 +927,6 @@ def build_section(
     core_contributors: list[ContributorStats],
 ) -> str:
     snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    all_repo_names = ", ".join(f"`{spec['name']}`" for spec in REPO_SPECS)
     core_repo_names = ", ".join(f"`{r}`" for r in sorted(CORE_REPOS))
 
     lines = [
@@ -1399,8 +1420,8 @@ def refresh_contributor_payload_profiles(repo_root: Path, payload: dict) -> dict
                 continue
 
             merged = merged_by_person[person_id]
-            for field in ("commits", "changed_lines", "added", "deleted"):
-                merged[field] = int(merged.get(field) or 0) + int(item.get(field) or 0)
+            for metric in ("commits", "changed_lines", "added", "deleted"):
+                merged[metric] = int(merged.get(metric) or 0) + int(item.get(metric) or 0)
             merged["repos"] = sorted(
                 set(merged.get("repos") or []) | set(item.get("repos") or [])
             )

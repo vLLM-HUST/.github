@@ -308,7 +308,7 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "dzcixy": "杜忠承",
         "xsun2001": "徐晨曦",
         "renty-0": "任天宇",
-        "ilnnfover": "吴天宇",
+        "ilnnfover": "李上上",
         "liu-zimo-lzm": "刘子墨",
         "oddod": "欧丹丹",
         "devilsssssss": "钱柯彤",
@@ -318,8 +318,6 @@ def test_required_canonical_people_and_aliases_are_mapped() -> None:
         "keridone": "周升晖",
         "ywhuter": "姚世文",
         "fuze1111": "沈家乐",
-        "sunshine-llh": "李林浩",
-        "yutiantian0115": "余天成",
         "xinyanli-0725": "李欣妍",
         "kotoriqaq0": "韦若皓",
     }
@@ -687,7 +685,7 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["雷欣妍"]["github_login"] == "leixy2004"
     assert by_name["路庆浩"]["github_login"] == "Luqhhh"
     assert by_name["田景远"]["github_login"] == "CubeLander"
-    assert by_name["田景远"]["role"]["zh"] == "实习生"
+    assert by_name["田景远"]["role"]["zh"] == "学生"
     assert by_name["田景远"]["advisor"]["zh"] == "张书豪"
     assert (
         by_name["田景远"]["key_contributions"]
@@ -709,13 +707,12 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
     assert by_name["龙斌"]["role"]["zh"] == "项目/科研助理"
     assert by_name["龙斌"]["staff_member"] is True
     assert by_name["龙斌"]["github_status"]["zh"] == "无 GitHub ID"
-    assert by_name["宋功轩"]["github_status"]["zh"] == "GitHub ID 待确认"
     assert by_name["彭成"]["github_status"]["zh"] == "GitHub ID 待确认"
-    assert by_name["赵建军"]["role"]["zh"] == "已毕业博士生，目前已入职高校"
+    assert by_name["赵建军"]["role"]["zh"] == "已毕业"
     assert by_name["高西岭"]["research_direction"]["zh"] == "KV 量化"
     assert "多级KV缓存" not in by_name["高西岭"]["research_direction"]["zh"]
     assert by_name["刘世峰"]["github_login"] == "Remygred"
-    assert by_name["刘世峰"]["role"]["zh"] == "华科大三实习生"
+    assert by_name["刘世峰"]["role"]["zh"] == "学生"
     assert by_name["刘世峰"]["advisor"]["zh"] == "张书豪"
     expected_research_interests = {
         "张书豪": "并行与分布式系统；状态管理；流处理；运行时系统；大模型推理基础设施；状态复用；记忆增强智能体中间件",
@@ -753,31 +750,26 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         "周升晖": "Profiling；算子性能瓶颈分析；算子融合；减少计算冗余",
         "姚世文": "资源调度；任务卸载；复杂系统优化；LLM Serving 性能优化；智能调度；异构计算",
         "沈家乐": "KV Cache 复用；长上下文推理优化；多后端运行时适配",
-        "李林浩": "待定",
-        "余天成": "大模型推理方向待定；愿意根据课题安排探索相关研究",
         "李欣妍": "模型执行优化；状态管理；KV Cache 复用与压缩；多模态推理优化；AI4S 场景",
         "韦若皓": "待补充",
         "万瑞鹏": "待补充",
         "周雨桐": "待补充",
-        "毛言粲": "待补充",
+        "毛言粲": "分布式系统",
         "雷欣妍": "待补充",
     }
     for name, expected in expected_research_interests.items():
         assert by_name[name]["research_direction"]["zh"] == expected
-        for name in ("李林浩", "余天成"):
-            assert by_name[name]["role"]["zh"] == "2027 年待入学学生"
-            assert by_name[name]["advisor"]["zh"] == "张书豪"
         assert by_name["李欣妍"]["role"]["zh"] == "学生"
         assert by_name["李欣妍"]["advisor"]["zh"] == "张书豪"
     assert by_name["曹哲"]["github_login"] == "xmdhb"
-    assert by_name["曹哲"]["role"]["zh"] == "即将入学的研究生"
+    assert by_name["曹哲"]["role"]["zh"] == "学生"
     assert by_name["曹哲"]["advisor"]["zh"] == "张书豪"
     assert by_name["李庚"]["github_login"] == "Anjiangy"
-    assert by_name["李庚"]["role"]["zh"] == "马上入学的华科研究生"
-    assert by_name["李庚"]["advisor"]["zh"] == "张书豪"
+    assert by_name["李庚"]["role"]["zh"] == "学生"
+    assert by_name["李庚"]["advisor"]["zh"] == "毛言粲"
     assert by_name["马俊豪"]["advisor"]["zh"] == "张书豪"
     assert by_name["sunYangGitHub"]["github_login"] == "sunYangGitHub"
-    assert by_name["sunYangGitHub"]["role"]["zh"] == "外校实习生"
+    assert by_name["sunYangGitHub"]["role"]["zh"] == "学生"
     assert by_name["sunYangGitHub"]["advisor"]["zh"] == "张书豪"
     assert by_name["杜忠承"]["github_login"] == "dzcixy"
     assert by_name["杜忠承"]["advisor"]["zh"] == "黄禹"
@@ -803,7 +795,7 @@ def test_generated_profiles_preserve_manual_metadata_separately() -> None:
         if item["person_id"] == "github:sad-and-bad1231"
     ]
     assert len(kuang_rows) == 1
-    assert kuang_rows[0]["commits"] == 17
+    assert kuang_rows[0]["commits"] == 16
     assert "cccf-domestic-inference-engine-survey" in kuang_rows[0]["repos"]
     xuheng_rows = [
         item
@@ -884,3 +876,30 @@ def test_expand_repo_specs_adds_public_independent_repositories() -> None:
     ]
     assert expanded[0]["upstream"].endswith("vllm.git")
     assert expanded[1]["branch"] == "main"
+
+def test_verified_commit_aliases_resolve_to_audited_github_accounts() -> None:
+    people = leaderboard.load_people_index(Path(__file__).resolve().parents[1])
+    expected = {
+        "healer": "healer-positive",
+        "mhyzb": "Irisuko",
+        "xie hanlong": "xiehanlong834-gif",
+        "shenghui zhou": "keridone",
+        "ketong qian": "Devilsssssss",
+        "eagle sean": "eglxiang",
+    }
+    for alias, login in expected.items():
+        assert people.by_name[alias]["github_login"] == login
+    for removed in ("sunshine-llh", "yutiantian0115", "宋功轩"):
+        assert removed not in people.by_name
+        assert removed not in people.by_login
+
+
+def test_synthetic_and_shared_accounts_are_not_ranked_as_people() -> None:
+    stats = {}
+    for name in ("OpenAI Codex", "vllm-hust-dev", "Super User", "Human Example"):
+        item = leaderboard.ContributorStats(name=name, email="", added=10, commits=1)
+        item.repos.add("vllm-hust")
+        item.per_repo_added["vllm-hust"] = 10
+        stats[name] = item
+    assert [x.name for x in leaderboard.build_all_contributors_list(stats)] == ["Human Example"]
+    assert [x.name for x in leaderboard.build_core_contributors_list(stats)] == ["Human Example"]
