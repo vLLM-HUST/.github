@@ -99,7 +99,6 @@ INDEPENDENT_OPTIMIZATION_REPOS = {
     "vllm-hust-kv-transfer-observability",
     "vllm-hust-pipeline-microbatch",
     "vllm-hust-qos-scheduler",
-    "vllm-hust-stateharbor",
     "vllm-hust-unified-comm",
 }
 
