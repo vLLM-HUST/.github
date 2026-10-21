@@ -10,6 +10,19 @@ spec.loader.exec_module(policy)
 
 
 class PolicyTests(unittest.TestCase):
+    def test_public_inventory_excludes_private_and_unknown_visibility(self):
+        for visibility in ("private", "internal", None):
+            self.assertFalse(
+                policy.auditable_repo(
+                    {"name": "example", "archived": False, "visibility": visibility}
+                )
+            )
+        self.assertTrue(
+            policy.auditable_repo(
+                {"name": "example", "archived": False, "visibility": "public"}
+            )
+        )
+
     def check(self, **row):
         return policy.check_pr([[row]], 1)
 
