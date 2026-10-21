@@ -1,0 +1,26 @@
+name: Benchmark data policy
+on:
+  workflow_call:
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  custody:
+    name: Benchmark-only data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: vLLM-HUST/.github
+          ref: main
+          persist-credentials: false
+      - name: Inspect metadata only; never execute PR code
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          EXPECTED: ${{ github.event.pull_request.changed_files }}
+        run: |
+          test -n "$PR_NUMBER"
+          gh api --paginate --slurp "repos/$REPOSITORY/pulls/$PR_NUMBER/files?per_page=100" > /tmp/custody-pr-files.json
+          python scripts/benchmark_data_policy.py pr --files /tmp/custody-pr-files.json --expected "$EXPECTED"
