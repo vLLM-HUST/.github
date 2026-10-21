@@ -95,9 +95,18 @@ def tree(repo, revision):
     return result
 
 
+def auditable_repo(repo):
+    # Public audit output must never disclose private repository metadata.
+    return (
+        repo.get("visibility") == "public"
+        and not repo["archived"]
+        and repo["name"] != CENTRAL
+    )
+
+
 def inventory():
     repos = [r for page in api(f"orgs/{ORG}/repos?per_page=100") for r in page]
-    repos = [r for r in repos if r["name"] != CENTRAL and not r["archived"]]
+    repos = [r for r in repos if auditable_repo(r)]
 
     def inspect(repo):
         name = repo["name"]
