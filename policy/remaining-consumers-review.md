@@ -12,6 +12,9 @@ Issue: vLLM-HUST/vllm-hust-benchmark#326. Originals are merged in benchmark
   evidence links, labels missing raw kernel timing as method-only, and exposes
   fetch errors. No measured values are added or altered. The old page URL stays
   valid. Browser checks remain mandatory in the source PR.
+  Follow-up review also repairs the pre-existing relative protocol link to the
+  archived benchmark document and marks its 0.8 wording as historical. Numeric
+  records are unchanged; the exact HTML blob/diff binding is refreshed.
 
 Only the ledger's exact PR, blob and full diff fingerprints are approved. No
 path exemption, generic allowlist, runner approval or branch protection change.
