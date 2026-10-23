@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "reviews": [
+    {
+      "repository": "vLLM-HUST/vllm-ascend-MuxPD-hust",
+      "pull_request": 17,
+      "path": "docs/performance-tp8-contention.md",
+      "fingerprint_sha256": "8a25ea7044cbe3a818b0b40611aea7a691e37e6e67bc357a4b760efb4305d662",
+      "blob_sha": "a5b1f991d51b86c665a6c156ffcf7ef8e2d21f88",
+      "review": "muxpd-17-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-ascend-MuxPD-hust",
+      "pull_request": 17,
+      "path": "scripts/archive_tp4_evidence.py",
+      "fingerprint_sha256": "bb755829cf82cfed68cc5ecb0089b7e1c5805cc3f76023ed3b2cbaa928290005",
+      "blob_sha": "ff660f3cac145021376e3f1ef4251da79d4d1c78",
+      "review": "muxpd-17-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-ascend-MuxPD-hust",
+      "pull_request": 17,
+      "path": "scripts/archive_tp8_evidence.py",
+      "fingerprint_sha256": "f7e04260a1c4907e977177982311e1487777e71c17e44c26f23830b9321691a7",
+      "blob_sha": "dd672de58717dbe6cd3e499b664498d4ebfee8a1",
+      "review": "muxpd-17-review.md"
+    }
+  ]
+}

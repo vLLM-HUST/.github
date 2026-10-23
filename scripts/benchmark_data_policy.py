@@ -6,6 +6,7 @@ is imported or executed. Path/content heuristics cannot replace human review.
 
 import argparse
 import concurrent.futures
+import hashlib
 import json
 import re
 import subprocess
@@ -58,6 +59,44 @@ def check_pr(pages, expected):
         elif prose and "patch" not in row:
             violations.append(path + " (missing diff: manual evidence review required)")
     return violations
+
+
+def review_fingerprint(row):
+    """Bind a review to a complete GitHub file diff, not a reusable path allowlist."""
+    if not re.fullmatch(r"[0-9a-f]{40}", row.get("sha", "")):
+        raise ValueError("Review requires a Git blob identity")
+    if not isinstance(row.get("patch"), str) or not row["patch"]:
+        raise ValueError("Review requires the complete textual diff")
+    fields = (
+        "filename",
+        "previous_filename",
+        "status",
+        "sha",
+        "patch",
+        "additions",
+        "deletions",
+        "changes",
+    )
+    bound = {key: row.get(key) for key in fields}
+    return hashlib.sha256(json.dumps(bound, sort_keys=True).encode()).hexdigest()
+
+
+def apply_trusted_reviews(pages, violations, repository, pull_request, ledger):
+    """Only centrally committed exact reviews can resolve heuristic findings."""
+    if ledger.get("schema") != 1 or not isinstance(ledger.get("reviews"), list):
+        raise ValueError("Invalid trusted review ledger")
+    approved = set()
+    rows = {row["filename"]: row for page in pages for row in page}
+    for review in ledger["reviews"]:
+        if review["repository"] != repository or review["pull_request"] != pull_request:
+            continue
+        path = review["path"]
+        row = rows.get(path)
+        if row is None or path not in violations:
+            continue
+        if review_fingerprint(row) == review["fingerprint_sha256"]:
+            approved.add(path)
+    return [path for path in violations if path not in approved]
 
 
 def api(endpoint):
@@ -155,12 +194,30 @@ def main():
     parser.add_argument("mode", choices=["pr", "snapshot", "audit"])
     parser.add_argument("--files", type=Path)
     parser.add_argument("--expected", type=int)
+    parser.add_argument("--repository")
+    parser.add_argument("--pull-request", type=int)
     parser.add_argument(
         "--baseline", type=Path, default=Path("policy/evidence-debt-baseline.json")
     )
     args = parser.parse_args()
     if args.mode == "pr":
-        violations = check_pr(json.loads(args.files.read_text()), args.expected)
+        pages = json.loads(args.files.read_text())
+        violations = check_pr(pages, args.expected)
+        if bool(args.repository) != bool(args.pull_request):
+            raise ValueError("Both trusted repository and PR context are required")
+        if args.repository and args.pull_request:
+            # No CLI-supplied ledger or PR checkout: this file belongs to the pinned
+            # central policy checkout. Existing callers without context stay strict.
+            ledger_path = (
+                Path(__file__).resolve().parents[1] / "policy/reviewed-pr-changes.json"
+            )
+            violations = apply_trusted_reviews(
+                pages,
+                violations,
+                args.repository,
+                args.pull_request,
+                json.loads(ledger_path.read_text()),
+            )
     else:
         current = inventory()
         if args.mode == "snapshot":

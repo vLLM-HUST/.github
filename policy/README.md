@@ -19,6 +19,16 @@ protection. It checks renamed source paths and complete paginated file counts;
 removal-only migration passes. Synthetic fixtures have no blanket exemption:
 review and narrow policy changes are needed if a legitimate fixture is flagged.
 
+Exact completed reviews may be recorded in `reviewed-pr-changes.json`, with the
+reasoning in a linked review note. The evaluator still runs the unchanged
+heuristics and only resolves findings matching the repository, PR number, path,
+Git blob, full diff metadata and SHA256 fingerprint. This is not a path or file
+type exemption. Missing diffs and changed bytes require fresh review. Existing
+callers without explicit trusted repository/PR context remain fully strict.
+The ledger is read only beside the pinned central script, never from a target
+PR or caller-supplied path. Central changes must merge before a separate caller
+pin update lands on the target base branch; no self-authorized PR policy update.
+
 Path and added-line heuristics are not a semantic proof: arbitrary filenames,
 embedded measurements, binary packages and subtle prose still need human review.
 The central drift audit detects after publication and is NOT an organization-wide
