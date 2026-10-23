@@ -45,8 +45,8 @@
       "repository": "vLLM-HUST/vllm-ascend-kvcompress-hust",
       "pull_request": 26,
       "path": "docs/results/benchmark-leaderboard.html",
-      "fingerprint_sha256": "d2231433b835c4328d15af169343d546b5aa1ddefe96bf713e7c12159c01e522",
-      "blob_sha": "0e43ca43c1ece9437590b45be526c9517c5917e9",
+      "fingerprint_sha256": "eebcafcc7e75021b4cc2322436b1f7eb64738e42c0467ef6ba7f42f1cedfe9c6",
+      "blob_sha": "33cbd1fd284d2b59da54048baf1c29ceaa701cb4",
       "review": "remaining-consumers-review.md"
     }
   ]
