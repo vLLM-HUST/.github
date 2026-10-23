@@ -2,6 +2,14 @@
   "schema": 1,
   "reviews": [
     {
+      "repository": "vLLM-HUST/vllm-ascend-pyramidkv-hust",
+      "pull_request": 20,
+      "path": "docs/support-matrix.md",
+      "fingerprint_sha256": "803721293f89fdc887e2bfd94707f627b77c3bd72af69b17c7aaadfca7ae3475",
+      "blob_sha": "248e6ca59d491a51f74660731b93ab06386dda72",
+      "review": "pyramid-20-review.md"
+    },
+    {
       "repository": "vLLM-HUST/vllm-ascend-MuxPD-hust",
       "pull_request": 17,
       "path": "docs/performance-tp8-contention.md",
