@@ -32,6 +32,22 @@
       "fingerprint_sha256": "f7e04260a1c4907e977177982311e1487777e71c17e44c26f23830b9321691a7",
       "blob_sha": "dd672de58717dbe6cd3e499b664498d4ebfee8a1",
       "review": "muxpd-17-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-hust-vSpec",
+      "pull_request": 10,
+      "path": "BENCHMARK_ORIGINALS.json",
+      "fingerprint_sha256": "39e925601a7613d39ad3c87f28a34b5bf8d7d82d4d68d3de392eb10edd6ce4af",
+      "blob_sha": "78f95adba0c32fe13dab7c89aae74e1ccc1f5eff",
+      "review": "remaining-consumers-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-ascend-kvcompress-hust",
+      "pull_request": 26,
+      "path": "docs/results/benchmark-leaderboard.html",
+      "fingerprint_sha256": "d2231433b835c4328d15af169343d546b5aa1ddefe96bf713e7c12159c01e522",
+      "blob_sha": "0e43ca43c1ece9437590b45be526c9517c5917e9",
+      "review": "remaining-consumers-review.md"
     }
   ]
 }
