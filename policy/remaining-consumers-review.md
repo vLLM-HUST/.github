@@ -19,4 +19,8 @@ Issue: vLLM-HUST/vllm-hust-benchmark#326. Originals are merged in benchmark
 Only the ledger's exact PR, blob and full diff fingerprints are approved. No
 path exemption, generic allowlist, runner approval or branch protection change.
 Any further modification requires a fresh review. The retained HTML's inventory
-fingerprint will be reconciled after its source PR merges, not before.
+fingerprint is reconciled after source PR #26 merged as
+`c077a6a0f4854e065d68bef52f742b71bd654536`, with final-head custody tests,
+remote original readback and four viewport/color-scheme browser cases passing
+(run 39982814668). Only this reviewed implementation blob is refreshed; all
+remaining data debt and future drift checks remain intact.
