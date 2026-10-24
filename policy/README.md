@@ -13,6 +13,10 @@ approval of those files, and must only change through reviewed PRs. Baseline
 removals do not fail the drift check. New software assets also require review
 before refreshing their baseline fingerprints.
 
+Installation-asset review: [Split-Batch v0.2.0](split-batch-v020-assets-review.md)
+records exact published bytes, consumers and historical-document boundaries;
+it is not a blanket exemption for wheel/sdist files.
+
 The reusable PR check runs only trusted central policy, never PR code. Consumers
 must invoke it from `pull_request_target` and require its check via branch
 protection. It checks renamed source paths and complete paginated file counts;

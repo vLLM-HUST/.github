@@ -1,5 +1,6 @@
 import importlib.util
 import copy
+import json
 from pathlib import Path
 import unittest
 
@@ -11,6 +12,33 @@ spec.loader.exec_module(policy)
 
 
 class PolicyTests(unittest.TestCase):
+    def test_reviewed_installation_assets_remain_exact_fingerprints(self):
+        baseline = json.loads(
+            (Path(__file__).resolve().parents[1]
+             / "policy/evidence-debt-baseline.json").read_text()
+        )
+        repo = "vllm-ascend-split-batch-hust"
+        ids = ("671115563", "671115564", "671115566")
+        current = {repo: {"paths": {}, "assets": {
+            key: copy.deepcopy(baseline[repo]["assets"][key]) for key in ids
+        }}}
+        self.assertEqual(policy.drift(baseline, current), [])
+        for key in ids:
+            for field in current[repo]["assets"][key]:
+                changed = copy.deepcopy(current)
+                changed[repo]["assets"][key][field] = "changed"
+                with self.subTest(asset=key, field=field):
+                    self.assertEqual(policy.drift(baseline, changed),
+                                     [f"{repo}: assets: {key}"])
+        changed = copy.deepcopy(current)
+        changed[repo]["assets"]["new-asset"] = changed[repo]["assets"][ids[0]]
+        self.assertEqual(policy.drift(baseline, changed),
+                         [f"{repo}: assets: new-asset"])
+        changed = copy.deepcopy(current)
+        changed[repo]["paths"]["results/new.json"] = "new-blob"
+        self.assertEqual(policy.drift(baseline, changed),
+                         [f"{repo}: paths: results/new.json"])
+
     def reviewed_case(self):
         row = dict(
             filename="scripts/archive.py",
