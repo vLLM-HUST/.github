@@ -2421,6 +2421,30 @@
         "name": "dist.sha256",
         "prerelease": false,
         "tag": "v0.1.3"
+      },
+      "671115563": {
+        "bytes": 136281,
+        "digest": "sha256:578ddf07f932524f4b0a3324e21f677545506a5afabb9e5d02152c063aca28e7",
+        "draft": false,
+        "name": "vllm_ascend_split_batch-0.2.0-py3-none-any.whl",
+        "prerelease": false,
+        "tag": "v0.2.0"
+      },
+      "671115564": {
+        "bytes": 216,
+        "digest": "sha256:fcbb282645dab8d5cb2a391e6b6125615223386de7fd66488c894a34c7e7aef0",
+        "draft": false,
+        "name": "dist.sha256",
+        "prerelease": false,
+        "tag": "v0.2.0"
+      },
+      "671115566": {
+        "bytes": 108898,
+        "digest": "sha256:fa30f16cc856afaca81c6deef82d6e357ef3c8f1933a8d243a19d5e7dde4274b",
+        "draft": false,
+        "name": "vllm_ascend_split_batch-0.2.0.tar.gz",
+        "prerelease": false,
+        "tag": "v0.2.0"
       }
     },
     "branch": "main",
