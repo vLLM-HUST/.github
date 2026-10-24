@@ -48,6 +48,22 @@
       "fingerprint_sha256": "eebcafcc7e75021b4cc2322436b1f7eb64738e42c0467ef6ba7f42f1cedfe9c6",
       "blob_sha": "33cbd1fd284d2b59da54048baf1c29ceaa701cb4",
       "review": "remaining-consumers-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-hust-vSpec",
+      "pull_request": 14,
+      "path": "BENCHMARK_ORIGINALS.json",
+      "fingerprint_sha256": "ad84756a2314ff3cf2fe57adda22a7f0765d8ead0cd796bdca29b9233c2e4e10",
+      "blob_sha": "bc5a72ea16ec5bfff1aaa4e11232ce7e241a541a",
+      "review": "vspec-14-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-hust-vSpec",
+      "pull_request": 14,
+      "path": "docs/vspec_adaptive_npu_report_20260902.md",
+      "fingerprint_sha256": "337acee432be6defe5a5b2ea77379a4daaa9cffaaaeb8943d8ea0448dd66b8a6",
+      "blob_sha": "a3fffc64b72a4007f449ba00875934a706e84ae2",
+      "review": "vspec-14-review.md"
     }
   ]
 }
