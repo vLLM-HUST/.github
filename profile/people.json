@@ -1690,7 +1690,7 @@
       ],
       "profiles": {
         "vllm_hust": {
-          "participant": true,
+          "participant": false,
           "role_zh": "学生",
           "role_en": "Student",
           "advisor_zh": "张书豪",
@@ -1699,7 +1699,9 @@
           "research_direction_en": "Operator-level performance tuning on Ascend NPUs; PyPTO tile programming; operator fusion"
         }
       },
-      "notes": "Confirmed for public display by manual review. Pegaflow author aliases czj and nknow resolve to mynameisczj. User confirmed 张书豪 as advisor."
+      "notes": "Former member; not a current maintainer or task recipient. Historical contributor identity is retained.",
+      "is_current_member": false,
+      "current_status": "departed"
     },
     "LuckyWindovo": {
       "display_name": "LuckyWindovo",
