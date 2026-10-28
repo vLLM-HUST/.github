@@ -64,6 +64,14 @@
       "fingerprint_sha256": "337acee432be6defe5a5b2ea77379a4daaa9cffaaaeb8943d8ea0448dd66b8a6",
       "blob_sha": "a3fffc64b72a4007f449ba00875934a706e84ae2",
       "review": "vspec-14-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-ascend-quant-hust",
+      "pull_request": 8,
+      "path": "contracts/ascend-quant-evidence-v1.schema.json",
+      "fingerprint_sha256": "fb6cdf33ba0121529a4803e634c72432a71635439eefa646f7ae9ed9d9f9a2d0",
+      "blob_sha": "4918c81b324f3e4fbdfef1929f0474cdb17b318e",
+      "review": "quant-hust-8-review.md"
     }
   ]
 }
