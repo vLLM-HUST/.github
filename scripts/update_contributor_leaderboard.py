@@ -10,6 +10,7 @@ import subprocess
 import sys
 import tempfile
 from collections import defaultdict
+from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -1337,6 +1338,43 @@ def build_member_profiles(
     }
 
 
+def preserve_curated_metadata(previous: dict, generated: dict) -> dict:
+    """Refresh owned statistics while retaining the curated envelope and roster flags."""
+    result = {**deepcopy(previous), **deepcopy(generated)}
+    for section in ("all_repos", "core_repos", "member_profiles"):
+        result[section] = {
+            **deepcopy(previous.get(section) or {}),
+            **deepcopy(generated.get(section) or {}),
+        }
+
+    def rows(payload: dict):
+        for scope in ("all_repos", "core_repos"):
+            yield from (payload.get(scope) or {}).get("contributors", [])
+        for value in (payload.get("member_profiles") or {}).values():
+            if isinstance(value, list):
+                yield from (item for item in value if isinstance(item, dict))
+
+    def identity(item: dict) -> str:
+        login = normalize_lookup_value(item.get("github_login"))
+        return f"github:{login}" if login else normalize_lookup_value(item.get("person_id"))
+
+    curated: dict[str, dict] = {}
+    for item in rows(previous):
+        key = identity(item)
+        if not key:
+            continue
+        fields = curated.setdefault(key, {})
+        for field in ("is_current_member", "current_status"):
+            if field in item:
+                if field in fields and fields[field] != item[field]:
+                    raise ValueError(f"Conflicting curated {field} for {key}")
+                fields[field] = deepcopy(item[field])
+    for item in rows(result):
+        for field, value in curated.get(identity(item), {}).items():
+            item.setdefault(field, deepcopy(value))
+    return result
+
+
 def build_contributor_payload(
     repo_root: Path,
     all_contributors: list[ContributorStats],
@@ -1377,7 +1415,7 @@ def build_contributor_payload(
 
     all_items = _items(all_contributors, core_only=False)
     core_items = _items(core_contributors, core_only=True)
-    return {
+    generated = {
         "updated_at": snapshot_date,
         "all_repos": {
             "scope_repos": [spec["name"] for spec in REPO_SPECS],
@@ -1391,6 +1429,9 @@ def build_contributor_payload(
             people_index, all_items, core_items
         ),
     }
+    data_path = repo_root / "profile" / "core_contributors.json"
+    previous = json.loads(data_path.read_text(encoding="utf-8")) if data_path.exists() else {}
+    return preserve_curated_metadata(previous, generated)
 
 
 def refresh_contributor_payload_profiles(repo_root: Path, payload: dict) -> dict:
@@ -1451,7 +1492,7 @@ def refresh_contributor_payload_profiles(repo_root: Path, payload: dict) -> dict
         refreshed_scopes["all_repos"]["contributors"],
         refreshed_scopes["core_repos"]["contributors"],
     )
-    return refreshed
+    return preserve_curated_metadata(payload, refreshed)
 
 
 def sync_org_profile_contributor_data(

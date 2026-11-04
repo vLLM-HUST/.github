@@ -1,0 +1,30 @@
+name: Test contributor data
+
+on:
+  push:
+    paths:
+      - 'scripts/update_contributor_leaderboard.py'
+      - 'tests/**'
+      - 'profile/**'
+      - '.github/workflows/*contributor*.yml'
+  pull_request:
+    paths:
+      - 'scripts/update_contributor_leaderboard.py'
+      - 'tests/**'
+      - 'profile/**'
+      - '.github/workflows/*contributor*.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install pytest==9.1.1 PyYAML==6.0.3
+      - run: python -m pytest tests -q
