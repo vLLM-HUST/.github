@@ -64,6 +64,30 @@
       "fingerprint_sha256": "337acee432be6defe5a5b2ea77379a4daaa9cffaaaeb8943d8ea0448dd66b8a6",
       "blob_sha": "a3fffc64b72a4007f449ba00875934a706e84ae2",
       "review": "vspec-14-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-ascend-MuxPD-hust",
+      "pull_request": 30,
+      "path": "README.md",
+      "fingerprint_sha256": "84409c3e2857c6d98df05f3000a71eac4fb4c0da0ced138049012a97c5f514c6",
+      "blob_sha": "f532d20bfce4ac58517b8c24645049672b09e4a5",
+      "review": "muxpd-30-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-ascend-MuxPD-hust",
+      "pull_request": 30,
+      "path": "docs/design.md",
+      "fingerprint_sha256": "fef33cf2ef7298dea8223c115c0641fffe734a2c88215dcd5fbe06ca41fc3067",
+      "blob_sha": "3107e025dede113e75484583ad250ea4296e7ec8",
+      "review": "muxpd-30-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-ascend-MuxPD-hust",
+      "pull_request": 30,
+      "path": "docs/goodput-experiments.md",
+      "fingerprint_sha256": "35dc743d4dfc310097b5f12a6be1879f89211fa6b9862d58a43af82e93d387fb",
+      "blob_sha": "cc426d9426b10d984c1dfc9b23d98214d344c555",
+      "review": "muxpd-30-review.md"
     }
   ]
 }
