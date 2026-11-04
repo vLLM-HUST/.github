@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+from copy import deepcopy
 import json
 import subprocess
 import sys
@@ -903,3 +904,83 @@ def test_synthetic_and_shared_accounts_are_not_ranked_as_people() -> None:
         stats[name] = item
     assert [x.name for x in leaderboard.build_all_contributors_list(stats)] == ["Human Example"]
     assert [x.name for x in leaderboard.build_core_contributors_list(stats)] == ["Human Example"]
+
+
+def test_full_refresh_keeps_curated_envelope_and_member_flags(tmp_path: Path) -> None:
+    root = SCRIPT_PATH.parents[1]
+    profile = tmp_path / "profile"
+    profile.mkdir()
+    (profile / "people.json").write_bytes((root / "profile/people.json").read_bytes())
+    previous = json.loads((root / "profile/core_contributors.json").read_text())
+    previous["future_curated_field"] = {"owner": "maintainers"}
+    data_path = profile / "core_contributors.json"
+    data_path.write_text(json.dumps(previous))
+    contributor = leaderboard.ContributorStats(
+        name="CubeLander", email="49518565+cubelander@users.noreply.github.com",
+        commits=2, added=9, deleted=3,
+    )
+    contributor.repos.add("vllm-hust")
+    contributor.per_repo_commits["vllm-hust"] = 2
+    contributor.per_repo_added["vllm-hust"] = 9
+    contributor.per_repo_deleted["vllm-hust"] = 3
+
+    leaderboard.sync_org_profile_contributor_data(tmp_path, [contributor], [contributor])
+    refreshed = json.loads(data_path.read_text())
+    for key in ("contribution_collection", "contributions_updated_at",
+                "advisor_profiles", "roster_source", "future_curated_field"):
+        assert refreshed[key] == previous[key]
+    for scope in ("all_repos", "core_repos"):
+        assert len(refreshed[scope]["contributors"]) == 1
+        row = refreshed[scope]["contributors"][0]
+        assert row["person_id"] == "github:cubelander"
+        assert row["commits"] == 2
+        assert row["changed_lines"] == 12
+        assert row["is_current_member"] is True
+        assert row["current_status"] == "current"
+    row = refreshed["member_profiles"]["core_members"][0]
+    assert row["is_current_member"] is True
+    assert row["current_status"] == "current"
+    profiles_only = leaderboard.refresh_contributor_payload_profiles(tmp_path, refreshed)
+    assert profiles_only["member_profiles"]["core_members"][0]["current_status"] == "current"
+
+
+def test_curated_flags_follow_identity_not_rank_or_display_name() -> None:
+    previous = {"all_repos": {"contributors": [
+        {"github_login": "Alice", "name": "Shared", "is_current_member": False,
+         "current_status": "former", "commits": 10},
+        {"name": "Unresolved", "is_current_member": True},
+    ]}}
+    generated = {"all_repos": {"contributors": [
+        {"github_login": "Bob", "name": "Shared", "commits": 7},
+        {"person_id": "github:alice", "name": "Renamed", "commits": 3},
+        {"name": "Unresolved", "commits": 1},
+    ]}}
+    original = deepcopy((previous, generated))
+    rows = leaderboard.preserve_curated_metadata(previous, generated)["all_repos"]["contributors"]
+    assert "is_current_member" not in rows[0]
+    assert rows[1]["is_current_member"] is False
+    assert rows[1]["current_status"] == "former"
+    assert rows[1]["commits"] == 3
+    assert "is_current_member" not in rows[2]
+    assert (previous, generated) == original
+
+
+def test_conflicting_curated_flags_fail_instead_of_choosing_a_roster() -> None:
+    previous = {
+        "all_repos": {"contributors": [{"person_id": "github:alice", "is_current_member": True}]},
+        "member_profiles": {"participants": [{"github_login": "ALICE", "is_current_member": False}]},
+    }
+    with pytest.raises(ValueError, match="Conflicting curated is_current_member"):
+        leaderboard.preserve_curated_metadata(previous, {})
+
+
+def test_refresh_workflow_checks_contracts_before_writing_or_opening_pr() -> None:
+    import yaml
+
+    root = SCRIPT_PATH.parents[1]
+    workflow = yaml.safe_load((root / ".github/workflows/update-contributor-leaderboard.yml").read_text())
+    steps = workflow["jobs"]["update"]["steps"]
+    validation = next(i for i, step in enumerate(steps) if "python -m pytest tests -q" in step.get("run", ""))
+    refresh = next(i for i, step in enumerate(steps) if step.get("name") == "Update contributor data")
+    publish = next(i for i, step in enumerate(steps) if step.get("name") == "Create pull request")
+    assert validation < refresh < publish

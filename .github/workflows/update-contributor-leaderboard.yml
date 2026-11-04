@@ -27,6 +27,11 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Validate contributor refresh and repository contracts
+        run: |
+          python -m pip install pytest==9.1.1 PyYAML==6.0.3
+          python -m pytest tests -q
+
       - name: Configure git for token auth
         run: |
           git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
