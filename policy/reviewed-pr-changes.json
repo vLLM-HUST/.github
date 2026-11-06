@@ -88,6 +88,22 @@
       "fingerprint_sha256": "35dc743d4dfc310097b5f12a6be1879f89211fa6b9862d58a43af82e93d387fb",
       "blob_sha": "cc426d9426b10d984c1dfc9b23d98214d344c555",
       "review": "muxpd-30-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-hust-bidkv",
+      "pull_request": 15,
+      "path": "paper/EVIDENCE_LEDGER.md",
+      "fingerprint_sha256": "64794679503d36ce46e34e441cbea2685f9dc7a1421388a87a3cb7acf05c150c",
+      "blob_sha": "1df6e71cec7156b107c0f1d8745caa212eadd134",
+      "review": "bidkv-15-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-hust-bidkv",
+      "pull_request": 15,
+      "path": "paper/tectonic.log",
+      "fingerprint_sha256": "dcb3204a6044c7e2da2fe3e43310cbf2ae0e37a33e6429ebc12afd65ea7db537",
+      "blob_sha": "fa101a78fed653f2d0878e0c5905dc4491ad6e80",
+      "review": "bidkv-15-review.md"
     }
   ]
 }
