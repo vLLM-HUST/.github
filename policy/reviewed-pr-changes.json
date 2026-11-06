@@ -112,6 +112,14 @@
       "fingerprint_sha256": "c13160d638bf48e80663e165fd2364bada692935a7da948ccdbe491a1350f7c9",
       "blob_sha": "c3db0b66e6f30ccfded415a8f708dc0af3c28839",
       "review": "unified-comm-8-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-hust-unified-comm",
+      "pull_request": 10,
+      "path": "evidence/model-serving-smoke-20261107.json",
+      "fingerprint_sha256": "94d67e038c729e86fa028c1b5010b656fbf126f13caed9f867db945845d06acd",
+      "blob_sha": "1175ec436a3f0784cdddbbc0dbcd8dc5dd6fa75d",
+      "review": "unified-comm-10-review.md"
     }
   ]
 }
