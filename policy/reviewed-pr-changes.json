@@ -104,6 +104,14 @@
       "fingerprint_sha256": "dcb3204a6044c7e2da2fe3e43310cbf2ae0e37a33e6429ebc12afd65ea7db537",
       "blob_sha": "fa101a78fed653f2d0878e0c5905dc4491ad6e80",
       "review": "bidkv-15-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-hust-unified-comm",
+      "pull_request": 8,
+      "path": "evidence/hccl-mount-smoke-20261107.json",
+      "fingerprint_sha256": "c13160d638bf48e80663e165fd2364bada692935a7da948ccdbe491a1350f7c9",
+      "blob_sha": "c3db0b66e6f30ccfded415a8f708dc0af3c28839",
+      "review": "unified-comm-8-review.md"
     }
   ]
 }
