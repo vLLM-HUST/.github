@@ -136,6 +136,14 @@
       "fingerprint_sha256": "41c9e81176dd6ea78e43c12291477970bdfd5235fdff2cb590007b902d2e394f",
       "blob_sha": "55e065591333c3e93c38cbce3eaa23da449801fb",
       "review": "adaptive-quantized-kv-14-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/vllm-ascend-quant-hust",
+      "pull_request": 8,
+      "path": "contracts/ascend-quant-evidence-v1.schema.json",
+      "fingerprint_sha256": "fb6cdf33ba0121529a4803e634c72432a71635439eefa646f7ae9ed9d9f9a2d0",
+      "blob_sha": "4918c81b324f3e4fbdfef1929f0474cdb17b318e",
+      "review": "quant-hust-8-review.md"
     }
   ]
 }
