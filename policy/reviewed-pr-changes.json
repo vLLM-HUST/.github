@@ -144,6 +144,14 @@
       "fingerprint_sha256": "fb6cdf33ba0121529a4803e634c72432a71635439eefa646f7ae9ed9d9f9a2d0",
       "blob_sha": "4918c81b324f3e4fbdfef1929f0474cdb17b318e",
       "review": "quant-hust-8-review.md"
+    },
+    {
+      "repository": "vLLM-HUST/ascend-distributed-metadata",
+      "pull_request": 9,
+      "path": "README.md",
+      "fingerprint_sha256": "5fca6b0bcb329b0fbbfde66bfb784c23e277ffaf250729afa4c1eb3c25c12bb1",
+      "blob_sha": "4fed11797e3e2a2fece48b1ba4bd666bbfebd305",
+      "review": "ascend-distributed-metadata-9-review.md"
     }
   ]
 }
