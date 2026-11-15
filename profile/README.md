@@ -11,7 +11,7 @@ vLLM-HUST maintains an upstream-compatible vLLM stack for domestic hardware, tog
 | 编译与模型工具 | [triton-ascend-hust](https://github.com/vLLM-HUST/triton-ascend-hust) · [vllm-ascend-quant-hust](https://github.com/vLLM-HUST/vllm-ascend-quant-hust) |
 | 成果仓库 | [BidKV](https://github.com/vLLM-HUST/vllm-ascend-hust-bidkv) · [DiffSpec](https://github.com/vLLM-HUST/vllm-ascend-hust-diffspec) |
 | 开发与验证 | [Dev Hub](https://github.com/vLLM-HUST/vllm-hust-dev-hub) · [Benchmark](https://github.com/vLLM-HUST/vllm-hust-benchmark) · [Performance Analyzer](https://github.com/vLLM-HUST/vllm-hust-perf-analyzer) |
-| 文档与展示 | [Docs](https://github.com/vLLM-HUST/vllm-hust-docs) · [Website](https://github.com/vLLM-HUST/vllm-hust-website) · [Workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) |
+| 文档与展示 | [组织 Wiki](https://github.com/vLLM-HUST/vllm-hust-docs/blob/main/wiki/Home.md) · [Docs](https://github.com/vLLM-HUST/vllm-hust-docs) · [Website](https://github.com/vLLM-HUST/vllm-hust-website) · [Workstation](https://github.com/vLLM-HUST/vllm-hust-workstation) |
 
 ## 生态边界 / Ecosystem Boundary
 
